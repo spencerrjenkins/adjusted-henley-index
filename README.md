@@ -308,7 +308,7 @@ Bhutan, Iran.
 core (94), a guarded middle (32), an **open but unreciprocated** group of 36 that
 admits ~156 nationalities while reaching ~56 destinations, and 37 doubly closed.
 Louvain on the *mutual* access graph reconstructs the political map: European
-cluster of 77, African of 87, post-Soviet of 32.
+cluster of 76, African of 89, post-Soviet of 31.
 
 **7 · Every bloc is already a free-movement area — except one.** EU-27, GCC,
 ASEAN, Mercosur, Five Eyes and the Caribbean CBI states all sit at 100% internal

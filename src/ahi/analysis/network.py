@@ -100,17 +100,27 @@ def mutual_communities(edges: pd.DataFrame, ladder: str = DEFAULT_LADDER,
     """
     keep = edges[edges[f"credit_{ladder}"] >= threshold]
     pairs = set(zip(keep["passport"], keep["destination"]))
-    mutual_edges = [(a, b) for (a, b) in pairs if (b, a) in pairs and a < b]
+    # Sorted, not set-ordered. Python randomises string hashing per process, so
+    # iterating a set of ISO codes gives a different node insertion order on
+    # every run -- and Louvain's output depends on it, which made the community
+    # numbering shuffle between otherwise identical runs despite the fixed seed.
+    mutual_edges = sorted((a, b) for (a, b) in pairs if (b, a) in pairs and a < b)
 
     graph = nx.Graph()
-    graph.add_nodes_from(pd.unique(edges[["passport", "destination"]].to_numpy().ravel()))
+    graph.add_nodes_from(sorted(pd.unique(edges[["passport", "destination"]].to_numpy().ravel())))
     graph.add_edges_from(mutual_edges)
 
     communities = nx.community.louvain_communities(graph, seed=seed, resolution=1.0)
-    rows = []
-    for i, members in enumerate(sorted(communities, key=len, reverse=True)):
-        for country in members:
-            rows.append({"country": country, "community": i, "community_size": len(members)})
+    # Louvain returns sets. Ordering them by size alone leaves equal-sized
+    # communities in arbitrary order, and iterating a set of ISO codes is
+    # process-dependent -- both of which reshuffle the community numbering
+    # between identical runs. Break every tie deterministically.
+    ordered = sorted(communities, key=lambda members: (-len(members), min(members)))
+    rows = [
+        {"country": country, "community": i, "community_size": len(members)}
+        for i, members in enumerate(ordered)
+        for country in sorted(members)
+    ]
     table = pd.DataFrame(rows)
 
     # Name each community after the bloc it overlaps most, so the output is
@@ -170,22 +180,13 @@ def asymmetry_pairs(edges: pd.DataFrame, features: pd.DataFrame,
     keep = edges[edges[f"credit_{ladder}"] >= threshold]
     pairs = set(zip(keep["passport"], keep["destination"]))
     population = features["population"]
-    rows = []
-    for a, b in pairs:
-        if (b, a) in pairs or a > b:
-            continue
-        rows.append({
-            "can_enter": a, "cannot_be_entered_by": b,
-            "pop_a": population.get(a, np.nan), "pop_b": population.get(b, np.nan),
-        })
-    # Also catch the reverse-only direction (a > b cases skipped above).
-    for a, b in pairs:
-        if (b, a) in pairs or a <= b:
-            continue
-        rows.append({
-            "can_enter": a, "cannot_be_entered_by": b,
-            "pop_a": population.get(a, np.nan), "pop_b": population.get(b, np.nan),
-        })
+    # Sorted for the same reason as above: set iteration order is not stable
+    # across processes, and ties in the population ranking would reshuffle.
+    rows = [
+        {"can_enter": a, "cannot_be_entered_by": b,
+         "pop_a": population.get(a, np.nan), "pop_b": population.get(b, np.nan)}
+        for a, b in sorted(pairs) if (b, a) not in pairs
+    ]
     table = pd.DataFrame(rows)
     table["combined_population"] = table["pop_a"] + table["pop_b"]
     return table.nlargest(top_n, "combined_population").reset_index(drop=True)

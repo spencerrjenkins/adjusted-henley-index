@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-07-28 20:29:43 UTC",
+    "generated_at": "2026-07-28 20:32:10 UTC",
     "n_passports": 199,
     "n_destinations": 199,
     "n_edges": 39402,
@@ -1562,17 +1562,17 @@
     {
       "community": 0,
       "community_label": "African Union-aligned",
-      "members": 87
+      "members": 89
     },
     {
       "community": 1,
       "community_label": "EU-27-aligned",
-      "members": 77
+      "members": 76
     },
     {
       "community": 2,
       "community_label": "CIS-aligned",
-      "members": 32
+      "members": 31
     },
     {
       "community": 3,

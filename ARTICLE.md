@@ -396,8 +396,8 @@ about a quarter of it.
 Running Louvain community detection on the **mutual** access graph — where an
 edge exists only if two countries admit each other, because one-way access is a
 favour and mutual access is a relationship — recovers the political map without
-being told it exists: a European cluster of 77, an African cluster of 87, and a
-post-Soviet cluster of 32.
+being told it exists: a European cluster of 76, an African cluster of 89, and a
+post-Soviet cluster of 31.
 
 ---
 
