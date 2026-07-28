@@ -1,0 +1,26 @@
+iso3,country,henley_published_score,henley_published_rank,vintage,source
+# Reference points transcribed from Henley & Partners' own January 2026 Global
+# Mobility Report press release, used to validate that this project's
+# reproduction of the Henley rule behaves like the real thing.
+#
+# It is a *partial* reference set, not a full ranking, and the scores are not
+# directly comparable in level: Henley scores 199 passports against 227
+# destinations (including dependencies and territories) using licensed IATA
+# Timatic data, while the open matrix used here is 199 x 199 sovereign-ish
+# jurisdictions. The test is therefore ordinal -- does the reproduction put the
+# same countries in the same tiers -- not arithmetic.
+SGP,Singapore,192,1,2026-01,Henley & Partners Global Mobility Report January 2026
+JPN,Japan,188,2,2026-01,Henley & Partners Global Mobility Report January 2026
+KOR,South Korea,188,2,2026-01,Henley & Partners Global Mobility Report January 2026
+DNK,Denmark,186,3,2026-01,Henley & Partners Global Mobility Report January 2026
+LUX,Luxembourg,186,3,2026-01,Henley & Partners Global Mobility Report January 2026
+ESP,Spain,186,3,2026-01,Henley & Partners Global Mobility Report January 2026
+SWE,Sweden,186,3,2026-01,Henley & Partners Global Mobility Report January 2026
+CHE,Switzerland,186,3,2026-01,Henley & Partners Global Mobility Report January 2026
+ARE,United Arab Emirates,184,5,2026-01,Henley & Partners Global Mobility Report January 2026
+NZL,New Zealand,183,6,2026-01,Henley & Partners Global Mobility Report January 2026
+AUS,Australia,182,7,2026-01,Henley & Partners Global Mobility Report January 2026
+CAN,Canada,181,8,2026-01,Henley & Partners Global Mobility Report January 2026
+MYS,Malaysia,180,9,2026-01,Henley & Partners Global Mobility Report January 2026
+USA,United States,179,10,2026-01,Henley & Partners Global Mobility Report January 2026
+AFG,Afghanistan,24,106,2026-01,Henley & Partners Global Mobility Report January 2026

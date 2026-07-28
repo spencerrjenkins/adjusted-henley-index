@@ -1,0 +1,140 @@
+{
+  "country_reference.csv": {
+    "bytes": 23805,
+    "fetched_at": "2026-07-28T19:44:37Z",
+    "rows": 250,
+    "sha256": "25146fa51c04aa965d33395fb7bee3dbea47db711717221dd32b0756ed0676f2",
+    "url": "derived from country_reference.json"
+  },
+  "country_reference.json": {
+    "bytes": 1398180,
+    "fetched_at": "2026-07-28T19:43:40Z",
+    "sha256": "99e62411349a991d0e26725aec22375ccd7e3381c723d92004a4fcb6aac1c34e",
+    "url": "https://raw.githubusercontent.com/mledoze/countries/master/countries.json"
+  },
+  "owid_electoral_democracy.csv": {
+    "bytes": 1115453,
+    "fetched_at": "2026-07-28T19:43:35Z",
+    "sha256": "a0843a64486708e1638e5051be67dde8ddb0c82ae7be264c512173f503445afc",
+    "url": "https://ourworldindata.org/grapher/electoral-democracy-index.csv?csvType=full&useColumnShortNames=true"
+  },
+  "owid_rule_of_law.csv": {
+    "bytes": 1137559,
+    "fetched_at": "2026-07-28T19:43:34Z",
+    "sha256": "4e62c7facbd30b2c5268df9298544f714dd7a0a01adf9af36868aa2c4d45ea2c",
+    "url": "https://ourworldindata.org/grapher/rule-of-law-index.csv?csvType=full&useColumnShortNames=true"
+  },
+  "passport_index_matrix_iso3.csv": {
+    "bytes": 370441,
+    "fetched_at": "2026-07-28T19:43:36Z",
+    "sha256": "3d461c768cff94aa5e8da34a4709cc26aaa714ab96f6074dfc87de1c01cd247f",
+    "url": "https://raw.githubusercontent.com/imorte/passport-index-data/main/passport-index-matrix-iso3.csv"
+  },
+  "passport_index_matrix_names.csv": {
+    "bytes": 372565,
+    "fetched_at": "2026-07-28T19:43:37Z",
+    "sha256": "15c35abfc4e8ace96d8db63b30aaf880badd6e35cf11fe1f6fe432c05b35b402",
+    "url": "https://raw.githubusercontent.com/imorte/passport-index-data/main/passport-index-matrix.csv"
+  },
+  "undp_hdi.csv": {
+    "bytes": 2001263,
+    "fetched_at": "2026-07-28T19:43:39Z",
+    "sha256": "61ed82e5b66c88dfca8ff9fac775c63981ecab6a254862af97acacc41c143117",
+    "url": "https://hdr.undp.org/sites/default/files/2025_HDR/HDR25_Composite_indices_complete_time_series.csv"
+  },
+  "wb_air_departures.csv": {
+    "bytes": 7082,
+    "fetched_at": "2026-07-28T19:44:12Z",
+    "fetched_at_note": "pre-existing file, hashed in place",
+    "sha256": "402f599886b7ef5c500974bb72f7d5f29067f81a5e7bd9d8fb3afd5285de00e2",
+    "url": "https://api.worldbank.org/v2/country/all/indicator/IS.AIR.DPRT?format=json&per_page=500&mrnev=1"
+  },
+  "wb_country_meta.csv": {
+    "bytes": 113590,
+    "fetched_at": "2026-07-28T19:44:37Z",
+    "rows": 217,
+    "sha256": "d29d57f8adf954c5e2a1520a02fb2c7b45575d8db3bd327a9dff47d66914231c",
+    "url": "https://api.worldbank.org/v2/country?format=json&per_page=400"
+  },
+  "wb_gdp_pc_ppp.csv": {
+    "bytes": 9715,
+    "fetched_at": "2026-07-28T19:44:12Z",
+    "fetched_at_note": "pre-existing file, hashed in place",
+    "sha256": "7692705c1d7def715f4dd8cdb2938b10938cf0de482455b95450bc72188de052",
+    "url": "https://api.worldbank.org/v2/country/all/indicator/NY.GDP.PCAP.PP.CD?format=json&per_page=500&mrnev=1"
+  },
+  "wb_gdp_total_ppp.csv": {
+    "bytes": 9733,
+    "fetched_at": "2026-07-28T19:44:12Z",
+    "fetched_at_note": "pre-existing file, hashed in place",
+    "sha256": "4359d8c8864e52ae1281b6eee3f393e744dc7cd10a7bca4e311fd5bb69b87652",
+    "url": "https://api.worldbank.org/v2/country/all/indicator/NY.GDP.MKTP.PP.CD?format=json&per_page=500&mrnev=1"
+  },
+  "wb_gdp_total_usd.csv": {
+    "bytes": 52796,
+    "fetched_at": "2026-07-28T19:43:32Z",
+    "indicator_code": "NY.GDP.MKTP.CD",
+    "rows": 257,
+    "sha256": "2c8a0691233a707a72cb3f3d971583974b92c56a0259d1550ef4ed7490b2ef31",
+    "url": "https://api.worldbank.org/v2/country/all/indicator/NY.GDP.MKTP.CD?format=json&per_page=500&mrnev=1",
+    "vintage_max": 2025,
+    "vintage_median": 2025,
+    "vintage_min": 2011
+  },
+  "wb_homicide_rate.csv": {
+    "bytes": 8978,
+    "fetched_at": "2026-07-28T19:44:12Z",
+    "fetched_at_note": "pre-existing file, hashed in place",
+    "sha256": "442451ee1730165778bbeb37f23a023fe7e1c320106a5ac799f1432a538a7b1d",
+    "url": "https://api.worldbank.org/v2/country/all/indicator/VC.IHR.PSRC.P5?format=json&per_page=500&mrnev=1"
+  },
+  "wb_internet_users.csv": {
+    "bytes": 7929,
+    "fetched_at": "2026-07-28T19:44:12Z",
+    "fetched_at_note": "pre-existing file, hashed in place",
+    "sha256": "e1e102849f252431d4ecb5c96ef41c3094280a6fb72bd6ff0a36445d1171a605",
+    "url": "https://api.worldbank.org/v2/country/all/indicator/IT.NET.USER.ZS?format=json&per_page=500&mrnev=1"
+  },
+  "wb_population.csv": {
+    "bytes": 8126,
+    "fetched_at": "2026-07-28T19:44:12Z",
+    "fetched_at_note": "pre-existing file, hashed in place",
+    "sha256": "be1f18dbd25e0ed300ef078fdadda1e071a132cb68930349d99f0b8a291f90c6",
+    "url": "https://api.worldbank.org/v2/country/all/indicator/SP.POP.TOTL?format=json&per_page=500&mrnev=1"
+  },
+  "wb_surface_area.csv": {
+    "bytes": 8172,
+    "fetched_at": "2026-07-28T19:44:12Z",
+    "fetched_at_note": "pre-existing file, hashed in place",
+    "sha256": "33b4f03628269bd6229b3b6022c9c43aa58dad6821e15813b0027e4f04544291",
+    "url": "https://api.worldbank.org/v2/country/all/indicator/AG.SRF.TOTL.K2?format=json&per_page=500&mrnev=1"
+  },
+  "wb_tertiary_enroll.csv": {
+    "bytes": 9571,
+    "fetched_at": "2026-07-28T19:44:12Z",
+    "fetched_at_note": "pre-existing file, hashed in place",
+    "sha256": "48519d33216825c4f809d97c14eae870374aad153dc32e3c3aeb8c06b831e247",
+    "url": "https://api.worldbank.org/v2/country/all/indicator/SE.TER.ENRR?format=json&per_page=500&mrnev=1"
+  },
+  "wb_tourism_receipts.csv": {
+    "bytes": 8439,
+    "fetched_at": "2026-07-28T19:44:12Z",
+    "fetched_at_note": "pre-existing file, hashed in place",
+    "sha256": "af5ac8332090bba52b2677ce33ed156763dcccc489c4aa9d08ae532a12e8b412",
+    "url": "https://api.worldbank.org/v2/country/all/indicator/ST.INT.RCPT.CD?format=json&per_page=500&mrnev=1"
+  },
+  "wb_tourist_arrivals.csv": {
+    "bytes": 8417,
+    "fetched_at": "2026-07-28T19:44:12Z",
+    "fetched_at_note": "pre-existing file, hashed in place",
+    "sha256": "e96df50c37900f05d83b933d4a236aafe4d8fa9655fc70cb8bcb43264783bfb7",
+    "url": "https://api.worldbank.org/v2/country/all/indicator/ST.INT.ARVL?format=json&per_page=500&mrnev=1"
+  },
+  "wb_trade_openness.csv": {
+    "bytes": 9280,
+    "fetched_at": "2026-07-28T19:44:12Z",
+    "fetched_at_note": "pre-existing file, hashed in place",
+    "sha256": "c66873b909a01871f449e38c5a477a59aff28ef60f5ce3ff5df779ec2f96ce2c",
+    "url": "https://api.worldbank.org/v2/country/all/indicator/NE.TRD.GNFS.ZS?format=json&per_page=500&mrnev=1"
+  }
+}

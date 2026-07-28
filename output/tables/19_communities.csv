@@ -1,0 +1,200 @@
+country,community,community_size,community_label,name
+VCT,0,87,African Union-aligned,Saint Vincent and the Grenadines
+SLE,0,87,African Union-aligned,Sierra Leone
+NPL,0,87,African Union-aligned,Nepal
+TUN,0,87,African Union-aligned,Tunisia
+ZWE,0,87,African Union-aligned,Zimbabwe
+VUT,0,87,African Union-aligned,Vanuatu
+TZA,0,87,African Union-aligned,Tanzania
+PAK,0,87,African Union-aligned,Pakistan
+IRN,0,87,African Union-aligned,Iran
+GMB,0,87,African Union-aligned,Gambia
+SYC,0,87,African Union-aligned,Seychelles
+ZAF,0,87,African Union-aligned,South Africa
+NGA,0,87,African Union-aligned,Nigeria
+SEN,0,87,African Union-aligned,Senegal
+BWA,0,87,African Union-aligned,Botswana
+PNG,0,87,African Union-aligned,Papua New Guinea
+WSM,0,87,African Union-aligned,Samoa
+HTI,0,87,African Union-aligned,Haiti
+COM,0,87,African Union-aligned,Comoros
+EGY,0,87,African Union-aligned,Egypt
+ERI,0,87,African Union-aligned,Eritrea
+GUY,0,87,African Union-aligned,Guyana
+UGA,0,87,African Union-aligned,Uganda
+GNQ,0,87,African Union-aligned,Equatorial Guinea
+BLZ,0,87,African Union-aligned,Belize
+GAB,0,87,African Union-aligned,Gabon
+ZMB,0,87,African Union-aligned,Zambia
+CAF,0,87,African Union-aligned,Central African Republic
+DJI,0,87,African Union-aligned,Djibouti
+GHA,0,87,African Union-aligned,Ghana
+ECU,0,87,African Union-aligned,Ecuador
+CUB,0,87,African Union-aligned,Cuba
+KIR,0,87,African Union-aligned,Kiribati
+BRB,0,87,African Union-aligned,Barbados
+SOM,0,87,African Union-aligned,Somalia
+MOZ,0,87,African Union-aligned,Mozambique
+JAM,0,87,African Union-aligned,Jamaica
+CPV,0,87,African Union-aligned,Cape Verde
+SWZ,0,87,African Union-aligned,Swaziland
+LBY,0,87,African Union-aligned,Libya
+NAM,0,87,African Union-aligned,Namibia
+DZA,0,87,African Union-aligned,Algeria
+TLS,0,87,African Union-aligned,Timor-Leste
+GRD,0,87,African Union-aligned,Grenada
+PHL,0,87,African Union-aligned,Philippines
+BDI,0,87,African Union-aligned,Burundi
+SSD,0,87,African Union-aligned,South Sudan
+MLI,0,87,African Union-aligned,Mali
+BTN,0,87,African Union-aligned,Bhutan
+SGP,0,87,African Union-aligned,Singapore
+RWA,0,87,African Union-aligned,Rwanda
+FJI,0,87,African Union-aligned,Fiji
+SUR,0,87,African Union-aligned,Suriname
+CMR,0,87,African Union-aligned,Cameroon
+ETH,0,87,African Union-aligned,Ethiopia
+CIV,0,87,African Union-aligned,Ivory Coast
+LSO,0,87,African Union-aligned,Lesotho
+BFA,0,87,African Union-aligned,Burkina Faso
+BEN,0,87,African Union-aligned,Benin
+MDG,0,87,African Union-aligned,Madagascar
+MUS,0,87,African Union-aligned,Mauritius
+COG,0,87,African Union-aligned,Congo
+TGO,0,87,African Union-aligned,Togo
+GNB,0,87,African Union-aligned,Guinea-Bissau
+COD,0,87,African Union-aligned,DR Congo
+AGO,0,87,African Union-aligned,Angola
+PSE,0,87,African Union-aligned,Palestine
+MWI,0,87,African Union-aligned,Malawi
+KEN,0,87,African Union-aligned,Kenya
+TUV,0,87,African Union-aligned,Tuvalu
+FSM,0,87,African Union-aligned,Micronesia
+GIN,0,87,African Union-aligned,Guinea
+KHM,0,87,African Union-aligned,Cambodia
+BGD,0,87,African Union-aligned,Bangladesh
+LAO,0,87,African Union-aligned,Laos
+LCA,0,87,African Union-aligned,Saint Lucia
+NRU,0,87,African Union-aligned,Nauru
+MDV,0,87,African Union-aligned,Maldives
+LKA,0,87,African Union-aligned,Sri Lanka
+LBR,0,87,African Union-aligned,Liberia
+MRT,0,87,African Union-aligned,Mauritania
+NER,0,87,African Union-aligned,Niger
+TCD,0,87,African Union-aligned,Chad
+IND,0,87,African Union-aligned,India
+PLW,0,87,African Union-aligned,Palau
+STP,0,87,African Union-aligned,Sao Tome and Principe
+DMA,0,87,African Union-aligned,Dominica
+MNE,1,77,EU-27-aligned,Montenegro
+MKD,1,77,EU-27-aligned,North Macedonia
+SRB,1,77,EU-27-aligned,Serbia
+DNK,1,77,EU-27-aligned,Denmark
+GRC,1,77,EU-27-aligned,Greece
+UKR,1,77,EU-27-aligned,Ukraine
+TTO,1,77,EU-27-aligned,Trinidad and Tobago
+BOL,1,77,EU-27-aligned,Bolivia
+BHS,1,77,EU-27-aligned,Bahamas
+XKX,1,77,EU-27-aligned,Kosovo
+SMR,1,77,EU-27-aligned,San Marino
+BRA,1,77,EU-27-aligned,Brazil
+ISR,1,77,EU-27-aligned,Israel
+BRN,1,77,EU-27-aligned,Brunei
+KNA,1,77,EU-27-aligned,Saint Kitts and Nevis
+ALB,1,77,EU-27-aligned,Albania
+BGR,1,77,EU-27-aligned,Bulgaria
+VAT,1,77,EU-27-aligned,Vatican
+HND,1,77,EU-27-aligned,Honduras
+MHL,1,77,EU-27-aligned,Marshall Islands
+AUT,1,77,EU-27-aligned,Austria
+TWN,1,77,EU-27-aligned,Taiwan
+SLB,1,77,EU-27-aligned,Solomon Islands
+ESP,1,77,EU-27-aligned,Spain
+BEL,1,77,EU-27-aligned,Belgium
+PER,1,77,EU-27-aligned,Peru
+GTM,1,77,EU-27-aligned,Guatemala
+LUX,1,77,EU-27-aligned,Luxembourg
+CRI,1,77,EU-27-aligned,Costa Rica
+HUN,1,77,EU-27-aligned,Hungary
+ISL,1,77,EU-27-aligned,Iceland
+ARE,1,77,EU-27-aligned,United Arab Emirates
+FRA,1,77,EU-27-aligned,France
+COL,1,77,EU-27-aligned,Colombia
+AUS,1,77,EU-27-aligned,Australia
+NOR,1,77,EU-27-aligned,Norway
+EST,1,77,EU-27-aligned,Estonia
+USA,1,77,EU-27-aligned,United States
+BIH,1,77,EU-27-aligned,Bosnia and Herzegovina
+NIC,1,77,EU-27-aligned,Nicaragua
+DEU,1,77,EU-27-aligned,Germany
+CZE,1,77,EU-27-aligned,Czech Republic
+SLV,1,77,EU-27-aligned,El Salvador
+KOR,1,77,EU-27-aligned,South Korea
+PRY,1,77,EU-27-aligned,Paraguay
+TON,1,77,EU-27-aligned,Tonga
+LTU,1,77,EU-27-aligned,Lithuania
+CHE,1,77,EU-27-aligned,Switzerland
+NLD,1,77,EU-27-aligned,Netherlands
+HRV,1,77,EU-27-aligned,Croatia
+ROU,1,77,EU-27-aligned,Romania
+ITA,1,77,EU-27-aligned,Italy
+SVN,1,77,EU-27-aligned,Slovenia
+LVA,1,77,EU-27-aligned,Latvia
+LIE,1,77,EU-27-aligned,Liechtenstein
+MDA,1,77,EU-27-aligned,Moldova
+JPN,1,77,EU-27-aligned,Japan
+CHL,1,77,EU-27-aligned,Chile
+PAN,1,77,EU-27-aligned,Panama
+PRT,1,77,EU-27-aligned,Portugal
+IRL,1,77,EU-27-aligned,Ireland
+MEX,1,77,EU-27-aligned,Mexico
+VEN,1,77,EU-27-aligned,Venezuela
+URY,1,77,EU-27-aligned,Uruguay
+ARG,1,77,EU-27-aligned,Argentina
+MLT,1,77,EU-27-aligned,Malta
+FIN,1,77,EU-27-aligned,Finland
+ATG,1,77,EU-27-aligned,Antigua and Barbuda
+SVK,1,77,EU-27-aligned,Slovakia
+AND,1,77,EU-27-aligned,Andorra
+MCO,1,77,EU-27-aligned,Monaco
+CYP,1,77,EU-27-aligned,Cyprus
+CAN,1,77,EU-27-aligned,Canada
+GBR,1,77,EU-27-aligned,United Kingdom
+NZL,1,77,EU-27-aligned,New Zealand
+POL,1,77,EU-27-aligned,Poland
+SWE,1,77,EU-27-aligned,Sweden
+BLR,2,32,CIS-aligned,Belarus
+TJK,2,32,CIS-aligned,Tajikistan
+MYS,2,32,CIS-aligned,Malaysia
+MAR,2,32,CIS-aligned,Morocco
+MMR,2,32,CIS-aligned,Myanmar
+KAZ,2,32,CIS-aligned,Kazakhstan
+THA,2,32,CIS-aligned,Thailand
+KGZ,2,32,CIS-aligned,Kyrgyzstan
+RUS,2,32,CIS-aligned,Russia
+MNG,2,32,CIS-aligned,Mongolia
+AZE,2,32,CIS-aligned,Azerbaijan
+BHR,2,32,CIS-aligned,Bahrain
+MAC,2,32,CIS-aligned,Macao
+DOM,2,32,CIS-aligned,Dominican Republic
+IDN,2,32,CIS-aligned,Indonesia
+TUR,2,32,CIS-aligned,Turkey
+VNM,2,32,CIS-aligned,Vietnam
+QAT,2,32,CIS-aligned,Qatar
+JOR,2,32,CIS-aligned,Jordan
+ARM,2,32,CIS-aligned,Armenia
+CHN,2,32,CIS-aligned,China
+SYR,2,32,CIS-aligned,Syria
+SDN,2,32,CIS-aligned,Sudan
+UZB,2,32,CIS-aligned,Uzbekistan
+YEM,2,32,CIS-aligned,Yemen
+KWT,2,32,CIS-aligned,Kuwait
+SAU,2,32,CIS-aligned,Saudi Arabia
+LBN,2,32,CIS-aligned,Lebanon
+OMN,2,32,CIS-aligned,Oman
+IRQ,2,32,CIS-aligned,Iraq
+HKG,2,32,CIS-aligned,Hong Kong
+GEO,2,32,CIS-aligned,Georgia
+AFG,3,1,Cluster 4,Afghanistan
+PRK,4,1,Cluster 5,North Korea
+TKM,5,1,Cluster 6,Turkmenistan

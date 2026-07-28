@@ -1,0 +1,251 @@
+iso3,country_name,lat,lon,land_area_km2,landlocked,n_land_borders,un_region,un_subregion,languages,english_official,independent,un_member
+ABW,Aruba,12.5,-69.96666666,180.0,False,0,Americas,Caribbean,Dutch|Papiamento,False,False,False
+AFG,Afghanistan,33.0,65.0,652230.0,True,6,Asia,Southern Asia,Dari|Pashto|Turkmen,False,True,True
+AGO,Angola,-12.5,18.5,1246700.0,False,4,Africa,Middle Africa,Portuguese,False,True,True
+AIA,Anguilla,18.25,-63.16666666,91.0,False,0,Americas,Caribbean,English,True,False,False
+ALA,Åland Islands,60.116667,19.9,1580.0,False,0,Europe,Northern Europe,Swedish,False,False,False
+ALB,Albania,41.0,20.0,28748.0,False,4,Europe,Southeast Europe,Albanian,False,True,True
+AND,Andorra,42.5,1.5,468.0,True,2,Europe,Southern Europe,Catalan,False,True,True
+ARE,United Arab Emirates,24.0,54.0,83600.0,False,2,Asia,Western Asia,Arabic,False,True,True
+ARG,Argentina,-34.0,-64.0,2780400.0,False,5,Americas,South America,Guaraní|Spanish,False,True,True
+ARM,Armenia,40.0,45.0,29743.0,True,4,Asia,Western Asia,Armenian,False,True,True
+ASM,American Samoa,-14.33333333,-170.0,199.0,False,0,Oceania,Polynesia,English|Samoan,True,False,False
+ATA,Antarctica,-90.0,0.0,14000000.0,False,0,Antarctic,,,False,False,False
+ATF,French Southern and Antarctic Lands,-49.25,69.167,7747.0,False,0,Antarctic,,French,False,False,False
+ATG,Antigua and Barbuda,17.05,-61.8,442.0,False,0,Americas,Caribbean,English,True,True,True
+AUS,Australia,-27.0,133.0,7692024.0,False,0,Oceania,Australia and New Zealand,English,True,True,True
+AUT,Austria,47.33333333,13.33333333,83871.0,True,8,Europe,Central Europe,Austro-Bavarian German,False,True,True
+AZE,Azerbaijan,40.5,47.5,86600.0,True,5,Asia,Western Asia,Azerbaijani|Russian,False,True,True
+BDI,Burundi,-3.5,30.0,27834.0,True,3,Africa,Eastern Africa,French|Kirundi,False,True,True
+BEL,Belgium,50.83333333,4.0,30528.0,False,4,Europe,Western Europe,Dutch|French|German,False,True,True
+BEN,Benin,9.5,2.25,112622.0,False,4,Africa,Western Africa,French,False,True,True
+BES,Caribbean Netherlands,12.18,-68.25,328.0,False,0,Americas,Caribbean,Dutch|English|Papiamento,True,False,False
+BFA,Burkina Faso,13.0,-2.0,272967.0,True,6,Africa,Western Africa,French,False,True,True
+BGD,Bangladesh,24.0,90.0,147570.0,False,2,Asia,Southern Asia,Bengali,False,True,True
+BGR,Bulgaria,43.0,25.0,110879.0,False,5,Europe,Southeast Europe,Bulgarian,False,True,True
+BHR,Bahrain,26.0,50.55,765.0,False,0,Asia,Western Asia,Arabic,False,True,True
+BHS,Bahamas,24.25,-76.0,13943.0,False,0,Americas,Caribbean,English,True,True,True
+BIH,Bosnia and Herzegovina,44.0,18.0,51209.0,False,3,Europe,Southeast Europe,Bosnian|Croatian|Serbian,False,True,True
+BLM,Saint Barthélemy,18.5,-63.41666666,21.0,False,0,Americas,Caribbean,French,False,False,False
+BLR,Belarus,53.0,28.0,207600.0,True,5,Europe,Eastern Europe,Belarusian|Russian,False,True,True
+BLZ,Belize,17.25,-88.75,22966.0,False,2,Americas,Central America,Belizean Creole|English|Spanish,True,True,True
+BMU,Bermuda,32.33333333,-64.75,54.0,False,0,Americas,North America,English,True,False,False
+BOL,Bolivia,-17.0,-65.0,1098581.0,True,5,Americas,South America,Aymara|Guaraní|Quechua|Spanish,False,True,True
+BRA,Brazil,-10.0,-55.0,8515767.0,False,10,Americas,South America,Portuguese,False,True,True
+BRB,Barbados,13.16666666,-59.53333333,430.0,False,0,Americas,Caribbean,English,True,True,True
+BRN,Brunei,4.5,114.66666666,5765.0,False,1,Asia,South-Eastern Asia,Malay,False,True,True
+BTN,Bhutan,27.5,90.5,38394.0,True,2,Asia,Southern Asia,Dzongkha,False,True,True
+BVT,Bouvet Island,-54.43333333,3.4,49.0,False,0,Antarctic,,Norwegian,False,False,False
+BWA,Botswana,-22.0,24.0,582000.0,True,4,Africa,Southern Africa,English|Tswana,True,True,True
+CAF,Central African Republic,7.0,21.0,622984.0,True,6,Africa,Middle Africa,French|Sango,False,True,True
+CAN,Canada,60.0,-95.0,9984670.0,False,1,Americas,North America,English|French,True,True,True
+CCK,Cocos (Keeling) Islands,-12.5,96.83333333,14.0,False,0,Oceania,Australia and New Zealand,English,True,False,False
+CHE,Switzerland,47.0,8.0,41284.0,True,5,Europe,Western Europe,French|Italian|Romansh|Swiss German,False,True,True
+CHL,Chile,-30.0,-71.0,756102.0,False,3,Americas,South America,Spanish,False,True,True
+CHN,China,35.0,105.0,9706961.0,False,16,Asia,Eastern Asia,Chinese,False,True,True
+CIV,Ivory Coast,8.0,-5.0,322463.0,False,5,Africa,Western Africa,French,False,True,True
+CMR,Cameroon,6.0,12.0,475442.0,False,6,Africa,Middle Africa,English|French,True,True,True
+COD,DR Congo,0.0,25.0,2344858.0,False,9,Africa,Middle Africa,French|Kikongo|Lingala|Swahili|Tshiluba,False,True,True
+COG,Congo,-1.0,15.0,342000.0,False,5,Africa,Middle Africa,French|Kikongo|Lingala,False,True,True
+COK,Cook Islands,-21.23333333,-159.76666666,236.0,False,0,Oceania,Polynesia,Cook Islands Māori|English,True,False,False
+COL,Colombia,4.0,-72.0,1141748.0,False,5,Americas,South America,Spanish,False,True,True
+COM,Comoros,-12.16666666,44.25,1862.0,False,0,Africa,Eastern Africa,Arabic|Comorian|French,False,True,True
+CPV,Cape Verde,16.0,-24.0,4033.0,False,0,Africa,Western Africa,Portuguese,False,True,True
+CRI,Costa Rica,10.0,-84.0,51100.0,False,2,Americas,Central America,Spanish,False,True,True
+CUB,Cuba,21.5,-80.0,109884.0,False,0,Americas,Caribbean,Spanish,False,True,True
+CUW,Curaçao,12.116667,-68.933333,444.0,False,0,Americas,Caribbean,Dutch|English|Papiamento,True,False,False
+CXR,Christmas Island,-10.5,105.66666666,135.0,False,0,Oceania,Australia and New Zealand,English,True,False,False
+CYM,Cayman Islands,19.5,-80.5,264.0,False,0,Americas,Caribbean,English,True,False,False
+CYP,Cyprus,35.0,33.0,9251.0,False,0,Europe,Southern Europe,Greek|Turkish,False,True,True
+CZE,Czechia,49.75,15.5,78865.0,True,4,Europe,Central Europe,Czech|Slovak,False,True,True
+DEU,Germany,51.0,9.0,357114.0,False,9,Europe,Western Europe,German,False,True,True
+DJI,Djibouti,11.5,43.0,23200.0,False,3,Africa,Eastern Africa,Arabic|French,False,True,True
+DMA,Dominica,15.41666666,-61.33333333,751.0,False,0,Americas,Caribbean,English,True,True,True
+DNK,Denmark,56.0,10.0,43094.0,False,1,Europe,Northern Europe,Danish,False,True,True
+DOM,Dominican Republic,19.0,-70.66666666,48671.0,False,1,Americas,Caribbean,Spanish,False,True,True
+DZA,Algeria,28.0,3.0,2381741.0,False,7,Africa,Northern Africa,Arabic,False,True,True
+ECU,Ecuador,-2.0,-77.5,276841.0,False,2,Americas,South America,Spanish,False,True,True
+EGY,Egypt,27.0,30.0,1002450.0,False,4,Africa,Northern Africa,Arabic,False,True,True
+ERI,Eritrea,15.0,39.0,117600.0,False,3,Africa,Eastern Africa,Arabic|English|Tigrinya,True,True,True
+ESH,Western Sahara,24.5,-13.0,266000.0,False,3,Africa,Northern Africa,Berber|Hassaniya|Spanish,False,False,False
+ESP,Spain,40.0,-4.0,505992.0,False,5,Europe,Southern Europe,Spanish,False,True,True
+EST,Estonia,59.0,26.0,45227.0,False,2,Europe,Northern Europe,Estonian,False,True,True
+ETH,Ethiopia,8.0,38.0,1104300.0,True,6,Africa,Eastern Africa,Amharic,False,True,True
+FIN,Finland,64.0,26.0,338424.0,False,3,Europe,Northern Europe,Finnish|Swedish,False,True,True
+FJI,Fiji,-18.0,175.0,18272.0,False,0,Oceania,Melanesia,English|Fiji Hindi|Fijian,True,True,True
+FLK,Falkland Islands,-51.75,-59.0,12173.0,False,0,Americas,South America,English,True,False,False
+FRA,France,46.0,2.0,551695.0,False,8,Europe,Western Europe,French,False,True,True
+FRO,Faroe Islands,62.0,-7.0,1393.0,False,0,Europe,Northern Europe,Danish|Faroese,False,False,False
+FSM,Micronesia,6.91666666,158.25,702.0,False,0,Oceania,Micronesia,English,True,True,True
+GAB,Gabon,-1.0,11.75,267668.0,False,3,Africa,Middle Africa,French,False,True,True
+GBR,United Kingdom,54.0,-2.0,242900.0,False,1,Europe,Northern Europe,English,True,True,True
+GEO,Georgia,42.0,43.5,69700.0,False,4,Asia,Western Asia,Georgian,False,True,True
+GGY,Guernsey,49.46666666,-2.58333333,78.0,False,0,Europe,Northern Europe,English|French|Guernésiais,True,False,False
+GHA,Ghana,8.0,-2.0,238533.0,False,3,Africa,Western Africa,English,True,True,True
+GIB,Gibraltar,36.13333333,-5.35,6.0,False,1,Europe,Southern Europe,English,True,False,False
+GIN,Guinea,11.0,-10.0,245857.0,False,6,Africa,Western Africa,French,False,True,True
+GLP,Guadeloupe,16.25,-61.583333,1628.0,False,0,Americas,Caribbean,French,False,False,False
+GMB,Gambia,13.46666666,-16.56666666,10689.0,False,1,Africa,Western Africa,English,True,True,True
+GNB,Guinea-Bissau,12.0,-15.0,36125.0,False,2,Africa,Western Africa,Portuguese|Upper Guinea Creole,False,True,True
+GNQ,Equatorial Guinea,2.0,10.0,28051.0,False,2,Africa,Middle Africa,French|Portuguese|Spanish,False,True,True
+GRC,Greece,39.0,22.0,131990.0,False,4,Europe,Southern Europe,Greek,False,True,True
+GRD,Grenada,12.11666666,-61.66666666,344.0,False,0,Americas,Caribbean,English,True,True,True
+GRL,Greenland,72.0,-40.0,2166086.0,False,0,Americas,North America,Greenlandic,False,False,False
+GTM,Guatemala,15.5,-90.25,108889.0,False,4,Americas,Central America,Spanish,False,True,True
+GUF,French Guiana,4.0,-53.0,83534.0,False,2,Americas,South America,French,False,False,False
+GUM,Guam,13.46666666,144.78333333,549.0,False,0,Oceania,Micronesia,Chamorro|English|Spanish,True,False,False
+GUY,Guyana,5.0,-59.0,214969.0,False,3,Americas,South America,English,True,True,True
+HKG,Hong Kong,22.267,114.188,1104.0,False,1,Asia,Eastern Asia,Chinese|English,True,False,False
+HMD,Heard Island and McDonald Islands,-53.1,72.51666666,412.0,False,0,Antarctic,,English,True,False,False
+HND,Honduras,15.0,-86.5,112492.0,False,3,Americas,Central America,Spanish,False,True,True
+HRV,Croatia,45.16666666,15.5,56594.0,False,5,Europe,Southeast Europe,Croatian,False,True,True
+HTI,Haiti,19.0,-72.41666666,27750.0,False,1,Americas,Caribbean,French|Haitian Creole,False,True,True
+HUN,Hungary,47.0,20.0,93028.0,True,7,Europe,Central Europe,Hungarian,False,True,True
+IDN,Indonesia,-5.0,120.0,1904569.0,False,3,Asia,South-Eastern Asia,Indonesian,False,True,True
+IMN,Isle of Man,54.25,-4.5,572.0,False,0,Europe,Northern Europe,English|Manx,True,False,False
+IND,India,20.0,77.0,3287590.0,False,6,Asia,Southern Asia,English|Hindi|Tamil,True,True,True
+IOT,British Indian Ocean Territory,-6.0,71.5,60.0,False,0,Africa,Eastern Africa,English,True,False,False
+IRL,Ireland,53.0,-8.0,70273.0,False,1,Europe,Northern Europe,English|Irish,True,True,True
+IRN,Iran,32.0,53.0,1648195.0,False,7,Asia,Southern Asia,Persian (Farsi),False,True,True
+IRQ,Iraq,33.0,44.0,438317.0,False,6,Asia,Western Asia,Arabic|Aramaic|Sorani,False,True,True
+ISL,Iceland,65.0,-18.0,103000.0,False,0,Europe,Northern Europe,Icelandic,False,True,True
+ISR,Israel,31.47,35.13,20770.0,False,5,Asia,Western Asia,Arabic|Hebrew,False,True,True
+ITA,Italy,42.83333333,12.83333333,301336.0,False,6,Europe,Southern Europe,Italian,False,True,True
+JAM,Jamaica,18.25,-77.5,10991.0,False,0,Americas,Caribbean,English|Jamaican Patois,True,True,True
+JEY,Jersey,49.25,-2.16666666,116.0,False,0,Europe,Northern Europe,English|French|Jèrriais,True,False,False
+JOR,Jordan,31.0,36.0,89342.0,False,5,Asia,Western Asia,Arabic,False,True,True
+JPN,Japan,36.0,138.0,377930.0,False,0,Asia,Eastern Asia,Japanese,False,True,True
+KAZ,Kazakhstan,48.0,68.0,2724900.0,True,5,Asia,Central Asia,Kazakh|Russian,False,True,True
+KEN,Kenya,1.0,38.0,580367.0,False,5,Africa,Eastern Africa,English|Swahili,True,True,True
+KGZ,Kyrgyzstan,41.0,75.0,199951.0,True,4,Asia,Central Asia,Kyrgyz|Russian,False,True,True
+KHM,Cambodia,13.0,105.0,181035.0,False,3,Asia,South-Eastern Asia,Khmer,False,True,True
+KIR,Kiribati,1.41666666,173.0,811.0,False,0,Oceania,Micronesia,English|Gilbertese,True,True,True
+KNA,Saint Kitts and Nevis,17.33333333,-62.75,261.0,False,0,Americas,Caribbean,English,True,True,True
+KOR,South Korea,37.0,127.5,100210.0,False,1,Asia,Eastern Asia,Korean,False,True,True
+KWT,Kuwait,29.5,45.75,17818.0,False,2,Asia,Western Asia,Arabic,False,True,True
+LAO,Laos,18.0,105.0,236800.0,True,5,Asia,South-Eastern Asia,Lao,False,True,True
+LBN,Lebanon,33.83333333,35.83333333,10452.0,False,2,Asia,Western Asia,Arabic|French,False,True,True
+LBR,Liberia,6.5,-9.5,111369.0,False,3,Africa,Western Africa,English,True,True,True
+LBY,Libya,25.0,17.0,1759540.0,False,6,Africa,Northern Africa,Arabic,False,True,True
+LCA,Saint Lucia,13.88333333,-60.96666666,616.0,False,0,Americas,Caribbean,English,True,True,True
+LIE,Liechtenstein,47.26666666,9.53333333,160.0,True,2,Europe,Western Europe,German,False,True,True
+LKA,Sri Lanka,7.0,81.0,65610.0,False,1,Asia,Southern Asia,Sinhala|Tamil,False,True,True
+LSO,Lesotho,-29.5,28.5,30355.0,True,1,Africa,Southern Africa,English|Sotho,True,True,True
+LTU,Lithuania,56.0,24.0,65300.0,False,4,Europe,Northern Europe,Lithuanian,False,True,True
+LUX,Luxembourg,49.75,6.16666666,2586.0,True,3,Europe,Western Europe,French|German|Luxembourgish,False,True,True
+LVA,Latvia,57.0,25.0,64559.0,False,4,Europe,Northern Europe,Latvian,False,True,True
+MAC,Macau,22.16666666,113.55,30.0,False,1,Asia,Eastern Asia,Chinese|Portuguese,False,False,False
+MAF,Saint Martin,18.08333333,-63.95,53.0,False,1,Americas,Caribbean,French,False,False,False
+MAR,Morocco,32.0,-5.0,446550.0,False,3,Africa,Northern Africa,Arabic|Berber,False,True,True
+MCO,Monaco,43.73333333,7.4,2.02,False,1,Europe,Western Europe,French,False,True,True
+MDA,Moldova,47.0,29.0,33846.0,True,2,Europe,Eastern Europe,Moldavian,False,True,True
+MDG,Madagascar,-20.0,47.0,587041.0,False,0,Africa,Eastern Africa,French|Malagasy,False,True,True
+MDV,Maldives,3.25,73.0,300.0,False,0,Asia,Southern Asia,Maldivian,False,True,True
+MEX,Mexico,23.0,-102.0,1964375.0,False,3,Americas,North America,Spanish,False,True,True
+MHL,Marshall Islands,9.0,168.0,181.0,False,0,Oceania,Micronesia,English|Marshallese,True,True,True
+MKD,North Macedonia,41.83333333,22.0,25713.0,True,5,Europe,Southeast Europe,Macedonian,False,True,True
+MLI,Mali,17.0,-4.0,1240192.0,True,7,Africa,Western Africa,French,False,True,True
+MLT,Malta,35.83333333,14.58333333,316.0,False,0,Europe,Southern Europe,English|Maltese,True,True,True
+MMR,Myanmar,22.0,98.0,676578.0,False,5,Asia,South-Eastern Asia,Burmese,False,True,True
+MNE,Montenegro,42.5,19.3,13812.0,False,5,Europe,Southeast Europe,Montenegrin,False,True,True
+MNG,Mongolia,46.0,105.0,1564110.0,True,2,Asia,Eastern Asia,Mongolian,False,True,True
+MNP,Northern Mariana Islands,15.2,145.75,464.0,False,0,Oceania,Micronesia,Carolinian|Chamorro|English,True,False,False
+MOZ,Mozambique,-18.25,35.0,801590.0,False,6,Africa,Eastern Africa,Portuguese,False,True,True
+MRT,Mauritania,20.0,-12.0,1030700.0,False,4,Africa,Western Africa,Arabic,False,True,True
+MSR,Montserrat,16.75,-62.2,102.0,False,0,Americas,Caribbean,English,True,False,False
+MTQ,Martinique,14.666667,-61.0,1128.0,False,0,Americas,Caribbean,French,False,False,False
+MUS,Mauritius,-20.28333333,57.55,2040.0,False,0,Africa,Eastern Africa,English|French|Mauritian Creole,True,True,True
+MWI,Malawi,-13.5,34.0,118484.0,True,3,Africa,Eastern Africa,Chewa|English,True,True,True
+MYS,Malaysia,2.5,112.5,330803.0,False,3,Asia,South-Eastern Asia,English|Malay,True,True,True
+MYT,Mayotte,-12.83333333,45.16666666,374.0,False,0,Africa,Eastern Africa,French,False,False,False
+NAM,Namibia,-22.0,17.0,825615.0,False,4,Africa,Southern Africa,Afrikaans|English|German|Herero|Khoekhoe|Kwangali|Lozi|Ndonga|Tswana,True,True,True
+NCL,New Caledonia,-21.5,165.5,18575.0,False,0,Oceania,Melanesia,French,False,False,False
+NER,Niger,16.0,8.0,1267000.0,True,7,Africa,Western Africa,French,False,True,True
+NFK,Norfolk Island,-29.03333333,167.95,36.0,False,0,Oceania,Australia and New Zealand,English|Norfuk,True,False,False
+NGA,Nigeria,10.0,8.0,923768.0,False,4,Africa,Western Africa,English,True,True,True
+NIC,Nicaragua,13.0,-85.0,130373.0,False,2,Americas,Central America,Spanish,False,True,True
+NIU,Niue,-19.03333333,-169.86666666,260.0,False,0,Oceania,Polynesia,English|Niuean,True,False,False
+NLD,Netherlands,52.5,5.75,41850.0,False,2,Europe,Western Europe,Dutch,False,True,True
+NOR,Norway,62.0,10.0,323802.0,False,3,Europe,Northern Europe,Norwegian Bokmål|Norwegian Nynorsk|Sami,False,True,True
+NPL,Nepal,28.0,84.0,147181.0,True,2,Asia,Southern Asia,Nepali,False,True,True
+NRU,Nauru,-0.53333333,166.91666666,21.0,False,0,Oceania,Micronesia,English|Nauru,True,True,True
+NZL,New Zealand,-41.0,174.0,270467.0,False,0,Oceania,Australia and New Zealand,English|Māori|New Zealand Sign Language,True,True,True
+OMN,Oman,21.0,57.0,309500.0,False,3,Asia,Western Asia,Arabic,False,True,True
+PAK,Pakistan,30.0,70.0,881912.0,False,4,Asia,Southern Asia,English|Urdu,True,True,True
+PAN,Panama,9.0,-80.0,75417.0,False,2,Americas,Central America,Spanish,False,True,True
+PCN,Pitcairn Islands,-25.06666666,-130.1,47.0,False,0,Oceania,Polynesia,English,True,False,False
+PER,Peru,-10.0,-76.0,1285216.0,False,5,Americas,South America,Aymara|Quechua|Spanish,False,True,True
+PHL,Philippines,13.0,122.0,342353.0,False,0,Asia,South-Eastern Asia,English|Filipino,True,True,True
+PLW,Palau,7.5,134.5,459.0,False,0,Oceania,Micronesia,English|Palauan,True,True,True
+PNG,Papua New Guinea,-6.0,147.0,462840.0,False,1,Oceania,Melanesia,English|Hiri Motu|Tok Pisin,True,True,True
+POL,Poland,52.0,20.0,312679.0,False,7,Europe,Central Europe,Polish,False,True,True
+PRI,Puerto Rico,18.25,-66.5,8870.0,False,0,Americas,Caribbean,English|Spanish,True,False,False
+PRK,North Korea,40.0,127.0,120538.0,False,3,Asia,Eastern Asia,Korean,False,True,True
+PRT,Portugal,39.5,-8.0,92090.0,False,1,Europe,Southern Europe,Portuguese,False,True,True
+PRY,Paraguay,-23.0,-58.0,406752.0,True,3,Americas,South America,Guaraní|Spanish,False,True,True
+PSE,Palestine,31.9,35.2,6220.0,False,3,Asia,Western Asia,Arabic,False,False,False
+PYF,French Polynesia,-15.0,-140.0,4167.0,False,0,Oceania,Polynesia,French,False,False,False
+QAT,Qatar,25.5,51.25,11586.0,False,1,Asia,Western Asia,Arabic,False,True,True
+REU,Réunion,-21.15,55.5,2511.0,False,0,Africa,Eastern Africa,French,False,False,False
+ROU,Romania,46.0,25.0,238391.0,False,5,Europe,Southeast Europe,Romanian,False,True,True
+RUS,Russia,60.0,100.0,17098242.0,False,14,Europe,Eastern Europe,Russian,False,True,True
+RWA,Rwanda,-2.0,30.0,26338.0,True,4,Africa,Eastern Africa,English|French|Kinyarwanda,True,True,True
+SAU,Saudi Arabia,25.0,45.0,2149690.0,False,7,Asia,Western Asia,Arabic,False,True,True
+SDN,Sudan,15.0,30.0,1886068.0,False,7,Africa,Northern Africa,Arabic|English,True,True,True
+SEN,Senegal,14.0,-14.0,196722.0,False,5,Africa,Western Africa,French,False,True,True
+SGP,Singapore,1.36666666,103.8,710.0,False,0,Asia,South-Eastern Asia,Chinese|English|Malay|Tamil,True,True,True
+SGS,South Georgia,-54.5,-37.0,3903.0,False,0,Antarctic,,English,True,False,False
+SHN,"Saint Helena, Ascension and Tristan da Cunha",-15.95,-5.72,394.0,False,0,Africa,Western Africa,English,True,False,False
+SJM,Svalbard and Jan Mayen,78.0,20.0,-1.0,False,0,Europe,Northern Europe,Norwegian,False,False,False
+SLB,Solomon Islands,-8.0,159.0,28896.0,False,0,Oceania,Melanesia,English,True,True,True
+SLE,Sierra Leone,8.5,-11.5,71740.0,False,2,Africa,Western Africa,English,True,True,True
+SLV,El Salvador,13.83333333,-88.91666666,21041.0,False,2,Americas,Central America,Spanish,False,True,True
+SMR,San Marino,43.76666666,12.41666666,61.0,True,1,Europe,Southern Europe,Italian,False,True,True
+SOM,Somalia,10.0,49.0,637657.0,False,3,Africa,Eastern Africa,Arabic|Somali,False,True,True
+SPM,Saint Pierre and Miquelon,46.83333333,-56.33333333,242.0,False,0,Americas,North America,French,False,False,False
+SRB,Serbia,44.0,21.0,88361.0,True,8,Europe,Southeast Europe,Serbian,False,True,True
+SSD,South Sudan,7.0,30.0,619745.0,True,6,Africa,Middle Africa,English,True,True,True
+STP,São Tomé and Príncipe,1.0,7.0,964.0,False,0,Africa,Middle Africa,Portuguese,False,True,True
+SUR,Suriname,4.0,-56.0,163820.0,False,3,Americas,South America,Dutch,False,True,True
+SVK,Slovakia,48.66666666,19.5,49037.0,True,5,Europe,Central Europe,Slovak,False,True,True
+SVN,Slovenia,46.11666666,14.81666666,20273.0,False,4,Europe,Central Europe,Slovene,False,True,True
+SWE,Sweden,62.0,15.0,450295.0,False,2,Europe,Northern Europe,Swedish,False,True,True
+SWZ,Eswatini,-26.5,31.5,17364.0,True,2,Africa,Southern Africa,English|Swazi,True,True,True
+SXM,Sint Maarten,18.033333,-63.05,34.0,False,1,Americas,Caribbean,Dutch|English|French,True,False,False
+SYC,Seychelles,-4.58333333,55.66666666,452.0,False,0,Africa,Eastern Africa,English|French|Seychellois Creole,True,True,True
+SYR,Syria,35.0,38.0,185180.0,False,5,Asia,Western Asia,Arabic,False,True,True
+TCA,Turks and Caicos Islands,21.75,-71.58333333,948.0,False,0,Americas,Caribbean,English,True,False,False
+TCD,Chad,15.0,19.0,1284000.0,True,6,Africa,Middle Africa,Arabic|French,False,True,True
+TGO,Togo,8.0,1.16666666,56785.0,False,3,Africa,Western Africa,French,False,True,True
+THA,Thailand,15.0,100.0,513120.0,False,4,Asia,South-Eastern Asia,Thai,False,True,True
+TJK,Tajikistan,39.0,71.0,143100.0,True,4,Asia,Central Asia,Russian|Tajik,False,True,True
+TKL,Tokelau,-9.0,-172.0,12.0,False,0,Oceania,Polynesia,English|Samoan|Tokelauan,True,False,False
+TKM,Turkmenistan,40.0,60.0,488100.0,True,4,Asia,Central Asia,Russian|Turkmen,False,True,True
+TLS,Timor-Leste,-8.83333333,125.91666666,14874.0,False,1,Asia,South-Eastern Asia,Portuguese|Tetum,False,True,True
+TON,Tonga,-20.0,-175.0,747.0,False,0,Oceania,Polynesia,English|Tongan,True,True,True
+TTO,Trinidad and Tobago,11.0,-61.0,5130.0,False,0,Americas,Caribbean,English,True,True,True
+TUN,Tunisia,34.0,9.0,163610.0,False,2,Africa,Northern Africa,Arabic,False,True,True
+TUR,Türkiye,39.0,35.0,783562.0,False,8,Asia,Western Asia,Turkish,False,True,True
+TUV,Tuvalu,-8.0,178.0,26.0,False,0,Oceania,Polynesia,English|Tuvaluan,True,True,True
+TWN,Taiwan,23.5,121.0,36193.0,False,0,Asia,Eastern Asia,Chinese,False,False,False
+TZA,Tanzania,-6.0,35.0,945087.0,False,8,Africa,Eastern Africa,English|Swahili,True,True,True
+UGA,Uganda,1.0,32.0,241550.0,True,5,Africa,Eastern Africa,English|Swahili,True,True,True
+UKR,Ukraine,49.0,32.0,603500.0,False,7,Europe,Eastern Europe,Ukrainian,False,True,True
+UMI,United States Minor Outlying Islands,19.3,166.633333,34.2,False,0,Americas,North America,English,True,False,False
+UNK,Kosovo,42.666667,21.166667,10908.0,True,4,Europe,Southeast Europe,Albanian|Serbian,False,False,False
+URY,Uruguay,-33.0,-56.0,181034.0,False,2,Americas,South America,Spanish,False,True,True
+USA,United States,38.0,-97.0,9372610.0,False,2,Americas,North America,English,True,True,True
+UZB,Uzbekistan,41.0,64.0,447400.0,True,5,Asia,Central Asia,Russian|Uzbek,False,True,True
+VAT,Vatican City,41.9,12.45,0.44,True,1,Europe,Southern Europe,Italian|Latin,False,True,True
+VCT,Saint Vincent and the Grenadines,13.25,-61.2,389.0,False,0,Americas,Caribbean,English,True,True,True
+VEN,Venezuela,8.0,-66.0,916445.0,False,3,Americas,South America,Spanish,False,True,True
+VGB,British Virgin Islands,18.431383,-64.62305,151.0,False,0,Americas,Caribbean,English,True,False,False
+VIR,United States Virgin Islands,18.35,-64.933333,347.0,False,0,Americas,Caribbean,English,True,False,False
+VNM,Vietnam,16.16666666,107.83333333,331212.0,False,3,Asia,South-Eastern Asia,Vietnamese,False,True,True
+VUT,Vanuatu,-16.0,167.0,12189.0,False,0,Oceania,Melanesia,Bislama|English|French,True,True,True
+WLF,Wallis and Futuna,-13.3,-176.2,142.0,False,0,Oceania,Polynesia,French,False,False,False
+WSM,Samoa,-13.58333333,-172.33333333,2842.0,False,0,Oceania,Polynesia,English|Samoan,True,True,True
+YEM,Yemen,15.0,48.0,527968.0,False,2,Asia,Western Asia,Arabic,False,True,True
+ZAF,South Africa,-29.0,24.0,1221037.0,False,6,Africa,Southern Africa,Afrikaans|English|Northern Sotho|Southern Ndebele|Southern Sotho|Swazi|Tsonga|Tswana|Venda|Xhosa|Zulu,True,True,True
+ZMB,Zambia,-15.0,30.0,752612.0,True,8,Africa,Eastern Africa,English,True,True,True
+ZWE,Zimbabwe,-20.0,30.0,390757.0,True,4,Africa,Eastern Africa,Chewa|Chibarwe|English|Kalanga|Khoisan|Ndau|Northern Ndebele|Shona|Sotho|Tonga|Tsonga|Tswana|Venda|Xhosa|Zimbabwean Sign Language,True,True,True

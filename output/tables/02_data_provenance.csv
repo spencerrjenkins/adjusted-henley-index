@@ -1,0 +1,16 @@
+indicator,pillar,observed,manual,proxied,imputed,observed_pct
+homicide_rate,security,166,4,1,28,83.4
+air_departures,draw,167,2,4,26,83.9
+tertiary_enroll,development,174,2,1,22,87.4
+rule_of_law,security,174,2,5,18,87.4
+electoral_democracy,security,174,7,0,18,87.4
+trade_openness,economy,175,2,4,18,87.9
+tourist_arrivals,draw,189,4,0,6,95.0
+tourism_receipts,draw,190,7,0,2,95.5
+gdp_pc_ppp,economy,191,5,1,2,96.0
+gdp_total_ppp,economy,191,6,0,2,96.0
+price_level,cost,191,4,2,2,96.0
+hdi,development,193,5,1,0,97.0
+internet_users,development,196,1,1,1,98.5
+surface_area,scale,196,3,0,0,98.5
+population,scale,197,2,0,0,99.0

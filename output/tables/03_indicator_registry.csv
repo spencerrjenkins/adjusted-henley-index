@@ -1,0 +1,16 @@
+indicator,pillar,label,source,code,direction,transform,median_vintage,note
+gdp_pc_ppp,economy,"GDP per capita, PPP",worldbank,NY.GDP.PCAP.PP.CD,1,log,2025,"Individual-level prosperity: wages, prices, standard of living."
+gdp_total_ppp,economy,"GDP, PPP",worldbank,NY.GDP.MKTP.PP.CD,1,log,2025,Market size: how much economic activity the door opens onto.
+trade_openness,economy,Trade,worldbank,NE.TRD.GNFS.ZS,1,linear,2025,How externally engaged the economy is; proxies ease of doing business as a foreigner.
+hdi,development,Human Development Index,undp,hdi,1,linear,2023,"UNDP composite of life expectancy, education, and income."
+internet_users,development,Individuals using the internet,worldbank,IT.NET.USER.ZS,1,linear,2024,Digital infrastructure; the binding constraint for remote work.
+tertiary_enroll,development,Tertiary school enrolment,worldbank,SE.TER.ENRR,1,linear,2023,Higher-education capacity; proxies value as a study destination.
+population,scale,Population,worldbank,SP.POP.TOTL,1,log,2025,"Demographic reach, independent of wealth."
+surface_area,scale,Surface area,worldbank,AG.SRF.TOTL.K2,1,log,2023,Physical extent: how much there is to actually go and see.
+tourist_arrivals,draw,International tourist arrivals,worldbank,ST.INT.ARVL,1,log,2020,Revealed preference: where the world actually chooses to go.
+tourism_receipts,draw,International tourism receipts,worldbank,ST.INT.RCPT.CD,1,log,2020,"Value, not just volume, of the tourism draw."
+air_departures,draw,Registered carrier departures,worldbank,IS.AIR.DPRT,1,log,2023,Air connectivity. A visa waiver you cannot fly to is theoretical.
+rule_of_law,security,Rule of law index (V-Dem),owid,rule_of_law_vdem__estimate_best,1,linear,2025,Are laws applied predictably and impartially to a foreigner?
+electoral_democracy,security,Electoral democracy index (V-Dem),owid,electdem_vdem__estimate_best,1,linear,2025,Civil-liberties environment a visitor is subject to.
+homicide_rate,security,Intentional homicides,worldbank,VC.IHR.PSRC.P5,-1,log,2022,Physical safety. Log-scaled: the gap from 1 to 10 per 100k matters more than 40 to 50.
+price_level,cost,Price level (PPP-to-market exchange-rate ratio),derived,NY.GDP.MKTP.CD / NY.GDP.MKTP.PP.CD,-1,linear,2025,"Cost of being there, relative to the world average."

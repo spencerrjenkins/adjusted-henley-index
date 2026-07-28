@@ -1,0 +1,200 @@
+iso3,gdp_pc_ppp,gdp_total_ppp,trade_openness,hdi,internet_users,tertiary_enroll,population,surface_area,tourist_arrivals,tourism_receipts,air_departures,rule_of_law,electoral_democracy,homicide_rate,price_level,name
+AFG,observed,observed,observed,observed,observed,observed,observed,observed,imputed:income,observed,observed,observed,observed,observed,observed,Afghanistan
+AGO,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Angola
+ALB,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Albania
+AND,observed,observed,proxy:ESP,observed,observed,observed,observed,observed,observed,observed,proxy:ESP,proxy:ESP,manual,observed,observed,Andorra
+ARE,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,United Arab Emirates
+ARG,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Argentina
+ARM,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Armenia
+ATG,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,imputed:income,imputed:income,observed,observed,Antigua and Barbuda
+AUS,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Australia
+AUT,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Austria
+AZE,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Azerbaijan
+BDI,observed,observed,imputed:income,observed,observed,observed,observed,observed,observed,observed,imputed:income,observed,observed,observed,observed,Burundi
+BEL,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Belgium
+BEN,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Benin
+BFA,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Burkina Faso
+BGD,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Bangladesh
+BGR,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Bulgaria
+BHR,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Bahrain
+BHS,observed,observed,observed,observed,observed,imputed:income,observed,observed,observed,observed,observed,imputed:income,imputed:income,observed,observed,Bahamas
+BIH,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Bosnia and Herzegovina
+BLR,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Belarus
+BLZ,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,imputed:income,imputed:income,observed,observed,Belize
+BOL,observed,observed,observed,observed,observed,imputed:income,observed,observed,observed,observed,observed,observed,observed,observed,observed,Bolivia
+BRA,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Brazil
+BRB,observed,observed,imputed:income,observed,observed,observed,observed,observed,observed,observed,imputed:income,observed,observed,observed,observed,Barbados
+BRN,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,imputed:income,imputed:income,observed,observed,Brunei
+BTN,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Bhutan
+BWA,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Botswana
+CAF,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,imputed:income,observed,observed,observed,observed,Central African Republic
+CAN,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Canada
+CHE,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Switzerland
+CHL,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Chile
+CHN,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,China
+CIV,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,imputed:income,observed,Ivory Coast
+CMR,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Cameroon
+COD,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,imputed:income,observed,DR Congo
+COG,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,imputed:income,observed,Congo
+COL,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Colombia
+COM,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,imputed:income,observed,observed,imputed:income,observed,Comoros
+CPV,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Cape Verde
+CRI,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Costa Rica
+CUB,manual,manual,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,manual,Cuba
+CYP,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Cyprus
+CZE,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Czech Republic
+DEU,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Germany
+DJI,observed,observed,observed,observed,observed,imputed:income,observed,observed,observed,observed,imputed:income,observed,observed,imputed:income,observed,Djibouti
+DMA,observed,observed,imputed:income,observed,observed,imputed:income,observed,observed,observed,observed,imputed:income,imputed:income,imputed:income,observed,observed,Dominica
+DNK,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,imputed:income,observed,observed,observed,observed,Denmark
+DOM,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Dominican Republic
+DZA,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Algeria
+ECU,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Ecuador
+EGY,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Egypt
+ERI,imputed:income,imputed:income,imputed:income,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,imputed:income,Eritrea
+ESP,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Spain
+EST,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Estonia
+ETH,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Ethiopia
+FIN,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Finland
+FJI,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Fiji
+FRA,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,France
+FSM,observed,observed,observed,observed,observed,imputed:income,observed,observed,observed,observed,imputed:income,imputed:income,imputed:income,observed,observed,Micronesia
+GAB,observed,observed,observed,observed,observed,imputed:income,observed,observed,observed,observed,observed,observed,observed,imputed:income,observed,Gabon
+GBR,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,United Kingdom
+GEO,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Georgia
+GHA,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Ghana
+GIN,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,imputed:income,observed,observed,imputed:income,observed,Guinea
+GMB,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,imputed:income,observed,Gambia
+GNB,observed,observed,observed,observed,observed,imputed:income,observed,observed,observed,observed,imputed:income,observed,observed,observed,observed,Guinea-Bissau
+GNQ,observed,observed,observed,observed,observed,imputed:income,observed,observed,imputed:income,observed,observed,observed,observed,imputed:income,observed,Equatorial Guinea
+GRC,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Greece
+GRD,observed,observed,imputed:income,observed,observed,observed,observed,observed,observed,observed,imputed:income,imputed:income,imputed:income,observed,observed,Grenada
+GTM,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Guatemala
+GUY,observed,observed,imputed:income,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Guyana
+HKG,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Hong Kong
+HND,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Honduras
+HRV,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Croatia
+HTI,observed,observed,observed,observed,observed,imputed:income,observed,observed,observed,observed,observed,observed,observed,observed,observed,Haiti
+HUN,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Hungary
+IDN,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Indonesia
+IND,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,India
+IRL,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Ireland
+IRN,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Iran
+IRQ,observed,observed,observed,observed,observed,imputed:income,observed,observed,observed,observed,observed,observed,observed,observed,observed,Iraq
+ISL,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Iceland
+ISR,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Israel
+ITA,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Italy
+JAM,observed,observed,imputed:income,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Jamaica
+JOR,observed,observed,imputed:income,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Jordan
+JPN,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Japan
+KAZ,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Kazakhstan
+KEN,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Kenya
+KGZ,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Kyrgyzstan
+KHM,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,imputed:income,observed,Cambodia
+KIR,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,imputed:income,imputed:income,observed,observed,Kiribati
+KNA,observed,observed,imputed:income,observed,observed,observed,observed,observed,observed,observed,imputed:income,imputed:income,imputed:income,observed,observed,Saint Kitts and Nevis
+KOR,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,South Korea
+KWT,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Kuwait
+LAO,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,imputed:income,observed,Laos
+LBN,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Lebanon
+LBR,observed,observed,imputed:income,observed,observed,observed,observed,observed,imputed:income,observed,imputed:income,observed,observed,observed,observed,Liberia
+LBY,observed,observed,observed,observed,observed,imputed:income,observed,observed,observed,observed,observed,observed,observed,imputed:income,observed,Libya
+LCA,observed,observed,imputed:income,observed,observed,observed,observed,observed,observed,observed,imputed:income,imputed:income,imputed:income,observed,observed,Saint Lucia
+LIE,manual,manual,proxy:CHE,observed,observed,observed,observed,observed,observed,manual,proxy:CHE,proxy:CHE,manual,observed,proxy:CHE,Liechtenstein
+LKA,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Sri Lanka
+LSO,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,imputed:income,observed,observed,imputed:income,observed,Lesotho
+LTU,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Lithuania
+LUX,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Luxembourg
+LVA,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Latvia
+MAC,observed,observed,observed,manual,observed,observed,observed,observed,observed,observed,observed,manual,manual,observed,observed,Macao
+MAR,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Morocco
+MCO,manual,manual,proxy:FRA,manual,observed,observed,observed,observed,observed,manual,observed,proxy:FRA,manual,manual,manual,Monaco
+MDA,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Moldova
+MDG,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,imputed:income,observed,Madagascar
+MDV,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Maldives
+MEX,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Mexico
+MHL,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,imputed:income,imputed:income,imputed:income,observed,Marshall Islands
+MKD,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,imputed:income,observed,observed,observed,observed,North Macedonia
+MLI,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,imputed:income,observed,Mali
+MLT,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Malta
+MMR,observed,observed,imputed:income,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Myanmar
+MNE,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Montenegro
+MNG,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Mongolia
+MOZ,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,imputed:income,observed,Mozambique
+MRT,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Mauritania
+MUS,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Mauritius
+MWI,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Malawi
+MYS,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Malaysia
+NAM,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Namibia
+NER,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Niger
+NGA,observed,observed,imputed:income,observed,observed,imputed:income,observed,observed,observed,observed,observed,observed,observed,observed,observed,Nigeria
+NIC,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,imputed:income,observed,observed,observed,observed,Nicaragua
+NLD,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Netherlands
+NOR,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,imputed:income,observed,observed,observed,observed,Norway
+NPL,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Nepal
+NRU,observed,observed,observed,observed,observed,imputed:income,observed,observed,imputed:income,observed,observed,imputed:income,imputed:income,imputed:income,observed,Nauru
+NZL,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,New Zealand
+OMN,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Oman
+PAK,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Pakistan
+PAN,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Panama
+PER,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Peru
+PHL,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Philippines
+PLW,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,imputed:income,imputed:income,imputed:income,observed,observed,Palau
+PNG,observed,observed,imputed:income,observed,observed,imputed:income,observed,observed,observed,observed,observed,observed,observed,imputed:income,observed,Papua New Guinea
+POL,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Poland
+PRK,manual,manual,manual,manual,imputed:income,observed,observed,observed,manual,manual,observed,observed,observed,manual,manual,North Korea
+PRT,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Portugal
+PRY,observed,observed,observed,observed,observed,imputed:income,observed,observed,observed,observed,observed,observed,observed,observed,observed,Paraguay
+PSE,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,imputed:income,imputed:income,imputed:income,observed,observed,Palestine
+QAT,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Qatar
+ROU,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Romania
+RUS,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Russia
+RWA,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Rwanda
+SAU,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Saudi Arabia
+SDN,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,imputed:income,observed,Sudan
+SEN,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Senegal
+SGP,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Singapore
+SLB,observed,observed,observed,observed,observed,imputed:income,observed,observed,observed,observed,observed,observed,observed,imputed:income,observed,Solomon Islands
+SLE,observed,observed,observed,observed,observed,imputed:income,observed,observed,observed,observed,observed,observed,observed,observed,observed,Sierra Leone
+SLV,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,El Salvador
+SMR,observed,observed,observed,observed,observed,observed,observed,observed,observed,manual,proxy:ITA,proxy:ITA,manual,manual,observed,San Marino
+SOM,observed,observed,observed,observed,observed,imputed:income,observed,observed,imputed:income,imputed:income,observed,observed,observed,imputed:income,observed,Somalia
+SRB,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Serbia
+SSD,observed,observed,observed,observed,observed,imputed:income,observed,observed,imputed:income,observed,imputed:income,observed,observed,observed,observed,South Sudan
+STP,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,imputed:income,observed,Sao Tome and Principe
+SUR,observed,observed,imputed:income,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Suriname
+SVK,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Slovakia
+SVN,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Slovenia
+SWE,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Sweden
+SWZ,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Swaziland
+SYC,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Seychelles
+SYR,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,imputed:income,observed,Syria
+TCD,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,imputed:income,observed,Chad
+TGO,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,imputed:income,observed,Togo
+THA,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,imputed:income,observed,Thailand
+TJK,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Tajikistan
+TKM,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Turkmenistan
+TLS,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,imputed:income,observed,observed,observed,observed,Timor-Leste
+TON,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,imputed:income,imputed:income,imputed:income,observed,observed,Tonga
+TTO,observed,observed,imputed:income,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Trinidad and Tobago
+TUN,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Tunisia
+TUR,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Turkey
+TUV,observed,observed,imputed:income,observed,observed,observed,observed,observed,observed,observed,imputed:income,imputed:income,imputed:income,observed,observed,Tuvalu
+TWN,manual,manual,manual,manual,manual,manual,manual,manual,manual,manual,manual,observed,observed,manual,manual,Taiwan
+TZA,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Tanzania
+UGA,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Uganda
+UKR,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Ukraine
+URY,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,imputed:income,observed,observed,observed,observed,Uruguay
+USA,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,United States
+UZB,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Uzbekistan
+VAT,proxy:ITA,manual,proxy:ITA,proxy:ITA,proxy:ITA,proxy:ITA,manual,manual,manual,manual,proxy:ITA,proxy:ITA,manual,proxy:ITA,proxy:ITA,Vatican
+VCT,observed,observed,imputed:income,observed,observed,observed,observed,observed,observed,observed,imputed:income,imputed:income,imputed:income,observed,observed,Saint Vincent and the Grenadines
+VEN,imputed:income,imputed:income,observed,observed,observed,imputed:income,observed,observed,observed,observed,observed,observed,observed,observed,imputed:income,Venezuela
+VNM,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,imputed:income,observed,Vietnam
+VUT,observed,observed,observed,observed,observed,imputed:income,observed,observed,observed,observed,observed,observed,observed,observed,observed,Vanuatu
+WSM,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,imputed:income,imputed:income,observed,observed,Samoa
+XKX,observed,observed,observed,manual,observed,manual,observed,manual,manual,manual,manual,manual,manual,observed,observed,Kosovo
+YEM,observed,observed,observed,observed,observed,imputed:income,observed,observed,observed,observed,observed,observed,observed,observed,observed,Yemen
+ZAF,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,South Africa
+ZMB,observed,observed,observed,observed,observed,observed,observed,observed,observed,imputed:income,observed,observed,observed,observed,observed,Zambia
+ZWE,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,observed,Zimbabwe

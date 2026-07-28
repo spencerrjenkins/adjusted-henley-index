@@ -1,0 +1,8 @@
+term,coefficient,std_error,t,p_value,ci_low,ci_high,label
+const,-13.997,13.213,-1.06,0.2895,-39.894,11.901,Intercept
+log_gdp_pc_ppp,-2.13,2.507,-0.85,0.3956,-7.044,2.784,"Own GDP per capita (log, PPP)"
+hdi,106.333,20.136,5.28,0.0,66.867,145.799,Own Human Development Index
+log_population,-0.561,0.391,-1.44,0.1506,-1.327,0.204,Own population (log)
+rule_of_law,6.549,6.743,0.97,0.3314,-6.666,19.765,Own rule of law (V-Dem)
+electoral_democracy,22.596,6.837,3.3,0.001,9.195,35.997,Own electoral democracy (V-Dem)
+trade_openness,0.027,0.015,1.79,0.0736,-0.003,0.057,Own trade openness (% of GDP)

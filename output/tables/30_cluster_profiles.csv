@@ -1,0 +1,5 @@
+cluster,label,description,members,mean_attainment_pct,mean_breadth,mean_openness_count
+0,Frictionless core,"Reaches ~140 destinations without a prior visa and admits ~107 nationalities on the same terms, so it runs a mobility surplus of about 33 destinations.",94,75.7,139.6,106.6
+3,Guarded middle (tier 2),"Reaches ~77 destinations without a prior visa and admits ~94 nationalities on the same terms, so it runs a mobility deficit of about 17 destinations.",32,40.7,76.8,94.2
+2,Open but unreciprocated (tier 3),"Reaches ~56 destinations without a prior visa and admits ~156 nationalities on the same terms, so it runs a mobility deficit of about 100 destinations.",36,30.4,55.5,155.6
+1,Doubly closed,"Reaches ~47 destinations without a prior visa and admits ~18 nationalities on the same terms, so it runs a mobility surplus of about 29 destinations.",37,26.9,47.2,18.4

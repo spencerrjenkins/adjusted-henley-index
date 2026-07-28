@@ -1,0 +1,200 @@
+passport,cluster,name,label
+AFG,1,Afghanistan,Doubly closed
+AGO,2,Angola,Open but unreciprocated (tier 3)
+ALB,0,Albania,Frictionless core
+AND,0,Andorra,Frictionless core
+ARE,0,United Arab Emirates,Frictionless core
+ARG,0,Argentina,Frictionless core
+ARM,3,Armenia,Guarded middle (tier 2)
+ATG,0,Antigua and Barbuda,Frictionless core
+AUS,0,Australia,Frictionless core
+AUT,0,Austria,Frictionless core
+AZE,3,Azerbaijan,Guarded middle (tier 2)
+BDI,2,Burundi,Open but unreciprocated (tier 3)
+BEL,0,Belgium,Frictionless core
+BEN,1,Benin,Doubly closed
+BFA,1,Burkina Faso,Doubly closed
+BGD,2,Bangladesh,Open but unreciprocated (tier 3)
+BGR,0,Bulgaria,Frictionless core
+BHR,3,Bahrain,Guarded middle (tier 2)
+BHS,0,Bahamas,Frictionless core
+BIH,0,Bosnia and Herzegovina,Frictionless core
+BLR,3,Belarus,Guarded middle (tier 2)
+BLZ,3,Belize,Guarded middle (tier 2)
+BOL,3,Bolivia,Guarded middle (tier 2)
+BRA,0,Brazil,Frictionless core
+BRB,0,Barbados,Frictionless core
+BRN,0,Brunei,Frictionless core
+BTN,3,Bhutan,Guarded middle (tier 2)
+BWA,2,Botswana,Open but unreciprocated (tier 3)
+CAF,1,Central African Republic,Doubly closed
+CAN,0,Canada,Frictionless core
+CHE,0,Switzerland,Frictionless core
+CHL,0,Chile,Frictionless core
+CHN,3,China,Guarded middle (tier 2)
+CIV,2,Ivory Coast,Open but unreciprocated (tier 3)
+CMR,1,Cameroon,Doubly closed
+COD,1,DR Congo,Doubly closed
+COG,1,Congo,Doubly closed
+COL,0,Colombia,Frictionless core
+COM,2,Comoros,Open but unreciprocated (tier 3)
+CPV,2,Cape Verde,Open but unreciprocated (tier 3)
+CRI,0,Costa Rica,Frictionless core
+CUB,3,Cuba,Guarded middle (tier 2)
+CYP,0,Cyprus,Frictionless core
+CZE,0,Czech Republic,Frictionless core
+DEU,0,Germany,Frictionless core
+DJI,2,Djibouti,Open but unreciprocated (tier 3)
+DMA,0,Dominica,Frictionless core
+DNK,0,Denmark,Frictionless core
+DOM,3,Dominican Republic,Guarded middle (tier 2)
+DZA,1,Algeria,Doubly closed
+ECU,3,Ecuador,Guarded middle (tier 2)
+EGY,2,Egypt,Open but unreciprocated (tier 3)
+ERI,1,Eritrea,Doubly closed
+ESP,0,Spain,Frictionless core
+EST,0,Estonia,Frictionless core
+ETH,2,Ethiopia,Open but unreciprocated (tier 3)
+FIN,0,Finland,Frictionless core
+FJI,3,Fiji,Guarded middle (tier 2)
+FRA,0,France,Frictionless core
+FSM,0,Micronesia,Frictionless core
+GAB,1,Gabon,Doubly closed
+GBR,0,United Kingdom,Frictionless core
+GEO,0,Georgia,Frictionless core
+GHA,1,Ghana,Doubly closed
+GIN,1,Guinea,Doubly closed
+GMB,2,Gambia,Open but unreciprocated (tier 3)
+GNB,2,Guinea-Bissau,Open but unreciprocated (tier 3)
+GNQ,1,Equatorial Guinea,Doubly closed
+GRC,0,Greece,Frictionless core
+GRD,0,Grenada,Frictionless core
+GTM,0,Guatemala,Frictionless core
+GUY,3,Guyana,Guarded middle (tier 2)
+HKG,0,Hong Kong,Frictionless core
+HND,0,Honduras,Frictionless core
+HRV,0,Croatia,Frictionless core
+HTI,2,Haiti,Open but unreciprocated (tier 3)
+HUN,0,Hungary,Frictionless core
+IDN,3,Indonesia,Guarded middle (tier 2)
+IND,1,India,Doubly closed
+IRL,0,Ireland,Frictionless core
+IRN,2,Iran,Open but unreciprocated (tier 3)
+IRQ,1,Iraq,Doubly closed
+ISL,0,Iceland,Frictionless core
+ISR,0,Israel,Frictionless core
+ITA,0,Italy,Frictionless core
+JAM,3,Jamaica,Guarded middle (tier 2)
+JOR,3,Jordan,Guarded middle (tier 2)
+JPN,0,Japan,Frictionless core
+KAZ,3,Kazakhstan,Guarded middle (tier 2)
+KEN,2,Kenya,Open but unreciprocated (tier 3)
+KGZ,3,Kyrgyzstan,Guarded middle (tier 2)
+KHM,2,Cambodia,Open but unreciprocated (tier 3)
+KIR,0,Kiribati,Frictionless core
+KNA,0,Saint Kitts and Nevis,Frictionless core
+KOR,0,South Korea,Frictionless core
+KWT,3,Kuwait,Guarded middle (tier 2)
+LAO,3,Laos,Guarded middle (tier 2)
+LBN,2,Lebanon,Open but unreciprocated (tier 3)
+LBR,1,Liberia,Doubly closed
+LBY,1,Libya,Doubly closed
+LCA,0,Saint Lucia,Frictionless core
+LIE,0,Liechtenstein,Frictionless core
+LKA,2,Sri Lanka,Open but unreciprocated (tier 3)
+LSO,2,Lesotho,Open but unreciprocated (tier 3)
+LTU,0,Lithuania,Frictionless core
+LUX,0,Luxembourg,Frictionless core
+LVA,0,Latvia,Frictionless core
+MAC,0,Macao,Frictionless core
+MAR,1,Morocco,Doubly closed
+MCO,0,Monaco,Frictionless core
+MDA,0,Moldova,Frictionless core
+MDG,2,Madagascar,Open but unreciprocated (tier 3)
+MDV,3,Maldives,Guarded middle (tier 2)
+MEX,0,Mexico,Frictionless core
+MHL,0,Marshall Islands,Frictionless core
+MKD,0,North Macedonia,Frictionless core
+MLI,1,Mali,Doubly closed
+MLT,0,Malta,Frictionless core
+MMR,1,Myanmar,Doubly closed
+MNE,0,Montenegro,Frictionless core
+MNG,3,Mongolia,Guarded middle (tier 2)
+MOZ,2,Mozambique,Open but unreciprocated (tier 3)
+MRT,1,Mauritania,Doubly closed
+MUS,0,Mauritius,Frictionless core
+MWI,2,Malawi,Open but unreciprocated (tier 3)
+MYS,0,Malaysia,Frictionless core
+NAM,2,Namibia,Open but unreciprocated (tier 3)
+NER,1,Niger,Doubly closed
+NGA,1,Nigeria,Doubly closed
+NIC,0,Nicaragua,Frictionless core
+NLD,0,Netherlands,Frictionless core
+NOR,0,Norway,Frictionless core
+NPL,2,Nepal,Open but unreciprocated (tier 3)
+NRU,1,Nauru,Doubly closed
+NZL,0,New Zealand,Frictionless core
+OMN,3,Oman,Guarded middle (tier 2)
+PAK,1,Pakistan,Doubly closed
+PAN,0,Panama,Frictionless core
+PER,0,Peru,Frictionless core
+PHL,2,Philippines,Open but unreciprocated (tier 3)
+PLW,0,Palau,Frictionless core
+PNG,2,Papua New Guinea,Open but unreciprocated (tier 3)
+POL,0,Poland,Frictionless core
+PRK,1,North Korea,Doubly closed
+PRT,0,Portugal,Frictionless core
+PRY,0,Paraguay,Frictionless core
+PSE,2,Palestine,Open but unreciprocated (tier 3)
+QAT,3,Qatar,Guarded middle (tier 2)
+ROU,0,Romania,Frictionless core
+RUS,3,Russia,Guarded middle (tier 2)
+RWA,2,Rwanda,Open but unreciprocated (tier 3)
+SAU,3,Saudi Arabia,Guarded middle (tier 2)
+SDN,1,Sudan,Doubly closed
+SEN,2,Senegal,Open but unreciprocated (tier 3)
+SGP,0,Singapore,Frictionless core
+SLB,0,Solomon Islands,Frictionless core
+SLE,2,Sierra Leone,Open but unreciprocated (tier 3)
+SLV,0,El Salvador,Frictionless core
+SMR,0,San Marino,Frictionless core
+SOM,1,Somalia,Doubly closed
+SRB,0,Serbia,Frictionless core
+SSD,1,South Sudan,Doubly closed
+STP,1,Sao Tome and Principe,Doubly closed
+SUR,3,Suriname,Guarded middle (tier 2)
+SVK,0,Slovakia,Frictionless core
+SVN,0,Slovenia,Frictionless core
+SWE,0,Sweden,Frictionless core
+SWZ,2,Swaziland,Open but unreciprocated (tier 3)
+SYC,0,Seychelles,Frictionless core
+SYR,1,Syria,Doubly closed
+TCD,1,Chad,Doubly closed
+TGO,1,Togo,Doubly closed
+THA,3,Thailand,Guarded middle (tier 2)
+TJK,3,Tajikistan,Guarded middle (tier 2)
+TKM,1,Turkmenistan,Doubly closed
+TLS,0,Timor-Leste,Frictionless core
+TON,0,Tonga,Frictionless core
+TTO,0,Trinidad and Tobago,Frictionless core
+TUN,2,Tunisia,Open but unreciprocated (tier 3)
+TUR,3,Turkey,Guarded middle (tier 2)
+TUV,0,Tuvalu,Frictionless core
+TWN,0,Taiwan,Frictionless core
+TZA,2,Tanzania,Open but unreciprocated (tier 3)
+UGA,1,Uganda,Doubly closed
+UKR,0,Ukraine,Frictionless core
+URY,0,Uruguay,Frictionless core
+USA,0,United States,Frictionless core
+UZB,3,Uzbekistan,Guarded middle (tier 2)
+VAT,0,Vatican,Frictionless core
+VCT,0,Saint Vincent and the Grenadines,Frictionless core
+VEN,0,Venezuela,Frictionless core
+VNM,1,Vietnam,Doubly closed
+VUT,2,Vanuatu,Open but unreciprocated (tier 3)
+WSM,0,Samoa,Frictionless core
+XKX,0,Kosovo,Frictionless core
+YEM,1,Yemen,Doubly closed
+ZAF,3,South Africa,Guarded middle (tier 2)
+ZMB,2,Zambia,Open but unreciprocated (tier 3)
+ZWE,2,Zimbabwe,Open but unreciprocated (tier 3)

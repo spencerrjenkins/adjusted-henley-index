@@ -1,0 +1,5 @@
+variant,weight_max_min_ratio,gini_of_weight,kendall_tau_vs_henley
+flat (gamma 0.5),1.86,0.0757,0.9776
+headline (gamma 1),3.46,0.1473,0.9706
+sharp (gamma 2),11.96,0.2762,0.9544
+extreme (gamma 4),143.0,0.4746,0.911

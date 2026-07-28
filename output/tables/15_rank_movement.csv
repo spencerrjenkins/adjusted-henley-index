@@ -1,0 +1,200 @@
+passport,baseline_rank,target_rank,weighting_only_rank,friction_only_rank,total_move,weighting_effect,friction_effect,name
+AFG,199,199,199,199,0,0,0,Afghanistan
+AGO,170,167,172,169,3,-2,1,Angola
+ALB,92,89,90,92,3,2,0,Albania
+AND,47,47,45,47,0,2,0,Andorra
+ARE,1,1,1,1,0,0,0,United Arab Emirates
+ARG,45,46,46,45,-1,-1,0,Argentina
+ARM,125,124,121,130,1,4,-5,Armenia
+ATG,60,60,62,58,0,-2,2,Antigua and Barbuda
+AUS,34,35,34,36,-1,0,-2,Australia
+AUT,19,26,23,23,-7,-4,-4,Austria
+AZE,118,119,118,122,-1,0,-4,Azerbaijan
+BDI,170,176,174,175,-6,-4,-5,Burundi
+BEL,6,8,8,10,-2,-2,-4,Belgium
+BEN,141,142,143,140,-1,-2,1,Benin
+BFA,153,155,157,152,-2,-4,1,Burkina Faso
+BGD,193,193,194,193,0,-1,0,Bangladesh
+BGR,28,31,30,29,-3,-2,-1,Bulgaria
+BHR,99,104,100,105,-5,-1,-6,Bahrain
+BHS,51,52,53,51,-1,-2,0,Bahamas
+BIH,87,85,84,87,2,3,0,Bosnia and Herzegovina
+BLR,107,110,108,110,-3,-1,-3,Belarus
+BLZ,98,100,103,99,-2,-5,-1,Belize
+BOL,118,115,115,117,3,3,1,Bolivia
+BRA,44,45,46,44,-1,-2,0,Brazil
+BRB,49,49,50,49,0,-1,0,Barbados
+BRN,51,51,49,52,0,2,-1,Brunei
+BTN,165,161,163,165,4,2,0,Bhutan
+BWA,116,120,120,119,-4,-4,-3,Botswana
+CAF,168,171,170,170,-3,-2,-2,Central African Republic
+CAN,39,40,40,40,-1,-1,-1,Canada
+CHE,6,11,8,13,-5,-2,-7,Switzerland
+CHL,45,44,44,46,1,1,-1,Chile
+CHN,113,114,114,113,-1,-1,0,China
+CIV,156,160,164,153,-4,-8,3,Ivory Coast
+CMR,173,178,179,174,-5,-6,-1,Cameroon
+COD,181,183,183,185,-2,-2,-4,DR Congo
+COG,173,177,177,177,-4,-4,-4,Congo
+COL,74,72,74,73,2,0,1,Colombia
+COM,161,164,160,163,-3,1,-2,Comoros
+CPV,132,131,135,133,1,-3,-1,Cape Verde
+CRI,63,61,64,62,2,-1,1,Costa Rica
+CUB,146,144,144,148,2,2,-2,Cuba
+CYP,36,35,39,34,1,-3,2,Cyprus
+CZE,28,33,30,32,-5,-2,-4,Czech Republic
+DEU,6,14,8,14,-8,-2,-8,Germany
+DJI,176,172,175,176,4,1,0,Djibouti
+DMA,70,70,71,70,0,-1,0,Dominica
+DNK,6,8,8,10,-2,-2,-4,Denmark
+DOM,125,121,122,126,4,3,-1,Dominican Republic
+DZA,153,157,154,155,-4,-1,-2,Algeria
+ECU,102,105,101,107,-3,1,-5,Ecuador
+EGY,168,170,170,168,-2,-2,0,Egypt
+ERI,190,188,191,188,2,-1,2,Eritrea
+ESP,5,3,5,3,2,0,2,Spain
+EST,28,27,28,29,1,0,-1,Estonia
+ETH,180,181,181,180,-1,-1,0,Ethiopia
+FIN,6,6,6,4,0,0,2,Finland
+FJI,107,107,110,105,0,-3,2,Fiji
+FRA,6,11,8,10,-5,-2,-4,France
+FSM,95,92,93,92,3,2,3,Micronesia
+GAB,146,149,148,149,-3,-2,-3,Gabon
+GBR,36,39,38,38,-3,-2,-2,United Kingdom
+GEO,72,76,72,76,-4,0,-4,Georgia
+GHA,132,136,138,128,-4,-6,4,Ghana
+GIN,156,154,154,156,2,2,0,Guinea
+GMB,130,134,136,127,-4,-6,3,Gambia
+GNB,165,168,169,163,-3,-4,2,Guinea-Bissau
+GNQ,153,158,156,157,-5,-3,-4,Equatorial Guinea
+GRC,19,24,23,20,-5,-4,-1,Greece
+GRD,63,66,66,64,-3,-3,-1,Grenada
+GTM,79,75,77,78,4,2,1,Guatemala
+GUY,105,106,107,103,-1,-2,2,Guyana
+HKG,41,42,42,42,-1,-1,-1,Hong Kong
+HND,79,79,79,81,0,0,-2,Honduras
+HRV,19,19,20,23,0,-1,-4,Croatia
+HTI,176,172,168,178,4,8,-2,Haiti
+HUN,19,19,20,23,0,-1,-4,Hungary
+IDN,113,113,112,112,0,1,1,Indonesia
+IND,150,143,150,146,7,0,4,India
+IRL,6,16,17,14,-10,-11,-8,Ireland
+IRN,186,185,184,189,1,2,-3,Iran
+IRQ,196,196,196,197,0,0,-1,Iraq
+ISL,39,37,37,37,2,2,2,Iceland
+ISR,50,50,51,50,0,-1,0,Israel
+ITA,6,14,8,14,-8,-2,-8,Italy
+JAM,104,102,106,101,2,-2,3,Jamaica
+JOR,165,161,160,167,4,5,-2,Jordan
+JPN,4,11,3,22,-7,1,-18,Japan
+KAZ,112,112,110,114,0,2,-2,Kazakhstan
+KEN,128,132,132,128,-4,-4,0,Kenya
+KGZ,139,135,134,137,4,5,2,Kyrgyzstan
+KHM,162,153,158,161,9,4,1,Cambodia
+KIR,84,84,87,82,0,-3,2,Kiribati
+KNA,54,55,56,53,-1,-2,1,Saint Kitts and Nevis
+KOR,2,3,2,4,-1,0,-2,South Korea
+KWT,96,98,96,97,-2,0,-1,Kuwait
+LAO,176,165,167,172,11,9,4,Laos
+LBN,179,180,178,179,-1,1,0,Lebanon
+LBR,170,175,175,171,-5,-5,-1,Liberia
+LBY,185,185,185,186,0,0,-1,Libya
+LCA,69,69,69,67,0,0,2,Saint Lucia
+LIE,36,38,36,39,-2,0,-3,Liechtenstein
+LKA,186,187,186,183,-1,0,3,Sri Lanka
+LSO,121,126,124,123,-5,-3,-2,Lesotho
+LTU,34,34,34,34,0,0,0,Lithuania
+LUX,6,5,6,4,1,0,2,Luxembourg
+LVA,28,28,28,29,0,0,-1,Latvia
+MAC,62,62,60,65,0,2,-3,Macao
+MAR,118,122,123,118,-4,-5,0,Morocco
+MCO,41,41,41,43,0,0,-2,Monaco
+MDA,90,90,88,89,0,2,1,Moldova
+MDG,145,145,144,147,0,1,-2,Madagascar
+MDV,99,103,104,100,-4,-5,-1,Maldives
+MEX,54,54,55,56,0,-1,-2,Mexico
+MHL,87,87,88,86,0,-1,1,Marshall Islands
+MKD,74,77,75,78,-3,-1,-4,North Macedonia
+MLI,162,165,166,162,-3,-4,0,Mali
+MLT,19,16,26,14,3,-7,5,Malta
+MMR,181,179,180,180,2,1,1,Myanmar
+MNE,74,73,73,74,1,1,0,Montenegro
+MNG,132,122,125,131,10,7,1,Mongolia
+MOZ,146,151,149,149,-5,-3,-3,Mozambique
+MRT,159,158,160,160,1,-1,-1,Mauritania
+MUS,65,68,67,67,-3,-2,-2,Mauritius
+MWI,125,128,128,125,-3,-3,0,Malawi
+MYS,6,32,33,9,-26,-27,-3,Malaysia
+NAM,123,125,126,121,-2,-3,2,Namibia
+NER,156,163,159,159,-7,-3,-3,Niger
+NGA,181,188,188,182,-7,-7,-1,Nigeria
+NIC,87,83,83,85,4,4,2,Nicaragua
+NLD,6,8,8,4,-2,-2,2,Netherlands
+NOR,6,16,8,18,-10,-2,-12,Norway
+NPL,190,184,189,187,6,1,3,Nepal
+NRU,115,116,117,115,-1,-2,0,Nauru
+NZL,28,29,27,33,-1,1,-5,New Zealand
+OMN,105,108,105,109,-3,0,-4,Oman
+PAK,196,197,197,196,-1,-1,0,Pakistan
+PAN,68,65,65,69,3,3,-1,Panama
+PER,59,57,57,59,2,2,0,Peru
+PHL,135,129,130,135,6,5,0,Philippines
+PLW,93,91,91,90,2,2,3,Palau
+PNG,116,118,119,116,-2,-3,0,Papua New Guinea
+POL,19,24,22,20,-5,-3,-1,Poland
+PRK,189,191,189,191,-2,0,-2,North Korea
+PRT,19,19,23,18,0,-4,1,Portugal
+PRY,65,63,63,66,2,2,-1,Paraguay
+PSE,192,192,192,192,0,0,0,Palestine
+QAT,93,95,95,95,-2,-2,-2,Qatar
+ROU,28,29,30,28,-1,-2,0,Romania
+RUS,79,93,92,91,-14,-13,-12,Russia
+RWA,135,147,142,139,-12,-7,-4,Rwanda
+SAU,99,101,101,102,-2,-2,-3,Saudi Arabia
+SDN,186,190,187,190,-4,-1,-4,Sudan
+SEN,146,151,152,145,-5,-6,1,Senegal
+SGP,2,2,3,2,0,-1,0,Singapore
+SLB,72,78,78,71,-6,-6,1,Solomon Islands
+SLE,141,146,146,143,-5,-5,-2,Sierra Leone
+SLV,77,74,76,75,3,1,2,El Salvador
+SMR,48,48,48,48,0,0,0,San Marino
+SOM,195,195,195,195,0,0,0,Somalia
+SRB,71,71,70,71,0,1,0,Serbia
+SSD,181,182,182,183,-1,-1,-2,South Sudan
+STP,141,139,139,144,2,2,-3,Sao Tome and Principe
+SUR,121,117,116,120,4,5,1,Suriname
+SVK,19,19,18,23,0,1,-4,Slovakia
+SVN,19,19,18,23,0,1,-4,Slovenia
+SWE,6,6,8,4,0,-2,2,Sweden
+SWZ,124,127,127,124,-3,-3,0,Swaziland
+SYC,58,59,59,57,-1,-1,1,Seychelles
+SYR,198,198,198,198,0,0,0,Syria
+TCD,162,168,165,166,-6,-3,-4,Chad
+TGO,150,155,153,151,-5,-3,-1,Togo
+THA,111,109,109,111,2,2,0,Thailand
+TJK,150,148,146,153,2,4,-3,Tajikistan
+TKM,173,174,173,173,-1,0,0,Turkmenistan
+TLS,102,96,97,98,6,5,4,Timor-Leste
+TON,84,86,86,83,-2,-2,1,Tonga
+TTO,65,67,68,61,-2,-3,4,Trinidad and Tobago
+TUN,130,130,129,134,0,1,-4,Tunisia
+TUR,86,94,94,94,-8,-8,-8,Turkey
+TUV,79,81,82,77,-2,-3,2,Tuvalu
+TWN,83,82,79,84,1,4,-1,Taiwan
+TZA,128,133,131,132,-5,-3,-4,Tanzania
+UGA,135,141,140,138,-6,-5,-3,Uganda
+UKR,61,64,61,63,-3,0,-2,Ukraine
+URY,53,53,52,54,0,1,-1,Uruguay
+USA,41,43,43,41,-2,-2,0,United States
+UZB,140,136,132,141,4,8,-1,Uzbekistan
+VAT,56,58,54,60,-2,2,-4,Vatican
+VCT,56,56,58,55,0,-2,1,Saint Vincent and the Grenadines
+VEN,90,88,85,88,2,5,2,Venezuela
+VNM,159,149,151,157,10,8,2,Vietnam
+VUT,109,111,113,108,-2,-4,1,Vanuatu
+WSM,78,80,81,78,-2,-3,0,Samoa
+XKX,109,97,99,103,12,10,6,Kosovo
+YEM,193,194,193,194,-1,0,-1,Yemen
+ZAF,97,99,98,96,-2,-1,1,South Africa
+ZMB,135,138,137,136,-3,-2,-1,Zambia
+ZWE,141,140,141,141,1,0,0,Zimbabwe

@@ -1,0 +1,85 @@
+iso3,indicator,value,year,proxy_iso3,source
+# Jurisdictions the multilateral agencies do not report as separate economies.
+# Two mechanisms:
+#   value      - a hand-entered figure, with its source named in the last column
+#   proxy_iso3 - copy the value from another country, used where the honest
+#                answer is "economically/administratively, this IS that place"
+# A patch only ever fills a cell that is genuinely missing or has failed the
+# vintage floor; a real observation always wins. Everything not listed here is
+# imputed from peer-group medians instead (see features.impute).
+TWN,gdp_pc_ppp,79800,2024,,IMF World Economic Outlook (Taiwan Province of China)
+TWN,gdp_total_ppp,1870000000000,2024,,IMF World Economic Outlook
+TWN,trade_openness,128,2024,,Taiwan DGBAS national accounts
+TWN,hdi,0.926,2023,,Taiwan DGBAS calculation using UNDP HDI methodology
+TWN,internet_users,92.0,2024,,Taiwan NDC / ITU-comparable estimate
+TWN,tertiary_enroll,90.0,2023,,Taiwan Ministry of Education
+TWN,population,23400000,2024,,Taiwan Ministry of the Interior
+TWN,surface_area,36197,2024,,Taiwan Ministry of the Interior
+TWN,tourist_arrivals,7860000,2024,,Taiwan Tourism Administration
+TWN,tourism_receipts,5400000000,2024,,Taiwan Tourism Administration
+TWN,air_departures,235000,2023,,Taiwan CAA movement statistics
+TWN,homicide_rate,0.8,2023,,Taiwan National Police Agency
+TWN,price_level,0.43,2024,,Derived: IMF nominal GDP / IMF PPP GDP
+PRK,gdp_pc_ppp,1700,2023,,CIA World Factbook estimate (no official statistics published)
+PRK,gdp_total_ppp,44000000000,2023,,CIA World Factbook estimate
+PRK,trade_openness,15,2023,,Bank of Korea DPRK estimates
+PRK,hdi,0.550,2023,,Analyst estimate; UNDP does not publish an HDI for the DPRK
+PRK,tourist_arrivals,20000,2019,,Analyst estimate from tour-operator reporting
+PRK,tourism_receipts,30000000,2019,,Analyst estimate from tour-operator reporting
+PRK,homicide_rate,4.4,2020,,UNODC regional estimate; no national reporting
+PRK,price_level,0.30,2023,,Analyst estimate
+VAT,population,764,2023,,Holy See Press Office (resident population)
+VAT,surface_area,0.49,2024,,Holy See / Vatican City State
+VAT,tourist_arrivals,6800000,2024,,Vatican Museums annual visitor figure
+VAT,tourism_receipts,120000000,2024,,Vatican Museums admissions revenue estimate
+VAT,gdp_pc_ppp,,,ITA,Proxy: an enclave inside Italy with no separate economy
+VAT,gdp_total_ppp,41000000,2024,,Derived: resident population x Italian GDP per capita
+VAT,trade_openness,,,ITA,Proxy: enclave inside the Italian customs territory
+VAT,hdi,,,ITA,Proxy: enclave inside Italy
+VAT,internet_users,,,ITA,Proxy: enclave inside Italy
+VAT,tertiary_enroll,,,ITA,Proxy: enclave inside Italy
+VAT,air_departures,,,ITA,"Proxy: reached via Rome Fiumicino, an Italian airport"
+VAT,homicide_rate,,,ITA,Proxy: policed jointly with Italy
+VAT,price_level,,,ITA,Proxy: uses the euro at Italian price levels
+VAT,rule_of_law,,,ITA,Proxy: enclave inside Italy
+VAT,electoral_democracy,0.10,2024,,Absolute elective monarchy; no electoral competition
+MCO,gdp_pc_ppp,240000,2023,,Monaco IMSEE national accounts (nominal; among the world's highest)
+MCO,gdp_total_ppp,9000000000,2023,,Monaco IMSEE national accounts
+MCO,trade_openness,,,FRA,Proxy: inside the French customs territory
+MCO,hdi,0.956,2023,,Analyst estimate; UNDP does not publish an HDI for Monaco
+MCO,tourism_receipts,1500000000,2023,,Monaco Government Tourist Office
+MCO,rule_of_law,,,FRA,Proxy: French-derived legal system; not covered by V-Dem
+MCO,electoral_democracy,0.60,2024,,Constitutional monarchy with an elected council; analyst estimate
+MCO,homicide_rate,0.0,2023,,Monaco Public Security; no homicides recorded in recent years
+MCO,price_level,1.20,2023,,Analyst estimate; among the world's highest cost bases
+LIE,gdp_pc_ppp,197000,2023,,Liechtenstein Office of Statistics (nominal GDP per capita)
+LIE,gdp_total_ppp,7600000000,2023,,Liechtenstein Office of Statistics
+LIE,trade_openness,,,CHE,Proxy: in customs and currency union with Switzerland
+LIE,tourism_receipts,60000000,2023,,Liechtenstein Marketing / Office of Statistics
+LIE,air_departures,,,CHE,"Proxy: no airport; served by Zurich, in the Swiss customs union"
+LIE,rule_of_law,,,CHE,Proxy: Swiss-derived legal system; not covered by V-Dem
+LIE,electoral_democracy,0.75,2024,,Constitutional monarchy with strong princely veto; analyst estimate
+LIE,price_level,,,CHE,Proxy: uses the Swiss franc at Swiss price levels
+SMR,tourism_receipts,100000000,2023,,San Marino Office of Tourism
+SMR,air_departures,,,ITA,Proxy: no airport; served by Rimini and Bologna in Italy
+SMR,rule_of_law,,,ITA,Proxy: Italian-derived legal system; not covered by V-Dem
+SMR,electoral_democracy,0.80,2024,,Parliamentary republic; analyst estimate
+SMR,homicide_rate,0.0,2022,,San Marino Gendarmerie
+AND,trade_openness,,,ESP,Proxy: economically integrated with Spain and France
+AND,air_departures,,,ESP,Proxy: no airport; served by Barcelona and Toulouse
+AND,rule_of_law,,,ESP,Proxy: co-principality under Spanish and French heads of state
+AND,electoral_democracy,0.78,2024,,Parliamentary co-principality; analyst estimate
+XKX,hdi,0.762,2023,,UNDP Kosovo Human Development Report
+XKX,tertiary_enroll,45.0,2022,,Kosovo Agency of Statistics
+XKX,surface_area,10887,2024,,Kosovo Agency of Statistics
+XKX,tourist_arrivals,350000,2023,,Kosovo Agency of Statistics
+XKX,tourism_receipts,1700000000,2023,,Central Bank of Kosovo (diaspora-driven travel receipts)
+XKX,air_departures,12000,2023,,Pristina International Airport movement statistics
+XKX,rule_of_law,0.55,2024,,Analyst estimate; not covered by V-Dem
+XKX,electoral_democracy,0.62,2024,,Analyst estimate; not covered by V-Dem
+MAC,hdi,0.937,2023,,Macao SAR Statistics and Census Service (UNDP methodology)
+MAC,rule_of_law,0.70,2024,,Analyst estimate; not covered by V-Dem
+MAC,electoral_democracy,0.25,2024,,Chief Executive selected by committee; analyst estimate
+CUB,gdp_pc_ppp,12300,2022,,CIA World Factbook estimate; Cuba stopped reporting to the World Bank
+CUB,gdp_total_ppp,137000000000,2022,,CIA World Factbook estimate
+CUB,price_level,0.35,2022,,Analyst estimate

@@ -1,0 +1,1484 @@
+{
+  "meta": {
+    "generated_at": "2026-07-28 20:00:20 UTC",
+    "n_passports": 199,
+    "n_destinations": 199,
+    "n_edges": 39402,
+    "n_indicators": 15,
+    "n_pillars": 6,
+    "n_lenses": 5,
+    "headline_lens": "balanced",
+    "default_ladder": "graded",
+    "runtime_seconds": 2.2
+  },
+  "validation": {
+    "n_reference_points": 15,
+    "spearman_rho": 0.7894,
+    "spearman_p": 0.00046549275324334164,
+    "kendall_tau": 0.7128
+  },
+  "provenance": {
+    "mean_observed_pct": 92.6,
+    "min_observed_pct": 83.4,
+    "worst_indicator": "homicide_rate",
+    "destinations_well_measured": 180,
+    "destinations_total": 199
+  },
+  "top15": [
+    {
+      "passport": "ARE",
+      "name": "United Arab Emirates",
+      "henley_score": 169.0,
+      "henley_rank": 1,
+      "henley_pos": 1,
+      "ahi_balanced_score": 171.8,
+      "ahi_balanced_rank": 1,
+      "ahi_balanced_pos": 1,
+      "ahi_balanced_pct": 86.9,
+      "gdp_share_score": 79.8,
+      "pop_share_score": 84.28
+    },
+    {
+      "passport": "SGP",
+      "name": "Singapore",
+      "henley_score": 163.0,
+      "henley_rank": 2,
+      "henley_pos": 2,
+      "ahi_balanced_score": 170.1,
+      "ahi_balanced_rank": 2,
+      "ahi_balanced_pos": 2,
+      "ahi_balanced_pct": 86.11,
+      "gdp_share_score": 83.98,
+      "pop_share_score": 66.02
+    },
+    {
+      "passport": "ESP",
+      "name": "Spain",
+      "henley_score": 161.0,
+      "henley_rank": 4,
+      "henley_pos": 5,
+      "ahi_balanced_score": 168.1,
+      "ahi_balanced_rank": 3,
+      "ahi_balanced_pos": 3,
+      "ahi_balanced_pct": 85.1,
+      "gdp_share_score": 82.84,
+      "pop_share_score": 64.02
+    },
+    {
+      "passport": "KOR",
+      "name": "South Korea",
+      "henley_score": 163.0,
+      "henley_rank": 2,
+      "henley_pos": 2,
+      "ahi_balanced_score": 168.1,
+      "ahi_balanced_rank": 3,
+      "ahi_balanced_pos": 3,
+      "ahi_balanced_pct": 85.09,
+      "gdp_share_score": 94.61,
+      "pop_share_score": 84.33
+    },
+    {
+      "passport": "LUX",
+      "name": "Luxembourg",
+      "henley_score": 160.0,
+      "henley_rank": 5,
+      "henley_pos": 6,
+      "ahi_balanced_score": 167.6,
+      "ahi_balanced_rank": 4,
+      "ahi_balanced_pos": 5,
+      "ahi_balanced_pct": 84.77,
+      "gdp_share_score": 84.2,
+      "pop_share_score": 64.61
+    },
+    {
+      "passport": "FIN",
+      "name": "Finland",
+      "henley_score": 160.0,
+      "henley_rank": 5,
+      "henley_pos": 6,
+      "ahi_balanced_score": 167.5,
+      "ahi_balanced_rank": 5,
+      "ahi_balanced_pos": 6,
+      "ahi_balanced_pct": 84.74,
+      "gdp_share_score": 84.07,
+      "pop_share_score": 64.55
+    },
+    {
+      "passport": "SWE",
+      "name": "Sweden",
+      "henley_score": 160.0,
+      "henley_rank": 5,
+      "henley_pos": 6,
+      "ahi_balanced_score": 167.5,
+      "ahi_balanced_rank": 5,
+      "ahi_balanced_pos": 6,
+      "ahi_balanced_pct": 84.76,
+      "gdp_share_score": 83.88,
+      "pop_share_score": 64.49
+    },
+    {
+      "passport": "BEL",
+      "name": "Belgium",
+      "henley_score": 160.0,
+      "henley_rank": 5,
+      "henley_pos": 6,
+      "ahi_balanced_score": 167.4,
+      "ahi_balanced_rank": 6,
+      "ahi_balanced_pos": 8,
+      "ahi_balanced_pct": 84.71,
+      "gdp_share_score": 83.82,
+      "pop_share_score": 64.47
+    },
+    {
+      "passport": "DNK",
+      "name": "Denmark",
+      "henley_score": 160.0,
+      "henley_rank": 5,
+      "henley_pos": 6,
+      "ahi_balanced_score": 167.4,
+      "ahi_balanced_rank": 6,
+      "ahi_balanced_pos": 8,
+      "ahi_balanced_pct": 84.71,
+      "gdp_share_score": 84.01,
+      "pop_share_score": 64.55
+    },
+    {
+      "passport": "NLD",
+      "name": "Netherlands",
+      "henley_score": 160.0,
+      "henley_rank": 5,
+      "henley_pos": 6,
+      "ahi_balanced_score": 167.4,
+      "ahi_balanced_rank": 6,
+      "ahi_balanced_pos": 8,
+      "ahi_balanced_pct": 84.73,
+      "gdp_share_score": 83.5,
+      "pop_share_score": 64.4
+    },
+    {
+      "passport": "CHE",
+      "name": "Switzerland",
+      "henley_score": 160.0,
+      "henley_rank": 5,
+      "henley_pos": 6,
+      "ahi_balanced_score": 167.3,
+      "ahi_balanced_rank": 7,
+      "ahi_balanced_pos": 11,
+      "ahi_balanced_pct": 84.66,
+      "gdp_share_score": 83.8,
+      "pop_share_score": 64.51
+    },
+    {
+      "passport": "FRA",
+      "name": "France",
+      "henley_score": 160.0,
+      "henley_rank": 5,
+      "henley_pos": 6,
+      "ahi_balanced_score": 167.3,
+      "ahi_balanced_rank": 7,
+      "ahi_balanced_pos": 11,
+      "ahi_balanced_pct": 84.68,
+      "gdp_share_score": 82.15,
+      "pop_share_score": 63.78
+    },
+    {
+      "passport": "JPN",
+      "name": "Japan",
+      "henley_score": 162.0,
+      "henley_rank": 3,
+      "henley_pos": 4,
+      "ahi_balanced_score": 167.3,
+      "ahi_balanced_rank": 7,
+      "ahi_balanced_pos": 11,
+      "ahi_balanced_pct": 84.67,
+      "gdp_share_score": 89.46,
+      "pop_share_score": 81.71
+    },
+    {
+      "passport": "DEU",
+      "name": "Germany",
+      "henley_score": 160.0,
+      "henley_rank": 5,
+      "henley_pos": 6,
+      "ahi_balanced_score": 167.2,
+      "ahi_balanced_rank": 8,
+      "ahi_balanced_pos": 14,
+      "ahi_balanced_pct": 84.64,
+      "gdp_share_score": 81.25,
+      "pop_share_score": 63.6
+    },
+    {
+      "passport": "ITA",
+      "name": "Italy",
+      "henley_score": 160.0,
+      "henley_rank": 5,
+      "henley_pos": 6,
+      "ahi_balanced_score": 167.2,
+      "ahi_balanced_rank": 8,
+      "ahi_balanced_pos": 14,
+      "ahi_balanced_pct": 84.61,
+      "gdp_share_score": 82.49,
+      "pop_share_score": 63.9
+    }
+  ],
+  "biggest_gainers": [
+    {
+      "passport": "XKX",
+      "name": "Kosovo",
+      "baseline_rank": 109,
+      "target_rank": 97,
+      "total_move": 12,
+      "weighting_effect": 10,
+      "friction_effect": 6
+    },
+    {
+      "passport": "LAO",
+      "name": "Laos",
+      "baseline_rank": 176,
+      "target_rank": 165,
+      "total_move": 11,
+      "weighting_effect": 9,
+      "friction_effect": 4
+    },
+    {
+      "passport": "MNG",
+      "name": "Mongolia",
+      "baseline_rank": 132,
+      "target_rank": 122,
+      "total_move": 10,
+      "weighting_effect": 7,
+      "friction_effect": 1
+    },
+    {
+      "passport": "VNM",
+      "name": "Vietnam",
+      "baseline_rank": 159,
+      "target_rank": 149,
+      "total_move": 10,
+      "weighting_effect": 8,
+      "friction_effect": 2
+    },
+    {
+      "passport": "KHM",
+      "name": "Cambodia",
+      "baseline_rank": 162,
+      "target_rank": 153,
+      "total_move": 9,
+      "weighting_effect": 4,
+      "friction_effect": 1
+    },
+    {
+      "passport": "IND",
+      "name": "India",
+      "baseline_rank": 150,
+      "target_rank": 143,
+      "total_move": 7,
+      "weighting_effect": 0,
+      "friction_effect": 4
+    },
+    {
+      "passport": "NPL",
+      "name": "Nepal",
+      "baseline_rank": 190,
+      "target_rank": 184,
+      "total_move": 6,
+      "weighting_effect": 1,
+      "friction_effect": 3
+    },
+    {
+      "passport": "PHL",
+      "name": "Philippines",
+      "baseline_rank": 135,
+      "target_rank": 129,
+      "total_move": 6,
+      "weighting_effect": 5,
+      "friction_effect": 0
+    },
+    {
+      "passport": "TLS",
+      "name": "Timor-Leste",
+      "baseline_rank": 102,
+      "target_rank": 96,
+      "total_move": 6,
+      "weighting_effect": 5,
+      "friction_effect": 4
+    },
+    {
+      "passport": "BTN",
+      "name": "Bhutan",
+      "baseline_rank": 165,
+      "target_rank": 161,
+      "total_move": 4,
+      "weighting_effect": 2,
+      "friction_effect": 0
+    },
+    {
+      "passport": "DJI",
+      "name": "Djibouti",
+      "baseline_rank": 176,
+      "target_rank": 172,
+      "total_move": 4,
+      "weighting_effect": 1,
+      "friction_effect": 0
+    },
+    {
+      "passport": "DOM",
+      "name": "Dominican Republic",
+      "baseline_rank": 125,
+      "target_rank": 121,
+      "total_move": 4,
+      "weighting_effect": 3,
+      "friction_effect": -1
+    }
+  ],
+  "biggest_losers": [
+    {
+      "passport": "MYS",
+      "name": "Malaysia",
+      "baseline_rank": 6,
+      "target_rank": 32,
+      "total_move": -26,
+      "weighting_effect": -27,
+      "friction_effect": -3
+    },
+    {
+      "passport": "RUS",
+      "name": "Russia",
+      "baseline_rank": 79,
+      "target_rank": 93,
+      "total_move": -14,
+      "weighting_effect": -13,
+      "friction_effect": -12
+    },
+    {
+      "passport": "RWA",
+      "name": "Rwanda",
+      "baseline_rank": 135,
+      "target_rank": 147,
+      "total_move": -12,
+      "weighting_effect": -7,
+      "friction_effect": -4
+    },
+    {
+      "passport": "IRL",
+      "name": "Ireland",
+      "baseline_rank": 6,
+      "target_rank": 16,
+      "total_move": -10,
+      "weighting_effect": -11,
+      "friction_effect": -8
+    },
+    {
+      "passport": "NOR",
+      "name": "Norway",
+      "baseline_rank": 6,
+      "target_rank": 16,
+      "total_move": -10,
+      "weighting_effect": -2,
+      "friction_effect": -12
+    },
+    {
+      "passport": "DEU",
+      "name": "Germany",
+      "baseline_rank": 6,
+      "target_rank": 14,
+      "total_move": -8,
+      "weighting_effect": -2,
+      "friction_effect": -8
+    },
+    {
+      "passport": "ITA",
+      "name": "Italy",
+      "baseline_rank": 6,
+      "target_rank": 14,
+      "total_move": -8,
+      "weighting_effect": -2,
+      "friction_effect": -8
+    },
+    {
+      "passport": "TUR",
+      "name": "Turkey",
+      "baseline_rank": 86,
+      "target_rank": 94,
+      "total_move": -8,
+      "weighting_effect": -8,
+      "friction_effect": -8
+    },
+    {
+      "passport": "AUT",
+      "name": "Austria",
+      "baseline_rank": 19,
+      "target_rank": 26,
+      "total_move": -7,
+      "weighting_effect": -4,
+      "friction_effect": -4
+    },
+    {
+      "passport": "JPN",
+      "name": "Japan",
+      "baseline_rank": 4,
+      "target_rank": 11,
+      "total_move": -7,
+      "weighting_effect": 1,
+      "friction_effect": -18
+    },
+    {
+      "passport": "NER",
+      "name": "Niger",
+      "baseline_rank": 156,
+      "target_rank": 163,
+      "total_move": -7,
+      "weighting_effect": -3,
+      "friction_effect": -3
+    },
+    {
+      "passport": "NGA",
+      "name": "Nigeria",
+      "baseline_rank": 181,
+      "target_rank": 188,
+      "total_move": -7,
+      "weighting_effect": -7,
+      "friction_effect": -1
+    }
+  ],
+  "concentration": {
+    "gini_of_destination_weight": 0.1473,
+    "top10_share_pct": 7.3,
+    "top20_share_pct": 14.3,
+    "top50_share_pct": 33.5,
+    "max_to_min_ratio": 3.5,
+    "highest": {
+      "IRL": 1.469,
+      "ESP": 1.466,
+      "SGP": 1.463,
+      "KOR": 1.456,
+      "DEU": 1.455,
+      "AUS": 1.448,
+      "USA": 1.446,
+      "CAN": 1.445,
+      "FRA": 1.433,
+      "TWN": 1.421
+    },
+    "lowest": {
+      "GNB": 0.581,
+      "KIR": 0.56,
+      "TCD": 0.541,
+      "PRK": 0.537,
+      "COM": 0.534,
+      "BDI": 0.512,
+      "ERI": 0.511,
+      "CAF": 0.493,
+      "SSD": 0.449,
+      "TUV": 0.425
+    }
+  },
+  "inequality": [
+    {
+      "index": "gdp_share",
+      "gini_by_country": 0.4447,
+      "gini_by_person": 0.5286,
+      "p90_p10_ratio": 16.75
+    },
+    {
+      "index": "pop_share",
+      "gini_by_country": 0.3322,
+      "gini_by_person": 0.3672,
+      "p90_p10_ratio": 5.11
+    },
+    {
+      "index": "henley",
+      "gini_by_country": 0.2626,
+      "gini_by_person": 0.2761,
+      "p90_p10_ratio": 3.71
+    },
+    {
+      "index": "ahi_balanced",
+      "gini_by_country": 0.2492,
+      "gini_by_person": 0.2534,
+      "p90_p10_ratio": 3.28
+    }
+  ],
+  "regression": {
+    "r_squared": 0.7427,
+    "adj_r_squared": 0.7347,
+    "n_obs": 199,
+    "coefficients": [
+      {
+        "term": "const",
+        "coefficient": -13.997,
+        "std_error": 13.213,
+        "t": -1.06,
+        "p_value": 0.2895,
+        "ci_low": -39.894,
+        "ci_high": 11.901,
+        "label": "Intercept"
+      },
+      {
+        "term": "log_gdp_pc_ppp",
+        "coefficient": -2.13,
+        "std_error": 2.507,
+        "t": -0.85,
+        "p_value": 0.3956,
+        "ci_low": -7.044,
+        "ci_high": 2.784,
+        "label": "Own GDP per capita (log, PPP)"
+      },
+      {
+        "term": "hdi",
+        "coefficient": 106.333,
+        "std_error": 20.136,
+        "t": 5.28,
+        "p_value": 0.0,
+        "ci_low": 66.867,
+        "ci_high": 145.799,
+        "label": "Own Human Development Index"
+      },
+      {
+        "term": "log_population",
+        "coefficient": -0.561,
+        "std_error": 0.391,
+        "t": -1.44,
+        "p_value": 0.1506,
+        "ci_low": -1.327,
+        "ci_high": 0.204,
+        "label": "Own population (log)"
+      },
+      {
+        "term": "rule_of_law",
+        "coefficient": 6.549,
+        "std_error": 6.743,
+        "t": 0.97,
+        "p_value": 0.3314,
+        "ci_low": -6.666,
+        "ci_high": 19.765,
+        "label": "Own rule of law (V-Dem)"
+      },
+      {
+        "term": "electoral_democracy",
+        "coefficient": 22.596,
+        "std_error": 6.837,
+        "t": 3.3,
+        "p_value": 0.001,
+        "ci_low": 9.195,
+        "ci_high": 35.997,
+        "label": "Own electoral democracy (V-Dem)"
+      },
+      {
+        "term": "trade_openness",
+        "coefficient": 0.027,
+        "std_error": 0.015,
+        "t": 1.79,
+        "p_value": 0.0736,
+        "ci_low": -0.003,
+        "ci_high": 0.057,
+        "label": "Own trade openness (% of GDP)"
+      }
+    ],
+    "vif": [
+      {
+        "term": "const",
+        "vif": 234.58
+      },
+      {
+        "term": "log_gdp_pc_ppp",
+        "vif": 12.36
+      },
+      {
+        "term": "hdi",
+        "vif": 11.9
+      },
+      {
+        "term": "log_population",
+        "vif": 1.2
+      },
+      {
+        "term": "rule_of_law",
+        "vif": 4.52
+      },
+      {
+        "term": "electoral_democracy",
+        "vif": 3.61
+      },
+      {
+        "term": "trade_openness",
+        "vif": 1.39
+      }
+    ]
+  },
+  "overperformers": [
+    {
+      "passport": "SLV",
+      "name": "El Salvador",
+      "actual": 66.36,
+      "predicted": 39.13,
+      "residual": 27.23
+    },
+    {
+      "passport": "NIC",
+      "name": "Nicaragua",
+      "actual": 63.62,
+      "predicted": 38.85,
+      "residual": 24.77
+    },
+    {
+      "passport": "VEN",
+      "name": "Venezuela",
+      "actual": 61.71,
+      "predicted": 37.69,
+      "residual": 24.02
+    },
+    {
+      "passport": "MYS",
+      "name": "Malaysia",
+      "actual": 83.81,
+      "predicted": 60.33,
+      "residual": 23.48
+    },
+    {
+      "passport": "ARE",
+      "name": "United Arab Emirates",
+      "actual": 86.9,
+      "predicted": 64.72,
+      "residual": 22.18
+    },
+    {
+      "passport": "HND",
+      "name": "Honduras",
+      "actual": 65.61,
+      "predicted": 43.85,
+      "residual": 21.76
+    },
+    {
+      "passport": "MEX",
+      "name": "Mexico",
+      "actual": 74.41,
+      "predicted": 52.85,
+      "residual": 21.56
+    },
+    {
+      "passport": "HUN",
+      "name": "Hungary",
+      "actual": 84.35,
+      "predicted": 63.75,
+      "residual": 20.6
+    },
+    {
+      "passport": "ROU",
+      "name": "Romania",
+      "actual": 83.89,
+      "predicted": 63.65,
+      "residual": 20.24
+    },
+    {
+      "passport": "KIR",
+      "name": "Kiribati",
+      "actual": 63.39,
+      "predicted": 43.18,
+      "residual": 20.21
+    }
+  ],
+  "underperformers": [
+    {
+      "passport": "LKA",
+      "name": "Sri Lanka",
+      "actual": 23.9,
+      "predicted": 62.53,
+      "residual": -38.63
+    },
+    {
+      "passport": "LBN",
+      "name": "Lebanon",
+      "actual": 25.5,
+      "predicted": 50.82,
+      "residual": -25.32
+    },
+    {
+      "passport": "ARM",
+      "name": "Armenia",
+      "actual": 36.62,
+      "predicted": 61.9,
+      "residual": -25.28
+    },
+    {
+      "passport": "NRU",
+      "name": "Nauru",
+      "actual": 38.6,
+      "predicted": 63.41,
+      "residual": -24.81
+    },
+    {
+      "passport": "BTN",
+      "name": "Bhutan",
+      "actual": 28.88,
+      "predicted": 52.19,
+      "residual": -23.31
+    },
+    {
+      "passport": "DOM",
+      "name": "Dominican Republic",
+      "actual": 36.79,
+      "predicted": 59.23,
+      "residual": -22.44
+    },
+    {
+      "passport": "IRN",
+      "name": "Iran",
+      "actual": 23.95,
+      "predicted": 46.2,
+      "residual": -22.25
+    },
+    {
+      "passport": "JOR",
+      "name": "Jordan",
+      "actual": 28.9,
+      "predicted": 50.54,
+      "residual": -21.64
+    },
+    {
+      "passport": "IRQ",
+      "name": "Iraq",
+      "actual": 20.15,
+      "predicted": 41.35,
+      "residual": -21.2
+    },
+    {
+      "passport": "PSE",
+      "name": "Palestine",
+      "actual": 22.1,
+      "predicted": 43.05,
+      "residual": -20.95
+    }
+  ],
+  "clusters": [
+    {
+      "cluster": 0,
+      "label": "Frictionless core",
+      "description": "Reaches ~140 destinations without a prior visa and admits ~107 nationalities on the same terms, so it runs a mobility surplus of about 33 destinations.",
+      "members": 94,
+      "mean_attainment_pct": 75.7,
+      "mean_breadth": 139.6,
+      "mean_openness_count": 106.6
+    },
+    {
+      "cluster": 3,
+      "label": "Guarded middle (tier 2)",
+      "description": "Reaches ~77 destinations without a prior visa and admits ~94 nationalities on the same terms, so it runs a mobility deficit of about 17 destinations.",
+      "members": 32,
+      "mean_attainment_pct": 40.7,
+      "mean_breadth": 76.8,
+      "mean_openness_count": 94.2
+    },
+    {
+      "cluster": 2,
+      "label": "Open but unreciprocated (tier 3)",
+      "description": "Reaches ~56 destinations without a prior visa and admits ~156 nationalities on the same terms, so it runs a mobility deficit of about 100 destinations.",
+      "members": 36,
+      "mean_attainment_pct": 30.4,
+      "mean_breadth": 55.5,
+      "mean_openness_count": 155.6
+    },
+    {
+      "cluster": 1,
+      "label": "Doubly closed",
+      "description": "Reaches ~47 destinations without a prior visa and admits ~18 nationalities on the same terms, so it runs a mobility surplus of about 29 destinations.",
+      "members": 37,
+      "mean_attainment_pct": 26.9,
+      "mean_breadth": 47.2,
+      "mean_openness_count": 18.4
+    }
+  ],
+  "best_k": 4,
+  "pca": {
+    "explained_variance_pc1": 0.4242,
+    "loadings": {
+      "gdp_pc_ppp": 0.367,
+      "gdp_total_ppp": 0.174,
+      "trade_openness": 0.165,
+      "hdi": 0.374,
+      "internet_users": 0.343,
+      "tertiary_enroll": 0.336,
+      "population": -0.011,
+      "surface_area": -0.046,
+      "tourist_arrivals": 0.266,
+      "tourism_receipts": 0.305,
+      "air_departures": 0.232,
+      "rule_of_law": 0.286,
+      "electoral_democracy": 0.236,
+      "homicide_rate": 0.18,
+      "price_level": -0.217
+    }
+  },
+  "reciprocity": {
+    "largest_surplus": [
+      {
+        "country": "AUS",
+        "name": "Australia",
+        "reaches": 157,
+        "admits": 46,
+        "mobility_balance": 111,
+        "reciprocated_share": 29.3
+      },
+      {
+        "country": "USA",
+        "name": "United States",
+        "reaches": 153,
+        "admits": 46,
+        "mobility_balance": 107,
+        "reciprocated_share": 30.1
+      },
+      {
+        "country": "CAN",
+        "name": "Canada",
+        "reaches": 155,
+        "admits": 54,
+        "mobility_balance": 101,
+        "reciprocated_share": 34.8
+      },
+      {
+        "country": "NZL",
+        "name": "New Zealand",
+        "reaches": 158,
+        "admits": 61,
+        "mobility_balance": 97,
+        "reciprocated_share": 38.6
+      },
+      {
+        "country": "JPN",
+        "name": "Japan",
+        "reaches": 162,
+        "admits": 74,
+        "mobility_balance": 88,
+        "reciprocated_share": 45.7
+      },
+      {
+        "country": "IRL",
+        "name": "Ireland",
+        "reaches": 160,
+        "admits": 78,
+        "mobility_balance": 82,
+        "reciprocated_share": 48.8
+      },
+      {
+        "country": "ARE",
+        "name": "United Arab Emirates",
+        "reaches": 169,
+        "admits": 93,
+        "mobility_balance": 76,
+        "reciprocated_share": 53.8
+      },
+      {
+        "country": "BRN",
+        "name": "Brunei",
+        "reaches": 139,
+        "admits": 64,
+        "mobility_balance": 75,
+        "reciprocated_share": 46.0
+      },
+      {
+        "country": "GBR",
+        "name": "United Kingdom",
+        "reaches": 156,
+        "admits": 86,
+        "mobility_balance": 70,
+        "reciprocated_share": 55.1
+      },
+      {
+        "country": "MEX",
+        "name": "Mexico",
+        "reaches": 136,
+        "admits": 66,
+        "mobility_balance": 70,
+        "reciprocated_share": 44.1
+      }
+    ],
+    "largest_deficit": [
+      {
+        "country": "LKA",
+        "name": "Sri Lanka",
+        "reaches": 39,
+        "admits": 193,
+        "mobility_balance": -154,
+        "reciprocated_share": 97.4
+      },
+      {
+        "country": "DJI",
+        "name": "Djibouti",
+        "reaches": 45,
+        "admits": 198,
+        "mobility_balance": -153,
+        "reciprocated_share": 100.0
+      },
+      {
+        "country": "BDI",
+        "name": "Burundi",
+        "reaches": 47,
+        "admits": 198,
+        "mobility_balance": -151,
+        "reciprocated_share": 100.0
+      },
+      {
+        "country": "NPL",
+        "name": "Nepal",
+        "reaches": 36,
+        "admits": 186,
+        "mobility_balance": -150,
+        "reciprocated_share": 97.2
+      },
+      {
+        "country": "GNB",
+        "name": "Guinea-Bissau",
+        "reaches": 49,
+        "admits": 198,
+        "mobility_balance": -149,
+        "reciprocated_share": 100.0
+      },
+      {
+        "country": "IRN",
+        "name": "Iran",
+        "reaches": 39,
+        "admits": 188,
+        "mobility_balance": -149,
+        "reciprocated_share": 100.0
+      },
+      {
+        "country": "HTI",
+        "name": "Haiti",
+        "reaches": 45,
+        "admits": 193,
+        "mobility_balance": -148,
+        "reciprocated_share": 97.8
+      },
+      {
+        "country": "COM",
+        "name": "Comoros",
+        "reaches": 51,
+        "admits": 198,
+        "mobility_balance": -147,
+        "reciprocated_share": 100.0
+      },
+      {
+        "country": "KHM",
+        "name": "Cambodia",
+        "reaches": 50,
+        "admits": 197,
+        "mobility_balance": -147,
+        "reciprocated_share": 100.0
+      },
+      {
+        "country": "CIV",
+        "name": "Ivory Coast",
+        "reaches": 53,
+        "admits": 198,
+        "mobility_balance": -145,
+        "reciprocated_share": 100.0
+      }
+    ],
+    "mean_reciprocated_share": 57.6
+  },
+  "monte_carlo": {
+    "n_draws": 3000,
+    "median_interval_width": 2.0,
+    "widest": [
+      {
+        "passport": "JPN",
+        "name": "Japan",
+        "rank_median": 9,
+        "rank_p05": 5,
+        "rank_p95": 20,
+        "rank_interval_width": 15
+      },
+      {
+        "passport": "MYS",
+        "name": "Malaysia",
+        "rank_median": 32,
+        "rank_p05": 19,
+        "rank_p95": 34,
+        "rank_interval_width": 15
+      },
+      {
+        "passport": "JOR",
+        "name": "Jordan",
+        "rank_median": 161,
+        "rank_p05": 155,
+        "rank_p95": 164,
+        "rank_interval_width": 9
+      },
+      {
+        "passport": "MLT",
+        "name": "Malta",
+        "rank_median": 17,
+        "rank_p05": 12,
+        "rank_p95": 21,
+        "rank_interval_width": 9
+      },
+      {
+        "passport": "BTN",
+        "name": "Bhutan",
+        "rank_median": 161,
+        "rank_p05": 155,
+        "rank_p95": 163,
+        "rank_interval_width": 8
+      },
+      {
+        "passport": "CUB",
+        "name": "Cuba",
+        "rank_median": 144,
+        "rank_p05": 140,
+        "rank_p95": 148,
+        "rank_interval_width": 8
+      },
+      {
+        "passport": "TJK",
+        "name": "Tajikistan",
+        "rank_median": 147,
+        "rank_p05": 144,
+        "rank_p95": 152,
+        "rank_interval_width": 8
+      },
+      {
+        "passport": "TKM",
+        "name": "Turkmenistan",
+        "rank_median": 173,
+        "rank_p05": 169,
+        "rank_p95": 177,
+        "rank_interval_width": 8
+      },
+      {
+        "passport": "BEN",
+        "name": "Benin",
+        "rank_median": 142,
+        "rank_p05": 139,
+        "rank_p95": 146,
+        "rank_interval_width": 7
+      },
+      {
+        "passport": "HUN",
+        "name": "Hungary",
+        "rank_median": 21,
+        "rank_p05": 17,
+        "rank_p95": 24,
+        "rank_interval_width": 7
+      }
+    ],
+    "narrowest_top20": [
+      {
+        "passport": "ARE",
+        "name": "United Arab Emirates",
+        "rank_median": 1,
+        "rank_p05": 1,
+        "rank_p95": 1
+      },
+      {
+        "passport": "SGP",
+        "name": "Singapore",
+        "rank_median": 2,
+        "rank_p05": 2,
+        "rank_p95": 2
+      },
+      {
+        "passport": "ESP",
+        "name": "Spain",
+        "rank_median": 3,
+        "rank_p05": 3,
+        "rank_p95": 4
+      },
+      {
+        "passport": "KOR",
+        "name": "South Korea",
+        "rank_median": 3,
+        "rank_p05": 3,
+        "rank_p95": 4
+      },
+      {
+        "passport": "FIN",
+        "name": "Finland",
+        "rank_median": 6,
+        "rank_p05": 5,
+        "rank_p95": 7
+      },
+      {
+        "passport": "LUX",
+        "name": "Luxembourg",
+        "rank_median": 5,
+        "rank_p05": 4,
+        "rank_p95": 7
+      },
+      {
+        "passport": "SWE",
+        "name": "Sweden",
+        "rank_median": 6,
+        "rank_p05": 5,
+        "rank_p95": 8
+      },
+      {
+        "passport": "NLD",
+        "name": "Netherlands",
+        "rank_median": 7,
+        "rank_p05": 6,
+        "rank_p95": 9
+      },
+      {
+        "passport": "BEL",
+        "name": "Belgium",
+        "rank_median": 9,
+        "rank_p05": 8,
+        "rank_p95": 11
+      },
+      {
+        "passport": "DNK",
+        "name": "Denmark",
+        "rank_median": 9,
+        "rank_p05": 7,
+        "rank_p95": 10
+      }
+    ]
+  },
+  "agreement": [
+    {
+      "henley": 1.0,
+      "graded_count": 0.98,
+      "binary_weighted": 0.974,
+      "ahi_balanced": 0.971,
+      "ahi_business": 0.971,
+      "ahi_leisure": 0.973,
+      "ahi_settlement": 0.969,
+      "ahi_reach": 0.973,
+      "ahi_pca": 0.964,
+      "ahi_entropy": 0.969,
+      "gdp_share": 0.799,
+      "pop_share": 0.788,
+      "ahi_gamma_flat": 0.978,
+      "ahi_gamma_sharp": 0.954,
+      "ahi_gamma_extreme": 0.911,
+      "stay_days": 0.904
+    },
+    {
+      "henley": 0.98,
+      "graded_count": 1.0,
+      "binary_weighted": 0.963,
+      "ahi_balanced": 0.972,
+      "ahi_business": 0.972,
+      "ahi_leisure": 0.976,
+      "ahi_settlement": 0.972,
+      "ahi_reach": 0.973,
+      "ahi_pca": 0.964,
+      "ahi_entropy": 0.972,
+      "gdp_share": 0.791,
+      "pop_share": 0.777,
+      "ahi_gamma_flat": 0.985,
+      "ahi_gamma_sharp": 0.95,
+      "ahi_gamma_extreme": 0.906,
+      "stay_days": 0.91
+    },
+    {
+      "henley": 0.974,
+      "graded_count": 0.963,
+      "binary_weighted": 1.0,
+      "ahi_balanced": 0.983,
+      "ahi_business": 0.983,
+      "ahi_leisure": 0.981,
+      "ahi_settlement": 0.98,
+      "ahi_reach": 0.977,
+      "ahi_pca": 0.981,
+      "ahi_entropy": 0.98,
+      "gdp_share": 0.815,
+      "pop_share": 0.793,
+      "ahi_gamma_flat": 0.977,
+      "ahi_gamma_sharp": 0.976,
+      "ahi_gamma_extreme": 0.935,
+      "stay_days": 0.886
+    },
+    {
+      "henley": 0.971,
+      "graded_count": 0.972,
+      "binary_weighted": 0.983,
+      "ahi_balanced": 1.0,
+      "ahi_business": 0.998,
+      "ahi_leisure": 0.995,
+      "ahi_settlement": 0.992,
+      "ahi_reach": 0.985,
+      "ahi_pca": 0.99,
+      "ahi_entropy": 0.995,
+      "gdp_share": 0.811,
+      "pop_share": 0.789,
+      "ahi_gamma_flat": 0.988,
+      "ahi_gamma_sharp": 0.98,
+      "ahi_gamma_extreme": 0.935,
+      "stay_days": 0.892
+    },
+    {
+      "henley": 0.971,
+      "graded_count": 0.972,
+      "binary_weighted": 0.983,
+      "ahi_balanced": 0.998,
+      "ahi_business": 1.0,
+      "ahi_leisure": 0.993,
+      "ahi_settlement": 0.992,
+      "ahi_reach": 0.985,
+      "ahi_pca": 0.989,
+      "ahi_entropy": 0.994,
+      "gdp_share": 0.811,
+      "pop_share": 0.789,
+      "ahi_gamma_flat": 0.988,
+      "ahi_gamma_sharp": 0.979,
+      "ahi_gamma_extreme": 0.934,
+      "stay_days": 0.892
+    },
+    {
+      "henley": 0.973,
+      "graded_count": 0.976,
+      "binary_weighted": 0.981,
+      "ahi_balanced": 0.995,
+      "ahi_business": 0.993,
+      "ahi_leisure": 1.0,
+      "ahi_settlement": 0.987,
+      "ahi_reach": 0.987,
+      "ahi_pca": 0.984,
+      "ahi_entropy": 0.99,
+      "gdp_share": 0.809,
+      "pop_share": 0.79,
+      "ahi_gamma_flat": 0.991,
+      "ahi_gamma_sharp": 0.975,
+      "ahi_gamma_extreme": 0.931,
+      "stay_days": 0.894
+    },
+    {
+      "henley": 0.969,
+      "graded_count": 0.972,
+      "binary_weighted": 0.98,
+      "ahi_balanced": 0.992,
+      "ahi_business": 0.992,
+      "ahi_leisure": 0.987,
+      "ahi_settlement": 1.0,
+      "ahi_reach": 0.976,
+      "ahi_pca": 0.99,
+      "ahi_entropy": 0.997,
+      "gdp_share": 0.807,
+      "pop_share": 0.783,
+      "ahi_gamma_flat": 0.986,
+      "ahi_gamma_sharp": 0.976,
+      "ahi_gamma_extreme": 0.932,
+      "stay_days": 0.893
+    },
+    {
+      "henley": 0.973,
+      "graded_count": 0.973,
+      "binary_weighted": 0.977,
+      "ahi_balanced": 0.985,
+      "ahi_business": 0.985,
+      "ahi_leisure": 0.987,
+      "ahi_settlement": 0.976,
+      "ahi_reach": 1.0,
+      "ahi_pca": 0.974,
+      "ahi_entropy": 0.979,
+      "gdp_share": 0.811,
+      "pop_share": 0.795,
+      "ahi_gamma_flat": 0.982,
+      "ahi_gamma_sharp": 0.971,
+      "ahi_gamma_extreme": 0.928,
+      "stay_days": 0.889
+    },
+    {
+      "henley": 0.964,
+      "graded_count": 0.964,
+      "binary_weighted": 0.981,
+      "ahi_balanced": 0.99,
+      "ahi_business": 0.989,
+      "ahi_leisure": 0.984,
+      "ahi_settlement": 0.99,
+      "ahi_reach": 0.974,
+      "ahi_pca": 1.0,
+      "ahi_entropy": 0.991,
+      "gdp_share": 0.815,
+      "pop_share": 0.787,
+      "ahi_gamma_flat": 0.979,
+      "ahi_gamma_sharp": 0.985,
+      "ahi_gamma_extreme": 0.941,
+      "stay_days": 0.885
+    },
+    {
+      "henley": 0.969,
+      "graded_count": 0.972,
+      "binary_weighted": 0.98,
+      "ahi_balanced": 0.995,
+      "ahi_business": 0.994,
+      "ahi_leisure": 0.99,
+      "ahi_settlement": 0.997,
+      "ahi_reach": 0.979,
+      "ahi_pca": 0.991,
+      "ahi_entropy": 1.0,
+      "gdp_share": 0.808,
+      "pop_share": 0.785,
+      "ahi_gamma_flat": 0.987,
+      "ahi_gamma_sharp": 0.978,
+      "ahi_gamma_extreme": 0.933,
+      "stay_days": 0.893
+    },
+    {
+      "henley": 0.799,
+      "graded_count": 0.791,
+      "binary_weighted": 0.815,
+      "ahi_balanced": 0.811,
+      "ahi_business": 0.811,
+      "ahi_leisure": 0.809,
+      "ahi_settlement": 0.807,
+      "ahi_reach": 0.811,
+      "ahi_pca": 0.815,
+      "ahi_entropy": 0.808,
+      "gdp_share": 1.0,
+      "pop_share": 0.873,
+      "ahi_gamma_flat": 0.802,
+      "ahi_gamma_sharp": 0.826,
+      "ahi_gamma_extreme": 0.852,
+      "stay_days": 0.733
+    },
+    {
+      "henley": 0.788,
+      "graded_count": 0.777,
+      "binary_weighted": 0.793,
+      "ahi_balanced": 0.789,
+      "ahi_business": 0.789,
+      "ahi_leisure": 0.79,
+      "ahi_settlement": 0.783,
+      "ahi_reach": 0.795,
+      "ahi_pca": 0.787,
+      "ahi_entropy": 0.785,
+      "gdp_share": 0.873,
+      "pop_share": 1.0,
+      "ahi_gamma_flat": 0.785,
+      "ahi_gamma_sharp": 0.796,
+      "ahi_gamma_extreme": 0.794,
+      "stay_days": 0.729
+    },
+    {
+      "henley": 0.978,
+      "graded_count": 0.985,
+      "binary_weighted": 0.977,
+      "ahi_balanced": 0.988,
+      "ahi_business": 0.988,
+      "ahi_leisure": 0.991,
+      "ahi_settlement": 0.986,
+      "ahi_reach": 0.982,
+      "ahi_pca": 0.979,
+      "ahi_entropy": 0.987,
+      "gdp_share": 0.802,
+      "pop_share": 0.785,
+      "ahi_gamma_flat": 1.0,
+      "ahi_gamma_sharp": 0.967,
+      "ahi_gamma_extreme": 0.922,
+      "stay_days": 0.901
+    },
+    {
+      "henley": 0.954,
+      "graded_count": 0.95,
+      "binary_weighted": 0.976,
+      "ahi_balanced": 0.98,
+      "ahi_business": 0.979,
+      "ahi_leisure": 0.975,
+      "ahi_settlement": 0.976,
+      "ahi_reach": 0.971,
+      "ahi_pca": 0.985,
+      "ahi_entropy": 0.978,
+      "gdp_share": 0.826,
+      "pop_share": 0.796,
+      "ahi_gamma_flat": 0.967,
+      "ahi_gamma_sharp": 1.0,
+      "ahi_gamma_extreme": 0.956,
+      "stay_days": 0.875
+    },
+    {
+      "henley": 0.911,
+      "graded_count": 0.906,
+      "binary_weighted": 0.935,
+      "ahi_balanced": 0.935,
+      "ahi_business": 0.934,
+      "ahi_leisure": 0.931,
+      "ahi_settlement": 0.932,
+      "ahi_reach": 0.928,
+      "ahi_pca": 0.941,
+      "ahi_entropy": 0.933,
+      "gdp_share": 0.852,
+      "pop_share": 0.794,
+      "ahi_gamma_flat": 0.922,
+      "ahi_gamma_sharp": 0.956,
+      "ahi_gamma_extreme": 1.0,
+      "stay_days": 0.839
+    },
+    {
+      "henley": 0.904,
+      "graded_count": 0.91,
+      "binary_weighted": 0.886,
+      "ahi_balanced": 0.892,
+      "ahi_business": 0.892,
+      "ahi_leisure": 0.894,
+      "ahi_settlement": 0.893,
+      "ahi_reach": 0.889,
+      "ahi_pca": 0.885,
+      "ahi_entropy": 0.893,
+      "gdp_share": 0.733,
+      "pop_share": 0.729,
+      "ahi_gamma_flat": 0.901,
+      "ahi_gamma_sharp": 0.875,
+      "ahi_gamma_extreme": 0.839,
+      "stay_days": 1.0
+    }
+  ],
+  "weight_dispersion": [
+    {
+      "variant": "flat (gamma 0.5)",
+      "weight_max_min_ratio": 1.86,
+      "gini_of_weight": 0.0757,
+      "kendall_tau_vs_henley": 0.9776
+    },
+    {
+      "variant": "headline (gamma 1)",
+      "weight_max_min_ratio": 3.46,
+      "gini_of_weight": 0.1473,
+      "kendall_tau_vs_henley": 0.9706
+    },
+    {
+      "variant": "sharp (gamma 2)",
+      "weight_max_min_ratio": 11.96,
+      "gini_of_weight": 0.2762,
+      "kendall_tau_vs_henley": 0.9544
+    },
+    {
+      "variant": "extreme (gamma 4)",
+      "weight_max_min_ratio": 143.0,
+      "gini_of_weight": 0.4746,
+      "kendall_tau_vs_henley": 0.911
+    }
+  ],
+  "communities": [
+    {
+      "community": 0,
+      "community_label": "African Union-aligned",
+      "members": 87
+    },
+    {
+      "community": 1,
+      "community_label": "EU-27-aligned",
+      "members": 77
+    },
+    {
+      "community": 2,
+      "community_label": "CIS-aligned",
+      "members": 32
+    },
+    {
+      "community": 3,
+      "community_label": "Cluster 4",
+      "members": 1
+    },
+    {
+      "community": 4,
+      "community_label": "Cluster 5",
+      "members": 1
+    },
+    {
+      "community": 5,
+      "community_label": "Cluster 6",
+      "members": 1
+    }
+  ]
+}
