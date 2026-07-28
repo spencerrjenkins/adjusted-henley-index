@@ -5,11 +5,11 @@ an uncertainty analysis is not a measurement, it is an opinion with decimal
 places. Every discretionary choice in this pipeline is therefore perturbed and
 the rankings recomputed:
 
-  * **pillar weights** -- resampled from a Dirichlet centred on the headline
+  * **pillar weights** -- resampled from a Dirichlet centered on the headline
     lens, so the whole simplex of "reasonable" weightings gets explored rather
     than a handful of hand-picked alternatives
   * **the friction ladder** -- all three ladders in `config.ACCESS_LADDERS`
-  * **normalisation** -- winsorised min-max vs percentile rank vs clipped z-score
+  * **normalization** -- winsorized min-max vs percentile rank vs clipped z-score
   * **imputation** -- destinations whose data is mostly imputed are dropped and
     the index recomputed without them
 
@@ -25,7 +25,7 @@ from scipy.stats import kendalltau, spearmanr
 
 from ..config import (ACCESS_LADDERS, HEADLINE_LENS, LENS_BY_KEY, PILLARS,
                       RANDOM_SEED)
-from ..features import build_features, normalise, pillar_scores
+from ..features import build_features, normalize, pillar_scores
 from ..indices import competition_rank, lens_weights, score
 
 
@@ -34,7 +34,7 @@ def monte_carlo_ranks(edges: pd.DataFrame, features: pd.DataFrame,
                       seed: int = RANDOM_SEED) -> tuple[pd.DataFrame, pd.DataFrame]:
     """Resample the pillar weight vector and recompute the ranking each time.
 
-    Draws come from a Dirichlet centred on the headline lens. `concentration`
+    Draws come from a Dirichlet centered on the headline lens. `concentration`
     controls how far they wander: at 12 a pillar published at 0.25 typically
     lands anywhere between about 0.08 and 0.48, which spans essentially every
     weighting a reasonable analyst could defend -- deliberately wider than the
@@ -97,11 +97,11 @@ def ladder_sensitivity(edges: pd.DataFrame, features: pd.DataFrame) -> pd.DataFr
     return out.reset_index()
 
 
-def normalisation_sensitivity(edges: pd.DataFrame, destinations: pd.Index) -> pd.DataFrame:
-    """Rank under each normalisation scheme, holding weights and ladder fixed.
+def normalization_sensitivity(edges: pd.DataFrame, destinations: pd.Index) -> pd.DataFrame:
+    """Rank under each normalization scheme, holding weights and ladder fixed.
 
     Rebuilds features from scratch per method rather than rescaling in place,
-    because the winsorisation happens before scaling and cannot be undone.
+    because the winsorization happens before scaling and cannot be undone.
     """
     out = pd.DataFrame(index=pd.Index(sorted(edges["passport"].unique()), name="passport"))
     for method in ("winsor_minmax", "rank", "zscore"):
@@ -166,7 +166,7 @@ def rank_movement(family: pd.DataFrame, baseline: str = "henley",
     `weighting_effect` is what changes when destinations stop being worth one
     point each; `friction_effect` is what changes when entry regimes stop being
     a binary. Reporting the total alone would leave a reader unable to tell
-    which of the two modelling choices is doing the work.
+    which of the two modeling choices is doing the work.
     """
     indexed = family.set_index("passport")
     out = pd.DataFrame({

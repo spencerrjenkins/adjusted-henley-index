@@ -49,11 +49,11 @@ export PYTHONPATH=src
 .venv/bin/python -m pytest
 ```
 
-Full run: about 3 seconds on a laptop after the data is cached. Every artefact in
+Full run: about 3 seconds on a laptop after the data is cached. Every artifact in
 `output/` and `docs/` is generated — nothing there is edited by hand.
 
 | Target | What it does |
-|---|---|
+| --- | --- |
 | `make fetch` | Download every upstream source into `data/raw/` (cached; `make refetch` forces) |
 | `make run` | Build 36 tables, 15 figures × 2 themes, `results.json`, and `docs/` |
 | `make test` | 21 invariant tests |
@@ -71,22 +71,22 @@ score(passport p) = Σ over destinations d of   credit(p → d) × weight(d)
 ```
 
 Henley sets `credit` to a binary and `weight(d) = 1` for every destination on
-Earth. That is not the absence of a modelling choice — it is a strong one. This
+Earth. That is not the absence of a modeling choice — it is a strong one. This
 project varies both terms and reports which conclusions survive.
 
 ### `credit` — the friction ladder
 
 | Entry regime | `binary_henley` | `graded` (default) | `strict` |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | Visa-free (incl. explicit day counts) | 1.00 | **1.00** | 1.00 |
 | Visa on arrival | 1.00 | **0.85** | 0.00 |
-| Electronic travel authorisation (eTA) | 1.00 | **0.70** | 0.00 |
+| Electronic travel authorization (eTA) | 1.00 | **0.70** | 0.00 |
 | e-Visa | 0.00 | **0.35** | 0.00 |
 | Visa required | 0.00 | **0.00** | 0.00 |
 | No admission | 0.00 | **0.00** | 0.00 |
 
 Defined in [`src/ahi/config.py`](src/ahi/config.py). The graded values are
-ordinal judgements, not measurements, so every result is recomputed under all
+ordinal judgments, not measurements, so every result is recomputed under all
 three ladders — see `output/tables/11_ladder_sensitivity.csv`.
 
 The source matrix also records **permitted stay in days** for 86% of visa-free
@@ -96,20 +96,20 @@ pairs. Every published index discards that column; this one keeps it as the
 ### `weight` — fifteen indicators, six pillars
 
 | Pillar | Question it answers | Indicators |
-|---|---|---|
+| --- | --- | --- |
 | **Economy** | Can you earn, trade and transact there? | GDP per capita PPP · GDP PPP · trade openness |
-| **Development** | Is it a functioning, connected, modern place? | HDI · internet penetration · tertiary enrolment |
+| **Development** | Is it a functioning, connected, modern place? | HDI · internet penetration · tertiary enrollment |
 | **Scale** | How much world sits behind the door? | Population · surface area |
 | **Draw** | Do people want to go, and can flights get you there? | Tourist arrivals · tourism receipts · carrier departures |
 | **Security** | Is the access safely and predictably usable? | Rule of law (V-Dem) · electoral democracy (V-Dem) · homicide rate ⁻ |
 | **Affordability** | How far does a visitor's money go? | Price level ⁻ |
 
-⁻ = lower is better; the normalised column is direction-corrected.
+⁻ = lower is better; the normalized column is direction-corrected.
 
 **Pipeline per indicator:** latest observation → vintage floor (anything before
 2012 is treated as missing, except tourism where the whole world is
 pre-pandemic) → manual patch or country proxy → peer-group imputation → log
-transform where skewed → winsorise at [1%, 99%] → min-max to [0, 1].
+transform where skewed → winsorize at [1%, 99%] → min-max to [0, 1].
 
 **Pillar score** = unweighted mean of its indicators. Weighting happens exactly
 once, at the pillar level, where there are six numbers to argue about instead of
@@ -118,7 +118,7 @@ fifteen.
 ### The index family
 
 | Variant | Weighting | What it answers |
-|---|---|---|
+| --- | --- | --- |
 | `henley` | flat, binary ladder | Henley's own rule, reproduced |
 | `graded_count` | flat, graded ladder | isolates the friction ladder's effect |
 | `binary_weighted` | composite, binary ladder | isolates the weighting's effect |
@@ -164,15 +164,15 @@ entirely fictitious movements. So every table carries both:
 ├── ARTICLE.md                  the long-form write-up
 │
 ├── src/ahi/
-│   ├── config.py               ⭐ every judgement call, in one auditable file
-│   ├── features.py             load → patch → impute → normalise → pillars
+│   ├── config.py               ⭐ every judgment call, in one auditable file
+│   ├── features.py             load → patch → impute → normalize → pillars
 │   ├── indices.py              the index family, ranking conventions, openness
 │   ├── pipeline.py             end-to-end orchestration
 │   ├── ingest/
 │   │   ├── fetch.py            downloads all sources, writes MANIFEST.json
 │   │   └── access.py           parses the matrix into a graded edge list
 │   ├── analysis/
-│   │   ├── sensitivity.py      Monte Carlo, ladder/normalisation/imputation, Kendall
+│   │   ├── sensitivity.py      Monte Carlo, ladder/normalization/imputation, Kendall
 │   │   ├── network.py          reciprocity, centrality, Louvain communities, blocs
 │   │   ├── inequality.py       Gini, Lorenz, concentration, the divide
 │   │   └── models.py           OLS + VIF, k-means typology
@@ -184,7 +184,7 @@ entirely fictitious movements. So every table carries both:
 ├── data/
 │   ├── raw/                    downloaded sources + MANIFEST.json (URL, SHA-256, vintage)
 │   ├── manual/                 hand-sourced patches, each with a citation column
-│   └── processed/              denormalised master tables
+│   └── processed/              denormalized master tables
 │
 ├── assets/
 │   ├── world_paths.js          Natural Earth 110m geometry, baked to SVG paths
@@ -204,7 +204,7 @@ entirely fictitious movements. So every table carries both:
 ## Data sources
 
 | Source | Series | Notes |
-|---|---|---|
+| --- | --- | --- |
 | [imorte/passport-index-data](https://github.com/imorte/passport-index-data) | 199 × 199 access matrix | Open successor to `ilyankou/passport-index-dataset`; same categories Henley uses. Henley's own IATA Timatic feed is licensed and not redistributable. |
 | [World Bank WDI](https://data.worldbank.org/) | 12 indicators | Pulled via the JSON API with `mrnev=1`, which returns the latest value **and its year** per economy |
 | [UNDP HDR 2025](https://hdr.undp.org/) | HDI | Data through 2023 |
@@ -219,7 +219,7 @@ reading came from the same bytes as the ones published here.
 
 **Vintage floor.** The World Bank carries a country's last reported figure
 forward indefinitely, so a naive "latest non-null" pull happily returns a 1994
-tertiary-enrolment number next to a 2025 GDP number. Anything older than 2012
+tertiary-enrollment number next to a 2025 GDP number. Anything older than 2012
 fails the floor and is imputed instead, with the substitution recorded.
 Tourism is exempt because the entire world's latest data is pre-pandemic and
 dropping it would delete the pillar — its median vintage is 2020, and it is
@@ -284,7 +284,7 @@ and the most sensitive 33. South Korea and Japan sit top-three under Henley's
 binary rule and fall to the mid-thirties under a strict rule, because much of
 their access is visa-on-arrival.
 
-**3 · The composite is a variance sink — and this generalises.** Averaging 15
+**3 · The composite is a variance sink — and this generalizes.** Averaging 15
 min-max-scaled indicators into 6 pillars into 1 composite compresses destination
 weights to a **3.5× spread** (Gini 0.15) when the underlying GDP data spans three
 orders of magnitude. 3,000 Dirichlet-resampled weightings move the median
@@ -323,7 +323,7 @@ Five Eyes 152 destinations, EU 133, African Union 31.
 <summary><b>All 36 tables in <code>output/tables/</code></b></summary>
 
 | File | Contents |
-|---|---|
+| --- | --- |
 | `01_access_categories` | Entry-regime counts, shares, median stay, credit per ladder |
 | `02_data_provenance` · `02b_provenance_cells` | Observed/manual/proxied/imputed, by indicator and by cell |
 | `03_indicator_registry` | Every indicator with source, code, direction, transform, median vintage |
@@ -331,11 +331,11 @@ Five Eyes 152 destinations, EU 133, African Union 31.
 | `05_pillar_contributions` · `05b_pillar_attainment` | Per-passport pillar decomposition and tilt |
 | `06_openness` | Inbound: count, graded, population-weighted |
 | `07_destination_weights` | Weight per destination under every lens and γ |
-| `08_destination_features` | Raw, normalised and pillar values per destination |
+| `08_destination_features` | Raw, normalized and pillar values per destination |
 | `09_datadriven_weights` | PC1 loadings and entropy weights |
 | `10_monte_carlo_ranks` · `10b_..._weight_draws` | Rank intervals; the sampled weight distribution |
 | `11_ladder_sensitivity` | Rank under each friction ladder |
-| `12_normalisation_sensitivity` | Rank under min-max / rank / z-score |
+| `12_normalization_sensitivity` | Rank under min-max / rank / z-score |
 | `13_imputation_sensitivity` | Rank with poorly-measured destinations dropped |
 | `14_index_agreement` | Kendall τ-b between every pair of variants |
 | `15_rank_movement` | Movement decomposed into weighting vs friction effects |
@@ -392,7 +392,7 @@ Almost everything you would want to change lives in
 
 - Not Henley's data (199 × 199 vs their 199 × 227); scores compare in order, not
   in level.
-- The graded ladder is a judgement, hence the three-ladder reporting.
+- The graded ladder is a judgment, hence the three-ladder reporting.
 - Tourism data is pre-pandemic by construction.
 - 7% of cells are imputed, proxied or hand-sourced; figures for Vatican City,
   North Korea and Kosovo are estimates.
@@ -403,8 +403,8 @@ Almost everything you would want to change lives in
 
 ---
 
-## Licence
+## License
 
-Code MIT. Upstream data remains under its own licences: World Bank (CC BY-4.0),
+Code MIT. Upstream data remains under its own licenses: World Bank (CC BY-4.0),
 UNDP, Our World in Data (CC BY), `imorte/passport-index-data`,
 `mledoze/countries` (ODbL). Not affiliated with or endorsed by Henley & Partners.

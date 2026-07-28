@@ -1,6 +1,6 @@
 """Chart theme: palette slots, matplotlib styling, and shared mark helpers.
 
-Colours are the validated reference palette, used unchanged. The ordering is the
+Colors are the validated reference palette, used unchanged. The ordering is the
 safety mechanism rather than a preference, so slots are consumed in order and
 never cycled: forms where every series can sit next to every other (scatter,
 choropleth) are capped at the first three slots, which are the ones that clear

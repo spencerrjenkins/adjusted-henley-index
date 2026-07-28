@@ -7,7 +7,7 @@ Roughly 55% of all frictionless cells carry an explicit day count, which is a
 dimension of the data that every published passport index throws away.
 
 This module produces one row per ordered (passport, destination) pair with:
-  * `category`      - the normalised entry-regime label
+  * `category`      - the normalized entry-regime label
   * `stay_days`     - permitted length of stay, explicit where stated
   * one column per access ladder in `config.ACCESS_LADDERS`, giving the credit
     that ladder assigns to the pair.
@@ -24,7 +24,7 @@ from ..config import ACCESS_LADDERS, DEFAULT_STAY_DAYS, RAW
 MATRIX_ISO3 = RAW / "passport_index_matrix_iso3.csv"
 MATRIX_NAMES = RAW / "passport_index_matrix_names.csv"
 
-# The raw vocabulary, normalised. Anything not matched here and not an integer
+# The raw vocabulary, normalized. Anything not matched here and not an integer
 # raises rather than being silently dropped into `visa_required` -- an unknown
 # token is a schema change upstream, and should fail loudly.
 CATEGORY_MAP = {
@@ -41,7 +41,7 @@ CATEGORY_MAP = {
 _INT_RE = re.compile(r"^\d+$")
 
 
-def _normalise(value: object) -> tuple[str, float | None]:
+def _normalize(value: object) -> tuple[str, float | None]:
     """Return (category, explicit_stay_days or None) for one matrix cell."""
     token = str(value).strip().lower()
     if _INT_RE.match(token):
@@ -49,7 +49,7 @@ def _normalise(value: object) -> tuple[str, float | None]:
         return "visa_free", float(token)
     category = CATEGORY_MAP.get(token)
     if category is None:
-        raise ValueError(f"unrecognised access token in matrix: {value!r}")
+        raise ValueError(f"unrecognized access token in matrix: {value!r}")
     return category, None
 
 
@@ -61,7 +61,7 @@ def load_access_edges() -> pd.DataFrame:
             .rename_axis(["passport", "destination"])
             .reset_index())
 
-    parsed = long["raw"].map(_normalise)
+    parsed = long["raw"].map(_normalize)
     long["category"] = [c for c, _ in parsed]
     long["explicit_days"] = [d for _, d in parsed]
 

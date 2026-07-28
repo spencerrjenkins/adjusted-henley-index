@@ -1,7 +1,7 @@
 """Central configuration: paths, the indicator registry, the friction ladder,
 the pillar structure, and the lens (weight-vector) definitions.
 
-Everything that encodes an analyst judgement call lives in this one module, so
+Everything that encodes an analyst judgment call lives in this one module, so
 that the set of things a reader has to argue with is finite and enumerable.
 That is the first recommendation of the OECD/JRC *Handbook on Constructing
 Composite Indicators* (2008): make the framework explicit before you make it
@@ -40,7 +40,7 @@ for _p in (RAW, MANUAL, PROCESSED, OUTPUT, FIGURES, TABLES, DOCS):
 # ones.
 #
 # GRADED assigns partial credit along that continuum. The numbers are ordinal
-# judgements, not measurements, so every result computed with them is also
+# judgments, not measurements, so every result computed with them is also
 # reported under BINARY_HENLEY (Henley's own rule) and STRICT (only true
 # visa-free counts) -- see `analysis/sensitivity.py`. If a finding only holds
 # under one ladder, it is a finding about the ladder, not about passports.
@@ -58,13 +58,13 @@ ACCESS_LADDERS: dict[str, dict[str, float]] = {
     # near-automatically (eTA, e-Visa) but is still a permission request.
     "graded": {
         "visa_free": 1.00,
-        "visa_on_arrival": 0.85,   # no pre-departure step, but a queue and a fee
+        "visa_on_arrival": 0.85,   # no pre-departure step, but a line and a fee
         "eta": 0.70,               # online, minutes, near-automatic approval
         "e_visa": 0.35,            # online, days of lead time, refusable
         "visa_required": 0.00,     # consulate appointment, biometrics, interview
         "no_admission": 0.00,      # entry refused outright
     },
-    # The purist reading: only entry with no authorisation of any kind.
+    # The purist reading: only entry with no authorization of any kind.
     "strict": {
         "visa_free": 1.0,
         "visa_on_arrival": 0.0,
@@ -97,7 +97,7 @@ STAY_DAYS_CAP = 180  # a half-year of permitted presence saturates the benefit
 class Indicator:
     """One measured attribute of a destination country.
 
-    direction: +1 if more is better for a traveller, -1 if less is better.
+    direction: +1 if more is better for a traveler, -1 if less is better.
     transform: 'log' for indicators spanning orders of magnitude (all the
                count- and money-denominated ones), 'linear' for bounded scores
                and rates.
@@ -135,7 +135,7 @@ INDICATORS: tuple[Indicator, ...] = (
               "Individuals using the internet", "% of pop.", 1, "linear",
               "Digital infrastructure; the binding constraint for remote work."),
     Indicator("tertiary_enroll", "development", "worldbank", "SE.TER.ENRR",
-              "Tertiary school enrolment", "% gross", 1, "linear",
+              "Tertiary school enrollment", "% gross", 1, "linear",
               "Higher-education capacity; proxies value as a study destination."),
 
     # -- Pillar: scale -- how much world is behind the door? -----------------
@@ -186,7 +186,7 @@ SUPPORT_SERIES: dict[str, str] = {
 }
 
 # World Bank keeps publishing a country's last observation forever, so a naive
-# "latest non-null" pull happily returns a 1994 tertiary-enrolment figure next
+# "latest non-null" pull happily returns a 1994 tertiary-enrollment figure next
 # to a 2025 GDP figure. Anything older than this is treated as missing and
 # imputed like any other gap, with the substitution recorded in the provenance
 # table. The exception is tourism, where the entire world's latest data is
@@ -280,7 +280,7 @@ BLOCS: dict[str, list[str]] = {
 # discussion. VUT is Pacific, not Caribbean, but belongs to the same market.
 CBI_COUNTRIES = ["ATG", "DMA", "GRD", "KNA", "LCA", "VUT", "MLT", "TUR", "EGY", "JOR", "NRU"]
 
-# Normalisation is winsorised before min-max scaling so that one extreme
+# Normalization is winsorized before min-max scaling so that one extreme
 # destination (Monaco's GDP per capita, Tuvalu's population) cannot compress the
 # other 197 into the bottom of the range.
 WINSOR_LIMITS = (0.01, 0.99)

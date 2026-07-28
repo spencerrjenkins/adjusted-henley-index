@@ -109,14 +109,14 @@ def test_no_missing_values_survive_imputation(features):
         assert features[indicator.key].notna().all(), indicator.key
 
 
-def test_normalised_indicators_are_bounded_and_directed(features):
+def test_normalized_indicators_are_bounded_and_directed(features):
     for indicator in INDICATORS:
         column = features[f"n_{indicator.key}"]
         assert column.min() >= -1e-9 and column.max() <= 1 + 1e-9, indicator.key
 
 
 def test_lower_is_better_indicators_are_flipped(features):
-    """Homicide rate has direction -1, so the normalised column must rank a safe
+    """Homicide rate has direction -1, so the normalized column must rank a safe
     country above a dangerous one. Getting this backwards would be invisible in
     the composite but would invert the security pillar."""
     safe, dangerous = features["n_homicide_rate"].idxmax(), features["n_homicide_rate"].idxmin()
@@ -179,7 +179,7 @@ def test_openness_matches_published_us_figure(edges, features):
 
 
 # ---------------------------------------------------------------------------
-# Inequality maths
+# Inequality math
 # ---------------------------------------------------------------------------
 def test_gini_endpoints():
     assert gini(np.ones(50)) == pytest.approx(0.0)

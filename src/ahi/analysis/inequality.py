@@ -1,6 +1,6 @@
 """Measuring the mobility divide.
 
-Mau et al. (2015) argue that global visa liberalisation has been real but
+Mau et al. (2015) argue that global visa liberalization has been real but
 unequally distributed: the world got more open on average while the gap between
 the most and least mobile passports widened. That is an inequality claim, and
 inequality claims have standard instruments -- Gini coefficients, Lorenz curves,

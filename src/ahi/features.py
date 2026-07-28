@@ -3,7 +3,7 @@
 The output is one row per destination in the access matrix, carrying:
   * raw indicator values and the vintage year of each
   * a per-cell provenance label (`observed`, `manual`, `imputed:<group>`)
-  * winsorised, direction-corrected, min-max-scaled versions of each indicator
+  * winsorized, direction-corrected, min-max-scaled versions of each indicator
   * a score for each of the six pillars
 
 Everything downstream consumes this table and nothing else, so the seam between
@@ -148,7 +148,7 @@ def build_raw_features(destinations: pd.Index) -> tuple[pd.DataFrame, pd.DataFra
 
     # Stale observations are not observations. World Bank carries a country's
     # last reported figure forward indefinitely, so without this a 1994
-    # tertiary-enrolment number would sit next to a 2025 GDP number and be
+    # tertiary-enrollment number would sit next to a 2025 GDP number and be
     # treated as equally current.
     for ind in INDICATORS:
         year_col = f"{ind.key}_year"
@@ -188,9 +188,9 @@ def impute(wide: pd.DataFrame, provenance: pd.DataFrame) -> tuple[pd.DataFrame, 
 
 
 # ---------------------------------------------------------------------------
-# Normalisation
+# Normalization
 # ---------------------------------------------------------------------------
-def _winsorised_minmax(series: pd.Series) -> pd.Series:
+def _winsorized_minmax(series: pd.Series) -> pd.Series:
     lo, hi = series.quantile(WINSOR_LIMITS[0]), series.quantile(WINSOR_LIMITS[1])
     clipped = series.clip(lo, hi)
     span = clipped.max() - clipped.min()
@@ -199,13 +199,13 @@ def _winsorised_minmax(series: pd.Series) -> pd.Series:
     return (clipped - clipped.min()) / span
 
 
-def normalise(wide: pd.DataFrame, method: str = "winsor_minmax") -> pd.DataFrame:
+def normalize(wide: pd.DataFrame, method: str = "winsor_minmax") -> pd.DataFrame:
     """Transform each indicator onto a common [0, 1] scale where 1 is always
-    "better for a traveller".
+    "better for a traveler".
 
     Money- and count-denominated indicators span five to nine orders of
     magnitude, so they are logged first: without it the composite would be a
-    three-country index about the United States, China and India. Winsorising
+    three-country index about the United States, China and India. Winsorizing
     at the 1st/99th percentile before scaling stops a single extreme (Monaco's
     GDP per capita) from compressing everyone else into the bottom of the range.
 
@@ -226,32 +226,32 @@ def normalise(wide: pd.DataFrame, method: str = "winsor_minmax") -> pd.DataFrame
             scaled = (values - values.mean()) / std if std else pd.Series(0.0, index=values.index)
             scaled = (scaled.clip(-3, 3) + 3) / 6
         else:
-            scaled = _winsorised_minmax(values)
+            scaled = _winsorized_minmax(values)
         out[f"n_{ind.key}"] = scaled
     return out
 
 
-def pillar_scores(normalised: pd.DataFrame) -> pd.DataFrame:
+def pillar_scores(normalized: pd.DataFrame) -> pd.DataFrame:
     """Each pillar is the unweighted mean of its member indicators.
 
     Weighting happens once, at the pillar level, where it is a small enough set
     of numbers to argue about honestly. Indicators inside a pillar are treated
     as interchangeable measurements of the same latent thing.
     """
-    out = pd.DataFrame(index=normalised.index)
+    out = pd.DataFrame(index=normalized.index)
     for pillar in PILLARS:
         cols = [f"n_{ind.key}" for ind in INDICATORS if ind.pillar == pillar]
-        out[f"p_{pillar}"] = normalised[cols].mean(axis=1)
+        out[f"p_{pillar}"] = normalized[cols].mean(axis=1)
     return out
 
 
 def build_features(destinations: pd.Index, norm_method: str = "winsor_minmax"):
-    """Full pipeline: raw -> patched -> imputed -> normalised -> pillars."""
+    """Full pipeline: raw -> patched -> imputed -> normalized -> pillars."""
     wide, provenance = build_raw_features(destinations)
     wide, provenance = impute(wide, provenance)
-    normalised = normalise(wide, method=norm_method)
-    pillars = pillar_scores(normalised)
-    features = wide.join(normalised).join(pillars)
+    normalized = normalize(wide, method=norm_method)
+    pillars = pillar_scores(normalized)
+    features = wide.join(normalized).join(pillars)
     return features, provenance
 
 

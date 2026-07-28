@@ -4,7 +4,7 @@ gdp_total_ppp,economy,"GDP, PPP",worldbank,NY.GDP.MKTP.PP.CD,1,log,2025,Market s
 trade_openness,economy,Trade,worldbank,NE.TRD.GNFS.ZS,1,linear,2025,How externally engaged the economy is; proxies ease of doing business as a foreigner.
 hdi,development,Human Development Index,undp,hdi,1,linear,2023,"UNDP composite of life expectancy, education, and income."
 internet_users,development,Individuals using the internet,worldbank,IT.NET.USER.ZS,1,linear,2024,Digital infrastructure; the binding constraint for remote work.
-tertiary_enroll,development,Tertiary school enrolment,worldbank,SE.TER.ENRR,1,linear,2023,Higher-education capacity; proxies value as a study destination.
+tertiary_enroll,development,Tertiary school enrollment,worldbank,SE.TER.ENRR,1,linear,2023,Higher-education capacity; proxies value as a study destination.
 population,scale,Population,worldbank,SP.POP.TOTL,1,log,2025,"Demographic reach, independent of wealth."
 surface_area,scale,Surface area,worldbank,AG.SRF.TOTL.K2,1,log,2023,Physical extent: how much there is to actually go and see.
 tourist_arrivals,draw,International tourist arrivals,worldbank,ST.INT.ARVL,1,log,2020,Revealed preference: where the world actually chooses to go.

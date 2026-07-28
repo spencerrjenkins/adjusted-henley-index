@@ -136,7 +136,7 @@ def cluster_passports(family: pd.DataFrame, contributions: pd.DataFrame,
         labels = KMeans(n_clusters=k, n_init=25, random_state=seed).fit_predict(scaled)
         scores[k] = float(silhouette_score(scaled, labels))
 
-    # Silhouette is maximised at k=2, which recovers the split everyone already
+    # Silhouette is maximized at k=2, which recovers the split everyone already
     # knows about -- strong passports and weak ones -- and says nothing new. The
     # typology is therefore taken from the best k of at least three, with the
     # k=2 score still reported so the choice is visible rather than quietly made.

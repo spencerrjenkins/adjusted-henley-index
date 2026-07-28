@@ -93,14 +93,14 @@ def mutual_communities(edges: pd.DataFrame, ladder: str = DEFAULT_LADDER,
     """Communities in the *mutual* (undirected) access graph.
 
     Restricting to reciprocal pairs before clustering is the point: one-way
-    access is a favour, mutual access is a relationship, and only the second
+    access is a favor, mutual access is a relationship, and only the second
     forms blocs. Louvain then finds them without being told that the EU or the
     Gulf exist -- if the algorithm rediscovers Schengen from nothing but who
-    lets whom in, that is a real result about how mobility is organised.
+    lets whom in, that is a real result about how mobility is organized.
     """
     keep = edges[edges[f"credit_{ladder}"] >= threshold]
     pairs = set(zip(keep["passport"], keep["destination"]))
-    # Sorted, not set-ordered. Python randomises string hashing per process, so
+    # Sorted, not set-ordered. Python randomizes string hashing per process, so
     # iterating a set of ISO codes gives a different node insertion order on
     # every run -- and Louvain's output depends on it, which made the community
     # numbering shuffle between otherwise identical runs despite the fixed seed.

@@ -26,7 +26,7 @@ admirably clear about how they produce it:
 Using IATA's Timatic database, they score 199 passports against 227
 destinations. You get a point for a destination if you can board a plane without
 first asking a government for permission — visa-free, visa-on-arrival, or an
-electronic travel authorisation all qualify. You get nothing if a visa is
+electronic travel authorization all qualify. You get nothing if a visa is
 required, and nothing if an e-Visa is required. In
 [January 2026](https://www.henleyglobal.com/newsroom/press-releases/henley-global-mobility-report-january-2026)
 this produced Singapore first with 192, Japan and South Korea second with 188,
@@ -82,7 +82,7 @@ A visa requirement is a tariff on human contact, and it is paid entirely by one
 side.
 
 The sociology is not subtle either. Mau and colleagues coined the term **global
-mobility divide** for the pattern their data shows: visa liberalisation has been
+mobility divide** for the pattern their data shows: visa liberalization has been
 real in aggregate and radically unequal in distribution, with citizens of
 wealthy states accumulating mobility rights while African citizens' rights
 stagnated or went backwards
@@ -116,12 +116,12 @@ Instead of a binary, entry regimes get graded credit:
 |---|---|---|---|
 | Visa-free | 1.00 | **1.00** | 1.00 |
 | Visa on arrival | 1.00 | **0.85** | 0.00 |
-| Electronic travel authorisation | 1.00 | **0.70** | 0.00 |
+| Electronic travel authorization | 1.00 | **0.70** | 0.00 |
 | e-Visa | 0.00 | **0.35** | 0.00 |
 | Visa required | 0.00 | **0.00** | 0.00 |
 | No admission | 0.00 | **0.00** | 0.00 |
 
-Those middle numbers are ordinal judgements, not measurements. So everything in
+Those middle numbers are ordinal judgments, not measurements. So everything in
 this project is computed under all three ladders, and any finding that only
 survives one of them is reported as a finding about the ladder rather than about
 passports.
@@ -135,7 +135,7 @@ derived from the ratio of nominal to PPP GDP — grouped into six pillars:
 | Pillar | Question | Indicators |
 |---|---|---|
 | **Economy** | Can you earn, trade and transact there? | GDP per capita PPP, GDP PPP, trade openness |
-| **Development** | Is it a functioning, connected, modern place? | HDI, internet penetration, tertiary enrolment |
+| **Development** | Is it a functioning, connected, modern place? | HDI, internet penetration, tertiary enrollment |
 | **Scale** | How much world sits behind the door? | Population, surface area |
 | **Draw** | Do people want to go — and can flights get you there? | Tourist arrivals, tourism receipts, carrier departures |
 | **Security** | Is the access safely and predictably usable? | Rule of law, electoral democracy, homicide rate |
@@ -143,8 +143,8 @@ derived from the ratio of nominal to PPP GDP — grouped into six pillars:
 
 Money- and count-denominated indicators are log-transformed (without it the
 composite becomes a three-country index about the US, China and India),
-winsorised at the 1st and 99th percentile, then min-max scaled. Pillars are
-unweighted means of their members, so a weighting judgement is made exactly once
+winsorized at the 1st and 99th percentile, then min-max scaled. Pillars are
+unweighted means of their members, so a weighting judgment is made exactly once
 — at the pillar level, where there are six numbers to argue about instead of
 fifteen.
 
@@ -155,7 +155,7 @@ project computes several: **Balanced**, **Business**, **Leisure**,
 **Settlement**, and **Raw reach**. Alongside them sit two weightings derived
 mechanically — one from the first principal component of the destination matrix,
 one from Shannon entropy. Those two are the control group. If hand-set weights
-and machine-derived weights tell the same story, the story is not an artefact of
+and machine-derived weights tell the same story, the story is not an artifact of
 the analyst.
 
 And two variants need no weighting scheme at all, which makes them the most
@@ -243,8 +243,8 @@ visa-on-arrival rather than visa-free. Malaysia goes the other way — 33rd to 4
 </picture>
 
 This is not a small caveat. It means a meaningful part of the ordering at the
-top of the world's most-quoted passport table is an artefact of treating a
-visa-on-arrival queue as equivalent to an e-gate.
+top of the world's most-quoted passport table is an artifact of treating a
+visa-on-arrival line as equivalent to an e-gate.
 
 And there is a whole column in the source data that every published index throws
 away: **the permitted length of stay**. 86% of visa-free pairs in the matrix
@@ -395,7 +395,7 @@ about a quarter of it.
 
 Running Louvain community detection on the **mutual** access graph — where an
 edge exists only if two countries admit each other, because one-way access is a
-favour and mutual access is a relationship — recovers the political map without
+favor and mutual access is a relationship — recovers the political map without
 being told it exists: a European cluster of 76, an African cluster of 89, and a
 post-Soviet cluster of 31.
 
@@ -405,7 +405,7 @@ post-Soviet cluster of 31.
 
 **The Emirati climb.** The UAE added 149 visa-free destinations in twenty years
 and rose 57 places, the strongest performer in the index's history — the product
-of a deliberate, sustained programme of bilateral waiver negotiation. It tops
+of a deliberate, sustained program of bilateral waiver negotiation. It tops
 this project's reproduction too, and unusually it holds position across every
 lens, because its access is broad rather than regionally concentrated.
 
@@ -425,18 +425,18 @@ far more than a typical bilateral deal, which is exactly why several Southeast
 and Central Asian passports gain under weighting here.
 
 **Passports for sale, and the ceiling on them.** Citizenship-by-investment
-programmes sell precisely the thing this index measures. In April 2025 the
+programs sell precisely the thing this index measures. In April 2025 the
 [European Court of Justice ruled Malta's scheme unlawful](https://www.asil.org/insights/volume/29/issue/8),
 holding that a member state cannot make nationality — and with it EU citizenship
-— "a mere commercial transaction". The Caribbean programmes that remain sell
+— "a mere commercial transaction." The Caribbean programs that remain sell
 access to a measurably narrower world.
 
-**The binary is about to get blurrier.** The EU's ETIAS authorisation,
+**The binary is about to get blurrier.** The EU's ETIAS authorization,
 repeatedly delayed and now expected no earlier than 2027, will convert visa-free
-entry to Europe into an electronic travel authorisation for more than sixty
+entry to Europe into an electronic travel authorization for more than sixty
 nationalities. Under Henley's rule that changes nothing — an ETA still scores 1.
 Under any graded reading it is a real increase in friction for an enormous number
-of travellers, and it will not appear in the headline number at all.
+of travelers, and it will not appear in the headline number at all.
 
 ---
 
@@ -445,7 +445,7 @@ of travellers, and it will not appear in the headline number at all.
 - **It is not Henley's data.** Their IATA Timatic feed is licensed and not
   redistributable. This uses the open passport-index matrix — 199 × 199 rather
   than 199 × 227 — so scores are not comparable in level, only in order.
-- **The friction ladder is a judgement.** 0.85 for visa-on-arrival is defensible,
+- **The friction ladder is a judgment.** 0.85 for visa-on-arrival is defensible,
   not measured. Every result is therefore reported under all three ladders.
 - **Some data is stale by construction.** Tourist arrivals and receipts have a
   median vintage of 2020: the pandemic broke the series and it has not fully

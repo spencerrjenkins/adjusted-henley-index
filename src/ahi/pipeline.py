@@ -109,7 +109,7 @@ def run(n_monte_carlo: int = 3000, build_website: bool = True) -> dict:
     mc_summary["name"] = mc_summary["passport"].map(names)
     _save(mc_summary, "10_monte_carlo_ranks")
     _save(sensitivity.ladder_sensitivity(edges, features), "11_ladder_sensitivity")
-    _save(sensitivity.normalisation_sensitivity(edges, destinations), "12_normalisation_sensitivity")
+    _save(sensitivity.normalization_sensitivity(edges, destinations), "12_normalization_sensitivity")
 
     imp_frame, n_kept, n_total = sensitivity.imputation_sensitivity(edges, features, provenance)
     _save(imp_frame, "13_imputation_sensitivity")
@@ -256,7 +256,7 @@ def run(n_monte_carlo: int = 3000, build_website: bool = True) -> dict:
 
     (OUTPUT / "results.json").write_text(json.dumps(_json_safe(results), indent=2) + "\n")
 
-    # Processed artefacts for the website, kept small and denormalised.
+    # Processed artifacts for the website, kept small and denormalized.
     site_frame = (family.merge(contributions, on="passport")
                   .merge(openness.drop(columns="name"), on="passport")
                   .merge(mc_summary.drop(columns="name"), on="passport")
@@ -289,7 +289,7 @@ def run(n_monte_carlo: int = 3000, build_website: bool = True) -> dict:
         from .viz.site import build as build_site
         # Read the bundle back rather than passing `results` directly: the site
         # must be built from exactly the JSON that ships next to it, not from
-        # live DataFrames that serialise into something subtly different.
+        # live DataFrames that serialize into something subtly different.
         build_site(json.loads((OUTPUT / "results.json").read_text()))
 
     print(f"\nWrote {len(list(TABLES.glob('*.csv')))} tables to {TABLES}")

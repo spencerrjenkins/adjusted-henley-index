@@ -5,7 +5,7 @@ Every passport index in existence is the same expression:
     score(p) = sum over destinations d of  credit(p -> d) * weight(d)
 
 Henley sets `credit` to a binary and `weight` to 1 for every destination on
-Earth. That is not the absence of a modelling choice, it is a strong one: it
+Earth. That is not the absence of a modeling choice, it is a strong one: it
 asserts that reaching Kiribati and reaching the United States are worth exactly
 the same. This module makes both terms explicit and then varies them, so the
 question stops being "what is the right index" and becomes "which conclusions
@@ -13,12 +13,12 @@ survive changing it".
 
 Three families are computed:
 
-  * **Judgement-weighted** -- the five lenses in `config.LENSES`, each a
+  * **Judgment-weighted** -- the five lenses in `config.LENSES`, each a
     defensible answer to a different question about whose mobility we mean.
   * **Data-driven** -- PCA and entropy weights, which nobody chose. They are the
     control group: if the analyst-set weights produce the same story as weights
     derived mechanically from the covariance structure, the story is not an
-    artefact of the analyst.
+    artifact of the analyst.
   * **Unit-denominated** -- share of world GDP and share of world population
     reachable, plus permitted person-days. These need no weighting scheme at
     all, and are the most literally interpretable numbers in the project.
@@ -38,9 +38,9 @@ from .config import (ACCESS_LADDERS, DEFAULT_LADDER, HEADLINE_LENS, INDICATORS,
 # Destination weighting schemes
 # ---------------------------------------------------------------------------
 def lens_weights(features: pd.DataFrame, lens_key: str, pillar_weights: dict[str, float] | None = None) -> pd.Series:
-    """Composite destination weight under one lens, mean-normalised to 1.0.
+    """Composite destination weight under one lens, mean-normalized to 1.0.
 
-    Mean-normalisation is what keeps the adjusted score on the same scale as the
+    Mean-normalization is what keeps the adjusted score on the same scale as the
     raw count: a passport whose destinations are all exactly average scores the
     same as it would under Henley, and any deviation is a statement about the
     *composition* of its access rather than the size of it.
@@ -59,12 +59,12 @@ def pca_weights(features: pd.DataFrame) -> tuple[pd.Series, pd.Series, float]:
     is the direction along which destinations differ most. No analyst opinion
     enters, which is the point -- it is a check on the hand-set weights, not a
     better answer, because "the axis of maximum variance" is not the same thing
-    as "what a traveller values".
+    as "what a traveler values".
     """
     cols = [f"n_{ind.key}" for ind in INDICATORS]
     matrix = features[cols].to_numpy()
-    centred = (matrix - matrix.mean(axis=0)) / matrix.std(axis=0, ddof=0)
-    pca = PCA(n_components=1, random_state=RANDOM_SEED).fit(centred)
+    centered = (matrix - matrix.mean(axis=0)) / matrix.std(axis=0, ddof=0)
+    pca = PCA(n_components=1, random_state=RANDOM_SEED).fit(centered)
     loadings = pca.components_[0]
     if loadings.sum() < 0:            # sign of a component is arbitrary
         loadings = -loadings
@@ -99,7 +99,7 @@ def entropy_weights(features: pd.DataFrame) -> tuple[pd.Series, pd.Series]:
 
 def unit_weights(features: pd.DataFrame, column: str) -> pd.Series:
     """Weight proportional to a raw quantity (GDP, people), scaled so the index
-    reads as a *share of the world total* -- no normalisation choices at all."""
+    reads as a *share of the world total* -- no normalization choices at all."""
     values = features[column].astype(float)
     return values / values.sum()
 
@@ -148,7 +148,7 @@ def competition_rank(scores: pd.Series, decimals: int = 1) -> pd.Series:
     ranks; a weighted score is continuous, so the same 199 passports occupy 199.
     Under dense ranking the world's weakest passport is "97th" on one index and
     "171st" on the other while being last on both, and the 74-place "fall" is an
-    artefact of counting ties. Every cross-index comparison in this project
+    artifact of counting ties. Every cross-index comparison in this project
     therefore uses this column, and dense ranks are reported only where the point
     is to reproduce Henley's published table.
     """
@@ -201,7 +201,7 @@ def build_index_family(edges: pd.DataFrame, features: pd.DataFrame) -> tuple[pd.
     headline_w = lens_weights(features, HEADLINE_LENS)
     frames.append(score_frame(edges, headline_w, "binary_weighted", ladder="binary_henley"))
 
-    # -- Judgement-weighted lenses ----------------------------------------
+    # -- Judgment-weighted lenses ----------------------------------------
     weight_table = pd.DataFrame(index=features.index)
     for lens in LENSES:
         w = lens_weights(features, lens.key)
@@ -222,7 +222,7 @@ def build_index_family(edges: pd.DataFrame, features: pd.DataFrame) -> tuple[pd.
 
     # -- Unit-denominated -------------------------------------------------
     # These read directly as percentages of the world, so they need no scale
-    # convention and no defence of a weighting choice. Computed on the binary
+    # convention and no defense of a weighting choice. Computed on the binary
     # ladder specifically so the number means what it says: the share of world
     # GDP (or population) you can reach without asking anyone's permission.
     # Partial credit would make it a share of nothing in particular.
@@ -237,7 +237,7 @@ def build_index_family(edges: pd.DataFrame, features: pd.DataFrame) -> tuple[pd.
     # pillars into one composite is a variance sink: the resulting destination
     # weights span only about 3.5x from Germany to Burundi, which is a much
     # narrower claim than "some destinations are worth far more than others".
-    # Raising the composite to a power before mean-normalising stretches or
+    # Raising the composite to a power before mean-normalizing stretches or
     # compresses that spread without changing the ordering, and asking whether
     # the conclusions move is a cleaner test than arguing about the ratio.
     for gamma, tag in ((0.5, "flat"), (2.0, "sharp"), (4.0, "extreme")):

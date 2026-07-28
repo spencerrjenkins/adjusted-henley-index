@@ -38,12 +38,12 @@ def fig_rank_movement(movement: pd.DataFrame, mode: Mode, n: int = 14) -> None:
     y = np.arange(len(movers))
 
     for yi, row in zip(y, movers.itertuples()):
-        colour = theme.diverging_color(mode, row.total_move, 30)
+        color = theme.diverging_color(mode, row.total_move, 30)
         ax.plot([row.baseline_rank, row.target_rank], [yi, yi],
-                color=colour, linewidth=2.0, solid_capstyle="round", zorder=2)
+                color=color, linewidth=2.0, solid_capstyle="round", zorder=2)
         ax.scatter(row.baseline_rank, yi, s=44, color=mode.deemphasis,
                    edgecolor=mode.surface, linewidth=2.0, zorder=3)
-        ax.scatter(row.target_rank, yi, s=62, color=colour,
+        ax.scatter(row.target_rank, yi, s=62, color=color,
                    edgecolor=mode.surface, linewidth=2.0, zorder=4)
         # The x-axis is inverted (rank 1 on the right), so the label goes on the
         # far side of whichever end of the dumbbell is the outer one.
@@ -55,7 +55,7 @@ def fig_rank_movement(movement: pd.DataFrame, mode: Mode, n: int = 14) -> None:
     ax.set_yticks(y, movers["name"], fontsize=9)
     ax.invert_xaxis()
     ax.set_xlim(movers[["baseline_rank", "target_rank"]].to_numpy().max() + 22, -4)
-    ax.set_xlabel("Rank (1 = strongest). Grey dot: Henley-rule count. Coloured dot: opportunity-weighted.")
+    ax.set_xlabel("Rank (1 = strongest). Gray dot: Henley-rule count. Colored dot: opportunity-weighted.")
     theme.frame(ax, mode, keep=("bottom",), grid_axis="x")
     theme.title(ax, mode, "Who gains and who falls when destinations stop being worth one point each",
                 "Competition ranks under both indices, so the two scales are comparable. "
@@ -110,7 +110,7 @@ def fig_index_agreement(agreement: pd.DataFrame, mode: Mode) -> None:
     ax.tick_params(length=0)
     for side in ("top", "right", "left", "bottom"):
         ax.spines[side].set_visible(False)
-    theme.title(ax, mode, "Which modelling choices actually change the answer",
+    theme.title(ax, mode, "Which modeling choices actually change the answer",
                 "Kendall's tau-b between every pair of index variants. 1.00 = identical ordering; "
                 "the low cells are where a choice mattered.")
     cbar = fig.colorbar(im, ax=ax, shrink=0.62, pad=0.02)
@@ -168,8 +168,8 @@ def fig_ladder(ladder: pd.DataFrame, names: dict, mode: Mode, n: int = 12) -> No
     for row in movers.itertuples():
         values = [getattr(row, s) for s in stages]
         drops = values[-1] - values[0]
-        colour = theme.diverging_color(mode, -drops, 20)
-        ax.plot(x, values, color=colour, linewidth=2.0, marker="o", markersize=6,
+        color = theme.diverging_color(mode, -drops, 20)
+        ax.plot(x, values, color=color, linewidth=2.0, marker="o", markersize=6,
                 markeredgecolor=mode.surface, markeredgewidth=2.0, alpha=0.9)
         ax.annotate(row.name, (x[-1], values[-1]), xytext=(8, 0), textcoords="offset points",
                     va="center", fontsize=8.5, color=mode.ink_secondary)
@@ -263,7 +263,7 @@ def fig_pillar_profiles(attainment: pd.DataFrame, family: pd.DataFrame,
         ax.spines[side].set_visible(False)
     theme.title(ax, mode, "Two passports of the same size can open different worlds",
                 "Cell: share of the world's total value in that pillar the passport can reach. "
-                "Colour: how far that sits above (blue) or below (red) the passport's own average.")
+                "Color: how far that sits above (blue) or below (red) the passport's own average.")
     cbar = fig.colorbar(im, ax=ax, shrink=0.55, pad=0.02)
     cbar.set_label("percentage points vs. own average", color=mode.ink_secondary, fontsize=8.5)
     cbar.outline.set_visible(False)
@@ -290,8 +290,8 @@ def fig_reciprocity(recip: pd.DataFrame, mode: Mode) -> None:
     highlight = pd.concat([recip.nlargest(6, "mobility_balance"),
                            recip.nsmallest(6, "mobility_balance")])
     for row in highlight.itertuples():
-        colour = theme.diverging_color(mode, row.mobility_balance, 100)
-        ax.scatter(row.admits, row.reaches, s=76, color=colour,
+        color = theme.diverging_color(mode, row.mobility_balance, 100)
+        ax.scatter(row.admits, row.reaches, s=76, color=color,
                    edgecolor=mode.surface, linewidth=2.0, zorder=3)
         ax.annotate(row.name, (row.admits, row.reaches), xytext=(9, 4),
                     textcoords="offset points", fontsize=8.5, color=mode.ink_secondary)
@@ -350,8 +350,8 @@ def fig_residuals(residuals: pd.DataFrame, r_squared: float, mode: Mode) -> None
 
     highlight = pd.concat([residuals.nlargest(7, "residual"), residuals.nsmallest(7, "residual")])
     for row in highlight.itertuples():
-        colour = theme.diverging_color(mode, row.residual, 20)
-        ax.scatter(row.predicted, row.actual, s=76, color=colour,
+        color = theme.diverging_color(mode, row.residual, 20)
+        ax.scatter(row.predicted, row.actual, s=76, color=color,
                    edgecolor=mode.surface, linewidth=2.0, zorder=3)
         ax.annotate(row.name, (row.predicted, row.actual), xytext=(9, 4),
                     textcoords="offset points", fontsize=8.5, color=mode.ink_secondary)
@@ -362,7 +362,7 @@ def fig_residuals(residuals: pd.DataFrame, r_squared: float, mode: Mode) -> None
     theme.frame(ax, mode, keep=("bottom", "left"), grid_axis="both")
     theme.title(ax, mode, "Passport strength is mostly national development — and partly diplomacy",
                 f"OLS on six own-country characteristics explains {r_squared:.0%} of the variance. "
-                "The labelled points are what the model cannot explain.")
+                "The labeled points are what the model cannot explain.")
     ax.legend(handles=[
         Line2D([], [], marker="o", linestyle="", markersize=8, color=mode.diverging[2],
                label="Punches above its fundamentals"),
@@ -381,9 +381,9 @@ def fig_divide(divide: pd.DataFrame, mode: Mode) -> None:
     fig, ax = plt.subplots(figsize=(9.2, 5.4))
     y = np.arange(len(data))
     span = data["mean_access_pct"].max() - data["mean_access_pct"].min()
-    colours = [theme.sequential_color(mode, (v - data["mean_access_pct"].min()) / span)
+    colors = [theme.sequential_color(mode, (v - data["mean_access_pct"].min()) / span)
                for v in data["mean_access_pct"]]
-    ax.barh(y, data["mean_access_pct"], height=0.6, color=colours,
+    ax.barh(y, data["mean_access_pct"], height=0.6, color=colors,
             edgecolor=mode.surface, linewidth=2.0)
 
     for yi, row in zip(y, data.itertuples()):
@@ -417,8 +417,8 @@ def fig_weight_comparison(datadriven: pd.DataFrame, explained: float, mode: Mode
 
     fig, ax = plt.subplots(figsize=(9.2, 6.4))
     y = np.arange(len(data))
-    colours = [theme.diverging_color(mode, v, 0.3) for v in data["pc1_loading"]]
-    ax.barh(y, data["pc1_loading"], height=0.6, color=colours,
+    colors = [theme.diverging_color(mode, v, 0.3) for v in data["pc1_loading"]]
+    ax.barh(y, data["pc1_loading"], height=0.6, color=colors,
             edgecolor=mode.surface, linewidth=2.0)
     ax.axvline(0, color=mode.axis, linewidth=1.2)
 
@@ -509,8 +509,8 @@ def fig_blocs(blocs: pd.DataFrame, mode: Mode) -> None:
     fig, ax = plt.subplots(figsize=(9.2, 5.6))
     y = np.arange(len(data))
     span = max(data["mean_external_reach"].max(), 1)
-    colours = [theme.sequential_color(mode, v / span) for v in data["mean_external_reach"]]
-    ax.barh(y, data["mean_external_reach"], height=0.6, color=colours,
+    colors = [theme.sequential_color(mode, v / span) for v in data["mean_external_reach"]]
+    ax.barh(y, data["mean_external_reach"], height=0.6, color=colors,
             edgecolor=mode.surface, linewidth=2.0)
     for yi, row in zip(y, data.itertuples()):
         ax.annotate(f"{row.mean_external_reach:.0f} outside the bloc  ·  "
@@ -546,8 +546,8 @@ def fig_stay_days(family: pd.DataFrame, mode: Mode) -> None:
     # offset stacks Singapore on South Korea and Myanmar on Iran.
     offsets = [(12, 10), (12, -16), (-12, 10), (-12, -16)]
     for i, row in enumerate(highlight.itertuples()):
-        colour = mode.series[0] if row.ratio > ratio.median() else mode.series[1]
-        ax.scatter(row.henley_score, row.stay_days_score / 365, s=76, color=colour,
+        color = mode.series[0] if row.ratio > ratio.median() else mode.series[1]
+        ax.scatter(row.henley_score, row.stay_days_score / 365, s=76, color=color,
                    edgecolor=mode.surface, linewidth=2.0, zorder=3)
         dx, dy = offsets[i % len(offsets)]
         ax.annotate(row.name, (row.henley_score, row.stay_days_score / 365),

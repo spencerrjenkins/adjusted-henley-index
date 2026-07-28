@@ -88,7 +88,7 @@
   const tooltip = document.getElementById("tooltip");
 
   /* ------------------------------------------------------------------ *
-   * Colour scales
+   * Color scales
    * ------------------------------------------------------------------ */
   function scaleFor(metricKey) {
     const metric = METRICS[metricKey];
@@ -165,9 +165,9 @@
     Object.keys(shapes).forEach((iso) => {
       const country = DATA.countries[iso];
       const el = shapes[iso];
-      const colour = country ? scale(metric.get(country)) : null;
-      if (colour) {
-        el.setAttribute("fill", colour);
+      const color = country ? scale(metric.get(country)) : null;
+      if (color) {
+        el.setAttribute("fill", color);
         el.classList.remove("no-data");
       } else {
         el.removeAttribute("fill");
@@ -410,10 +410,10 @@
   function tiltBar(tilt) {
     const span = 8;
     const pct = Math.min(Math.abs(tilt) / span, 1) * 50;
-    const colour = tilt >= 0 ? "var(--pole-high)" : "var(--pole-low)";
+    const color = tilt >= 0 ? "var(--pole-high)" : "var(--pole-low)";
     const style = tilt >= 0
-      ? `left:50%;width:${pct}%;background:${colour}`
-      : `right:50%;width:${pct}%;background:${colour}`;
+      ? `left:50%;width:${pct}%;background:${color}`
+      : `right:50%;width:${pct}%;background:${color}`;
     return `<span class="tilt-fill" style="${style}"></span>`;
   }
 
