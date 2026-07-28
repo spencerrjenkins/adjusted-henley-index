@@ -285,6 +285,39 @@ def pillar_contributions(edges: pd.DataFrame, features: pd.DataFrame,
     return frame.reset_index()
 
 
+def pillar_attainment(edges: pd.DataFrame, features: pd.DataFrame,
+                      ladder: str = DEFAULT_LADDER) -> pd.DataFrame:
+    """Share of the *world's* total value in each pillar that a passport reaches.
+
+    Deliberately independent of any lens: the denominator is the sum of that
+    pillar's scores over every destination, so the number answers "how much of
+    the planet's economic weight / safety / draw is open to you" without a
+    weighting choice in sight.
+
+    This is the diagnostic that shows composition. Expressing each passport's
+    score as *shares of its own total* does not: because pillar scores are
+    distributed similarly across destinations, every passport's share vector
+    comes out near the global average and the chart says nothing. Attainment
+    against the world total varies from 8% to 95% and separates passports that
+    are strong in different directions.
+    """
+    credit = edges[f"credit_{ladder}"]
+    out = {}
+    for pillar in PILLARS:
+        values = features[f"p_{pillar}"]
+        world_total = values.sum()
+        contribution = credit * edges["destination"].map(values)
+        out[pillar] = contribution.groupby(edges["passport"]).sum() / world_total * 100
+    frame = pd.DataFrame(out).round(2)
+    frame["overall"] = frame[list(PILLARS)].mean(axis=1).round(2)
+    # Tilt: how far above or below its own average this passport reaches on each
+    # pillar. Isolates the *shape* of a passport from its size.
+    for pillar in PILLARS:
+        frame[f"tilt_{pillar}"] = (frame[pillar] - frame["overall"]).round(2)
+    frame.index.name = "passport"
+    return frame.reset_index()
+
+
 def openness_frame(edges: pd.DataFrame, features: pd.DataFrame,
                    ladder: str = DEFAULT_LADDER) -> pd.DataFrame:
     """The inbound mirror: how open is each country to everyone else?

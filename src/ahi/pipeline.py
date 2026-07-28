@@ -14,10 +14,11 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-from .config import (DEFAULT_LADDER, HEADLINE_LENS, INDICATORS, LENSES, MANUAL,
-                     OUTPUT, PILLARS, PROCESSED, TABLES)
+from .config import (DEFAULT_LADDER, FIGURES, HEADLINE_LENS, INDICATORS, LENSES,
+                     MANUAL, OUTPUT, PILLARS, PROCESSED, TABLES)
 from .features import build_features, provenance_summary
-from .indices import build_index_family, openness_frame, pillar_contributions
+from .indices import (build_index_family, openness_frame, pillar_attainment,
+                      pillar_contributions)
 from .ingest.access import category_summary, load_access_edges, load_iso3_to_name
 from .analysis import inequality, models, network, sensitivity
 
@@ -85,6 +86,8 @@ def run(n_monte_carlo: int = 2000) -> dict:
 
     _save(family, "04_index_family")
     _save(contributions.assign(name=contributions["passport"].map(names)), "05_pillar_contributions")
+    attainment = pillar_attainment(edges, features)
+    _save(attainment.assign(name=attainment["passport"].map(names)), "05b_pillar_attainment")
     _save(openness, "06_openness")
 
     weight_table = diagnostics["weight_table"].copy()
@@ -259,9 +262,26 @@ def run(n_monte_carlo: int = 2000) -> dict:
                   .merge(recip.drop(columns="name"), left_on="passport", right_on="country")
                   .merge(assignment.drop(columns="name"), on="passport")
                   .merge(cluster_labels[["cluster", "label"]], on="cluster")
-                  .merge(residuals[["passport", "predicted", "residual"]], on="passport"))
+                  .merge(residuals[["passport", "predicted", "residual"]], on="passport")
+                  .merge(attainment, on="passport"))
     site_frame.to_csv(PROCESSED / "passport_master.csv", index=False)
     weight_table.to_csv(PROCESSED / "destination_master.csv", index=False)
+
+    # -- 9. Figures --------------------------------------------------------
+    from .viz.figures import render_all
+    figure_tables = {
+        "family": family, "movement": movement, "agreement": agreement,
+        "monte_carlo": mc_summary, "ladder": pd.read_csv(TABLES / "11_ladder_sensitivity.csv"),
+        "weights": weight_table, "contributions": contributions, "reciprocity": recip,
+        "attainment": attainment,
+        "residuals": residuals, "divide": pd.read_csv(TABLES / "23_divide_by_income.csv"),
+        "datadriven": pd.read_csv(TABLES / "09_datadriven_weights.csv"),
+        "clusters": pd.read_csv(TABLES / "29_passport_clusters.csv"),
+        "cluster_profiles": cluster_labels, "dispersion": dispersion,
+        "blocs": pd.read_csv(TABLES / "20_blocs.csv"),
+    }
+    figures = render_all(figure_tables, results)
+    print(f"Rendered {len(figures)} figures x 2 modes to {FIGURES}")
 
     print(f"\nWrote {len(list(TABLES.glob('*.csv')))} tables to {TABLES}")
     print(f"Results bundle: {OUTPUT / 'results.json'}")
