@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "adjusted-henley-index"
+version = "2.0.0"
+description = "An opportunity-weighted rebuild of the Henley Passport Index, with the weighting made explicit and then stress-tested."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Spencer Jenkins" }]
+keywords = ["passport", "visa", "mobility", "composite-indicator", "open-data"]
+dependencies = [
+    "numpy>=2.0",
+    "pandas>=2.2",
+    "matplotlib>=3.8",
+    "seaborn>=0.13",
+    "scipy>=1.12",
+    "scikit-learn>=1.4",
+    "networkx>=3.2",
+    "statsmodels>=0.14",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[project.urls]
+Homepage = "https://spencerrjenkins.github.io/adjusted-henley-index/"
+Source = "https://github.com/spencerrjenkins/adjusted-henley-index"
+
+[project.scripts]
+ahi-fetch = "ahi.ingest.fetch:main"
+ahi-run = "ahi.pipeline:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-q"

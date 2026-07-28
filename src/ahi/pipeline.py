@@ -7,6 +7,7 @@ and the numbers the article and the website quote are collected into
 
 from __future__ import annotations
 
+import argparse
 import json
 import time
 from pathlib import Path
@@ -46,7 +47,7 @@ def _json_safe(obj):
     return obj
 
 
-def run(n_monte_carlo: int = 2000) -> dict:
+def run(n_monte_carlo: int = 3000, build_website: bool = True) -> dict:
     started = time.time()
     results: dict[str, object] = {}
 
@@ -284,11 +285,12 @@ def run(n_monte_carlo: int = 2000) -> dict:
     print(f"Rendered {len(figures)} figures x 2 modes to {FIGURES}")
 
     # -- 10. Website -------------------------------------------------------
-    from .viz.site import build as build_site
-    # Read the bundle back rather than passing `results` directly: the site must
-    # be built from exactly the JSON that ships next to it, not from live
-    # DataFrames that serialise into something subtly different.
-    build_site(json.loads((OUTPUT / "results.json").read_text()))
+    if build_website:
+        from .viz.site import build as build_site
+        # Read the bundle back rather than passing `results` directly: the site
+        # must be built from exactly the JSON that ships next to it, not from
+        # live DataFrames that serialise into something subtly different.
+        build_site(json.loads((OUTPUT / "results.json").read_text()))
 
     print(f"\nWrote {len(list(TABLES.glob('*.csv')))} tables to {TABLES}")
     print(f"Results bundle: {OUTPUT / 'results.json'}")
@@ -296,5 +298,15 @@ def run(n_monte_carlo: int = 2000) -> dict:
     return results
 
 
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--draws", type=int, default=3000,
+                        help="Monte Carlo weight resamples (default 3000)")
+    parser.add_argument("--no-site", action="store_true",
+                        help="skip building docs/ (tables and figures only)")
+    args = parser.parse_args()
+    run(n_monte_carlo=args.draws, build_website=not args.no_site)
+
+
 if __name__ == "__main__":
-    run()
+    main()
