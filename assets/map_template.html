@@ -1,0 +1,261 @@
+<title>Passport Strength Map — Adjusted Henley Index</title>
+<style>
+  :root {
+    --surface-1: #fcfcfb; --page: #f9f9f7; --text-primary: #0b0b0b;
+    --text-secondary: #52514e; --text-muted: #898781; --gridline: #e1e0d9;
+    --border: rgba(11,11,11,0.10); --nodata: #e1e0d9; --accent: #2a78d6;
+    --accent-ink: #ffffff; --tooltip-bg: #0b0b0b; --tooltip-ink: #ffffff;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --surface-1: #1a1a19; --page: #0d0d0d; --text-primary: #ffffff;
+      --text-secondary: #c3c2b7; --text-muted: #898781; --gridline: #2c2c2a;
+      --border: rgba(255,255,255,0.10); --nodata: #2c2c2a; --accent: #3987e5;
+      --accent-ink: #ffffff; --tooltip-bg: #fcfcfb; --tooltip-ink: #0b0b0b;
+    }
+  }
+  :root[data-theme="dark"] {
+    --surface-1: #1a1a19; --page: #0d0d0d; --text-primary: #ffffff;
+    --text-secondary: #c3c2b7; --text-muted: #898781; --gridline: #2c2c2a;
+    --border: rgba(255,255,255,0.10); --nodata: #2c2c2a; --accent: #3987e5;
+    --accent-ink: #ffffff; --tooltip-bg: #fcfcfb; --tooltip-ink: #0b0b0b;
+  }
+  :root[data-theme="light"] {
+    --surface-1: #fcfcfb; --page: #f9f9f7; --text-primary: #0b0b0b;
+    --text-secondary: #52514e; --text-muted: #898781; --gridline: #e1e0d9;
+    --border: rgba(11,11,11,0.10); --nodata: #e1e0d9; --accent: #2a78d6;
+    --accent-ink: #ffffff; --tooltip-bg: #0b0b0b; --tooltip-ink: #ffffff;
+  }
+  * { box-sizing: border-box; }
+  body {
+    background: var(--page); color: var(--text-primary);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    margin: 0; padding: 20px;
+  }
+  .wrap { max-width: 1100px; margin: 0 auto; }
+  h1 { font-size: 1.4rem; margin: 0 0 4px; text-wrap: balance; }
+  p.sub { color: var(--text-secondary); margin-top: 0; margin-bottom: 18px; font-size: 0.95rem; max-width: 68ch; }
+  .mapcard {
+    background: var(--surface-1); border: 1px solid var(--border); border-radius: 12px;
+    padding: 18px; position: relative;
+  }
+  .controls { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
+  .segmented { display: inline-flex; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+  .segmented button {
+    font: inherit; font-size: 0.85rem; padding: 7px 12px; border: none; background: transparent;
+    color: var(--text-secondary); cursor: pointer; border-right: 1px solid var(--border);
+  }
+  .segmented button:last-child { border-right: none; }
+  .segmented button:hover { background: var(--page); }
+  .segmented button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); }
+  .legend { display: flex; align-items: center; gap: 8px; font-size: 0.78rem; color: var(--text-muted); }
+  .legend .bar { width: 140px; height: 10px; border-radius: 5px; border: 1px solid var(--border); }
+  svg#worldmap { width: 100%; height: auto; display: block; }
+  svg#worldmap path { stroke: var(--surface-1); stroke-width: 0.6; cursor: pointer; transition: opacity 120ms; }
+  svg#worldmap path:hover, svg#worldmap circle:hover { opacity: 0.72; }
+  svg#worldmap circle { stroke: var(--surface-1); stroke-width: 1; cursor: pointer; }
+  .tooltip {
+    position: fixed; pointer-events: none; z-index: 10; background: var(--tooltip-bg); color: var(--tooltip-ink);
+    border-radius: 8px; padding: 10px 12px; font-size: 0.82rem; line-height: 1.5; box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    opacity: 0; transform: translateY(4px); transition: opacity 120ms, transform 120ms; max-width: 240px;
+  }
+  .tooltip.visible { opacity: 1; transform: translateY(0); }
+  .tooltip b { display: block; font-size: 0.9rem; margin-bottom: 4px; }
+  .tooltip .row { display: flex; justify-content: space-between; gap: 12px; color: var(--tooltip-ink); opacity: 0.85; }
+  .tooltip .up { color: #3fbf3f; }
+  .tooltip .down { color: #ff8080; }
+  .hint { color: var(--text-muted); font-size: 0.82rem; margin-top: 12px; }
+  .hint a { color: var(--accent); }
+  @media (prefers-reduced-motion: reduce) {
+    svg#worldmap path, .tooltip { transition: none; }
+  }
+</style>
+
+<div class="wrap">
+  <h1>Passport strength around the world</h1>
+  <p class="sub">Switch metrics below and hover any country for the full breakdown — original vs. adjusted rank and score, rank change, and its weight as a destination.</p>
+  <div class="mapcard">
+    <div class="controls">
+      <div class="segmented" role="group" aria-label="Map metric">
+        <button data-metric="aScore" aria-pressed="true">Adjusted score</button>
+        <button data-metric="oScore" aria-pressed="false">Original score</button>
+        <button data-metric="delta" aria-pressed="false">Rank change</button>
+        <button data-metric="weight" aria-pressed="false">Destination weight</button>
+      </div>
+      <div class="legend" id="legend"></div>
+    </div>
+    <svg id="worldmap" viewBox="__VIEWBOX__" preserveAspectRatio="xMidYMid meet"></svg>
+  </div>
+  <p class="hint">Part of the <a href="javascript:history.back()">Adjusted Henley Passport Index</a> report. Weight = GDP per capita + GDP total + HDI + population + tourist arrivals + rule of law. Data: passport-index-data (Feb 2026), World Bank WDI (GDP/population/tourism, updated 2026-07-01), UNDP HDR 2025, Our World in Data / V-Dem (rule of law). Map geometry: Natural Earth 110m (countries too small to render at this scale are shown as dots).</p>
+</div>
+<div class="tooltip" id="tooltip"></div>
+
+<script>
+__WORLD_PATHS_JS__
+
+const MARKERS = __MARKERS_JSON__;
+const COUNTRY_DATA = __COUNTRY_DATA_JSON__;
+
+const SEQ_LIGHT = ['#cde2fb', '#9ec5f4', '#6da7ec', '#3987e5', '#256abf', '#184f95', '#0d366b'];
+const SEQ_DARK  = ['#cde2fb', '#9ec5f4', '#6da7ec', '#3987e5', '#256abf', '#184f95', '#0d366b'];
+const DIV_RED = { light: '#e34948', dark: '#e66767' };
+const DIV_BLUE = { light: '#2a78d6', dark: '#3987e5' };
+const GRAY_MID = { light: '#f0efec', dark: '#383835' };
+
+function isDark() {
+  const attr = document.documentElement.getAttribute('data-theme');
+  if (attr === 'dark' || attr === 'light') return attr === 'dark';
+  return window.matchMedia('(prefers-color-scheme: dark)').matches;
+}
+
+function hexToRgb(h) {
+  const n = parseInt(h.slice(1), 16);
+  return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
+}
+function rgbToHex(r, g, b) {
+  return '#' + [r, g, b].map(v => Math.round(v).toString(16).padStart(2, '0')).join('');
+}
+function lerpColor(c1, c2, t) {
+  const a = hexToRgb(c1), b = hexToRgb(c2);
+  return rgbToHex(a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t, a[2] + (b[2] - a[2]) * t);
+}
+function seqScale(t, dark) {
+  const stops = dark ? SEQ_DARK : SEQ_LIGHT;
+  const n = stops.length - 1;
+  const seg = Math.min(n - 1, Math.floor(t * n));
+  const localT = t * n - seg;
+  return lerpColor(stops[seg], stops[seg + 1], localT);
+}
+function divScale(t, dark) {
+  // t in [-1, 1]
+  const red = DIV_RED[dark ? 'dark' : 'light'];
+  const blue = DIV_BLUE[dark ? 'dark' : 'light'];
+  const gray = GRAY_MID[dark ? 'dark' : 'light'];
+  if (t < 0) return lerpColor(red, gray, 1 + t);
+  return lerpColor(gray, blue, t);
+}
+
+const METRICS = {
+  aScore: { label: 'Adjusted score (weighted)', kind: 'seq', get: d => d.aScore },
+  oScore: { label: 'Original score (equal-weight count)', kind: 'seq', get: d => d.oScore },
+  delta: { label: 'Rank change (adjusted vs. original)', kind: 'div', get: d => d.delta },
+  weight: { label: 'Destination weight (opportunity/power multiplier)', kind: 'seq', get: d => d.weight },
+};
+
+let currentMetric = 'aScore';
+const svg = document.getElementById('worldmap');
+const tooltip = document.getElementById('tooltip');
+const legendEl = document.getElementById('legend');
+const shapeEls = [];
+
+function buildShapes() {
+  const frag = document.createDocumentFragment();
+  for (const iso3 in WORLD_PATHS) {
+    const el = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    el.setAttribute('d', WORLD_PATHS[iso3]);
+    el.dataset.iso3 = iso3;
+    attachHandlers(el, iso3);
+    frag.appendChild(el);
+    shapeEls.push(el);
+  }
+  for (const iso3 in MARKERS) {
+    const [x, y] = MARKERS[iso3];
+    const el = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    el.setAttribute('cx', x); el.setAttribute('cy', y); el.setAttribute('r', 3.6);
+    el.dataset.iso3 = iso3;
+    attachHandlers(el, iso3);
+    frag.appendChild(el);
+    shapeEls.push(el);
+  }
+  svg.appendChild(frag);
+}
+
+function attachHandlers(el, iso3) {
+  el.addEventListener('mousemove', e => showTooltip(e, iso3));
+  el.addEventListener('mouseenter', e => showTooltip(e, iso3));
+  el.addEventListener('mouseleave', hideTooltip);
+}
+
+function showTooltip(e, iso3) {
+  const d = COUNTRY_DATA[iso3];
+  if (!d) { hideTooltip(); return; }
+  const deltaClass = d.delta > 0 ? 'up' : (d.delta < 0 ? 'down' : '');
+  const deltaSign = d.delta > 0 ? '+' : '';
+  tooltip.innerHTML =
+    '<b>' + d.name + '</b>' +
+    '<div class="row"><span>Original rank</span><span>#' + d.oRank + ' (' + d.oScore + ')</span></div>' +
+    '<div class="row"><span>Adjusted rank</span><span>#' + d.aRank + ' (' + d.aScore.toFixed(1) + ')</span></div>' +
+    '<div class="row"><span>Rank change</span><span class="' + deltaClass + '">' + deltaSign + d.delta + '</span></div>' +
+    '<div class="row"><span>As destination</span><span>' + d.weight.toFixed(2) + 'x avg</span></div>';
+  tooltip.classList.add('visible');
+  positionTooltip(e);
+}
+function positionTooltip(e) {
+  const pad = 14;
+  let x = e.clientX + pad, y = e.clientY + pad;
+  const rect = tooltip.getBoundingClientRect();
+  if (x + rect.width > window.innerWidth) x = e.clientX - rect.width - pad;
+  if (y + rect.height > window.innerHeight) y = e.clientY - rect.height - pad;
+  tooltip.style.left = x + 'px';
+  tooltip.style.top = y + 'px';
+}
+function hideTooltip() { tooltip.classList.remove('visible'); }
+
+function paint() {
+  const dark = isDark();
+  const metric = METRICS[currentMetric];
+  const values = Object.keys(COUNTRY_DATA).map(k => metric.get(COUNTRY_DATA[k]));
+  const min = Math.min(...values), max = Math.max(...values);
+  const maxAbs = Math.max(Math.abs(min), Math.abs(max));
+
+  shapeEls.forEach(el => {
+    const d = COUNTRY_DATA[el.dataset.iso3];
+    if (!d) { el.setAttribute('fill', 'var(--nodata)'); return; }
+    const v = metric.get(d);
+    let color;
+    if (metric.kind === 'seq') {
+      const t = max > min ? (v - min) / (max - min) : 0.5;
+      color = seqScale(t, dark);
+    } else {
+      const t = maxAbs > 0 ? v / maxAbs : 0;
+      color = divScale(t, dark);
+    }
+    el.setAttribute('fill', color);
+  });
+
+  renderLegend(metric, dark, min, max, maxAbs);
+}
+
+function renderLegend(metric, dark, min, max, maxAbs) {
+  let gradient;
+  let labels;
+  if (metric.kind === 'seq') {
+    const stops = dark ? SEQ_DARK : SEQ_LIGHT;
+    gradient = 'linear-gradient(to right, ' + stops.join(',') + ')';
+    labels = [Math.round(min), Math.round(max)];
+  } else {
+    const red = DIV_RED[dark ? 'dark' : 'light'], blue = DIV_BLUE[dark ? 'dark' : 'light'], gray = GRAY_MID[dark ? 'dark' : 'light'];
+    gradient = 'linear-gradient(to right, ' + red + ',' + gray + ',' + blue + ')';
+    labels = ['−' + Math.round(maxAbs), '+' + Math.round(maxAbs)];
+  }
+  legendEl.innerHTML =
+    '<span>' + labels[0] + '</span>' +
+    '<span class="bar" style="background:' + gradient + '"></span>' +
+    '<span>' + labels[1] + '</span>';
+}
+
+document.querySelectorAll('.segmented button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.segmented button').forEach(b => b.setAttribute('aria-pressed', 'false'));
+    btn.setAttribute('aria-pressed', 'true');
+    currentMetric = btn.dataset.metric;
+    paint();
+  });
+});
+
+buildShapes();
+paint();
+
+new MutationObserver(paint).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', paint);
+</script>
