@@ -199,15 +199,20 @@ def fig_weight_distribution(weights: pd.DataFrame, mode: Mode) -> None:
                 xytext=(8, 0), textcoords="offset points", fontsize=9,
                 color=mode.ink_secondary, va="top")
 
+    # Callouts are staggered in height and spread across the range: eight
+    # markers at one height collide into an unreadable stripe (Germany, Ireland
+    # and the United States sit within 0.02 of each other).
     named = weights.set_index("name")["balanced"]
-    for label in ("Ireland", "Germany", "United States", "China", "India",
-                  "Thailand", "Nigeria", "Burundi"):
+    callouts = ["Burundi", "Nigeria", "India", "China", "United States", "Germany"]
+    heights = [0.30, 0.46, 0.30, 0.46, 0.62, 0.30]
+    for label, h in zip(callouts, heights):
         if label not in named.index:
             continue
         v = float(named[label])
-        ax.annotate(label, (v, counts.max() * 0.06), rotation=90, fontsize=8.5,
-                    color=mode.ink_secondary, ha="center", va="bottom")
-        ax.plot([v, v], [0, counts.max() * 0.05], color=mode.series[1], linewidth=2.0)
+        top = counts.max() * h
+        ax.plot([v, v], [0, top], color=mode.series[1], linewidth=2.0, zorder=3)
+        ax.annotate(label, (v, top), xytext=(0, 5), textcoords="offset points",
+                    fontsize=8.5, color=mode.ink_secondary, ha="center", va="bottom")
 
     ax.set_xlabel("Destination weight under the Balanced lens (multiple of the average destination)")
     ax.set_ylabel("Destinations")
@@ -389,6 +394,9 @@ def fig_divide(divide: pd.DataFrame, mode: Mode) -> None:
 
     ax.set_yticks(y, data["income_group"], fontsize=9.5)
     ax.set_xlim(0, data["mean_access_pct"].max() * 1.62)
+    # Room for the annotations without ticking past 100%, which is not a
+    # meaningful value for a share.
+    ax.set_xticks([t for t in range(0, 101, 20)])
     ax.set_xlabel("Mean share of the world's weighted opportunity reachable without a prior visa")
     _pct(ax, "x")
     theme.frame(ax, mode, keep=("bottom",), grid_axis="x")
@@ -531,15 +539,20 @@ def fig_stay_days(family: pd.DataFrame, mode: Mode) -> None:
     family = family.copy()
     ratio = family["stay_days_score"] / family["henley_score"].clip(lower=1)
     family["ratio"] = ratio
-    highlight = pd.concat([family.nlargest(6, "ratio"), family.nsmallest(6, "ratio"),
-                           family.nlargest(3, "henley_score")]).drop_duplicates("passport")
-    for row in highlight.itertuples():
+    highlight = (pd.concat([family.nlargest(4, "ratio"), family.nsmallest(4, "ratio")])
+                 .drop_duplicates("passport")
+                 .sort_values("henley_score"))
+    # Labels alternate above and below their marker; at this density a fixed
+    # offset stacks Singapore on South Korea and Myanmar on Iran.
+    offsets = [(12, 10), (12, -16), (-12, 10), (-12, -16)]
+    for i, row in enumerate(highlight.itertuples()):
         colour = mode.series[0] if row.ratio > ratio.median() else mode.series[1]
         ax.scatter(row.henley_score, row.stay_days_score / 365, s=76, color=colour,
                    edgecolor=mode.surface, linewidth=2.0, zorder=3)
+        dx, dy = offsets[i % len(offsets)]
         ax.annotate(row.name, (row.henley_score, row.stay_days_score / 365),
-                    xytext=(9, 4), textcoords="offset points", fontsize=8.5,
-                    color=mode.ink_secondary)
+                    xytext=(dx, dy), textcoords="offset points", fontsize=8.5,
+                    ha="left" if dx > 0 else "right", color=mode.ink_secondary)
 
     ax.set_xlabel("Destinations reachable without a prior visa (the published index)")
     ax.set_ylabel("Permitted person-years of frictionless presence")
