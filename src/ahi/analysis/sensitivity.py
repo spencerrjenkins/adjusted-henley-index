@@ -195,12 +195,22 @@ def validate_against_published(family: pd.DataFrame, published: pd.DataFrame) ->
     merged = family.merge(published, left_on="passport", right_on="iso3", how="inner")
     rho = spearmanr(merged["henley_score"], merged["henley_published_score"])
     tau = kendalltau(merged["henley_score"], merged["henley_published_score"], variant="b")
+    # The rank comparison is the sharper test: it checks that the dense-ranking
+    # convention was implemented the way Henley describes it, not merely that
+    # the same countries score highly.
+    rank_rho = spearmanr(merged["henley_rank"], merged["henley_published_rank"])
+    tier_match = int((merged["henley_rank"] - merged["henley_published_rank"]).abs().le(2).sum())
     return {
         "n_reference_points": len(merged),
         "spearman_rho": round(float(rho.statistic), 4),
         "spearman_p": float(rho.pvalue),
         "kendall_tau": round(float(tau.statistic), 4),
+        "rank_spearman_rho": round(float(rank_rho.statistic), 4),
+        "within_two_ranks": tier_match,
         "comparison": merged[["passport", "country", "henley_score", "henley_rank",
                               "henley_published_score", "henley_published_rank"]]
                         .sort_values("henley_published_rank"),
+        "rows": merged[["country", "henley_score", "henley_rank",
+                        "henley_published_score", "henley_published_rank"]]
+                  .sort_values("henley_published_rank").to_dict(orient="records"),
     }

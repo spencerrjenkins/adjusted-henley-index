@@ -242,7 +242,7 @@ def fig_pillar_profiles(attainment: pd.DataFrame, family: pd.DataFrame,
 
     for i in range(len(data)):
         for j, pillar in enumerate(PILLARS):
-            value = data.iloc[i][pillar]
+            value = data.iloc[i][f"att_{pillar}"]
             delta = tilt.iloc[i, j]
             strong = abs(delta) / span > 0.55
             ink = mode.surface if (strong and mode.name == "light") else (
@@ -251,7 +251,7 @@ def fig_pillar_profiles(attainment: pd.DataFrame, family: pd.DataFrame,
 
     ax.set_xticks(range(len(PILLARS)), [PILLAR_LABELS[p] for p in PILLARS], fontsize=9.5)
     ax.set_yticks(range(len(data)),
-                  [f"{n}   ({v:.0f}% overall)" for n, v in zip(labels, data["overall"])],
+                  [f"{n}   ({v:.0f}% overall)" for n, v in zip(labels, data["att_overall"])],
                   fontsize=9)
     ax.tick_params(length=0)
     for side in ("top", "right", "left", "bottom"):
@@ -491,27 +491,31 @@ def fig_dispersion(dispersion: pd.DataFrame, mode: Mode) -> None:
 # 14. Blocs
 # ---------------------------------------------------------------------------
 def fig_blocs(blocs: pd.DataFrame, mode: Mode) -> None:
+    """Internal cohesion turns out to be a non-story — every bloc but one is
+    already at or near 100% internal frictionless density, so a bar chart of it
+    is seven identical bars. What separates the blocs is what they buy their
+    members *outside* the club, so that is what the bars encode, with internal
+    density carried as an annotation."""
     theme.apply(mode)
-    data = blocs.sort_values("internal_density")
-    fig, ax = plt.subplots(figsize=(9.0, 5.6))
+    data = blocs.sort_values("mean_external_reach")
+    fig, ax = plt.subplots(figsize=(9.2, 5.6))
     y = np.arange(len(data))
-    span = max(data["internal_density"].max(), 1)
-    colours = [theme.sequential_color(mode, v / span) for v in data["internal_density"]]
-    ax.barh(y, data["internal_density"], height=0.6, color=colours,
+    span = max(data["mean_external_reach"].max(), 1)
+    colours = [theme.sequential_color(mode, v / span) for v in data["mean_external_reach"]]
+    ax.barh(y, data["mean_external_reach"], height=0.6, color=colours,
             edgecolor=mode.surface, linewidth=2.0)
     for yi, row in zip(y, data.itertuples()):
-        ax.annotate(f"{row.internal_density:.0f}% internal · "
-                    f"{row.mean_external_reach:.0f} destinations outside",
-                    (row.internal_density, yi), xytext=(8, 0), textcoords="offset points",
+        ax.annotate(f"{row.mean_external_reach:.0f} outside the bloc  ·  "
+                    f"{row.internal_density:.0f}% frictionless within it",
+                    (row.mean_external_reach, yi), xytext=(8, 0), textcoords="offset points",
                     va="center", fontsize=8.8, color=mode.ink_secondary)
     ax.set_yticks(y, data["bloc"], fontsize=9.5)
-    ax.set_xlim(0, 168)
-    ax.set_xlabel("Share of within-bloc country pairs that are frictionless")
-    _pct(ax, "x")
+    ax.set_xlim(0, span * 1.95)
+    ax.set_xlabel("Mean destinations a member can reach outside its own bloc")
     theme.frame(ax, mode, keep=("bottom",), grid_axis="x")
-    theme.title(ax, mode, "Which blocs are actually free-movement areas",
-                "Internal density measures what members grant each other, not what "
-                "their treaties announce.")
+    theme.title(ax, mode, "Every bloc is already a free-movement area. What differs is the world outside it.",
+                "Internal density is at or near 100% for all but the African Union — membership "
+                "is not the variable; what membership buys you elsewhere is.")
     theme.save(fig, "14_blocs", mode, FIGURES)
 
 

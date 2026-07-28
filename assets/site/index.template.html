@@ -1,0 +1,581 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Adjusted Henley Index — what a passport is actually worth</title>
+<meta name="description" content="The world's best-known passport ranking counts destinations. This one weighs them — across 15 indicators, six pillars and twelve index variants — and then tests whether any of it changes the answer.">
+<meta property="og:title" content="The Adjusted Henley Index">
+<meta property="og:description" content="Counting destinations treats Kiribati and the United States as equals. What happens when you stop?">
+<meta property="og:type" content="article">
+<style>__CSS__</style>
+</head>
+<body>
+<button class="theme-toggle" id="theme-toggle" type="button">Dark mode</button>
+<div class="tooltip" id="tooltip" role="status" aria-live="polite"></div>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Data · {{generated_date}}</p>
+    <h1>A passport is not a number of countries.</h1>
+    <p class="lede">
+      The Henley Passport Index — the ranking every newspaper quotes — scores a passport
+      by counting the destinations you can enter without a prior visa. Every destination
+      is worth exactly one point. Kiribati and the United States are worth the same.
+      This project rebuilds that index with destinations weighted by what is actually
+      behind the door, then does the thing rankings almost never do: checks whether the
+      re-weighting changes the answer.
+    </p>
+    <div class="kpi-row">
+      <div class="tile"><span class="value">{{n_passports}}</span><span class="label">passports scored</span></div>
+      <div class="tile"><span class="value">{{n_edges}}</span><span class="label">bilateral entry rules parsed</span></div>
+      <div class="tile"><span class="value">{{n_indicators}}</span><span class="label">destination indicators</span></div>
+      <div class="tile"><span class="value">{{n_variants}}</span><span class="label">index variants compared</span></div>
+    </div>
+    <p class="note" style="margin-top:1.4rem">
+      Open source · <a href="https://github.com/spencerrjenkins/adjusted-henley-index">github.com/spencerrjenkins/adjusted-henley-index</a>
+      · every figure below is regenerated from raw data by one command.
+    </p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">The problem</p>
+    <h2>One point for Kiribati, one point for the United States</h2>
+    <p>
+      Henley &amp; Partners are refreshingly explicit about their method. Using IATA's
+      Timatic database, they score 199 passports against 227 destinations, and
+      <em>"all scores are binary (1 or 0), with no additional weighting or calculations
+      applied."</em> You get a point if you can board without having asked a government's
+      permission first, and nothing if you cannot. In January 2026 that produced
+      Singapore at 192 destinations, Japan and South Korea at 188, and the United States
+      tenth at 179.
+    </p>
+    <p>
+      Binary counting is a defensible choice, and it makes the index reproducible and
+      hard to fudge. But it embeds two assumptions that nobody would defend if stated out
+      loud. The first is that every destination is worth the same. The second is that
+      every kind of frictionless entry is the same: a visa-on-arrival queue in a hot
+      terminal and an automated e-gate in Schengen are both worth one point, while an
+      e-Visa — an online form, a fee, and three days of waiting — is worth zero, the same
+      as being banned.
+    </p>
+    <p class="pullquote">
+      The rankings that compete with Henley's disagree so sharply that the disagreement
+      is the finding. Singapore is first on Henley, joint second on Arton Capital's
+      Passport Index, and twentieth on the Nomad Passport Index — same world, same
+      passports, three different questions.
+    </p>
+    <p>
+      That is not a scandal; it is what happens when a weighting scheme is left implicit.
+      A ranking is a claim about what matters, and the flat count is a weighting scheme
+      too — it just never says so. This project's argument is not that Henley is wrong.
+      It is that the weights should be visible, contestable, and tested.
+    </p>
+    <h3>Why anyone should care</h3>
+    <p>
+      Because visa regimes are one of the few remaining forms of inequality that are
+      legally explicit. Neumayer's work on visa restrictions finds that requiring a visa
+      cuts bilateral trade by up to about a fifth and foreign direct investment by up to a
+      third; later gravity-model work puts the hit to travel flows between roughly 50%
+      and 60%. Mau and colleagues describe a widening <em>global mobility divide</em> —
+      liberalisation that has been real on average and deeply unequal in its distribution.
+      When the headline instrument for measuring that divide treats a Pacific microstate
+      and a G7 economy as interchangeable units, it flattens exactly the thing it is being
+      used to measure.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">The method</p>
+    <h2>Two terms, both made explicit</h2>
+    <p>
+      Every passport index ever published is the same expression:
+      <code>score = Σ credit(passport → destination) × weight(destination)</code>.
+      Henley sets <code>credit</code> to a binary and <code>weight</code> to 1. This
+      project varies both and reports what survives.
+    </p>
+    <h3>The friction ladder</h3>
+    <p>
+      Entry regimes are graded rather than dichotomised: visa-free 1.00, visa-on-arrival
+      0.85, electronic travel authorisation 0.70, e-Visa 0.35, visa required 0. These are
+      ordinal judgements, not measurements, so every result is also computed under
+      Henley's own binary rule and under a strict rule where only true visa-free counts.
+      Where a finding holds under one ladder only, it is a finding about the ladder.
+    </p>
+    <h3>Six pillars from fifteen indicators</h3>
+    <p>
+      Each destination is scored on {{n_indicators}} indicators from the World Bank, UNDP,
+      V-Dem via Our World in Data, and a derived price level — grouped into six pillars:
+      <b>Economy</b> (can you earn and transact there), <b>Development</b> (is it a
+      functioning modern place), <b>Scale</b> (how much world is behind the door),
+      <b>Draw</b> (do people want to go, and can flights get you there),
+      <b>Security</b> (is the access safely usable) and <b>Affordability</b> (how far your
+      money goes). Skewed indicators are logged, winsorised at the 1st and 99th percentile,
+      then min-max scaled; pillars are unweighted means of their members, so weighting
+      happens once, at a level small enough to argue about honestly.
+    </p>
+    <h3>Five lenses, plus controls</h3>
+    <p>
+      A weight vector is a statement about <em>whose</em> mobility you are measuring, so
+      the project computes several — Balanced, Business, Leisure, Settlement, Raw reach —
+      alongside two weightings nobody chose: one from the first principal component of the
+      destination matrix, one from Shannon entropy. Those two are the control group. If
+      hand-set weights and mechanically-derived weights tell the same story, the story is
+      not an artefact of the analyst. Two more variants need no weighting scheme at all:
+      the share of world GDP and the share of world population you can reach.
+    </p>
+  </div>
+</section>
+
+<section id="map-section">
+  <div class="wrap-wide">
+    <p class="eyebrow">Explore</p>
+    <h2>The world, ten different ways</h2>
+    <p class="panel-sub" style="max-width:44rem;margin-bottom:1.4rem">
+      Each metric asks a different question of the same 39,402 entry rules. Switch between
+      them and watch which countries change colour — the ones that move are the ones whose
+      standing depends on the question.
+    </p>
+    <div class="panel">
+      <div class="controls">
+        <div class="seg" id="metric-buttons" role="group" aria-label="Choose a metric"></div>
+      </div>
+      <p class="note" id="metric-blurb" style="margin:.2rem 0 1rem"></p>
+      <div class="map-frame">
+        <svg class="map" id="map" preserveAspectRatio="xMidYMid meet"></svg>
+      </div>
+      <div class="legend">
+        <span id="legend-min">—</span>
+        <span class="swatches" id="legend-swatches"></span>
+        <span id="legend-max">—</span>
+        <span class="note" style="margin-left:auto">Click a country for its full profile. Microstates are drawn as dots.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Result 1</p>
+    <h2>Who moves when destinations stop being worth one point each</h2>
+    <p>
+      The biggest single casualty is <b>Malaysia</b>: {{malaysia_henley}} on the
+      reproduced Henley count, {{malaysia_adjusted}} once destinations are weighted — a
+      fall of {{malaysia_move}} places. Malaysia's visa-free network is genuinely wide, but
+      it is disproportionately made of small and low-income destinations. Russia falls for
+      the same reason. In the other direction, the gainers are countries with narrow but
+      well-aimed access — Kosovo, Laos, Mongolia, Vietnam — whose comparatively few open
+      doors happen to lead somewhere large.
+    </p>
+    <figure>
+      <picture>
+        <source data-light="figures/01_rank_movement.light.png" data-dark="figures/01_rank_movement.dark.png" srcset="figures/01_rank_movement.light.png">
+        <img data-light="figures/01_rank_movement.light.png" data-dark="figures/01_rank_movement.dark.png" src="figures/01_rank_movement.light.png" alt="Dumbbell chart of the largest rank movements between the Henley-rule count and the opportunity-weighted index.">
+      </picture>
+      <figcaption>
+        Both indices use competition ranking so the two scales are comparable — a
+        detail that matters more than it sounds, and one this project got wrong at first.
+      </figcaption>
+    </figure>
+    <p class="note">
+      A note on ranking conventions: Henley uses <em>dense</em> ranking, where the next
+      score after a tie takes the next consecutive number, which is why their published
+      table can show the United States at rank 10 with 36 passports ahead of it. Dense
+      ranks are not comparable between an integer-valued index and a continuous one — the
+      first compresses 199 passports into about 100 ranks, the second into 199 — so all
+      cross-index comparison here uses competition ranks instead.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Result 2</p>
+    <h2>How much of the top of the table is visa-on-arrival?</h2>
+    <p>
+      Of the two modelling choices, the friction ladder turns out to be the bigger lever —
+      not the destination weighting. Holding weights fixed and only changing how entry
+      regimes are scored moves the median passport {{ladder_median}} places and the most
+      sensitive one {{ladder_max}}. South Korea and Japan sit in the top three under
+      Henley's binary rule and fall to the mid-thirties under a strict rule that counts
+      only true visa-free entry, because a large share of their access is
+      visa-on-arrival. Malaysia moves the opposite way, from {{myss_binary}} to
+      {{myss_strict}}, because its access is unusually <em>genuinely</em> visa-free.
+    </p>
+    <figure>
+      <picture>
+        <source data-light="figures/04_ladder_sensitivity.light.png" data-dark="figures/04_ladder_sensitivity.dark.png" srcset="figures/04_ladder_sensitivity.light.png">
+        <img data-light="figures/04_ladder_sensitivity.light.png" data-dark="figures/04_ladder_sensitivity.dark.png" src="figures/04_ladder_sensitivity.light.png" alt="Slope chart of passport ranks under three different friction ladders.">
+      </picture>
+      <figcaption>The twelve passports most sensitive to how entry regimes are scored.</figcaption>
+    </figure>
+    <p>
+      There is a second column in the source data that every published index throws away:
+      the permitted length of stay. {{explicit_days_pct}}% of visa-free pairs in the matrix
+      carry an explicit day count, from 7 days to a year. A 90-day Schengen right and a
+      14-day visa-on-arrival are one point each in every ranking on the market.
+    </p>
+    <figure>
+      <picture>
+        <source data-light="figures/15_stay_days.light.png" data-dark="figures/15_stay_days.dark.png" srcset="figures/15_stay_days.light.png">
+        <img data-light="figures/15_stay_days.light.png" data-dark="figures/15_stay_days.dark.png" src="figures/15_stay_days.light.png" alt="Scatter of permitted person-years of stay against destination count.">
+      </picture>
+      <figcaption>Permitted person-years of frictionless presence against the published destination count.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Result 3 — the uncomfortable one</p>
+    <h2>The weighting barely matters, and that is the most useful thing here</h2>
+    <p>
+      Here is the result that argues against this project's own premise. Across every
+      variant — five hand-set lenses, PCA weights, entropy weights, three levels of weight
+      dispersion — the rankings agree at Kendall's tau above {{min_tau_family}}. Resampling
+      the six pillar weights 3,000 times from a Dirichlet wide enough to cover any
+      defensible weighting moves the median passport by {{mc_median_width}} rank.
+      Even stretching the gap between the best and worst destination from
+      {{gamma1_ratio}}× to {{gamma4_ratio}}× only pulls the correlation with the plain
+      count down to {{gamma4_tau}}.
+    </p>
+    <figure>
+      <picture>
+        <source data-light="figures/02_index_agreement.light.png" data-dark="figures/02_index_agreement.dark.png" srcset="figures/02_index_agreement.light.png">
+        <img data-light="figures/02_index_agreement.light.png" data-dark="figures/02_index_agreement.dark.png" src="figures/02_index_agreement.light.png" alt="Heatmap of Kendall tau between all index variants.">
+      </picture>
+      <figcaption>
+        The only cells that drop meaningfully below 0.9 involve the unit-denominated
+        indices — share of world GDP and share of world population — and permitted
+        person-days. Those are the variants that abandon composite weighting altogether.
+      </figcaption>
+    </figure>
+    <p>
+      Why? Because averaging fifteen min-max-scaled indicators into six pillars, and six
+      pillars into one composite, is a variance sink. The resulting destination weights
+      span only {{gamma1_ratio}}× from the most to the least valuable country — a far
+      narrower claim than the underlying data supports, where GDP per capita alone spans
+      three orders of magnitude. Any composite built this way is closer to a flat count
+      than its authors intend.
+    </p>
+    <figure>
+      <picture>
+        <source data-light="figures/03_monte_carlo_ranks.light.png" data-dark="figures/03_monte_carlo_ranks.dark.png" srcset="figures/03_monte_carlo_ranks.light.png">
+        <img data-light="figures/03_monte_carlo_ranks.light.png" data-dark="figures/03_monte_carlo_ranks.dark.png" src="figures/03_monte_carlo_ranks.light.png" alt="Rank intervals for the top 32 passports across 3,000 resampled weightings.">
+      </picture>
+      <figcaption>
+        A rank is an interval. Japan's spans {{jpn_low}} to {{jpn_high}} depending on how
+        the pillars are weighted; most of the top twenty spans two or three places, which
+        is smaller than the month-to-month churn in the published index.
+      </figcaption>
+    </figure>
+    <p class="pullquote">
+      The honest conclusion is not "our index is better". It is that arguing about
+      weighting schemes is mostly a distraction, and the choices that <em>do</em> move
+      the answer are the unglamorous ones: how you score an e-Visa, whether you count
+      days, and whether you look outbound or inbound.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Result 4</p>
+    <h2>The divide is not in the weighting. It is in the graph.</h2>
+    <p>
+      Turn the matrix around and the picture stops being subtle. The United States can
+      reach {{usa_reaches}} destinations without a prior visa and admits {{usa_admits}}
+      nationalities on the same terms — a figure that matches Henley's own Openness Index,
+      where the US ranks 78th of 199 while sitting 10th on the passport index. Australia
+      runs an even wider gap. At the other end, {{n_full_open}} countries admit more than
+      190 nationalities and can reach fewer than 70 destinations themselves.
+    </p>
+    <figure>
+      <picture>
+        <source data-light="figures/07_reciprocity.light.png" data-dark="figures/07_reciprocity.dark.png" srcset="figures/07_reciprocity.light.png">
+        <img data-light="figures/07_reciprocity.light.png" data-dark="figures/07_reciprocity.dark.png" src="figures/07_reciprocity.light.png" alt="Scatter of destinations reachable against nationalities admitted.">
+      </picture>
+      <figcaption>Every surplus in this system is somebody else's deficit; the diagonal is nearly empty.</figcaption>
+    </figure>
+    <div class="grid-2">
+      <figure style="margin:0">
+        <picture>
+          <source data-light="figures/10_divide_by_income.light.png" data-dark="figures/10_divide_by_income.dark.png" srcset="figures/10_divide_by_income.light.png">
+          <img data-light="figures/10_divide_by_income.light.png" data-dark="figures/10_divide_by_income.dark.png" src="figures/10_divide_by_income.light.png" alt="Bar chart of mean access by World Bank income group.">
+        </picture>
+      </figure>
+      <figure style="margin:0">
+        <picture>
+          <source data-light="figures/08_lorenz.light.png" data-dark="figures/08_lorenz.dark.png" srcset="figures/08_lorenz.light.png">
+          <img data-light="figures/08_lorenz.light.png" data-dark="figures/08_lorenz.dark.png" src="figures/08_lorenz.light.png" alt="Lorenz curves of mobility under three indices.">
+        </picture>
+      </figure>
+    </div>
+    <p>
+      Measured as a Gini coefficient across passports, access is distributed about as
+      unequally as income in a middle-income country: {{gini_henley}} under the plain
+      count, {{gini_balanced}} under the weighted index — and {{gini_gdp}} when you ask
+      what share of world output each passport opens. Weighting people rather than
+      countries makes it worse, not better, because weak passports are disproportionately
+      held by large populations.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Result 5</p>
+    <h2>What actually predicts a passport</h2>
+    <p>
+      Regressing each passport's attainment on its own country's wealth, human
+      development, population, rule of law, electoral democracy and trade openness
+      explains {{r_squared_pct}}% of the variance. Development and electoral democracy
+      carry almost all of it; GDP per capita adds nothing once HDI is in the model, which
+      is a collinearity result rather than a finding about money — the two have variance
+      inflation factors above 11 and are not separately identified.
+    </p>
+    <figure>
+      <picture>
+        <source data-light="figures/09_residuals.light.png" data-dark="figures/09_residuals.dark.png" srcset="figures/09_residuals.light.png">
+        <img data-light="figures/09_residuals.light.png" data-dark="figures/09_residuals.dark.png" src="figures/09_residuals.light.png" alt="Actual versus predicted passport access with the largest residuals labelled.">
+      </picture>
+      <figcaption>
+        The labelled points are what national development cannot explain — which is
+        roughly the definition of diplomacy.
+      </figcaption>
+    </figure>
+    <p>
+      The residuals are where the politics lives. The largest over-performers are
+      countries whose mobility far exceeds their fundamentals; the largest
+      under-performers are countries held down by something other than their economy.
+      This is the quantitative version of the observation that a passport is a
+      reputational asset: you cannot buy one by growing, only by being trusted.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Result 6</p>
+    <h2>Four regimes, and three blocs nobody was told about</h2>
+    <p>
+      k-means on each passport's access composition, breadth and openness — with the
+      cluster count chosen by silhouette score — separates the world into four regimes
+      rather than the rich/poor split everyone expects. The most striking is
+      <b>open but unreciprocated</b>: {{open_unrecip_n}} countries that admit around
+      {{open_unrecip_admits}} nationalities without a visa while reaching about
+      {{open_unrecip_reaches}} destinations themselves.
+    </p>
+    <figure>
+      <picture>
+        <source data-light="figures/12_clusters.light.png" data-dark="figures/12_clusters.dark.png" srcset="figures/12_clusters.light.png">
+        <img data-light="figures/12_clusters.light.png" data-dark="figures/12_clusters.dark.png" src="figures/12_clusters.light.png" alt="Scatter of destinations reachable against nationalities admitted, coloured by cluster.">
+      </picture>
+    </figure>
+    <p>
+      Running Louvain community detection on the <em>mutual</em> access graph — where an
+      edge exists only if two countries admit each other — recovers the blocs without
+      being told they exist: a European cluster of {{eu_cluster_n}} members, an African
+      cluster of {{af_cluster_n}}, and a post-Soviet cluster of {{cis_cluster_n}}.
+      Reciprocal access, it turns out, is enough to reconstruct the political map.
+    </p>
+    <figure>
+      <picture>
+        <source data-light="figures/14_blocs.light.png" data-dark="figures/14_blocs.dark.png" srcset="figures/14_blocs.light.png">
+        <img data-light="figures/14_blocs.light.png" data-dark="figures/14_blocs.dark.png" src="figures/14_blocs.light.png" alt="Bar chart of internal frictionless density by political bloc.">
+      </picture>
+      <figcaption>Internal density measures what members grant each other, not what their treaties announce.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="explorer">
+  <div class="wrap-wide">
+    <p class="eyebrow">Explore</p>
+    <h2>Every passport, every variant</h2>
+    <p class="panel-sub" style="max-width:44rem;margin-bottom:1.4rem">
+      Sort by any column, search for a country, or click a row to open its full profile
+      below. Rank columns sort strongest-first regardless of direction.
+    </p>
+    <div class="panel">
+      <div class="controls">
+        <label class="sr-only" for="table-search">Search passports</label>
+        <input type="search" id="table-search" placeholder="Search a country…">
+        <span class="note" id="table-count"></span>
+      </div>
+      <div class="table-scroll" style="max-height:520px;overflow-y:auto">
+        <table>
+          <thead><tr id="table-head"></tr></thead>
+          <tbody id="table-body"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="panel" id="detail-card" style="margin-top:1.4rem">
+      <div class="panel-head">
+        <div>
+          <div class="panel-title" id="detail-name">—</div>
+          <div class="panel-sub" id="detail-sub"></div>
+        </div>
+      </div>
+      <div class="kpi-row" id="detail-kpis" style="margin-top:0"></div>
+      <div class="detail" style="margin-top:1.4rem">
+        <div>
+          <h3 style="margin-top:0">Share of the world reachable, by pillar</h3>
+          <div class="bars" id="detail-pillars"></div>
+        </div>
+        <div>
+          <h3 style="margin-top:0">Rank under each variant</h3>
+          <div class="bars" id="detail-ranks"></div>
+          <h3>Uncertainty</h3>
+          <div id="detail-uncertainty"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Context</p>
+    <h2>What the numbers are attached to</h2>
+    <h3>The Emirati climb</h3>
+    <p>
+      The UAE is the strongest performer of the index's twenty-year history, adding 149
+      visa-free destinations since 2006 and climbing 57 places — the product of a
+      deliberate, sustained programme of bilateral waiver negotiation. It tops this
+      project's reproduction too, and unlike most high scorers it holds position across
+      every lens, because its access is broad rather than regionally concentrated.
+    </p>
+    <h3>The American slide is a reciprocity story</h3>
+    <p>
+      The United States has fallen from first in 2006 to tenth in 2026, the third-largest
+      twenty-year decline after Venezuela and Vanuatu. The mechanism visible in this data
+      is not that the US lost access; it is that it never bought more. Admitting
+      {{usa_admits}} nationalities visa-free while reaching {{usa_reaches}} destinations
+      leaves nothing to trade with, and waivers are traded.
+    </p>
+    <h3>China is buying reach with openness</h3>
+    <p>
+      China extended unilateral visa-free entry to dozens of countries through 2025 and
+      2026, adding Sweden in November 2025 and the United Kingdom and Canada from February
+      2026, and now ranks well above the US on inbound openness. Because China is one of
+      the largest single blocks of weight in any destination-weighted index, each of those
+      waivers moves other countries' scores more than a typical bilateral deal does — the
+      reason several Southeast and Central Asian passports gain under weighting here.
+    </p>
+    <h3>Passports for sale, and the ceiling on them</h3>
+    <p>
+      Citizenship-by-investment programmes sell exactly the thing this index measures. In
+      April 2025 the European Court of Justice ruled Malta's scheme unlawful, holding that
+      a member state cannot make nationality — and with it EU citizenship — "a mere
+      commercial transaction". The Caribbean programmes that remain sell access to a
+      narrower world, and the weighted index is the natural way to see how much narrower.
+    </p>
+    <h3>The binary is about to get blurrier</h3>
+    <p>
+      The EU's ETIAS authorisation, repeatedly delayed and now expected no earlier than
+      2027, will convert visa-free entry to Europe into an electronic travel
+      authorisation for 60-plus nationalities. Under Henley's rule that changes nothing —
+      an ETA still scores 1. Under any graded reading it is a real increase in friction
+      for a very large number of travellers, and it will not show up in the headline
+      number at all.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Honesty</p>
+    <h2>What this cannot tell you</h2>
+    <ul class="tight">
+      <li><b>It is not Henley's data.</b> Their IATA Timatic feed is licensed and not
+        redistributable. This uses the open passport-index matrix — 199 passports against
+        199 destinations rather than 227 — so scores are not comparable in level. On the
+        {{n_reference}} reference points published in Henley's January 2026 report, the
+        reproduction's scores correlate at Spearman {{spearman}} and its ranks at
+        {{rank_spearman}}, with {{within_two}} of {{n_reference}} landing within two
+        places of the published rank. That is a check on the rule, not a claim to be
+        the same index.</li>
+      <li><b>The friction ladder is a judgement.</b> 0.85 for visa-on-arrival is a
+        defensible number, not a measured one. Everything is therefore reported under all
+        three ladders.</li>
+      <li><b>Some data is stale by construction.</b> Tourist arrivals and receipts have a
+        median vintage of {{tourism_vintage}} for most countries — the pandemic broke the
+        series and it has not fully recovered. Treated as a structural signal of draw,
+        not a current-year figure.</li>
+      <li><b>{{imputed_pct}}% of indicator cells are imputed or hand-sourced</b>, mostly
+        for jurisdictions the multilateral agencies do not report separately. Dropping
+        every poorly-measured destination and rescoring moves the median passport by
+        {{imputation_shift}} rank, so the conclusions do not rest on them — but the
+        individual numbers for Vatican City, North Korea and Kosovo should be read as
+        estimates.</li>
+      <li><b>It is a snapshot.</b> The matrix has no time dimension, so nothing here can
+        speak to trends directly; the twenty-year claims above are Henley's, cited, not
+        reproduced.</li>
+      <li><b>A visa is not a border.</b> Being legally admissible is not being admitted.
+        Nothing here measures secondary screening, carrier checks, or how a passport is
+        actually treated at a desk.</li>
+    </ul>
+
+    <h3>The reproduction, checked against the published table</h3>
+    <p class="note">
+      Applying Henley's own rule — binary credit, flat weights, dense ranking — to the
+      open matrix should land countries in roughly the tiers Henley publishes, and it
+      does. The scores differ because the destination universe differs; the ordering
+      barely does. The UAE is the one visible disagreement, and it is the passport that
+      moved most between Henley's January and July 2026 releases.
+    </p>
+    <div class="table-scroll">
+      <table>
+        <thead><tr>
+          <th scope="col">Passport</th>
+          <th scope="col">Published rank</th>
+          <th scope="col">Reproduced rank</th>
+          <th scope="col">Published score /227</th>
+          <th scope="col">Reproduced /199</th>
+        </tr></thead>
+        <tbody>{{validation_rows}}</tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>
+      <b>Sources.</b> Passport access matrix: <a href="https://github.com/imorte/passport-index-data">imorte/passport-index-data</a>.
+      Indicators: World Bank World Development Indicators; UNDP Human Development Report 2025;
+      V-Dem via <a href="https://ourworldindata.org">Our World in Data</a>; country reference data from
+      <a href="https://github.com/mledoze/countries">mledoze/countries</a>.
+      Method framing follows the OECD/JRC <i>Handbook on Constructing Composite Indicators</i> (2008).
+      Comparative and contextual figures: Henley &amp; Partners Global Mobility Report, January 2026;
+      Neumayer (2010, 2011) and Czaika &amp; Neumayer on visa restrictions and economic flows;
+      Mau et al. (2015) on the global mobility divide; Recchi et al. (2021) on the visa cost divide;
+      Court of Justice of the EU, Commission v. Malta (April 2025).
+    </p>
+    <p>
+      Generated {{generated_at}} · pipeline runtime {{runtime}}s ·
+      <a href="https://github.com/spencerrjenkins/adjusted-henley-index">source and full methodology</a>
+    </p>
+  </div>
+</footer>
+
+<script>__WORLD_PATHS_JS__</script>
+<script>
+/* world_paths.js declares its two values with top-level `const`, which in a
+   classic script binds into the global *lexical* environment rather than onto
+   `window` — so `window.WORLD_PATHS` is undefined even though `WORLD_PATHS`
+   resolves fine. Republish them explicitly before the interaction layer runs. */
+window.WORLD_PATHS = WORLD_PATHS;
+window.WORLD_VIEWBOX = WORLD_VIEWBOX;
+</script>
+<script>window.AHI_MARKERS = __MARKERS_JSON__;</script>
+<script>window.AHI_DATA = __DATA_JSON__;</script>
+<script>__JS__</script>
+</body>
+</html>

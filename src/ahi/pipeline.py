@@ -283,6 +283,13 @@ def run(n_monte_carlo: int = 2000) -> dict:
     figures = render_all(figure_tables, results)
     print(f"Rendered {len(figures)} figures x 2 modes to {FIGURES}")
 
+    # -- 10. Website -------------------------------------------------------
+    from .viz.site import build as build_site
+    # Read the bundle back rather than passing `results` directly: the site must
+    # be built from exactly the JSON that ships next to it, not from live
+    # DataFrames that serialise into something subtly different.
+    build_site(json.loads((OUTPUT / "results.json").read_text()))
+
     print(f"\nWrote {len(list(TABLES.glob('*.csv')))} tables to {TABLES}")
     print(f"Results bundle: {OUTPUT / 'results.json'}")
     print(f"Runtime: {results['meta']['runtime_seconds']}s")

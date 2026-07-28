@@ -307,13 +307,13 @@ def pillar_attainment(edges: pd.DataFrame, features: pd.DataFrame,
         values = features[f"p_{pillar}"]
         world_total = values.sum()
         contribution = credit * edges["destination"].map(values)
-        out[pillar] = contribution.groupby(edges["passport"]).sum() / world_total * 100
+        out[f"att_{pillar}"] = contribution.groupby(edges["passport"]).sum() / world_total * 100
     frame = pd.DataFrame(out).round(2)
-    frame["overall"] = frame[list(PILLARS)].mean(axis=1).round(2)
+    frame["att_overall"] = frame[[f"att_{p}" for p in PILLARS]].mean(axis=1).round(2)
     # Tilt: how far above or below its own average this passport reaches on each
     # pillar. Isolates the *shape* of a passport from its size.
     for pillar in PILLARS:
-        frame[f"tilt_{pillar}"] = (frame[pillar] - frame["overall"]).round(2)
+        frame[f"tilt_{pillar}"] = (frame[f"att_{pillar}"] - frame["att_overall"]).round(2)
     frame.index.name = "passport"
     return frame.reset_index()
 

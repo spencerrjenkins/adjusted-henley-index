@@ -85,7 +85,7 @@ def apply(mode: Mode) -> None:
         "font.sans-serif": FONT_STACK,
         "font.size": 10,
         "axes.titlesize": 13,
-        "axes.titleweight": 600,
+        "axes.titleweight": "bold",
         "axes.labelsize": 10,
         "legend.frameon": False,
         "legend.fontsize": 9,
@@ -117,7 +117,7 @@ def title(ax, mode: Mode, headline: str, subtitle: str | None = None) -> None:
     to be honest should have that caption attached to it, not in a paragraph the
     reader may never scroll to.
     """
-    ax.set_title(headline, loc="left", color=mode.ink, fontsize=13, fontweight=600,
+    ax.set_title(headline, loc="left", color=mode.ink, fontsize=13, fontweight="bold",
                  pad=26 if subtitle else 12)
     if subtitle:
         ax.annotate(subtitle, xy=(0, 1), xycoords="axes fraction", xytext=(0, 12),

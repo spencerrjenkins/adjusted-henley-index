@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-07-28 20:06:00 UTC",
+    "generated_at": "2026-07-28 20:19:06 UTC",
     "n_passports": 199,
     "n_destinations": 199,
     "n_edges": 39402,
@@ -9,13 +9,122 @@
     "n_lenses": 5,
     "headline_lens": "balanced",
     "default_ladder": "graded",
-    "runtime_seconds": 2.3
+    "runtime_seconds": 2.4
   },
   "validation": {
     "n_reference_points": 15,
     "spearman_rho": 0.7894,
     "spearman_p": 0.00046549275324334164,
-    "kendall_tau": 0.7128
+    "kendall_tau": 0.7128,
+    "rank_spearman_rho": 0.7894,
+    "within_two_ranks": 12,
+    "rows": [
+      {
+        "country": "Singapore",
+        "henley_score": 163.0,
+        "henley_rank": 2,
+        "henley_published_score": 192,
+        "henley_published_rank": 1
+      },
+      {
+        "country": "Japan",
+        "henley_score": 162.0,
+        "henley_rank": 3,
+        "henley_published_score": 188,
+        "henley_published_rank": 2
+      },
+      {
+        "country": "South Korea",
+        "henley_score": 163.0,
+        "henley_rank": 2,
+        "henley_published_score": 188,
+        "henley_published_rank": 2
+      },
+      {
+        "country": "Switzerland",
+        "henley_score": 160.0,
+        "henley_rank": 5,
+        "henley_published_score": 186,
+        "henley_published_rank": 3
+      },
+      {
+        "country": "Denmark",
+        "henley_score": 160.0,
+        "henley_rank": 5,
+        "henley_published_score": 186,
+        "henley_published_rank": 3
+      },
+      {
+        "country": "Spain",
+        "henley_score": 161.0,
+        "henley_rank": 4,
+        "henley_published_score": 186,
+        "henley_published_rank": 3
+      },
+      {
+        "country": "Luxembourg",
+        "henley_score": 160.0,
+        "henley_rank": 5,
+        "henley_published_score": 186,
+        "henley_published_rank": 3
+      },
+      {
+        "country": "Sweden",
+        "henley_score": 160.0,
+        "henley_rank": 5,
+        "henley_published_score": 186,
+        "henley_published_rank": 3
+      },
+      {
+        "country": "United Arab Emirates",
+        "henley_score": 169.0,
+        "henley_rank": 1,
+        "henley_published_score": 184,
+        "henley_published_rank": 5
+      },
+      {
+        "country": "New Zealand",
+        "henley_score": 158.0,
+        "henley_rank": 7,
+        "henley_published_score": 183,
+        "henley_published_rank": 6
+      },
+      {
+        "country": "Australia",
+        "henley_score": 157.0,
+        "henley_rank": 8,
+        "henley_published_score": 182,
+        "henley_published_rank": 7
+      },
+      {
+        "country": "Canada",
+        "henley_score": 155.0,
+        "henley_rank": 10,
+        "henley_published_score": 181,
+        "henley_published_rank": 8
+      },
+      {
+        "country": "Malaysia",
+        "henley_score": 160.0,
+        "henley_rank": 5,
+        "henley_published_score": 180,
+        "henley_published_rank": 9
+      },
+      {
+        "country": "United States",
+        "henley_score": 153.0,
+        "henley_rank": 11,
+        "henley_published_score": 179,
+        "henley_published_rank": 10
+      },
+      {
+        "country": "Afghanistan",
+        "henley_score": 22.0,
+        "henley_rank": 97,
+        "henley_published_score": 24,
+        "henley_published_rank": 106
+      }
+    ]
   },
   "provenance": {
     "mean_observed_pct": 92.6,
