@@ -16,7 +16,8 @@ from ahi.config import ACCESS_LADDERS, INDICATORS, LENSES, PILLARS
 from ahi.features import build_features
 from ahi.analysis.sensitivity import movement_balance, rank_movement
 from ahi.indices import (build_index_family, competition_rank, fractional_rank,
-                         henley_rank, lens_weights, openness_frame, score)
+                         henley_rank, lens_weights, live_engine_inputs,
+                         openness_frame, score)
 from ahi.ingest.access import load_access_edges
 
 
@@ -220,6 +221,49 @@ def test_openness_matches_published_us_figure(edges, features):
     direction."""
     openness = openness_frame(edges, features).set_index("passport")
     assert openness.at["USA", "openness_count"] == 46
+
+
+
+# ---------------------------------------------------------------------------
+# The browser's live engine
+# ---------------------------------------------------------------------------
+def test_live_engine_reproduces_every_lens_exactly(edges, features, family):
+    """The website claims its weight explorer is not an approximation of the
+    pipeline but the same arithmetic. That is a testable claim.
+
+    The composite is linear in the pillar weights, so it collapses to six
+    numbers per passport:  score = N * SUM_i w_i C_i / SUM_i w_i T_i.  If this
+    ever drifts, the page starts quietly lying to anyone moving a slider.
+    """
+    engine = live_engine_inputs(edges, features)
+    C, T, own = engine["contributions"], engine["totals"], engine["own"]
+    n = engine["n_destinations"]
+    reference = family.set_index("passport")
+
+    for lens in LENSES:
+        w = lens.weights
+        numerator = sum(C[p] * w[p] for p in PILLARS)
+        score_hat = n * numerator / sum(T[p] * w[p] for p in PILLARS)
+        pd.testing.assert_series_equal(
+            score_hat.round(1), reference[f"ahi_{lens.key}_score"],
+            check_names=False, check_dtype=False)
+
+        # Attainment: the mean-normalisation cancels, leaving a plain ratio of
+        # what you reach to what there was to reach.
+        ceiling = sum((T[p] - own[p]) * w[p] for p in PILLARS)
+        norm = n * ceiling / sum(T[p] * w[p] for p in PILLARS)
+        pct_hat = score_hat.round(1) / norm * 100
+        assert (pct_hat.round(2) - reference[f"ahi_{lens.key}_pct"]).abs().max() < 0.011
+
+
+def test_live_engine_inputs_are_finite_and_bounded(edges, features):
+    engine = live_engine_inputs(edges, features)
+    C, T, own = engine["contributions"], engine["totals"], engine["own"]
+    assert np.isfinite(C.to_numpy()).all()
+    for pillar in PILLARS:
+        # A passport cannot reach more of a pillar than the world contains.
+        assert (C[pillar] <= T[pillar] + 1e-6).all(), pillar
+        assert (own[pillar] >= 0).all() and (own[pillar] <= 1).all(), pillar
 
 
 # ---------------------------------------------------------------------------

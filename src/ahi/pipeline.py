@@ -265,7 +265,9 @@ def run(n_monte_carlo: int = 3000, build_website: bool = True) -> dict:
                   .merge(assignment.drop(columns="name"), on="passport")
                   .merge(cluster_labels[["cluster", "label"]], on="cluster")
                   .merge(residuals[["passport", "predicted", "residual"]], on="passport")
-                  .merge(attainment, on="passport"))
+                  .merge(attainment, on="passport")
+                  .merge(movement[["passport", "weighting_effect", "friction_effect"]],
+                         on="passport"))
     site_frame.to_csv(PROCESSED / "passport_master.csv", index=False)
     weight_table.to_csv(PROCESSED / "destination_master.csv", index=False)
 

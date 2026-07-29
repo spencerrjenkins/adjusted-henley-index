@@ -56,7 +56,7 @@ Full run: about 3 seconds on a laptop after the data is cached. Every artifact i
 | --- | --- |
 | `make fetch` | Download every upstream source into `data/raw/` (cached; `make refetch` forces) |
 | `make run` | Build 36 tables, 15 figures × 2 themes, `results.json`, and `docs/` |
-| `make test` | 21 invariant tests |
+| `make test` | 27 invariant tests |
 | `make serve` | Local preview of the data story |
 | `make clean` | Remove generated outputs, keep raw data |
 
@@ -222,7 +222,10 @@ guards a live hazard rather than restating an identity.
 │
 ├── assets/
 │   ├── world_paths.js          Natural Earth 110m geometry, baked to SVG paths
-│   └── site/                   CSS, JS and HTML template for the data story
+│   └── site/                   the data story: HTML template, CSS,
+│       ├── charts.js           dependency-free SVG chart engine + 16 charts,
+│       │                       4 explanatory diagrams, live weight explorer
+│       └── site.js             map, ranking table, detail panel, theme
 │
 ├── output/
 │   ├── tables/                 36 CSVs, one per analysis step
@@ -230,7 +233,7 @@ guards a live hazard rather than restating an identity.
 │   └── results.json            every number the article and site quote
 │
 ├── docs/                       ← GitHub Pages site (generated)
-└── tests/                      21 invariant tests
+└── tests/                      27 invariant tests
 ```
 
 ---
@@ -404,6 +407,32 @@ Five Eyes 152 destinations, EU 133, African Union 31.
 and website quote. The site build **fails** if the template references a number
 the pipeline cannot supply, which is what keeps the prose from drifting out of
 agreement with the data.
+
+### The website is not a rendering of the figures
+
+The PNG suite above is what the README and `ARTICLE.md` embed. The
+[data story](https://spencerrjenkins.github.io/adjusted-henley-index/) redraws
+the same charts as interactive SVG — hover any mark for the numbers behind it —
+and adds four things a static figure cannot do:
+
+- **A formula walkthrough** that names both terms of
+  `score = Σ credit × weight` and then walks one real passport from a raw
+  destination count to an attainment percentage.
+- **A friction-ladder diagram** showing graded credit as bars against Henley's
+  binary rule as a marker, sized by the share of all 39,402 pairs each regime
+  covers.
+- **A ranking-convention worked example** — five passports, three tied, under
+  dense / competition / fractional, with the column sums that explain why only
+  the last is safe to difference.
+- **A live weight explorer.** The composite is linear in the pillar weights, so
+  the whole index collapses to six numbers per passport:
+  `score = N · Σᵢ wᵢCᵢ / Σᵢ wᵢTᵢ`. The browser gets those 199×6 contributions
+  and rebuilds the ranking exactly as you move the sliders — not an
+  approximation of the pipeline, the same arithmetic. A test asserts the two
+  agree for every lens.
+
+Charts read their colours from CSS custom properties at draw time and redraw on
+theme change and resize, so the light/dark palette is defined once.
 
 ---
 

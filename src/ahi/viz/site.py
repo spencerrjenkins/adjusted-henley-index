@@ -15,7 +15,9 @@ import shutil
 import numpy as np
 import pandas as pd
 
-from ..config import ASSETS, DOCS, FIGURES, LENSES, PILLARS, TABLES
+from ..config import (ASSETS, DOCS, FIGURES, INDICATORS, LENSES, LENS_BY_KEY,
+                      PILLARS, PILLAR_BLURBS, PILLAR_LABELS, TABLES,
+                      ACCESS_LADDERS, HEADLINE_LENS)
 
 SITE_ASSETS = ASSETS / "site"
 
@@ -53,10 +55,14 @@ def _project(lon: float, lat: float) -> list[float]:
             round((90 - lat) * (PROJECTION_H / 180), 2)]
 
 
-def _country_payload(master: pd.DataFrame, features: pd.DataFrame) -> dict:
+def _country_payload(master: pd.DataFrame, features: pd.DataFrame,
+                     ladder: pd.DataFrame, engine: dict) -> dict:
     """One compact record per passport. Kept flat and short-keyed: the whole
     payload is inlined into the page, so every byte is on the critical path."""
     lens_keys = [lens.key for lens in LENSES]
+    lad = ladder.set_index("passport")
+    contrib = engine["contributions"]
+    own = engine["own"]
     payload = {}
     for row in master.itertuples():
         iso = row.passport
@@ -73,6 +79,8 @@ def _country_payload(master: pd.DataFrame, features: pd.DataFrame) -> dict:
             # continuous one can be differenced without a built-in drift.
             "henleyFrac": float(row.henley_frac),
             "balancedFrac": float(row.ahi_balanced_frac),
+            "gradedScore": float(row.graded_count_score),
+            "balancedScore": float(row.ahi_balanced_score),
             "lenses": {k: float(getattr(row, f"ahi_{k}_pct")) for k in lens_keys},
             "pos": {**{k: int(getattr(row, f"ahi_{k}_pos")) for k in lens_keys},
                     "gdpShare": int(row.gdp_share_pos),
@@ -93,8 +101,119 @@ def _country_payload(master: pd.DataFrame, features: pd.DataFrame) -> dict:
             "residual": float(row.residual),
             "pillars": {p: {"att": float(getattr(row, f"att_{p}")),
                             "tilt": float(getattr(row, f"tilt_{p}"))} for p in PILLARS},
+            # Per-pillar credit sums and own-country pillar scores: the two
+            # vectors the live weight explorer needs to rebuild the index.
+            "c": [float(contrib.at[iso, p]) for p in PILLARS],
+            "own": [float(own.at[iso, p]) for p in PILLARS],
+            "ladder": {"binary": float(lad.at[iso, "rank_binary_henley"]),
+                       "graded": float(lad.at[iso, "rank_graded"]),
+                       "strict": float(lad.at[iso, "rank_strict"])},
+            "weightingEffect": float(row.weighting_effect),
+            "frictionEffect": float(row.friction_effect),
         }
     return payload
+
+
+def _series(results: dict, master: pd.DataFrame, tables: dict, engine: dict) -> dict:
+    """Aggregate series the per-passport records cannot carry.
+
+    Everything here is small (the largest is a 16x16 correlation matrix), so it
+    ships inline with the page rather than as a second request -- the charts
+    render on first paint instead of after a round trip.
+    """
+    agreement = tables["agreement"]
+    order = [c for c in ["henley", "graded_count", "binary_weighted", "ahi_balanced",
+                         "ahi_business", "ahi_leisure", "ahi_settlement", "ahi_reach",
+                         "ahi_pca", "ahi_entropy", "gdp_share", "pop_share",
+                         "ahi_gamma_flat", "ahi_gamma_sharp", "ahi_gamma_extreme",
+                         "stay_days"] if c in agreement.index]
+    labels = {"henley": "Henley rule", "graded_count": "Graded, flat weights",
+              "binary_weighted": "Binary, weighted", "ahi_balanced": "AHI Balanced",
+              "ahi_business": "AHI Business", "ahi_leisure": "AHI Leisure",
+              "ahi_settlement": "AHI Settlement", "ahi_reach": "AHI Raw reach",
+              "ahi_pca": "PCA weights", "ahi_entropy": "Entropy weights",
+              "gdp_share": "World GDP share", "pop_share": "World people share",
+              "ahi_gamma_flat": "Flat dispersion", "ahi_gamma_sharp": "Sharp dispersion",
+              "ahi_gamma_extreme": "Extreme dispersion", "stay_days": "Person-days"}
+
+    weights = tables["weights"]
+    lorenz = pd.read_csv(TABLES / "26_lorenz_passports.csv")
+    from ..analysis.inequality import gini, lorenz_curve
+    fam = tables["family"]
+    curves = {}
+    for label, col in (("Henley-rule count", "henley_score"),
+                       ("Adjusted (Balanced)", "ahi_balanced_score"),
+                       ("Share of world GDP", "gdp_share_score")):
+        curve = lorenz_curve(fam.set_index("passport")[col])
+        step = max(len(curve) // 100, 1)
+        curves[label] = {
+            "gini": round(gini(fam[col]), 3),
+            "points": [[round(float(a), 4), round(float(b), 4)]
+                       for a, b in curve.iloc[::step][["population_share", "value_share"]]
+                       .to_numpy()],
+        }
+
+    divide = tables["divide"].dropna(subset=["income_group"])
+    dd = tables["datadriven"]
+
+    return {
+        "agreement": {"order": order, "labels": [labels[o] for o in order],
+                      "matrix": [[round(float(agreement.loc[a, b]), 3) for b in order]
+                                 for a in order]},
+        "destinationWeights": [
+            {"iso": r.destination, "name": r.name, "w": round(float(r.balanced), 3)}
+            for r in weights.itertuples()],
+        "lorenz": curves,
+        "divide": [{"group": r.income_group, "countries": int(r.countries),
+                    "access": round(float(r.mean_access_pct), 1),
+                    "people": round(float(r.people_share_pct), 1)}
+                   for r in divide.itertuples()],
+        "pca": [{"indicator": r.indicator, "pillar": r.pillar,
+                 "loading": round(float(r.pc1_loading), 3),
+                 "entropy": round(float(r.entropy_weight), 4)} for r in dd.itertuples()],
+        "dispersion": [{"variant": r.variant, "ratio": float(r.weight_max_min_ratio),
+                        "gini": float(r.gini_of_weight),
+                        "tau": float(r.kendall_tau_vs_henley)}
+                       for r in tables["dispersion"].itertuples()],
+        "blocs": [{"bloc": r.bloc, "members": int(r.members_in_data),
+                   "internal": float(r.internal_density),
+                   "external": float(r.mean_external_reach)}
+                  for r in tables["blocs"].itertuples()],
+        "clusters": [{"label": c["label"], "members": c["members"],
+                      "breadth": c["mean_breadth"], "openness": c["mean_openness_count"],
+                      "attainment": c["mean_attainment_pct"], "description": c["description"]}
+                     for c in results["clusters"]],
+        "ladders": ACCESS_LADDERS,
+        "pillars": [{"key": p, "label": PILLAR_LABELS[p], "blurb": PILLAR_BLURBS[p],
+                     "indicators": [{"key": i.key, "label": i.label, "unit": i.unit,
+                                     "direction": i.direction, "transform": i.transform,
+                                     "note": i.note}
+                                    for i in INDICATORS if i.pillar == p]}
+                    for p in PILLARS],
+        "lenses": [{"key": l.key, "label": l.label, "question": l.question,
+                    "weights": l.weights} for l in LENSES],
+        "engine": {
+            "totals": engine["totals"],
+            "n": engine["n_destinations"],
+            "headline": LENS_BY_KEY[HEADLINE_LENS].weights,
+        },
+        "regression": {
+            "r2": results["regression"]["r_squared"],
+            "coefficients": [{"label": c["label"], "coef": c["coefficient"],
+                              "p": c["p_value"], "lo": c["ci_low"], "hi": c["ci_high"]}
+                             for c in results["regression"]["coefficients"]
+                             if c["term"] != "const"],
+        },
+        "validation": results["validation"]["rows"],
+        "movementBalance": results["movement_balance"],
+        "categories": [{"category": r.category, "pairs": int(r.pairs),
+                        "share": float(r.share_of_pairs),
+                        "credit": float(r.credit_graded),
+                        "binary": float(r.credit_binary_henley),
+                        "strict": float(r.credit_strict),
+                        "days": float(r.median_stay_days)}
+                       for r in tables["categories"].itertuples()],
+    }
 
 
 def _tokens(results: dict, master: pd.DataFrame, tables: dict) -> dict[str, str]:
@@ -220,6 +339,23 @@ def _validation_rows(results: dict) -> str:
     return "".join(rows)
 
 
+def _load_engine() -> dict:
+    """Rebuild the live-explorer inputs from the raw edges and features.
+
+    Recomputed rather than round-tripped through a CSV so the browser's engine
+    is fed by the same code path the pipeline scores with; a test asserts the
+    two agree to the last decimal the site displays.
+    """
+    from ..features import build_features
+    from ..indices import live_engine_inputs
+    from ..ingest.access import load_access_edges
+
+    edges = load_access_edges()
+    destinations = pd.Index(sorted(edges["destination"].unique()), name="iso3")
+    features, _ = build_features(destinations)
+    return live_engine_inputs(edges, features)
+
+
 def build(results: dict) -> None:
     tables = {
         "family": pd.read_csv(TABLES / "04_index_family.csv"),
@@ -227,6 +363,9 @@ def build(results: dict) -> None:
         "categories": pd.read_csv(TABLES / "01_access_categories.csv"),
         "agreement": pd.read_csv(TABLES / "14_index_agreement.csv", index_col=0),
         "dispersion": pd.read_csv(TABLES / "16b_weight_dispersion.csv"),
+        "weights": pd.read_csv(TABLES / "07_destination_weights.csv"),
+        "blocs": pd.read_csv(TABLES / "20_blocs.csv"),
+        "datadriven": pd.read_csv(TABLES / "09_datadriven_weights.csv"),
         "divide": pd.read_csv(TABLES / "23_divide_by_income.csv"),
         "provenance": pd.read_csv(TABLES / "02_data_provenance.csv"),
         "registry": pd.read_csv(TABLES / "03_indicator_registry.csv"),
@@ -235,15 +374,18 @@ def build(results: dict) -> None:
     from ..config import PROCESSED
     master = pd.read_csv(PROCESSED / "passport_master.csv")
     features = pd.read_csv(TABLES / "08_destination_features.csv").set_index("iso3")
+    engine = _load_engine()
 
     payload = {
         "meta": results["meta"],
-        "countries": _country_payload(master, features),
+        "countries": _country_payload(master, features, tables["ladder"], engine),
+        "series": _series(results, master, tables, engine),
     }
 
     template = (SITE_ASSETS / "index.template.html").read_text()
     html = (template
             .replace("__CSS__", (SITE_ASSETS / "site.css").read_text())
+            .replace("__CHARTS_JS__", (SITE_ASSETS / "charts.js").read_text())
             .replace("__JS__", (SITE_ASSETS / "site.js").read_text())
             .replace("__WORLD_PATHS_JS__", (ASSETS / "world_paths.js").read_text())
             .replace("__MARKERS_JSON__", json.dumps(

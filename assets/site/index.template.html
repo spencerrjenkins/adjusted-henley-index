@@ -98,6 +98,12 @@
       Henley sets <code>credit</code> to a binary and <code>weight</code> to 1. This
       project varies both and reports what survives.
     </p>
+    <div class="chart-card">
+      <h4>The whole index, in one line</h4>
+      <p class="chart-sub">Both terms are choices. Henley makes them and does not say so; this project makes them, says so, and then varies them.</p>
+      <div data-chart="diagram-formula"></div>
+    </div>
+
     <h3>The friction ladder</h3>
     <p>
       Entry regimes are graded rather than dichotomized: visa-free 1.00, visa-on-arrival
@@ -106,6 +112,12 @@
       Henley's own binary rule and under a strict rule where only true visa-free counts.
       Where a finding holds under one ladder only, it is a finding about the ladder.
     </p>
+    <div class="chart-card">
+      <h4>What each entry regime is worth</h4>
+      <p class="chart-sub">Bars are the graded credit; the orange line is what Henley's binary rule gives the same regime. The gap between them is the modelling choice, and it covers a third of all 39,402 bilateral pairs.</p>
+      <div data-chart="diagram-ladder"></div>
+    </div>
+
     <h3>Six pillars from fifteen indicators</h3>
     <p>
       Each destination is scored on {{n_indicators}} indicators from the World Bank, UNDP,
@@ -118,6 +130,12 @@
       then min-max scaled; pillars are unweighted means of their members, so weighting
       happens once, at a level small enough to argue about honestly.
     </p>
+    <div class="chart-card">
+      <h4>Fifteen indicators, six pillars, one weight per destination</h4>
+      <p class="chart-sub">Each pillar is the unweighted mean of its indicators; the percentage is that pillar's share of the Balanced lens. Hover an indicator for what it is doing there.</p>
+      <div data-chart="diagram-pipeline"></div>
+    </div>
+
     <h3>Five lenses, plus controls</h3>
     <p>
       A weight vector is a statement about <em>whose</em> mobility you are measuring, so
@@ -128,6 +146,20 @@
       not an artifact of the analyst. Two more variants need no weighting scheme at all:
       the share of world GDP and the share of world population you can reach.
     </p>
+    <div class="chart-card">
+      <h4>Build your own index</h4>
+      <p class="chart-sub">
+        The composite is linear in the pillar weights, which means the whole index reduces
+        to six numbers per passport and can be rebuilt in your browser. Move the sliders and
+        the ranking recomputes exactly — this is not an approximation of the pipeline, it is
+        the same arithmetic. Try to find a defensible weighting that reorders the top ten.
+      </p>
+      <div data-chart="explorer"></div>
+      <p class="chart-note">
+        Weights are renormalised to sum to 100%, so raising one lowers the rest.
+      </p>
+    </div>
+
   </div>
 </section>
 
@@ -174,17 +206,12 @@
       balanced by construction: {{move_down}} fall, {{move_up}} rise, mean movement
       {{move_mean}}.
     </p>
-    <figure>
-      <picture>
-        <source data-light="figures/01_rank_movement.light.png" data-dark="figures/01_rank_movement.dark.png" srcset="figures/01_rank_movement.light.png">
-        <img data-light="figures/01_rank_movement.light.png" data-dark="figures/01_rank_movement.dark.png" src="figures/01_rank_movement.light.png" alt="Dumbbell chart of the largest rank movements between the Henley-rule count and the opportunity-weighted index.">
-      </picture>
-      <figcaption>
-        Both indices are plotted on fractional ranks, so neither is flattered by its ties
-        — a detail that matters more than it sounds, and one this project got wrong twice
-        before getting it right.
-      </figcaption>
-    </figure>
+        <div class="chart-card">
+      <h4>Who gains and who falls when destinations stop being worth one point each</h4>
+      <p class="chart-sub">Fractional ranks, so a tied group sits at the average of the positions it actually occupies and neither index is flattered by its ties. Hover any row for the weighting/friction split.</p>
+      <div data-chart="rank-movement"></div>
+      <p class="chart-note">Gray dot: Henley-rule position. Colored dot: opportunity-weighted.</p>
+    </div>
     <h3>Why the movement numbers have a decimal point</h3>
     <p>
       Comparing two rankings with different tie structures is harder than it looks, and
@@ -218,6 +245,12 @@
       the largest genuine fall in the table is {{largest_fall}} places and the largest
       genuine rise is {{largest_rise}}.
     </p>
+    <div class="chart-card">
+      <h4>The same five passports under all three conventions</h4>
+      <p class="chart-sub">Three tie on 160. Only the fractional column sums to n(n+1)/2 — the total a second, tie-free index also sums to — which is what makes it the one safe basis for differencing two rankings.</p>
+      <div data-chart="diagram-ranking"></div>
+    </div>
+
   </div>
 </section>
 
@@ -236,26 +269,22 @@
       moves the opposite way, from {{myss_binary}} to {{myss_strict}}, because its access
       is unusually <em>genuinely</em> visa-free.
     </p>
-    <figure>
-      <picture>
-        <source data-light="figures/04_ladder_sensitivity.light.png" data-dark="figures/04_ladder_sensitivity.dark.png" srcset="figures/04_ladder_sensitivity.light.png">
-        <img data-light="figures/04_ladder_sensitivity.light.png" data-dark="figures/04_ladder_sensitivity.dark.png" src="figures/04_ladder_sensitivity.light.png" alt="Slope chart of passport ranks under three different friction ladders.">
-      </picture>
-      <figcaption>The twelve passports most sensitive to how entry regimes are scored.</figcaption>
-    </figure>
+        <div class="chart-card">
+      <h4>How much of the top of the table is visa-on-arrival?</h4>
+      <p class="chart-sub">The twelve passports most sensitive to how entry regimes are scored, with destination weighting held fixed. Hover a line to see all three ladders.</p>
+      <div data-chart="ladder"></div>
+    </div>
     <p>
       There is a second column in the source data that every published index throws away:
       the permitted length of stay. {{explicit_days_pct}}% of visa-free pairs in the matrix
       carry an explicit day count, from 7 days to a year. A 90-day Schengen right and a
       14-day visa-on-arrival are one point each in every ranking on the market.
     </p>
-    <figure>
-      <picture>
-        <source data-light="figures/15_stay_days.light.png" data-dark="figures/15_stay_days.dark.png" srcset="figures/15_stay_days.light.png">
-        <img data-light="figures/15_stay_days.light.png" data-dark="figures/15_stay_days.dark.png" src="figures/15_stay_days.light.png" alt="Scatter of permitted person-years of stay against destination count.">
-      </picture>
-      <figcaption>Permitted person-years of frictionless presence against the published destination count.</figcaption>
-    </figure>
+        <div class="chart-card">
+      <h4>A door you can hold open for 90 days is not the same door</h4>
+      <p class="chart-sub">Permitted person-years of frictionless presence against the published destination count. Hover any point for days per destination.</p>
+      <div data-chart="stay-days"></div>
+    </div>
   </div>
 </section>
 
@@ -273,17 +302,11 @@
       {{gamma1_ratio}}× to {{gamma4_ratio}}× only pulls the correlation with the plain
       count down to {{gamma4_tau}}.
     </p>
-    <figure>
-      <picture>
-        <source data-light="figures/02_index_agreement.light.png" data-dark="figures/02_index_agreement.dark.png" srcset="figures/02_index_agreement.light.png">
-        <img data-light="figures/02_index_agreement.light.png" data-dark="figures/02_index_agreement.dark.png" src="figures/02_index_agreement.light.png" alt="Heatmap of Kendall tau between all index variants.">
-      </picture>
-      <figcaption>
-        The only cells that drop meaningfully below 0.9 involve the unit-denominated
-        indices — share of world GDP and share of world population — and permitted
-        person-days. Those are the variants that abandon composite weighting altogether.
-      </figcaption>
-    </figure>
+        <div class="chart-card">
+      <h4>Which modeling choices actually change the answer</h4>
+      <p class="chart-sub">Kendall's tau-b between every pair of index variants. 1.00 means an identical ordering; hover a cell for the reading.</p>
+      <div data-chart="agreement"></div>
+    </div>
     <p>
       Why? Because averaging fifteen min-max-scaled indicators into six pillars, and six
       pillars into one composite, is a variance sink. The resulting destination weights
@@ -292,17 +315,22 @@
       three orders of magnitude. Any composite built this way is closer to a flat count
       than its authors intend.
     </p>
-    <figure>
-      <picture>
-        <source data-light="figures/03_monte_carlo_ranks.light.png" data-dark="figures/03_monte_carlo_ranks.dark.png" srcset="figures/03_monte_carlo_ranks.light.png">
-        <img data-light="figures/03_monte_carlo_ranks.light.png" data-dark="figures/03_monte_carlo_ranks.dark.png" src="figures/03_monte_carlo_ranks.light.png" alt="Rank intervals for the top 32 passports across 3,000 resampled weightings.">
-      </picture>
-      <figcaption>
-        A rank is an interval. Japan's spans {{jpn_low}} to {{jpn_high}} depending on how
-        the pillars are weighted; most of the top twenty spans two or three places, which
-        is smaller than the month-to-month churn in the published index.
-      </figcaption>
-    </figure>
+    <div class="chart-card">
+      <h4>The world is less unequal as a set of destinations than as a set of economies</h4>
+      <p class="chart-sub">Every destination's Balanced-lens weight. Averaging fifteen indicators into six pillars and six pillars into one number compresses the whole planet into a 3.5x range.</p>
+      <div data-chart="weight-distribution"></div>
+    </div>
+    <div class="chart-card">
+      <h4>Even a 143x spread barely reorders the table</h4>
+      <p class="chart-sub">The composite raised to a power, which stretches the gap between the best and worst destination without changing their order. Kendall's tau against the plain count hardly moves.</p>
+      <div data-chart="dispersion"></div>
+    </div>
+
+        <div class="chart-card">
+      <h4>A rank is an interval, not a number</h4>
+      <p class="chart-sub">Dot: median position across 3,000 resampled pillar weightings. Bar: the 5th to 95th percentile.</p>
+      <div data-chart="monte-carlo"></div>
+    </div>
     <p class="pullquote">
       The honest conclusion is not "our index is better." It is that arguing about
       weighting schemes is mostly a distraction, and the choices that <em>do</em> move
@@ -324,26 +352,22 @@
       runs an even wider gap. At the other end, {{n_full_open}} countries admit more than
       190 nationalities and can reach fewer than 70 destinations themselves.
     </p>
-    <figure>
-      <picture>
-        <source data-light="figures/07_reciprocity.light.png" data-dark="figures/07_reciprocity.dark.png" srcset="figures/07_reciprocity.light.png">
-        <img data-light="figures/07_reciprocity.light.png" data-dark="figures/07_reciprocity.dark.png" src="figures/07_reciprocity.light.png" alt="Scatter of destinations reachable against nationalities admitted.">
-      </picture>
-      <figcaption>Every surplus in this system is somebody else's deficit; the diagonal is nearly empty.</figcaption>
-    </figure>
-    <div class="grid-2">
-      <figure style="margin:0">
-        <picture>
-          <source data-light="figures/10_divide_by_income.light.png" data-dark="figures/10_divide_by_income.dark.png" srcset="figures/10_divide_by_income.light.png">
-          <img data-light="figures/10_divide_by_income.light.png" data-dark="figures/10_divide_by_income.dark.png" src="figures/10_divide_by_income.light.png" alt="Bar chart of mean access by World Bank income group.">
-        </picture>
-      </figure>
-      <figure style="margin:0">
-        <picture>
-          <source data-light="figures/08_lorenz.light.png" data-dark="figures/08_lorenz.dark.png" srcset="figures/08_lorenz.light.png">
-          <img data-light="figures/08_lorenz.light.png" data-dark="figures/08_lorenz.dark.png" src="figures/08_lorenz.light.png" alt="Lorenz curves of mobility under three indices.">
-        </picture>
-      </figure>
+        <div class="chart-card">
+      <h4>Almost nobody sits on the diagonal</h4>
+      <p class="chart-sub">Above the line you travel more freely than you admit; below it, the reverse. Hover any country for its balance.</p>
+      <div data-chart="reciprocity"></div>
+    </div>
+    <div>
+          <div class="chart-card">
+      <h4>The mobility divide, in one bar chart</h4>
+      <p class="chart-sub">Balanced-lens attainment by World Bank income group, with each group's share of the world's population.</p>
+      <div data-chart="divide"></div>
+    </div>
+          <div class="chart-card">
+      <h4>How unequally mobility is distributed</h4>
+      <p class="chart-sub">The further a curve sags below the diagonal, the more concentrated that measure of access is among a few passports.</p>
+      <div data-chart="lorenz"></div>
+    </div>
     </div>
     <p>
       Measured as a Gini coefficient across passports, access is distributed about as
@@ -368,16 +392,11 @@
       is a collinearity result rather than a finding about money — the two have variance
       inflation factors above 11 and are not separately identified.
     </p>
-    <figure>
-      <picture>
-        <source data-light="figures/09_residuals.light.png" data-dark="figures/09_residuals.dark.png" srcset="figures/09_residuals.light.png">
-        <img data-light="figures/09_residuals.light.png" data-dark="figures/09_residuals.dark.png" src="figures/09_residuals.light.png" alt="Actual versus predicted passport access with the largest residuals labeled.">
-      </picture>
-      <figcaption>
-        The labeled points are what national development cannot explain — which is
-        roughly the definition of diplomacy.
-      </figcaption>
-    </figure>
+        <div class="chart-card">
+      <h4>Passport strength is mostly national development — and partly diplomacy</h4>
+      <p class="chart-sub">Actual access against what a regression on the country's own wealth, development, size and institutions predicts. The labelled points are what the model cannot explain.</p>
+      <div data-chart="residuals"></div>
+    </div>
     <p>
       The residuals are where the politics lives. The largest over-performers are
       countries whose mobility far exceeds their fundamentals; the largest
@@ -400,12 +419,11 @@
       {{open_unrecip_admits}} nationalities without a visa while reaching about
       {{open_unrecip_reaches}} destinations themselves.
     </p>
-    <figure>
-      <picture>
-        <source data-light="figures/12_clusters.light.png" data-dark="figures/12_clusters.dark.png" srcset="figures/12_clusters.light.png">
-        <img data-light="figures/12_clusters.light.png" data-dark="figures/12_clusters.dark.png" src="figures/12_clusters.light.png" alt="Scatter of destinations reachable against nationalities admitted, colored by cluster.">
-      </picture>
-    </figure>
+        <div class="chart-card">
+      <h4>Four mobility regimes, found without being told they exist</h4>
+      <p class="chart-sub">k-means on each passport's access composition, breadth and openness, with the cluster count chosen by silhouette score.</p>
+      <div data-chart="clusters"></div>
+    </div>
     <p>
       Running Louvain community detection on the <em>mutual</em> access graph — where an
       edge exists only if two countries admit each other — recovers the blocs without
@@ -413,13 +431,44 @@
       cluster of {{af_cluster_n}}, and a post-Soviet cluster of {{cis_cluster_n}}.
       Reciprocal access, it turns out, is enough to reconstruct the political map.
     </p>
-    <figure>
-      <picture>
-        <source data-light="figures/14_blocs.light.png" data-dark="figures/14_blocs.dark.png" srcset="figures/14_blocs.light.png">
-        <img data-light="figures/14_blocs.light.png" data-dark="figures/14_blocs.dark.png" src="figures/14_blocs.light.png" alt="Bar chart of internal frictionless density by political bloc.">
-      </picture>
-      <figcaption>Internal density measures what members grant each other, not what their treaties announce.</figcaption>
-    </figure>
+        <div class="chart-card">
+      <h4>Every bloc is already a free-movement area. What differs is the world outside it.</h4>
+      <p class="chart-sub">Internal frictionless density is at or near 100% for all but the African Union — membership is not the variable; what membership buys you elsewhere is.</p>
+      <div data-chart="blocs"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Composition</p>
+    <h2>What kind of world does each passport open?</h2>
+    <p>
+      Size is not the only thing that varies. Two passports that reach the same amount of
+      the world can reach completely different parts of it — and the tilt is legible as
+      policy. Russia and China reach disproportionately cheap destinations and
+      disproportionately few safe or developed ones; the United States and United Kingdom
+      are the mirror image, strong on security and development and weak on raw scale
+      because the largest countries on Earth are closed to them.
+    </p>
+    <div class="chart-card">
+      <h4>Every passport has a shape, not just a size</h4>
+      <p class="chart-sub">Each cell is the share of the world's total value in that pillar the passport can reach. Colour is how far that sits above (blue) or below (red) the passport's own average — so the colour is the shape and the number is the size.</p>
+      <div data-chart="pillar-tilt"></div>
+    </div>
+    <p>
+      Left to itself the data builds a development index rather than a size one. The first
+      principal component of the destination matrix — the axis along which destinations
+      differ most — loads heavily on human development, internet penetration and education,
+      and almost not at all on population or surface area. Raw size turns out to be
+      orthogonal to everything else, which is why the Raw reach lens is the one that most
+      disagrees with the others.
+    </p>
+    <div class="chart-card">
+      <h4>What the data thinks matters, versus what we said matters</h4>
+      <p class="chart-sub">Loadings on the first principal component. Population and surface area sit near zero; price level loads negatively, because cheap places are mostly poor places.</p>
+      <div data-chart="pca"></div>
+    </div>
   </div>
 </section>
 
@@ -606,6 +655,7 @@ window.WORLD_VIEWBOX = WORLD_VIEWBOX;
 </script>
 <script>window.AHI_MARKERS = __MARKERS_JSON__;</script>
 <script>window.AHI_DATA = __DATA_JSON__;</script>
+<script>__CHARTS_JS__</script>
 <script>__JS__</script>
 </body>
 </html>

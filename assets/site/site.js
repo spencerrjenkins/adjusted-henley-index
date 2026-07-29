@@ -451,9 +451,13 @@
     localStorage.setItem("ahi-theme", next);
     labelToggle();
     paintMap();
+    // Chart colours are read from CSS custom properties at draw time, so a
+    // theme flip needs a redraw rather than a repaint.
+    if (window.AHI_RENDER_CHARTS) window.AHI_RENDER_CHARTS();
   });
   window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
     labelToggle(); paintMap();
+    if (window.AHI_RENDER_CHARTS) window.AHI_RENDER_CHARTS();
   });
 
   /* ------------------------------------------------------------------ */

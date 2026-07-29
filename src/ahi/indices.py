@@ -317,6 +317,49 @@ def pillar_contributions(edges: pd.DataFrame, features: pd.DataFrame,
     return frame.reset_index()
 
 
+def live_engine_inputs(edges: pd.DataFrame, features: pd.DataFrame,
+                       ladder: str = DEFAULT_LADDER) -> dict:
+    """The minimum a browser needs to recompute the whole index from scratch.
+
+    The composite is linear in the pillar weights, which means the entire index
+    collapses to six numbers per passport. Writing the score out in full:
+
+        score(p, w) = SUM_d credit(p,d) * SUM_i w_i * pillar_i(d)
+                      -------------------------------------------
+                              mean_d SUM_i w_i * pillar_i(d)
+
+    the weights factor straight out of both sums:
+
+        score(p, w) = N * SUM_i w_i * C_i(p)  /  SUM_i w_i * T_i
+
+    where C_i(p) = SUM_d credit(p,d) * pillar_i(d) is fixed per passport and
+    T_i = SUM_d pillar_i(d) is a global constant. Attainment is even cleaner --
+    the mean-normalisation cancels entirely:
+
+        pct(p, w) = 100 * SUM_i w_i * C_i(p) / SUM_i w_i * (T_i - own_i(p))
+
+    So 199 x 6 contributions plus two vectors of six reproduce every lens
+    exactly, and any weighting a reader invents, at a few thousand
+    multiply-adds. Sending the 39,402-edge matrix to the browser would be three
+    orders of magnitude more data to compute the same thing.
+    """
+    credit = edges[f"credit_{ladder}"]
+    contributions = {}
+    for pillar in PILLARS:
+        values = features[f"p_{pillar}"]
+        contributions[pillar] = (credit * edges["destination"].map(values)
+                                 ).groupby(edges["passport"]).sum()
+    frame = pd.DataFrame(contributions)
+    frame.index.name = "passport"
+    return {
+        "contributions": frame.round(4),
+        "totals": {p: round(float(features[f"p_{p}"].sum()), 4) for p in PILLARS},
+        "own": features[[f"p_{p}" for p in PILLARS]].round(4).rename(
+            columns={f"p_{p}": p for p in PILLARS}),
+        "n_destinations": int(features.shape[0]),
+    }
+
+
 def pillar_attainment(edges: pd.DataFrame, features: pd.DataFrame,
                       ladder: str = DEFAULT_LADDER) -> pd.DataFrame:
     """Share of the *world's* total value in each pillar that a passport reaches.
