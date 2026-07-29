@@ -137,16 +137,16 @@ def fig_monte_carlo(mc: pd.DataFrame, mode: Mode, n: int = 32) -> None:
 
     ax.set_yticks(y, top["name"], fontsize=9)
     ax.invert_xaxis()
-    ax.set_xlabel("Rank across 3,000 resampled pillar weightings")
+    ax.set_xlabel("Expected position across 3,000 resampled pillar weightings")
     theme.frame(ax, mode, keep=("bottom",), grid_axis="x")
     theme.title(ax, mode, "A rank is an interval, not a number",
-                "Dot: median rank. Bar: 5th-95th percentile as the six pillar weights are "
-                "resampled from a Dirichlet around the published lens.")
+                "Dot: median position. Bar: 5th-95th percentile as the six pillar weights "
+                "are resampled from a Dirichlet around the published lens.")
     ax.legend(handles=[
         Line2D([], [], marker="o", linestyle="", markersize=8, color=mode.series[0],
-               label="Median rank"),
+               label="Median position"),
         Line2D([], [], linewidth=6, color=mode.sequential[2], label="90% of weightings"),
-    ], loc="lower left", labelcolor=mode.ink_secondary)
+    ], loc="upper left", labelcolor=mode.ink_secondary)
     theme.save(fig, "03_monte_carlo_ranks", mode, FIGURES)
 
 
@@ -166,19 +166,35 @@ def fig_ladder(ladder: pd.DataFrame, names: dict, mode: Mode, n: int = 12) -> No
                     "Strict\n(only true visa-free)"]
     x = np.arange(len(stages))
 
+    endpoints = []
     for row in movers.itertuples():
         values = [getattr(row, s) for s in stages]
         drops = values[-1] - values[0]
         color = theme.diverging_color(mode, -drops, 20)
         ax.plot(x, values, color=color, linewidth=2.0, marker="o", markersize=6,
                 markeredgecolor=mode.surface, markeredgewidth=2.0, alpha=0.9)
-        ax.annotate(row.name, (x[-1], values[-1]), xytext=(8, 0), textcoords="offset points",
-                    va="center", fontsize=8.5, color=mode.ink_secondary)
+        endpoints.append((values[-1], row.name))
+
+    # Passports landing on the same strict-ladder position would print their
+    # names on top of each other -- Japan and South Korea both end at 35.5.
+    # Walk the endpoints in order and push each label just far enough clear of
+    # the previous one, with a leader line back to the mark it belongs to.
+    span = max(e[0] for e in endpoints) - min(e[0] for e in endpoints)
+    gap = max(span * 0.032, 1.5)
+    last_label_y = float("-inf")
+    for value, label in sorted(endpoints):
+        label_y = max(value, last_label_y + gap)
+        last_label_y = label_y
+        ax.annotate(label, xy=(x[-1], value), xytext=(x[-1] + 0.10, label_y),
+                    textcoords="data", va="center", ha="left", fontsize=8.5,
+                    color=mode.ink_secondary, annotation_clip=False,
+                    arrowprops=dict(arrowstyle="-", color=mode.grid, linewidth=0.9,
+                                    shrinkA=2, shrinkB=6))
 
     ax.set_xticks(x, stage_labels, fontsize=9)
-    ax.set_xlim(-0.25, len(stages) - 0.35)
+    ax.set_xlim(-0.25, len(stages) - 0.28)
     ax.invert_yaxis()
-    ax.set_ylabel("Rank (1 = strongest)")
+    ax.set_ylabel("Expected position out of 199 (1 = strongest)")
     theme.frame(ax, mode, keep=("left",), grid_axis="y")
     theme.title(ax, mode, "How much of the top of the table is visa-on-arrival?",
                 f"The {n} passports most sensitive to how entry regimes are scored, "

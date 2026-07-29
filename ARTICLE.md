@@ -260,11 +260,11 @@ Henley's published table.
 Of the two knobs, the one nobody argues about turns out to matter more.
 
 Holding destination weights fixed and changing only how entry regimes are
-scored moves the median passport 4 places and the most sensitive one 33. South
-Korea and Japan sit in the top three under Henley's binary rule and fall to the
-mid-thirties under the strict rule, because a large share of their access is
-visa-on-arrival rather than visa-free. Malaysia goes the other way — 33rd to 4th
-— because its access is unusually *genuinely* visa-free.
+scored moves the median passport 4 places and the most sensitive one 33.5. South
+Korea and Japan sit at expected positions 2 and 3.5 under Henley's binary rule
+and both fall to 35.5 under the strict rule, because a large share of their
+access is visa-on-arrival rather than visa-free. Malaysia goes the other way —
+from 33 to 4.5 — because its access is unusually *genuinely* visa-free.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="output/figures/04_ladder_sensitivity.dark.png">
@@ -296,6 +296,13 @@ Resampling the six pillar weights 3,000 times from a Dirichlet wide enough to
 cover any weighting a reasonable analyst could defend moves the median passport
 by **two ranks**. The largest gap between the Business lens and the Leisure lens
 anywhere in the table is six positions.
+
+All of that is measured on fractional ranks too. Every variant here carries ties
+— scores are rounded to one decimal before ranking, so between 9 and 154
+passports share a score depending on the index — and each of these comparisons
+puts two different tie structures side by side. On competition ranks the ladder
+and normalization spreads would partly be spreads in tie counts rather than in
+standing.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="output/figures/02_index_agreement.dark.png">

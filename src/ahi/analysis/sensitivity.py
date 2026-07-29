@@ -13,6 +13,15 @@ the rankings recomputed:
   * **imputation** -- destinations whose data is mostly imputed are dropped and
     the index recomputed without them
 
+Every one of these compares two or more rankings whose tie structures differ,
+which is exactly the situation where the choice of rank convention can invent a
+result. Scores are rounded to one decimal before ranking -- we should not claim
+to separate passports more finely than we report them -- so *every* variant
+carries ties, between 9 and 154 passports depending on the index. All of these
+analyses therefore use fractional ranks, where a tied group sits at the average
+of the positions it actually occupies and the ranks sum to n(n+1)/2 no matter how
+the ties fall. Competition ranks are for display only.
+
 What comes out is a rank interval per passport. A country whose 90% interval
 spans thirty places does not have a rank, and saying so is the point.
 """
@@ -26,7 +35,7 @@ from scipy.stats import kendalltau, spearmanr
 from ..config import (ACCESS_LADDERS, HEADLINE_LENS, LENS_BY_KEY, PILLARS,
                       RANDOM_SEED)
 from ..features import build_features, normalize, pillar_scores
-from ..indices import competition_rank, lens_weights, score
+from ..indices import fractional_rank, lens_weights, score
 
 
 def monte_carlo_ranks(edges: pd.DataFrame, features: pd.DataFrame,
@@ -60,23 +69,23 @@ def monte_carlo_ranks(edges: pd.DataFrame, features: pd.DataFrame,
     n_passports = len(passport_index)
 
     draws = rng.dirichlet(alpha, size=n_draws)
-    rank_matrix = np.empty((n_draws, n_passports), dtype=np.int32)
+    rank_matrix = np.empty((n_draws, n_passports), dtype=np.float64)
 
     for i, w in enumerate(draws):
         composite = pillar_matrix @ w
         composite = composite / composite.mean()
         totals = np.bincount(passport_pos, weights=credit * composite[dest_pos],
                              minlength=n_passports)
-        ranks = competition_rank(pd.Series(totals, index=passport_index))
+        ranks = fractional_rank(pd.Series(totals, index=passport_index))
         rank_matrix[i] = ranks.to_numpy()
 
     ranks_df = pd.DataFrame(rank_matrix, columns=passport_index)
     summary = pd.DataFrame({
-        "rank_median": ranks_df.median().astype(int),
-        "rank_p05": ranks_df.quantile(0.05).astype(int),
-        "rank_p95": ranks_df.quantile(0.95).astype(int),
-        "rank_best": ranks_df.min().astype(int),
-        "rank_worst": ranks_df.max().astype(int),
+        "rank_median": ranks_df.median().round(1),
+        "rank_p05": ranks_df.quantile(0.05).round(1),
+        "rank_p95": ranks_df.quantile(0.95).round(1),
+        "rank_best": ranks_df.min().round(1),
+        "rank_worst": ranks_df.max().round(1),
     })
     summary["rank_interval_width"] = summary["rank_p95"] - summary["rank_p05"]
     summary.index.name = "passport"
@@ -85,12 +94,17 @@ def monte_carlo_ranks(edges: pd.DataFrame, features: pd.DataFrame,
 
 
 def ladder_sensitivity(edges: pd.DataFrame, features: pd.DataFrame) -> pd.DataFrame:
-    """Rank under each of the three friction ladders, holding weights fixed."""
+    """Rank under each of the three friction ladders, holding weights fixed.
+
+    Fractional ranks: the three ladders produce different tie structures, so a
+    spread measured on competition ranks would partly be a spread in tie
+    counts rather than in standing.
+    """
     weight = lens_weights(features, HEADLINE_LENS)
     out = pd.DataFrame(index=pd.Index(sorted(edges["passport"].unique()), name="passport"))
     for ladder in ACCESS_LADDERS:
         s = score(edges, weight, ladder=ladder)
-        out[f"rank_{ladder}"] = competition_rank(s)
+        out[f"rank_{ladder}"] = fractional_rank(s)
         out[f"score_{ladder}"] = s.round(1)
     rank_cols = [c for c in out.columns if c.startswith("rank_")]
     out["rank_spread"] = out[rank_cols].max(axis=1) - out[rank_cols].min(axis=1)
@@ -107,7 +121,7 @@ def normalization_sensitivity(edges: pd.DataFrame, destinations: pd.Index) -> pd
     for method in ("winsor_minmax", "rank", "zscore"):
         features, _ = build_features(destinations, norm_method=method)
         s = score(edges, lens_weights(features, HEADLINE_LENS), ladder="graded")
-        out[f"rank_{method}"] = competition_rank(s)
+        out[f"rank_{method}"] = fractional_rank(s)
     rank_cols = list(out.columns)
     out["rank_spread"] = out[rank_cols].max(axis=1) - out[rank_cols].min(axis=1)
     return out.reset_index()
@@ -120,7 +134,8 @@ def imputation_sensitivity(edges: pd.DataFrame, features: pd.DataFrame,
     If a passport's standing depends on destinations whose data we largely made
     up, that is worth knowing. Destinations with more than `max_imputed`
     non-observed cells are dropped entirely and everything is rescored on the
-    surviving universe.
+    surviving universe -- which changes the tie structure, hence fractional
+    ranks here too.
     """
     non_observed = (~provenance.isin(["observed"])).sum(axis=1)
     keep = non_observed[non_observed <= max_imputed].index
@@ -131,8 +146,8 @@ def imputation_sensitivity(edges: pd.DataFrame, features: pd.DataFrame,
     trimmed = score(trimmed_edges, lens_weights(trimmed_features, HEADLINE_LENS), ladder="graded")
 
     out = pd.DataFrame({
-        "rank_all_destinations": competition_rank(full),
-        "rank_well_measured_only": competition_rank(trimmed),
+        "rank_all_destinations": fractional_rank(full),
+        "rank_well_measured_only": fractional_rank(trimmed),
     })
     out["rank_shift"] = out["rank_all_destinations"] - out["rank_well_measured_only"]
     out.index.name = "passport"

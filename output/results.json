@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-07-29 00:48:09 UTC",
+    "generated_at": "2026-07-29 01:04:10 UTC",
     "n_passports": 199,
     "n_destinations": 199,
     "n_edges": 39402,
@@ -9,7 +9,7 @@
     "n_lenses": 5,
     "headline_lens": "balanced",
     "default_ladder": "graded",
-    "runtime_seconds": 2.3
+    "runtime_seconds": 2.2
   },
   "validation": {
     "n_reference_points": 15,
@@ -1179,154 +1179,154 @@
       {
         "passport": "JPN",
         "name": "Japan",
-        "rank_median": 9,
-        "rank_p05": 5,
-        "rank_p95": 20,
-        "rank_interval_width": 15
+        "rank_median": 11.0,
+        "rank_p05": 5.0,
+        "rank_p95": 22.5,
+        "rank_interval_width": 17.5
       },
       {
         "passport": "MYS",
         "name": "Malaysia",
-        "rank_median": 32,
-        "rank_p05": 19,
-        "rank_p95": 34,
-        "rank_interval_width": 15
-      },
-      {
-        "passport": "JOR",
-        "name": "Jordan",
-        "rank_median": 161,
-        "rank_p05": 155,
-        "rank_p95": 164,
-        "rank_interval_width": 9
+        "rank_median": 32.0,
+        "rank_p05": 20.5,
+        "rank_p95": 34.0,
+        "rank_interval_width": 13.5
       },
       {
         "passport": "MLT",
         "name": "Malta",
-        "rank_median": 17,
-        "rank_p05": 12,
-        "rank_p95": 21,
-        "rank_interval_width": 9
+        "rank_median": 17.5,
+        "rank_p05": 12.5,
+        "rank_p95": 23.0,
+        "rank_interval_width": 10.5
       },
       {
-        "passport": "BTN",
-        "name": "Bhutan",
-        "rank_median": 161,
-        "rank_p05": 155,
-        "rank_p95": 163,
-        "rank_interval_width": 8
+        "passport": "JOR",
+        "name": "Jordan",
+        "rank_median": 161.0,
+        "rank_p05": 155.5,
+        "rank_p95": 164.0,
+        "rank_interval_width": 8.5
       },
       {
         "passport": "CUB",
         "name": "Cuba",
-        "rank_median": 144,
-        "rank_p05": 140,
-        "rank_p95": 148,
-        "rank_interval_width": 8
+        "rank_median": 144.0,
+        "rank_p05": 140.0,
+        "rank_p95": 148.0,
+        "rank_interval_width": 8.0
       },
       {
         "passport": "TJK",
         "name": "Tajikistan",
-        "rank_median": 147,
-        "rank_p05": 144,
-        "rank_p95": 152,
-        "rank_interval_width": 8
+        "rank_median": 147.5,
+        "rank_p05": 144.0,
+        "rank_p95": 152.0,
+        "rank_interval_width": 8.0
       },
       {
         "passport": "TKM",
         "name": "Turkmenistan",
-        "rank_median": 173,
-        "rank_p05": 169,
-        "rank_p95": 177,
-        "rank_interval_width": 8
+        "rank_median": 173.5,
+        "rank_p05": 169.0,
+        "rank_p95": 177.0,
+        "rank_interval_width": 8.0
       },
       {
-        "passport": "BEN",
-        "name": "Benin",
-        "rank_median": 142,
-        "rank_p05": 139,
-        "rank_p95": 146,
-        "rank_interval_width": 7
+        "passport": "BTN",
+        "name": "Bhutan",
+        "rank_median": 161.0,
+        "rank_p05": 156.0,
+        "rank_p95": 163.0,
+        "rank_interval_width": 7.0
       },
       {
-        "passport": "HUN",
-        "name": "Hungary",
-        "rank_median": 21,
-        "rank_p05": 17,
-        "rank_p95": 24,
-        "rank_interval_width": 7
+        "passport": "RWA",
+        "name": "Rwanda",
+        "rank_median": 147.0,
+        "rank_p05": 143.0,
+        "rank_p95": 150.0,
+        "rank_interval_width": 7.0
+      },
+      {
+        "passport": "KHM",
+        "name": "Cambodia",
+        "rank_median": 153.0,
+        "rank_p05": 150.5,
+        "rank_p95": 157.0,
+        "rank_interval_width": 6.5
       }
     ],
     "narrowest_top20": [
       {
         "passport": "ARE",
         "name": "United Arab Emirates",
-        "rank_median": 1,
-        "rank_p05": 1,
-        "rank_p95": 1
+        "rank_median": 1.0,
+        "rank_p05": 1.0,
+        "rank_p95": 1.0
       },
       {
         "passport": "SGP",
         "name": "Singapore",
-        "rank_median": 2,
-        "rank_p05": 2,
-        "rank_p95": 2
+        "rank_median": 2.0,
+        "rank_p05": 2.0,
+        "rank_p95": 2.0
       },
       {
         "passport": "ESP",
         "name": "Spain",
-        "rank_median": 3,
-        "rank_p05": 3,
-        "rank_p95": 4
+        "rank_median": 3.5,
+        "rank_p05": 3.0,
+        "rank_p95": 4.0
       },
       {
         "passport": "KOR",
         "name": "South Korea",
-        "rank_median": 3,
-        "rank_p05": 3,
-        "rank_p95": 4
-      },
-      {
-        "passport": "FIN",
-        "name": "Finland",
-        "rank_median": 6,
-        "rank_p05": 5,
-        "rank_p95": 7
+        "rank_median": 3.5,
+        "rank_p05": 3.0,
+        "rank_p95": 5.0
       },
       {
         "passport": "LUX",
         "name": "Luxembourg",
-        "rank_median": 5,
-        "rank_p05": 4,
-        "rank_p95": 7
+        "rank_median": 5.0,
+        "rank_p05": 4.5,
+        "rank_p95": 7.5
+      },
+      {
+        "passport": "FIN",
+        "name": "Finland",
+        "rank_median": 6.5,
+        "rank_p05": 5.0,
+        "rank_p95": 8.0
       },
       {
         "passport": "SWE",
         "name": "Sweden",
-        "rank_median": 6,
-        "rank_p05": 5,
-        "rank_p95": 8
-      },
-      {
-        "passport": "NLD",
-        "name": "Netherlands",
-        "rank_median": 7,
-        "rank_p05": 6,
-        "rank_p95": 9
-      },
-      {
-        "passport": "BEL",
-        "name": "Belgium",
-        "rank_median": 9,
-        "rank_p05": 8,
-        "rank_p95": 11
+        "rank_median": 7.0,
+        "rank_p05": 6.0,
+        "rank_p95": 9.0
       },
       {
         "passport": "DNK",
         "name": "Denmark",
-        "rank_median": 9,
-        "rank_p05": 7,
-        "rank_p95": 10
+        "rank_median": 10.0,
+        "rank_p05": 8.5,
+        "rank_p95": 11.5
+      },
+      {
+        "passport": "BEL",
+        "name": "Belgium",
+        "rank_median": 10.5,
+        "rank_p05": 9.0,
+        "rank_p95": 12.0
+      },
+      {
+        "passport": "NOR",
+        "name": "Norway",
+        "rank_median": 16.5,
+        "rank_p05": 15.5,
+        "rank_p95": 18.5
       }
     ]
   },

@@ -174,6 +174,14 @@ reordering. **All movement analysis uses this.** With it, 92 passports fall and
 | `*_pos` | competition (`1224`) | display: "what position is this passport" |
 | `*_frac` | fractional (`1.5, 1.5, 3, 4`) | **all cross-index movement and agreement** |
 
+**Scope.** This is not only about the headline movement figure. Scores are
+rounded to one decimal before ranking — we should not claim to separate
+passports more finely than we report them — so *every* variant carries ties,
+from 9 passports (`stay_days`) to 154 (`henley`). Every analysis that compares
+two rankings therefore uses fractional ranks: rank movement, index agreement,
+the ladder / normalization / imputation sensitivities, and the Monte Carlo rank
+intervals. Competition ranks survive only as display.
+
 Two tests guard this: fractional ranks must sum to *n*(*n*+1)/2 for every
 variant, and the mean movement between any two indices must be zero — with an
 assertion that the naive competition-rank version really is biased, so the test
@@ -307,9 +315,9 @@ mean movement exactly zero — almost everyone moves by single digits.
 
 **2 · The friction ladder is the bigger lever.** Holding weights fixed and
 changing only how entry regimes are scored moves the median passport 4 places
-and the most sensitive 33. South Korea and Japan sit top-three under Henley's
-binary rule and fall to the mid-thirties under a strict rule, because much of
-their access is visa-on-arrival.
+and the most sensitive 33.5. South Korea and Japan sit at expected positions 2
+and 3.5 under Henley's binary rule and both fall to 35.5 under a strict rule,
+because much of their access is visa-on-arrival.
 
 **3 · The composite is a variance sink — and this generalizes.** Averaging 15
 min-max-scaled indicators into 6 pillars into 1 composite compresses destination
@@ -360,12 +368,12 @@ Five Eyes 152 destinations, EU 133, African Union 31.
 | `07_destination_weights` | Weight per destination under every lens and γ |
 | `08_destination_features` | Raw, normalized and pillar values per destination |
 | `09_datadriven_weights` | PC1 loadings and entropy weights |
-| `10_monte_carlo_ranks` · `10b_..._weight_draws` | Rank intervals; the sampled weight distribution |
-| `11_ladder_sensitivity` | Rank under each friction ladder |
+| `10_monte_carlo_ranks` · `10b_..._weight_draws` | Rank intervals (fractional); the sampled weight distribution |
+| `11_ladder_sensitivity` | Rank under each friction ladder (fractional) |
 | `12_normalization_sensitivity` | Rank under min-max / rank / z-score |
 | `13_imputation_sensitivity` | Rank with poorly-measured destinations dropped |
 | `14_index_agreement` | Kendall τ-b between every pair of variants |
-| `15_rank_movement` | Movement decomposed into weighting vs friction effects |
+| `15_rank_movement` | Movement (fractional) decomposed into weighting vs friction effects, with competition positions alongside |
 | `16_henley_validation` · `16b_weight_dispersion` | Published vs reproduced; γ sweep |
 | `17_reciprocity` | Reaches, admits, balance, reciprocated share |
 | `18_centrality` | PageRank as destination and as passport, betweenness |

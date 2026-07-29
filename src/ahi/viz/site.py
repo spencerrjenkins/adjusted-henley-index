@@ -44,6 +44,10 @@ def _ordinal(n: int) -> str:
     return f"{n}{suffix}"
 
 
+def _ladder_row(ladder, iso3: str):
+    return ladder[ladder["passport"] == iso3].iloc[0]
+
+
 def _project(lon: float, lat: float) -> list[float]:
     return [round((lon + 180) * (PROJECTION_W / 360), 2),
             round((90 - lat) * (PROJECTION_H / 180), 2)]
@@ -152,19 +156,24 @@ def _tokens(results: dict, master: pd.DataFrame, tables: dict) -> dict[str, str]
                                   .duplicated(keep=False).sum())),
         "malaysia_move": f'{abs(by_iso.at["MYS", "henley_frac"] - by_iso.at["MYS", "ahi_balanced_frac"]):.1f}',
 
-        "ladder_median": str(int(ladder["rank_spread"].median())),
-        "ladder_max": str(int(ladder["rank_spread"].max())),
-        "myss_binary": _ordinal(int(mys["rank_binary_henley"])),
-        "myss_strict": _ordinal(int(mys["rank_strict"])),
+        # Fractional ranks, so these are expected positions and can be halves;
+        # int() here would quietly report 33.5 as 33.
+        "ladder_median": f'{ladder["rank_spread"].median():g}',
+        "ladder_max": f'{ladder["rank_spread"].max():g}',
+        "myss_binary": f'{mys["rank_binary_henley"]:g}',
+        "myss_strict": f'{mys["rank_strict"]:g}',
+        "kor_binary": f'{_ladder_row(ladder, "KOR")["rank_binary_henley"]:g}',
+        "kor_strict": f'{_ladder_row(ladder, "KOR")["rank_strict"]:g}',
+        "jpn_binary": f'{_ladder_row(ladder, "JPN")["rank_binary_henley"]:g}',
         "explicit_days_pct": str(round(visa_free["with_explicit_days"] / visa_free["pairs"] * 100)),
 
         "min_tau_family": f"{min_tau_family:.2f}",
-        "mc_median_width": str(int(results["monte_carlo"]["median_interval_width"])),
+        "mc_median_width": f'{results["monte_carlo"]["median_interval_width"]:g}',
         "gamma1_ratio": f"{dispersion.at['headline (gamma 1)', 'weight_max_min_ratio']:.1f}",
         "gamma4_ratio": f"{dispersion.at['extreme (gamma 4)', 'weight_max_min_ratio']:.0f}",
         "gamma4_tau": f"{dispersion.at['extreme (gamma 4)', 'kendall_tau_vs_henley']:.2f}",
-        "jpn_low": str(int(by_iso.at["JPN", "rank_p05"])),
-        "jpn_high": str(int(by_iso.at["JPN", "rank_p95"])),
+        "jpn_low": f'{by_iso.at["JPN", "rank_p05"]:g}',
+        "jpn_high": f'{by_iso.at["JPN", "rank_p95"]:g}',
 
         "usa_reaches": str(int(by_iso.at["USA", "reaches"])),
         "usa_admits": str(int(by_iso.at["USA", "admits"])),
@@ -189,7 +198,7 @@ def _tokens(results: dict, master: pd.DataFrame, tables: dict) -> dict[str, str]
         "n_reference": str(results["validation"]["n_reference_points"]),
         "tourism_vintage": str(int(registry.at["tourist_arrivals", "median_vintage"])),
         "imputed_pct": f"{non_observed / total_cells * 100:.0f}",
-        "imputation_shift": str(int(tables["imputation"]["rank_shift"].abs().median())),
+        "imputation_shift": f'{tables["imputation"]["rank_shift"].abs().median():g}',
     }
 
 

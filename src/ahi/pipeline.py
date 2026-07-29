@@ -136,9 +136,9 @@ def run(n_monte_carlo: int = 3000, build_website: bool = True) -> dict:
             for c in ["gamma_flat", HEADLINE_LENS, "gamma_sharp", "gamma_extreme"]],
         "kendall_tau_vs_henley": [
             round(float(__import__("scipy.stats", fromlist=["kendalltau"])
-                        .kendalltau(family["henley_pos"], family[c], variant="b").statistic), 4)
-            for c in ["ahi_gamma_flat_pos", f"{'ahi_' + HEADLINE_LENS}_pos",
-                      "ahi_gamma_sharp_pos", "ahi_gamma_extreme_pos"]],
+                        .kendalltau(family["henley_frac"], family[c], variant="b").statistic), 4)
+            for c in ["ahi_gamma_flat_frac", f"{'ahi_' + HEADLINE_LENS}_frac",
+                      "ahi_gamma_sharp_frac", "ahi_gamma_extreme_frac"]],
     })
     _save(dispersion, "16b_weight_dispersion")
 
