@@ -14,8 +14,9 @@ import pytest
 from ahi.analysis.inequality import gini, lorenz_curve
 from ahi.config import ACCESS_LADDERS, INDICATORS, LENSES, PILLARS
 from ahi.features import build_features
-from ahi.indices import (build_index_family, competition_rank, henley_rank,
-                         lens_weights, openness_frame, score)
+from ahi.analysis.sensitivity import movement_balance, rank_movement
+from ahi.indices import (build_index_family, competition_rank, fractional_rank,
+                         henley_rank, lens_weights, openness_frame, score)
 from ahi.ingest.access import load_access_edges
 
 
@@ -87,6 +88,40 @@ def test_competition_rank_skips():
     assert competition_rank(scores).to_dict() == {"a": 1, "b": 1, "c": 1, "d": 4}
 
 
+def test_fractional_rank_averages_tied_positions():
+    """A three-way tie for first occupies positions 1, 2 and 3, so each member's
+    expected position is 2.0 -- not 1 (competition) and not 1 (dense)."""
+    scores = pd.Series({"a": 10.0, "b": 10.0, "c": 10.0, "d": 9.0})
+    assert fractional_rank(scores).to_dict() == {"a": 2.0, "b": 2.0, "c": 2.0, "d": 4.0}
+
+
+def test_fractional_ranks_sum_to_the_same_total_whatever_the_ties(family):
+    """The property that makes fractional ranks the only tie-neutral basis for
+    comparing two indices: the total is n(n+1)/2 regardless of tie structure, so
+    differencing two of them cannot introduce a drift."""
+    n = len(family)
+    expected = n * (n + 1) / 2
+    for column in [c for c in family.columns if c.endswith("_frac")]:
+        assert family[column].sum() == pytest.approx(expected), column
+
+
+def test_movement_between_indices_has_no_built_in_drift(family):
+    """Henley's integer scores tie 154 of 199 passports; the weighted index ties
+    almost none. On competition ranks that asymmetry alone makes roughly twice as
+    many passports "fall" as "rise". On fractional ranks it cancels exactly."""
+    movement = rank_movement(family)
+    balance = movement_balance(movement)
+    assert balance["mean_move"] == pytest.approx(0.0, abs=1e-9)
+    assert balance["sum_move"] == pytest.approx(0.0, abs=1e-6)
+    assert abs(balance["n_down"] - balance["n_up"]) < 0.15 * len(family)
+
+    # And confirm the drift is real on the competition basis, so the test is
+    # guarding a live hazard rather than restating an identity.
+    naive = family["henley_pos"] - family["ahi_balanced_pos"]
+    assert naive.mean() < -0.5
+    assert (naive < 0).sum() > (naive > 0).sum()
+
+
 def test_competition_rank_spans_the_full_field(family):
     """Cross-index comparison is only valid if both indices use a rank scale of
     the same length; dense ranks do not, which is the bug this guards."""
@@ -97,8 +132,17 @@ def test_competition_rank_spans_the_full_field(family):
 
 def test_ranks_agree_with_scores(family):
     for name in ("henley", "ahi_balanced", "gdp_share"):
-        ordered = family.sort_values(f"{name}_pos")
-        assert ordered[f"{name}_score"].is_monotonic_decreasing, name
+        for suffix in ("_pos", "_frac", "_rank"):
+            ordered = family.sort_values(f"{name}{suffix}")
+            assert ordered[f"{name}_score"].is_monotonic_decreasing, name + suffix
+
+
+def test_the_three_rank_conventions_are_ordered(family):
+    """For any passport: dense <= competition <= fractional-rounded-up. All three
+    encode the same ordering; they differ only in how they price a tie."""
+    for name in ("henley", "ahi_balanced"):
+        assert (family[f"{name}_rank"] <= family[f"{name}_pos"]).all(), name
+        assert (family[f"{name}_pos"] <= family[f"{name}_frac"] + 1e-9).all(), name
 
 
 # ---------------------------------------------------------------------------

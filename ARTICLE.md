@@ -198,31 +198,60 @@ the open matrix, independently, gives **46**. That test is now in the test suite
 
 ## 4. Result: who actually moves
 
-The biggest single casualty of weighting destinations is **Malaysia**, which
-falls from 6th to 32nd — twenty-six places. Malaysia's visa-free network is
+The biggest single casualty of weighting destinations is **Malaysia**. It sits
+6th on the reproduced Henley count — but it shares that score with twelve other
+passports, so its expected position among the 199 is really 12.0. Weighted, it
+lands 32nd: an honest fall of twenty places. Malaysia's visa-free network is
 genuinely wide, but it is disproportionately built from small and low-income
-destinations. Russia falls fourteen places for the same reason.
+destinations. Russia falls 12.5 for the same reason.
 
 Moving the other way are countries with narrow but well-aimed access: Kosovo
-(+12), Laos (+11), Mongolia and Vietnam (+10), Cambodia (+9), India (+7). Their
-comparatively few open doors happen to lead somewhere large.
+(+12.5), Laos (+11.5), Mongolia (+10.5), Vietnam and Cambodia (+10), India (+8).
+Their comparatively few open doors happen to lead somewhere large. Luxembourg
+gains 7 — not because it improved, but because it was buried inside that
+thirteen-way tie and the weighted index can tell it apart from its neighbours.
+
+Across all 199 passports, 92 fall and 84 rise, and the mean movement is exactly
+zero. That is not luck; it is the point of the next section.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="output/figures/01_rank_movement.dark.png">
   <img alt="Rank movement" src="output/figures/01_rank_movement.light.png">
 </picture>
 
-One methodological note that turned out to matter more than it sounds. Henley
-uses **dense** ranking — "the passport with the next lowest score receives the
-next consecutive rank number, regardless of how many passports occupy the rank
-above" — which is why their table can show the US at rank 10 with 36 passports
-actually ahead of it. Dense ranks are *not comparable between indices*: an
-integer-valued count compresses 199 passports into about 100 distinct ranks,
-while a continuous weighted score spreads them across 199. An early version of
-this analysis compared the two directly and produced a spectacular, entirely
-fictitious 74-place "collapse" for Afghanistan — which is last on both indices.
-All cross-index comparison here uses competition ranks; dense ranks appear only
-where the point is to reproduce Henley's published table.
+### Why the movement numbers have a decimal point
+
+Comparing two rankings with different tie structures is harder than it looks,
+and getting it wrong manufactures findings. This project got it wrong twice.
+
+**Mistake one: dense ranks.** Henley publishes *dense* ranks — "the passport
+with the next lowest score receives the next consecutive rank number, regardless
+of how many passports occupy the rank above" — which is why their table shows
+the US at rank 10 with 36 passports actually ahead of it, and why Afghanistan,
+dead last, appears at rank 97 in a faithful reproduction. Differencing dense
+ranks against a continuous index is meaningless: the first compresses 199
+passports into about 100 ranks and the second spreads them across 199. Done
+naively it makes 193 of 199 countries "fall" and shows Afghanistan collapsing 74
+places while remaining last on both indices.
+
+**Mistake two: competition ranks.** Switching to competition ranking — a
+three-way tie for first is followed by fourth — fixes the *scale*, and it is
+what the tables here display. It does not fix the *comparison*, because it
+awards every member of a tie the best position in the group: thirteen passports
+tied on 160 destinations all become 6th when between them they occupy positions
+6 through 18. Since 154 of the 199 passports sit in some tie under Henley's
+integer scores and almost none do under a continuous weighted score, breaking
+those ties can only push members downwards. The residual drift is about one rank
+per passport — small, but always in the same direction, and enough to produce a
+list of "fallers" (Ireland, Norway, Germany, Italy) that were not falling at all.
+
+**The fix: fractional ranks.** A tied group sits at the average of the positions
+it actually occupies, so the thirteen-way tie lands at 12.0. The sum of
+fractional ranks is *n*(*n*+1)/2 whatever the tie structure, so both indices sit
+on the same total, the mean movement is zero by construction, and what remains
+is real reordering. All movement figures here are computed that way; competition
+ranks are displayed, and dense ranks appear only where the point is to reproduce
+Henley's published table.
 
 ---
 

@@ -143,12 +143,17 @@ def index_agreement(family: pd.DataFrame) -> pd.DataFrame:
     """Pairwise Kendall tau-b between every index variant's ranking.
 
     Kendall rather than Pearson because the object of interest is the ordering,
-    and tau-b because dense ranking produces a lot of ties. Two indices at
-    tau = 0.99 are the same index with extra steps; the interesting cells are
+    and tau-b because the count-based variants produce a lot of ties. Two indices
+    at tau = 0.99 are the same index with extra steps; the interesting cells are
     the low ones, which is where a weighting choice actually changed an answer.
+
+    Uses fractional ranks for consistency with the movement analysis. Tau-b is
+    invariant to the choice -- competition and fractional ranks encode the same
+    ordering and the same tie structure -- so this changes nothing numerically;
+    it just keeps one convention for every cross-index comparison.
     """
-    rank_cols = [c for c in family.columns if c.endswith("_pos")]
-    names = [c[:-4] for c in rank_cols]
+    rank_cols = [c for c in family.columns if c.endswith("_frac")]
+    names = [c[:-5] for c in rank_cols]
     matrix = pd.DataFrame(index=names, columns=names, dtype=float)
     for i, a in enumerate(rank_cols):
         for j, b in enumerate(rank_cols):
@@ -163,6 +168,17 @@ def rank_movement(family: pd.DataFrame, baseline: str = "henley",
                   target: str = f"ahi_{HEADLINE_LENS}") -> pd.DataFrame:
     """Movement between two indices, with the effect decomposed.
 
+    Computed on **fractional** ranks. The baseline index is heavily tied (154 of
+    199 passports share a score with someone) while the weighted one is
+    effectively continuous, and under any rank convention that assigns a tied
+    group a single position, resolving those ties can only move members
+    downwards. Averaging is the only convention where the two indices' ranks sum
+    to the same total, so the mean movement is zero by construction and what
+    remains is real reordering rather than arithmetic about ties.
+
+    Competition ranks are carried alongside as `*_pos` because they are what the
+    tables and website display; they are not what the movement is measured on.
+
     `weighting_effect` is what changes when destinations stop being worth one
     point each; `friction_effect` is what changes when entry regimes stop being
     a binary. Reporting the total alone would leave a reader unable to tell
@@ -170,16 +186,38 @@ def rank_movement(family: pd.DataFrame, baseline: str = "henley",
     """
     indexed = family.set_index("passport")
     out = pd.DataFrame({
-        "baseline_rank": indexed[f"{baseline}_pos"],
-        "target_rank": indexed[f"{target}_pos"],
-        "weighting_only_rank": indexed["binary_weighted_pos"],
-        "friction_only_rank": indexed["graded_count_pos"],
+        "baseline_rank": indexed[f"{baseline}_frac"],
+        "target_rank": indexed[f"{target}_frac"],
+        "weighting_only_rank": indexed["binary_weighted_frac"],
+        "friction_only_rank": indexed["graded_count_frac"],
+        "baseline_pos": indexed[f"{baseline}_pos"],
+        "target_pos": indexed[f"{target}_pos"],
     })
     out["total_move"] = out["baseline_rank"] - out["target_rank"]
     out["weighting_effect"] = out["baseline_rank"] - out["weighting_only_rank"]
     out["friction_effect"] = out["baseline_rank"] - out["friction_only_rank"]
     out.index.name = "passport"
     return out.reset_index()
+
+
+def movement_balance(movement: pd.DataFrame) -> dict:
+    """Diagnostic proving the movement measure carries no built-in drift.
+
+    Under competition ranking this returns a mean of about -1 with roughly twice
+    as many falls as rises; under fractional ranking the mean is exactly 0. It is
+    reported so a reader can check the claim rather than take it.
+    """
+    move = movement["total_move"]
+    return {
+        "mean_move": round(float(move.mean()), 6),
+        "median_move": round(float(move.median()), 2),
+        "sum_move": round(float(move.sum()), 6),
+        "n_down": int((move < 0).sum()),
+        "n_unchanged": int((move == 0).sum()),
+        "n_up": int((move > 0).sum()),
+        "largest_fall": round(float(move.min()), 1),
+        "largest_rise": round(float(move.max()), 1),
+    }
 
 
 def validate_against_published(family: pd.DataFrame, published: pd.DataFrame) -> dict:

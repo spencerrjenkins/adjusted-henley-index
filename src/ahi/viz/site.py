@@ -64,6 +64,11 @@ def _country_payload(master: pd.DataFrame, features: pd.DataFrame) -> dict:
             "henleyScore": int(row.henley_score),
             "henleyRank": int(row.henley_rank),
             "henleyPos": int(row.henley_pos),
+            # Fractional rank: the basis for every movement figure, because it
+            # is the only convention under which a heavily-tied index and a
+            # continuous one can be differenced without a built-in drift.
+            "henleyFrac": float(row.henley_frac),
+            "balancedFrac": float(row.ahi_balanced_frac),
             "lenses": {k: float(getattr(row, f"ahi_{k}_pct")) for k in lens_keys},
             "pos": {**{k: int(getattr(row, f"ahi_{k}_pos")) for k in lens_keys},
                     "gdpShare": int(row.gdp_share_pos),
@@ -136,7 +141,16 @@ def _tokens(results: dict, master: pd.DataFrame, tables: dict) -> dict[str, str]
 
         "malaysia_henley": _ordinal(int(by_iso.at["MYS", "henley_pos"])),
         "malaysia_adjusted": _ordinal(int(by_iso.at["MYS", "ahi_balanced_pos"])),
-        "malaysia_move": str(abs(int(by_iso.at["MYS", "henley_pos"] - by_iso.at["MYS", "ahi_balanced_pos"]))),
+        "malaysia_henley_frac": f'{by_iso.at["MYS", "henley_frac"]:.1f}',
+        "malaysia_adjusted_frac": f'{by_iso.at["MYS", "ahi_balanced_frac"]:.1f}',
+        "move_mean": f'{results["movement_balance"]["mean_move"]:.2f}',
+        "move_down": str(results["movement_balance"]["n_down"]),
+        "move_up": str(results["movement_balance"]["n_up"]),
+        "largest_fall": f'{abs(results["movement_balance"]["largest_fall"]):.1f}',
+        "largest_rise": f'{results["movement_balance"]["largest_rise"]:.1f}',
+        "tied_passports": str(int(tables["family"]["henley_score"]
+                                  .duplicated(keep=False).sum())),
+        "malaysia_move": f'{abs(by_iso.at["MYS", "henley_frac"] - by_iso.at["MYS", "ahi_balanced_frac"]):.1f}',
 
         "ladder_median": str(int(ladder["rank_spread"].median())),
         "ladder_max": str(int(ladder["rank_spread"].max())),

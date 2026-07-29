@@ -138,20 +138,46 @@ Plus the inbound mirror: `openness_count` (Henley's own Openness Index),
 `openness_graded`, and `openness_people_pct` — how many *people*, not countries,
 you admit.
 
-### Two ranking conventions, on purpose
+### Three ranking conventions, each with one job
 
-Henley uses **dense** ranking: *"the passport with the next lowest score receives
-the next consecutive rank number, regardless of how many passports occupy the
-rank above."* That is why their table can show the US at rank 10 with 36
-passports actually ahead of it.
+Comparing two rankings with different tie structures is the subtlest thing in
+this project, and it has two failure modes rather than one.
 
-Dense ranks are **not comparable between indices** — an integer-valued count
-compresses 199 passports into ~100 distinct ranks while a continuous score
-spreads them across 199. Comparing the two directly manufactures spectacular,
-entirely fictitious movements. So every table carries both:
+**Dense** (`*_rank`) is Henley's published convention: *"the passport with the
+next lowest score receives the next consecutive rank number, regardless of how
+many passports occupy the rank above."* That is why their table shows the US at
+rank 10 with 36 passports ahead of it, and why Afghanistan — dead last — appears
+at rank 97 in a faithful reproduction. Reproducing it exactly is the point; using
+it for comparison is not. An integer count compresses 199 passports into ~100
+ranks while a continuous score spreads them across 199, so differencing the two
+makes 193 of 199 countries "fall".
 
-- `*_rank` — dense, for reproducing Henley's published table
-- `*_pos` — competition (`1224`), used for **all** cross-index comparison
+**Competition** (`*_pos`, the `1224` rule) fixes the scale and is what the tables
+and the website display — Afghanistan is 199th. But it still awards every member
+of a tie the *best* position in the group: thirteen passports tied on 160
+destinations all become 6th, when between them they occupy positions 6–18. With
+154 of 199 passports in some tie under Henley and almost none under a continuous
+score, breaking ties can only push members down. The residual drift is ≈ 1 rank
+per passport, always in the same direction — enough to produce a list of
+"fallers" (Ireland, Norway, Germany, Italy) that were not falling at all.
+
+**Fractional** (`*_frac`) puts a tied group at the average of the positions it
+occupies, so the thirteen-way tie lands at 12.0. Because the sum of fractional
+ranks is *n*(*n*+1)/2 for *any* tie structure, both indices sit on the same
+total: mean movement is **zero by construction** and what remains is real
+reordering. **All movement analysis uses this.** With it, 92 passports fall and
+84 rise instead of 104 and 54.
+
+| Column | Convention | Used for |
+|---|---|---|
+| `*_rank` | dense (`1223`) | reproducing Henley's published table |
+| `*_pos` | competition (`1224`) | display: "what position is this passport" |
+| `*_frac` | fractional (`1.5, 1.5, 3, 4`) | **all cross-index movement and agreement** |
+
+Two tests guard this: fractional ranks must sum to *n*(*n*+1)/2 for every
+variant, and the mean movement between any two indices must be zero — with an
+assertion that the naive competition-rank version really is biased, so the test
+guards a live hazard rather than restating an identity.
 
 ---
 
@@ -275,8 +301,9 @@ inbound/outbound totals matching.
 ## Findings
 
 **1 · Weighting destinations moves fewer passports than you would expect.**
-Malaysia falls 26 places (6th → 32nd); Russia 14. Kosovo, Laos, Mongolia and
-Vietnam gain 10–12. Almost everyone else moves by single digits.
+Malaysia falls 20 places (expected position 12.0 → 32.0); Russia 12.5. Kosovo,
+Laos, Mongolia, Vietnam and Cambodia gain 10–12.5. 92 passports fall, 84 rise,
+mean movement exactly zero — almost everyone moves by single digits.
 
 **2 · The friction ladder is the bigger lever.** Holding weights fixed and
 changing only how entry regimes are scored moves the median passport 4 places

@@ -143,16 +143,45 @@ def competition_rank(scores: pd.Series, decimals: int = 1) -> pd.Series:
     """Standard competition ranking ("1224"): ties share a rank and the next
     rank skips ahead by the size of the tie.
 
-    This exists because dense ranks are *not comparable across indices*. Henley's
-    scores are integers, so 199 passports compress into about 100 distinct dense
-    ranks; a weighted score is continuous, so the same 199 passports occupy 199.
-    Under dense ranking the world's weakest passport is "97th" on one index and
-    "171st" on the other while being last on both, and the 74-place "fall" is an
-    artifact of counting ties. Every cross-index comparison in this project
-    therefore uses this column, and dense ranks are reported only where the point
-    is to reproduce Henley's published table.
+    This is the intuitive reading of "what position is this passport in", and it
+    is what the tables and the website display. It exists because dense ranks are
+    *not comparable across indices*: Henley's scores are integers, so 199
+    passports compress into about 100 distinct dense ranks, while a weighted
+    score is continuous and spreads them across 199. Under dense ranking the
+    world's weakest passport is "97th" on one index and "171st" on the other
+    while being last on both.
+
+    It is still the wrong basis for measuring *movement* -- see
+    `fractional_rank`.
     """
     return scores.round(decimals).rank(ascending=False, method="min").astype(int)
+
+
+def fractional_rank(scores: pd.Series, decimals: int = 1) -> pd.Series:
+    """Average ("fractional") ranking: a tie occupying positions p..p+k-1 gives
+    every member p + (k-1)/2.
+
+    This is the only convention under which two indices with different tie
+    structures can be compared without a built-in drift, and it is what every
+    movement figure in this project uses.
+
+    Why competition ranking is not enough. It awards every member of a tie the
+    *best* position in the group: thirteen passports tied on 160 destinations all
+    become 6th, when between them they actually occupy positions 6 through 18.
+    Because 154 of the 199 passports sit in some tie under Henley's integer
+    scores, and almost none do under a continuous weighted score, simply
+    resolving those ties can only push members downward. The result is a
+    systematic drift -- mean movement of about -1 rank, 104 passports "falling"
+    against 54 "rising" -- that is arithmetic about ties, not a finding about
+    passports.
+
+    Averaging removes it exactly. The sum of fractional ranks is n(n+1)/2 for
+    *any* tie structure, so both indices sit on the same total and the mean
+    movement is zero by construction; what remains is real reordering. Under
+    Henley's scores the thirteen-way tie lands at 12.0, which is the expected
+    position of a member of that group if the tie were broken at random.
+    """
+    return scores.round(decimals).rank(ascending=False, method="average")
 
 
 def score_frame(edges: pd.DataFrame, dest_weight: pd.Series, name: str,
@@ -175,6 +204,7 @@ def score_frame(edges: pd.DataFrame, dest_weight: pd.Series, name: str,
         f"{name}_score": s,
         f"{name}_rank": henley_rank(s, decimals=decimals),
         f"{name}_pos": competition_rank(s, decimals=decimals),
+        f"{name}_frac": fractional_rank(s, decimals=decimals),
         f"{name}_pct": (s / ceiling * 100).round(2),
     })
 
@@ -230,7 +260,8 @@ def build_index_family(edges: pd.DataFrame, features: pd.DataFrame) -> tuple[pd.
         share = (score(edges, unit_weights(features, column), ladder="binary_henley") * 100).round(2)
         frames.append(pd.DataFrame({f"{name}_score": share,
                                     f"{name}_rank": henley_rank(share, decimals=2),
-                                    f"{name}_pos": competition_rank(share, decimals=2)}))
+                                    f"{name}_pos": competition_rank(share, decimals=2),
+                                    f"{name}_frac": fractional_rank(share, decimals=2)}))
 
     # -- Weight dispersion -------------------------------------------------
     # Averaging fifteen min-max-scaled indicators into six pillars and six
@@ -253,7 +284,8 @@ def build_index_family(edges: pd.DataFrame, features: pd.DataFrame) -> tuple[pd.
     day_score = days.groupby(edges["passport"]).sum().round(0)
     frames.append(pd.DataFrame({"stay_days_score": day_score,
                                 "stay_days_rank": henley_rank(day_score, decimals=0),
-                                "stay_days_pos": competition_rank(day_score, decimals=0)}))
+                                "stay_days_pos": competition_rank(day_score, decimals=0),
+                                "stay_days_frac": fractional_rank(day_score, decimals=0)}))
 
     family = pd.concat(frames, axis=1)
     family.index.name = "passport"
@@ -341,5 +373,6 @@ def openness_frame(edges: pd.DataFrame, features: pd.DataFrame,
     })
     frame["openness_rank"] = henley_rank(frame["openness_count"], decimals=0)
     frame["openness_pos"] = competition_rank(frame["openness_count"], decimals=0)
+    frame["openness_frac"] = fractional_rank(frame["openness_count"], decimals=0)
     frame.index.name = "passport"
     return frame.reset_index()

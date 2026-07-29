@@ -163,13 +163,16 @@
     <p class="eyebrow">Result 1</p>
     <h2>Who moves when destinations stop being worth one point each</h2>
     <p>
-      The biggest single casualty is <b>Malaysia</b>: {{malaysia_henley}} on the
-      reproduced Henley count, {{malaysia_adjusted}} once destinations are weighted — a
-      fall of {{malaysia_move}} places. Malaysia's visa-free network is genuinely wide, but
+      The biggest single casualty is <b>Malaysia</b>. It sits {{malaysia_henley}} on the
+      reproduced Henley count — but it shares that score with twelve other passports, so
+      its expected position among the 199 is really {{malaysia_henley_frac}}. Weighted, it
+      lands {{malaysia_adjusted}}, an honest fall of {{malaysia_move}} places. Malaysia's visa-free network is genuinely wide, but
       it is disproportionately made of small and low-income destinations. Russia falls for
       the same reason. In the other direction, the gainers are countries with narrow but
       well-aimed access — Kosovo, Laos, Mongolia, Vietnam — whose comparatively few open
-      doors happen to lead somewhere large.
+      doors happen to lead somewhere large. Across all 199 passports the movement is
+      balanced by construction: {{move_down}} fall, {{move_up}} rise, mean movement
+      {{move_mean}}.
     </p>
     <figure>
       <picture>
@@ -177,17 +180,43 @@
         <img data-light="figures/01_rank_movement.light.png" data-dark="figures/01_rank_movement.dark.png" src="figures/01_rank_movement.light.png" alt="Dumbbell chart of the largest rank movements between the Henley-rule count and the opportunity-weighted index.">
       </picture>
       <figcaption>
-        Both indices use competition ranking so the two scales are comparable — a
-        detail that matters more than it sounds, and one this project got wrong at first.
+        Both indices are plotted on fractional ranks, so neither is flattered by its ties
+        — a detail that matters more than it sounds, and one this project got wrong twice
+        before getting it right.
       </figcaption>
     </figure>
-    <p class="note">
-      A note on ranking conventions: Henley uses <em>dense</em> ranking, where the next
-      score after a tie takes the next consecutive number, which is why their published
-      table can show the United States at rank 10 with 36 passports ahead of it. Dense
-      ranks are not comparable between an integer-valued index and a continuous one — the
-      first compresses 199 passports into about 100 ranks, the second into 199 — so all
-      cross-index comparison here uses competition ranks instead.
+    <h3>Why the movement numbers have a decimal point</h3>
+    <p>
+      Comparing two rankings with different tie structures is harder than it looks, and
+      getting it wrong manufactures findings.
+    </p>
+    <p>
+      Henley publishes <em>dense</em> ranks, where the next score after a tie takes the
+      next consecutive number — which is why their table can show the United States at
+      rank 10 with 36 passports ahead of it, and why Afghanistan, dead last, appears at
+      rank 97 in a faithful reproduction. Differencing dense ranks against a continuous
+      index is meaningless: the first compresses 199 passports into about 100 ranks and
+      the second spreads them across 199, so 193 of 199 countries "fall" and Afghanistan
+      appears to collapse 74 places while remaining last on both.
+    </p>
+    <p>
+      Competition ranking — a three-way tie for first is followed by fourth — fixes the
+      scale, and it is what the tables here display. But it does not fix the comparison,
+      because it awards every member of a tie the <em>best</em> position in the group:
+      thirteen passports tied on 160 destinations all become 6th when between them they
+      occupy positions 6 through 18. Since {{tied_passports}} of the 199 passports sit in
+      some tie under Henley's integer scores and almost none do under a continuous
+      weighted score, breaking those ties can only push members downwards. The residual
+      drift is about a rank per passport — small, but always in the same direction.
+    </p>
+    <p>
+      So movement is measured on <b>fractional</b> ranks, where a tied group sits at the
+      average of the positions it actually occupies. The sum of fractional ranks is
+      n(n+1)/2 whatever the tie structure, so both indices sit on the same total, the mean
+      movement is zero by construction, and what is left is real reordering. Malaysia's
+      expected position goes from {{malaysia_henley_frac}} to {{malaysia_adjusted_frac}};
+      the largest genuine fall in the table is {{largest_fall}} places and the largest
+      genuine rise is {{largest_rise}}.
     </p>
   </div>
 </section>

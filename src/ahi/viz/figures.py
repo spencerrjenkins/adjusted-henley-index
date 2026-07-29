@@ -48,18 +48,19 @@ def fig_rank_movement(movement: pd.DataFrame, mode: Mode, n: int = 14) -> None:
         # The x-axis is inverted (rank 1 on the right), so the label goes on the
         # far side of whichever end of the dumbbell is the outer one.
         outer = max(row.baseline_rank, row.target_rank)
-        ax.annotate(f"{row.total_move:+d}", (outer, yi), xytext=(-11, 0),
+        ax.annotate(f"{row.total_move:+.1f}", (outer, yi), xytext=(-11, 0),
                     textcoords="offset points", ha="right", va="center",
                     fontsize=8.5, color=mode.ink_secondary)
 
     ax.set_yticks(y, movers["name"], fontsize=9)
     ax.invert_xaxis()
     ax.set_xlim(movers[["baseline_rank", "target_rank"]].to_numpy().max() + 22, -4)
-    ax.set_xlabel("Rank (1 = strongest). Gray dot: Henley-rule count. Colored dot: opportunity-weighted.")
+    ax.set_xlabel("Expected position out of 199 (1 = strongest). Gray dot: Henley-rule count. "
+                  "Colored dot: opportunity-weighted.")
     theme.frame(ax, mode, keep=("bottom",), grid_axis="x")
     theme.title(ax, mode, "Who gains and who falls when destinations stop being worth one point each",
-                "Competition ranks under both indices, so the two scales are comparable. "
-                f"Top {n} movers in each direction.")
+                "Fractional ranks: a tied group sits at the average of the positions it actually "
+                f"occupies, so neither index is flattered by its ties. Top {n} movers each way.")
     ax.legend(handles=[
         Line2D([], [], marker="o", linestyle="", markersize=7, color=mode.deemphasis,
                label="Henley-rule rank"),

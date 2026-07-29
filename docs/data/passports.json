@@ -1,6 +1,6 @@
 {
  "meta": {
-  "generated_at": "2026-07-28 20:43:16 UTC",
+  "generated_at": "2026-07-29 00:48:09 UTC",
   "n_passports": 199,
   "n_destinations": 199,
   "n_edges": 39402,
@@ -20,6 +20,8 @@
    "henleyScore": 22,
    "henleyRank": 97,
    "henleyPos": 199,
+   "henleyFrac": 199.0,
+   "balancedFrac": 199.0,
    "lenses": {
     "balanced": 17.04,
     "business": 16.89,
@@ -85,6 +87,8 @@
    "henleyScore": 47,
    "henleyRank": 82,
    "henleyPos": 170,
+   "henleyFrac": 171.0,
+   "balancedFrac": 167.0,
    "lenses": {
     "balanced": 27.65,
     "business": 27.41,
@@ -150,6 +154,8 @@
    "henleyScore": 106,
    "henleyRank": 43,
    "henleyPos": 92,
+   "henleyFrac": 92.0,
+   "balancedFrac": 89.0,
    "lenses": {
     "balanced": 61.64,
     "business": 61.68,
@@ -215,6 +221,8 @@
    "henleyScore": 146,
    "henleyRank": 14,
    "henleyPos": 47,
+   "henleyFrac": 47.0,
+   "balancedFrac": 47.0,
    "lenses": {
     "balanced": 78.78,
     "business": 78.8,
@@ -280,6 +288,8 @@
    "henleyScore": 169,
    "henleyRank": 1,
    "henleyPos": 1,
+   "henleyFrac": 1.0,
+   "balancedFrac": 1.0,
    "lenses": {
     "balanced": 86.9,
     "business": 86.86,
@@ -345,6 +355,8 @@
    "henleyScore": 148,
    "henleyRank": 13,
    "henleyPos": 45,
+   "henleyFrac": 45.5,
+   "balancedFrac": 46.0,
    "lenses": {
     "balanced": 79.16,
     "business": 79.1,
@@ -410,6 +422,8 @@
    "henleyScore": 67,
    "henleyRank": 64,
    "henleyPos": 125,
+   "henleyFrac": 126.0,
+   "balancedFrac": 124.0,
    "lenses": {
     "balanced": 36.62,
     "business": 36.27,
@@ -475,6 +489,8 @@
    "henleyScore": 132,
    "henleyRank": 24,
    "henleyPos": 60,
+   "henleyFrac": 60.0,
+   "balancedFrac": 60.0,
    "lenses": {
     "balanced": 72.03,
     "business": 71.98,
@@ -540,6 +556,8 @@
    "henleyScore": 157,
    "henleyRank": 8,
    "henleyPos": 34,
+   "henleyFrac": 34.5,
+   "balancedFrac": 35.5,
    "lenses": {
     "balanced": 83.17,
     "business": 83.08,
@@ -605,6 +623,8 @@
    "henleyScore": 159,
    "henleyRank": 6,
    "henleyPos": 19,
+   "henleyFrac": 23.0,
+   "balancedFrac": 26.0,
    "lenses": {
     "balanced": 84.25,
     "business": 84.16,
@@ -670,6 +690,8 @@
    "henleyScore": 71,
    "henleyRank": 60,
    "henleyPos": 118,
+   "henleyFrac": 119.0,
+   "balancedFrac": 119.0,
    "lenses": {
     "balanced": 37.22,
     "business": 36.76,
@@ -735,6 +757,8 @@
    "henleyScore": 47,
    "henleyRank": 82,
    "henleyPos": 170,
+   "henleyFrac": 171.0,
+   "balancedFrac": 176.0,
    "lenses": {
     "balanced": 26.3,
     "business": 26.09,
@@ -800,6 +824,8 @@
    "henleyScore": 160,
    "henleyRank": 5,
    "henleyPos": 6,
+   "henleyFrac": 12.0,
+   "balancedFrac": 9.0,
    "lenses": {
     "balanced": 84.71,
     "business": 84.57,
@@ -865,6 +891,8 @@
    "henleyScore": 59,
    "henleyRank": 71,
    "henleyPos": 141,
+   "henleyFrac": 142.5,
+   "balancedFrac": 142.0,
    "lenses": {
     "balanced": 31.43,
     "business": 31.23,
@@ -930,6 +958,8 @@
    "henleyScore": 54,
    "henleyRank": 75,
    "henleyPos": 153,
+   "henleyFrac": 154.0,
+   "balancedFrac": 155.5,
    "lenses": {
     "balanced": 29.45,
     "business": 29.25,
@@ -995,6 +1025,8 @@
    "henleyScore": 33,
    "henleyRank": 93,
    "henleyPos": 193,
+   "henleyFrac": 193.5,
+   "balancedFrac": 193.0,
    "lenses": {
     "balanced": 21.05,
     "business": 20.8,
@@ -1060,6 +1092,8 @@
    "henleyScore": 158,
    "henleyRank": 7,
    "henleyPos": 28,
+   "henleyFrac": 30.5,
+   "balancedFrac": 31.0,
    "lenses": {
     "balanced": 83.81,
     "business": 83.66,
@@ -1125,6 +1159,8 @@
    "henleyScore": 86,
    "henleyRank": 49,
    "henleyPos": 99,
+   "henleyFrac": 100.0,
+   "balancedFrac": 104.0,
    "lenses": {
     "balanced": 44.31,
     "business": 43.9,
@@ -1190,6 +1226,8 @@
    "henleyScore": 139,
    "henleyRank": 18,
    "henleyPos": 51,
+   "henleyFrac": 51.5,
+   "balancedFrac": 52.0,
    "lenses": {
     "balanced": 75.12,
     "business": 75.06,
@@ -1255,6 +1293,8 @@
    "henleyScore": 110,
    "henleyRank": 41,
    "henleyPos": 87,
+   "henleyFrac": 88.0,
+   "balancedFrac": 85.0,
    "lenses": {
     "balanced": 63.38,
     "business": 63.28,
@@ -1320,6 +1360,8 @@
    "henleyScore": 81,
    "henleyRank": 53,
    "henleyPos": 107,
+   "henleyFrac": 107.5,
+   "balancedFrac": 110.0,
    "lenses": {
     "balanced": 41.88,
     "business": 41.48,
@@ -1385,6 +1427,8 @@
    "henleyScore": 87,
    "henleyRank": 48,
    "henleyPos": 98,
+   "henleyFrac": 98.0,
+   "balancedFrac": 100.0,
    "lenses": {
     "balanced": 45.82,
     "business": 45.46,
@@ -1450,6 +1494,8 @@
    "henleyScore": 71,
    "henleyRank": 60,
    "henleyPos": 118,
+   "henleyFrac": 119.0,
+   "balancedFrac": 115.0,
    "lenses": {
     "balanced": 39.13,
     "business": 38.73,
@@ -1515,6 +1561,8 @@
    "henleyScore": 149,
    "henleyRank": 12,
    "henleyPos": 44,
+   "henleyFrac": 44.0,
+   "balancedFrac": 45.0,
    "lenses": {
     "balanced": 79.21,
     "business": 79.11,
@@ -1580,6 +1628,8 @@
    "henleyScore": 141,
    "henleyRank": 16,
    "henleyPos": 49,
+   "henleyFrac": 49.0,
+   "balancedFrac": 49.0,
    "lenses": {
     "balanced": 76.69,
     "business": 76.64,
@@ -1645,6 +1695,8 @@
    "henleyScore": 139,
    "henleyRank": 18,
    "henleyPos": 51,
+   "henleyFrac": 51.5,
+   "balancedFrac": 51.0,
    "lenses": {
     "balanced": 75.42,
     "business": 75.37,
@@ -1710,6 +1762,8 @@
    "henleyScore": 49,
    "henleyRank": 80,
    "henleyPos": 165,
+   "henleyFrac": 166.0,
+   "balancedFrac": 161.5,
    "lenses": {
     "balanced": 28.88,
     "business": 28.57,
@@ -1775,6 +1829,8 @@
    "henleyScore": 72,
    "henleyRank": 59,
    "henleyPos": 116,
+   "henleyFrac": 116.5,
+   "balancedFrac": 120.0,
    "lenses": {
     "balanced": 36.97,
     "business": 36.66,
@@ -1840,6 +1896,8 @@
    "henleyScore": 48,
    "henleyRank": 81,
    "henleyPos": 168,
+   "henleyFrac": 168.5,
+   "balancedFrac": 171.0,
    "lenses": {
     "balanced": 27.05,
     "business": 26.85,
@@ -1905,6 +1963,8 @@
    "henleyScore": 155,
    "henleyRank": 10,
    "henleyPos": 39,
+   "henleyFrac": 39.5,
+   "balancedFrac": 40.0,
    "lenses": {
     "balanced": 82.31,
     "business": 82.27,
@@ -1970,6 +2030,8 @@
    "henleyScore": 160,
    "henleyRank": 5,
    "henleyPos": 6,
+   "henleyFrac": 12.0,
+   "balancedFrac": 12.0,
    "lenses": {
     "balanced": 84.66,
     "business": 84.54,
@@ -2035,6 +2097,8 @@
    "henleyScore": 148,
    "henleyRank": 13,
    "henleyPos": 45,
+   "henleyFrac": 45.5,
+   "balancedFrac": 44.0,
    "lenses": {
     "balanced": 79.84,
     "business": 79.83,
@@ -2100,6 +2164,8 @@
    "henleyScore": 77,
    "henleyRank": 57,
    "henleyPos": 113,
+   "henleyFrac": 113.5,
+   "balancedFrac": 114.0,
    "lenses": {
     "balanced": 39.35,
     "business": 38.94,
@@ -2165,6 +2231,8 @@
    "henleyScore": 53,
    "henleyRank": 76,
    "henleyPos": 156,
+   "henleyFrac": 157.0,
+   "balancedFrac": 160.0,
    "lenses": {
     "balanced": 28.92,
     "business": 28.72,
@@ -2230,6 +2298,8 @@
    "henleyScore": 46,
    "henleyRank": 83,
    "henleyPos": 173,
+   "henleyFrac": 174.0,
+   "balancedFrac": 178.0,
    "lenses": {
     "balanced": 25.88,
     "business": 25.68,
@@ -2295,6 +2365,8 @@
    "henleyScore": 41,
    "henleyRank": 87,
    "henleyPos": 181,
+   "henleyFrac": 182.5,
+   "balancedFrac": 183.0,
    "lenses": {
     "balanced": 24.21,
     "business": 24.06,
@@ -2360,6 +2432,8 @@
    "henleyScore": 46,
    "henleyRank": 83,
    "henleyPos": 173,
+   "henleyFrac": 174.0,
+   "balancedFrac": 177.0,
    "lenses": {
     "balanced": 26.13,
     "business": 25.93,
@@ -2425,6 +2499,8 @@
    "henleyScore": 117,
    "henleyRank": 34,
    "henleyPos": 74,
+   "henleyFrac": 75.0,
+   "balancedFrac": 72.0,
    "lenses": {
     "balanced": 67.33,
     "business": 67.33,
@@ -2490,6 +2566,8 @@
    "henleyScore": 51,
    "henleyRank": 78,
    "henleyPos": 161,
+   "henleyFrac": 161.0,
+   "balancedFrac": 164.0,
    "lenses": {
     "balanced": 28.37,
     "business": 28.16,
@@ -2555,6 +2633,8 @@
    "henleyScore": 64,
    "henleyRank": 67,
    "henleyPos": 132,
+   "henleyFrac": 133.0,
+   "balancedFrac": 131.0,
    "lenses": {
     "balanced": 33.86,
     "business": 33.66,
@@ -2620,6 +2700,8 @@
    "henleyScore": 128,
    "henleyRank": 27,
    "henleyPos": 63,
+   "henleyFrac": 63.5,
+   "balancedFrac": 61.0,
    "lenses": {
     "balanced": 71.92,
     "business": 71.82,
@@ -2685,6 +2767,8 @@
    "henleyScore": 56,
    "henleyRank": 73,
    "henleyPos": 146,
+   "henleyFrac": 147.5,
+   "balancedFrac": 144.0,
    "lenses": {
     "balanced": 31.2,
     "business": 30.89,
@@ -2750,6 +2834,8 @@
    "henleyScore": 156,
    "henleyRank": 9,
    "henleyPos": 36,
+   "henleyFrac": 37.0,
+   "balancedFrac": 35.5,
    "lenses": {
     "balanced": 83.1,
     "business": 83.01,
@@ -2815,6 +2901,8 @@
    "henleyScore": 158,
    "henleyRank": 7,
    "henleyPos": 28,
+   "henleyFrac": 30.5,
+   "balancedFrac": 33.0,
    "lenses": {
     "balanced": 83.68,
     "business": 83.59,
@@ -2880,6 +2968,8 @@
    "henleyScore": 160,
    "henleyRank": 5,
    "henleyPos": 6,
+   "henleyFrac": 12.0,
+   "balancedFrac": 14.5,
    "lenses": {
     "balanced": 84.64,
     "business": 84.5,
@@ -2945,6 +3035,8 @@
    "henleyScore": 45,
    "henleyRank": 84,
    "henleyPos": 176,
+   "henleyFrac": 177.0,
+   "balancedFrac": 172.5,
    "lenses": {
     "balanced": 26.78,
     "business": 26.49,
@@ -3010,6 +3102,8 @@
    "henleyScore": 123,
    "henleyRank": 31,
    "henleyPos": 70,
+   "henleyFrac": 70.0,
+   "balancedFrac": 70.0,
    "lenses": {
     "balanced": 68.51,
     "business": 68.38,
@@ -3075,6 +3169,8 @@
    "henleyScore": 160,
    "henleyRank": 5,
    "henleyPos": 6,
+   "henleyFrac": 12.0,
+   "balancedFrac": 9.0,
    "lenses": {
     "balanced": 84.71,
     "business": 84.62,
@@ -3140,6 +3236,8 @@
    "henleyScore": 67,
    "henleyRank": 64,
    "henleyPos": 125,
+   "henleyFrac": 126.0,
+   "balancedFrac": 121.0,
    "lenses": {
     "balanced": 36.79,
     "business": 36.53,
@@ -3205,6 +3303,8 @@
    "henleyScore": 54,
    "henleyRank": 75,
    "henleyPos": 153,
+   "henleyFrac": 154.0,
+   "balancedFrac": 157.0,
    "lenses": {
     "balanced": 29.45,
     "business": 29.2,
@@ -3270,6 +3370,8 @@
    "henleyScore": 85,
    "henleyRank": 50,
    "henleyPos": 102,
+   "henleyFrac": 102.5,
+   "balancedFrac": 105.0,
    "lenses": {
     "balanced": 44.25,
     "business": 43.84,
@@ -3335,6 +3437,8 @@
    "henleyScore": 48,
    "henleyRank": 81,
    "henleyPos": 168,
+   "henleyFrac": 168.5,
+   "balancedFrac": 170.0,
    "lenses": {
     "balanced": 27.44,
     "business": 27.13,
@@ -3400,6 +3504,8 @@
    "henleyScore": 36,
    "henleyRank": 91,
    "henleyPos": 190,
+   "henleyFrac": 190.5,
+   "balancedFrac": 188.5,
    "lenses": {
     "balanced": 23.38,
     "business": 23.17,
@@ -3465,6 +3571,8 @@
    "henleyScore": 161,
    "henleyRank": 4,
    "henleyPos": 5,
+   "henleyFrac": 5.0,
+   "balancedFrac": 3.5,
    "lenses": {
     "balanced": 85.1,
     "business": 84.99,
@@ -3530,6 +3638,8 @@
    "henleyScore": 158,
    "henleyRank": 7,
    "henleyPos": 28,
+   "henleyFrac": 30.5,
+   "balancedFrac": 27.0,
    "lenses": {
     "balanced": 83.97,
     "business": 83.84,
@@ -3595,6 +3705,8 @@
    "henleyScore": 42,
    "henleyRank": 86,
    "henleyPos": 180,
+   "henleyFrac": 180.0,
+   "balancedFrac": 181.0,
    "lenses": {
     "balanced": 24.72,
     "business": 24.52,
@@ -3660,6 +3772,8 @@
    "henleyScore": 160,
    "henleyRank": 5,
    "henleyPos": 6,
+   "henleyFrac": 12.0,
+   "balancedFrac": 6.5,
    "lenses": {
     "balanced": 84.74,
     "business": 84.65,
@@ -3725,6 +3839,8 @@
    "henleyScore": 81,
    "henleyRank": 53,
    "henleyPos": 107,
+   "henleyFrac": 107.5,
+   "balancedFrac": 107.0,
    "lenses": {
     "balanced": 43.28,
     "business": 42.92,
@@ -3790,6 +3906,8 @@
    "henleyScore": 160,
    "henleyRank": 5,
    "henleyPos": 6,
+   "henleyFrac": 12.0,
+   "balancedFrac": 12.0,
    "lenses": {
     "balanced": 84.68,
     "business": 84.59,
@@ -3855,6 +3973,8 @@
    "henleyScore": 104,
    "henleyRank": 45,
    "henleyPos": 95,
+   "henleyFrac": 95.0,
+   "balancedFrac": 92.0,
    "lenses": {
     "balanced": 60.13,
     "business": 60.18,
@@ -3920,6 +4040,8 @@
    "henleyScore": 56,
    "henleyRank": 73,
    "henleyPos": 146,
+   "henleyFrac": 147.5,
+   "balancedFrac": 149.5,
    "lenses": {
     "balanced": 30.49,
     "business": 30.24,
@@ -3985,6 +4107,8 @@
    "henleyScore": 156,
    "henleyRank": 9,
    "henleyPos": 36,
+   "henleyFrac": 37.0,
+   "balancedFrac": 39.0,
    "lenses": {
     "balanced": 82.59,
     "business": 82.55,
@@ -4050,6 +4174,8 @@
    "henleyScore": 119,
    "henleyRank": 33,
    "henleyPos": 72,
+   "henleyFrac": 72.5,
+   "balancedFrac": 76.0,
    "lenses": {
     "balanced": 66.09,
     "business": 65.94,
@@ -4115,6 +4241,8 @@
    "henleyScore": 64,
    "henleyRank": 67,
    "henleyPos": 132,
+   "henleyFrac": 133.0,
+   "balancedFrac": 136.5,
    "lenses": {
     "balanced": 33.23,
     "business": 32.88,
@@ -4180,6 +4308,8 @@
    "henleyScore": 53,
    "henleyRank": 76,
    "henleyPos": 156,
+   "henleyFrac": 157.0,
+   "balancedFrac": 154.0,
    "lenses": {
     "balanced": 29.6,
     "business": 29.35,
@@ -4245,6 +4375,8 @@
    "henleyScore": 65,
    "henleyRank": 66,
    "henleyPos": 130,
+   "henleyFrac": 130.5,
+   "balancedFrac": 134.0,
    "lenses": {
     "balanced": 33.4,
     "business": 33.09,
@@ -4310,6 +4442,8 @@
    "henleyScore": 49,
    "henleyRank": 80,
    "henleyPos": 165,
+   "henleyFrac": 166.0,
+   "balancedFrac": 168.5,
    "lenses": {
     "balanced": 27.52,
     "business": 27.31,
@@ -4375,6 +4509,8 @@
    "henleyScore": 54,
    "henleyRank": 75,
    "henleyPos": 153,
+   "henleyFrac": 154.0,
+   "balancedFrac": 158.5,
    "lenses": {
     "balanced": 28.95,
     "business": 28.75,
@@ -4440,6 +4576,8 @@
    "henleyScore": 159,
    "henleyRank": 6,
    "henleyPos": 19,
+   "henleyFrac": 23.0,
+   "balancedFrac": 24.5,
    "lenses": {
     "balanced": 84.34,
     "business": 84.23,
@@ -4505,6 +4643,8 @@
    "henleyScore": 128,
    "henleyRank": 27,
    "henleyPos": 63,
+   "henleyFrac": 63.5,
+   "balancedFrac": 66.0,
    "lenses": {
     "balanced": 70.6,
     "business": 70.57,
@@ -4570,6 +4710,8 @@
    "henleyScore": 114,
    "henleyRank": 37,
    "henleyPos": 79,
+   "henleyFrac": 80.5,
+   "balancedFrac": 75.0,
    "lenses": {
     "balanced": 66.34,
     "business": 66.35,
@@ -4635,6 +4777,8 @@
    "henleyScore": 82,
    "henleyRank": 52,
    "henleyPos": 105,
+   "henleyFrac": 105.5,
+   "balancedFrac": 106.0,
    "lenses": {
     "balanced": 43.57,
     "business": 43.18,
@@ -4700,6 +4844,8 @@
    "henleyScore": 153,
    "henleyRank": 11,
    "henleyPos": 41,
+   "henleyFrac": 42.0,
+   "balancedFrac": 42.0,
    "lenses": {
     "balanced": 81.52,
     "business": 81.44,
@@ -4765,6 +4911,8 @@
    "henleyScore": 114,
    "henleyRank": 37,
    "henleyPos": 79,
+   "henleyFrac": 80.5,
+   "balancedFrac": 79.0,
    "lenses": {
     "balanced": 65.61,
     "business": 65.61,
@@ -4830,6 +4978,8 @@
    "henleyScore": 159,
    "henleyRank": 6,
    "henleyPos": 19,
+   "henleyFrac": 23.0,
+   "balancedFrac": 21.0,
    "lenses": {
     "balanced": 84.36,
     "business": 84.25,
@@ -4895,6 +5045,8 @@
    "henleyScore": 45,
    "henleyRank": 84,
    "henleyPos": 176,
+   "henleyFrac": 177.0,
+   "balancedFrac": 172.5,
    "lenses": {
     "balanced": 26.76,
     "business": 26.61,
@@ -4960,6 +5112,8 @@
    "henleyScore": 159,
    "henleyRank": 6,
    "henleyPos": 19,
+   "henleyFrac": 23.0,
+   "balancedFrac": 21.0,
    "lenses": {
     "balanced": 84.35,
     "business": 84.2,
@@ -5025,6 +5179,8 @@
    "henleyScore": 77,
    "henleyRank": 57,
    "henleyPos": 113,
+   "henleyFrac": 113.5,
+   "balancedFrac": 113.0,
    "lenses": {
     "balanced": 40.55,
     "business": 40.19,
@@ -5090,6 +5246,8 @@
    "henleyScore": 55,
    "henleyRank": 74,
    "henleyPos": 150,
+   "henleyFrac": 151.0,
+   "balancedFrac": 143.0,
    "lenses": {
     "balanced": 31.39,
     "business": 31.04,
@@ -5155,6 +5313,8 @@
    "henleyScore": 160,
    "henleyRank": 5,
    "henleyPos": 6,
+   "henleyFrac": 12.0,
+   "balancedFrac": 17.0,
    "lenses": {
     "balanced": 84.54,
     "business": 84.48,
@@ -5220,6 +5380,8 @@
    "henleyScore": 39,
    "henleyRank": 89,
    "henleyPos": 186,
+   "henleyFrac": 187.0,
+   "balancedFrac": 185.5,
    "lenses": {
     "balanced": 23.95,
     "business": 23.7,
@@ -5285,6 +5447,8 @@
    "henleyScore": 29,
    "henleyRank": 95,
    "henleyPos": 196,
+   "henleyFrac": 196.5,
+   "balancedFrac": 196.0,
    "lenses": {
     "balanced": 20.15,
     "business": 19.95,
@@ -5350,6 +5514,8 @@
    "henleyScore": 155,
    "henleyRank": 10,
    "henleyPos": 39,
+   "henleyFrac": 39.5,
+   "balancedFrac": 37.0,
    "lenses": {
     "balanced": 82.95,
     "business": 82.87,
@@ -5415,6 +5581,8 @@
    "henleyScore": 140,
    "henleyRank": 17,
    "henleyPos": 50,
+   "henleyFrac": 50.0,
+   "balancedFrac": 50.0,
    "lenses": {
     "balanced": 75.58,
     "business": 75.54,
@@ -5480,6 +5648,8 @@
    "henleyScore": 160,
    "henleyRank": 5,
    "henleyPos": 6,
+   "henleyFrac": 12.0,
+   "balancedFrac": 14.5,
    "lenses": {
     "balanced": 84.61,
     "business": 84.52,
@@ -5545,6 +5715,8 @@
    "henleyScore": 84,
    "henleyRank": 51,
    "henleyPos": 104,
+   "henleyFrac": 104.0,
+   "balancedFrac": 102.0,
    "lenses": {
     "balanced": 44.49,
     "business": 44.03,
@@ -5610,6 +5782,8 @@
    "henleyScore": 49,
    "henleyRank": 80,
    "henleyPos": 165,
+   "henleyFrac": 166.0,
+   "balancedFrac": 161.5,
    "lenses": {
     "balanced": 28.9,
     "business": 28.59,
@@ -5675,6 +5849,8 @@
    "henleyScore": 162,
    "henleyRank": 3,
    "henleyPos": 4,
+   "henleyFrac": 4.0,
+   "balancedFrac": 12.0,
    "lenses": {
     "balanced": 84.67,
     "business": 84.58,
@@ -5740,6 +5916,8 @@
    "henleyScore": 78,
    "henleyRank": 56,
    "henleyPos": 112,
+   "henleyFrac": 112.0,
+   "balancedFrac": 112.0,
    "lenses": {
     "balanced": 40.78,
     "business": 40.33,
@@ -5805,6 +5983,8 @@
    "henleyScore": 66,
    "henleyRank": 65,
    "henleyPos": 128,
+   "henleyFrac": 128.5,
+   "balancedFrac": 132.0,
    "lenses": {
     "balanced": 33.63,
     "business": 33.32,
@@ -5870,6 +6050,8 @@
    "henleyScore": 61,
    "henleyRank": 69,
    "henleyPos": 139,
+   "henleyFrac": 139.0,
+   "balancedFrac": 135.0,
    "lenses": {
     "balanced": 33.38,
     "business": 32.97,
@@ -5935,6 +6117,8 @@
    "henleyScore": 50,
    "henleyRank": 79,
    "henleyPos": 162,
+   "henleyFrac": 163.0,
+   "balancedFrac": 153.0,
    "lenses": {
     "balanced": 29.93,
     "business": 29.68,
@@ -6000,6 +6184,8 @@
    "henleyScore": 112,
    "henleyRank": 39,
    "henleyPos": 84,
+   "henleyFrac": 84.5,
+   "balancedFrac": 84.0,
    "lenses": {
     "balanced": 63.39,
     "business": 63.38,
@@ -6065,6 +6251,8 @@
    "henleyScore": 136,
    "henleyRank": 20,
    "henleyPos": 54,
+   "henleyFrac": 54.5,
+   "balancedFrac": 55.0,
    "lenses": {
     "balanced": 73.82,
     "business": 73.69,
@@ -6130,6 +6318,8 @@
    "henleyScore": 163,
    "henleyRank": 2,
    "henleyPos": 2,
+   "henleyFrac": 2.5,
+   "balancedFrac": 3.5,
    "lenses": {
     "balanced": 85.09,
     "business": 85.0,
@@ -6195,6 +6385,8 @@
    "henleyScore": 96,
    "henleyRank": 46,
    "henleyPos": 96,
+   "henleyFrac": 96.0,
+   "balancedFrac": 98.0,
    "lenses": {
     "balanced": 47.66,
     "business": 47.25,
@@ -6260,6 +6452,8 @@
    "henleyScore": 45,
    "henleyRank": 84,
    "henleyPos": 176,
+   "henleyFrac": 177.0,
+   "balancedFrac": 165.5,
    "lenses": {
     "balanced": 28.16,
     "business": 27.96,
@@ -6325,6 +6519,8 @@
    "henleyScore": 43,
    "henleyRank": 85,
    "henleyPos": 179,
+   "henleyFrac": 179.0,
+   "balancedFrac": 180.0,
    "lenses": {
     "balanced": 25.5,
     "business": 25.24,
@@ -6390,6 +6586,8 @@
    "henleyScore": 47,
    "henleyRank": 82,
    "henleyPos": 170,
+   "henleyFrac": 171.0,
+   "balancedFrac": 175.0,
    "lenses": {
     "balanced": 26.52,
     "business": 26.37,
@@ -6455,6 +6653,8 @@
    "henleyScore": 40,
    "henleyRank": 88,
    "henleyPos": 185,
+   "henleyFrac": 185.0,
+   "balancedFrac": 185.5,
    "lenses": {
     "balanced": 23.93,
     "business": 23.68,
@@ -6520,6 +6720,8 @@
    "henleyScore": 125,
    "henleyRank": 30,
    "henleyPos": 69,
+   "henleyFrac": 69.0,
+   "balancedFrac": 69.0,
    "lenses": {
     "balanced": 69.06,
     "business": 69.04,
@@ -6585,6 +6787,8 @@
    "henleyScore": 156,
    "henleyRank": 9,
    "henleyPos": 36,
+   "henleyFrac": 37.0,
+   "balancedFrac": 38.0,
    "lenses": {
     "balanced": 82.78,
     "business": 82.65,
@@ -6650,6 +6854,8 @@
    "henleyScore": 39,
    "henleyRank": 89,
    "henleyPos": 186,
+   "henleyFrac": 187.0,
+   "balancedFrac": 187.0,
    "lenses": {
     "balanced": 23.9,
     "business": 23.59,
@@ -6715,6 +6921,8 @@
    "henleyScore": 70,
    "henleyRank": 61,
    "henleyPos": 121,
+   "henleyFrac": 121.5,
+   "balancedFrac": 126.0,
    "lenses": {
     "balanced": 35.88,
     "business": 35.62,
@@ -6780,6 +6988,8 @@
    "henleyScore": 157,
    "henleyRank": 8,
    "henleyPos": 34,
+   "henleyFrac": 34.5,
+   "balancedFrac": 34.0,
    "lenses": {
     "balanced": 83.33,
     "business": 83.19,
@@ -6845,6 +7055,8 @@
    "henleyScore": 160,
    "henleyRank": 5,
    "henleyPos": 6,
+   "henleyFrac": 12.0,
+   "balancedFrac": 5.0,
    "lenses": {
     "balanced": 84.77,
     "business": 84.67,
@@ -6910,6 +7122,8 @@
    "henleyScore": 158,
    "henleyRank": 7,
    "henleyPos": 28,
+   "henleyFrac": 30.5,
+   "balancedFrac": 28.0,
    "lenses": {
     "balanced": 83.95,
     "business": 83.84,
@@ -6975,6 +7189,8 @@
    "henleyScore": 129,
    "henleyRank": 26,
    "henleyPos": 62,
+   "henleyFrac": 62.0,
+   "balancedFrac": 62.0,
    "lenses": {
     "balanced": 71.63,
     "business": 71.56,
@@ -7040,6 +7256,8 @@
    "henleyScore": 71,
    "henleyRank": 60,
    "henleyPos": 118,
+   "henleyFrac": 119.0,
+   "balancedFrac": 122.5,
    "lenses": {
     "balanced": 36.68,
     "business": 36.28,
@@ -7105,6 +7323,8 @@
    "henleyScore": 153,
    "henleyRank": 11,
    "henleyPos": 41,
+   "henleyFrac": 42.0,
+   "balancedFrac": 41.0,
    "lenses": {
     "balanced": 81.67,
     "business": 81.54,
@@ -7170,6 +7390,8 @@
    "henleyScore": 109,
    "henleyRank": 42,
    "henleyPos": 90,
+   "henleyFrac": 90.5,
+   "balancedFrac": 90.0,
    "lenses": {
     "balanced": 61.47,
     "business": 61.37,
@@ -7235,6 +7457,8 @@
    "henleyScore": 57,
    "henleyRank": 72,
    "henleyPos": 145,
+   "henleyFrac": 145.0,
+   "balancedFrac": 145.0,
    "lenses": {
     "balanced": 31.06,
     "business": 30.86,
@@ -7300,6 +7524,8 @@
    "henleyScore": 86,
    "henleyRank": 49,
    "henleyPos": 99,
+   "henleyFrac": 100.0,
+   "balancedFrac": 103.0,
    "lenses": {
     "balanced": 44.45,
     "business": 44.04,
@@ -7365,6 +7591,8 @@
    "henleyScore": 136,
    "henleyRank": 20,
    "henleyPos": 54,
+   "henleyFrac": 54.5,
+   "balancedFrac": 54.0,
    "lenses": {
     "balanced": 74.41,
     "business": 74.31,
@@ -7430,6 +7658,8 @@
    "henleyScore": 110,
    "henleyRank": 41,
    "henleyPos": 87,
+   "henleyFrac": 88.0,
+   "balancedFrac": 87.0,
    "lenses": {
     "balanced": 62.4,
     "business": 62.5,
@@ -7495,6 +7725,8 @@
    "henleyScore": 117,
    "henleyRank": 34,
    "henleyPos": 74,
+   "henleyFrac": 75.0,
+   "balancedFrac": 77.0,
    "lenses": {
     "balanced": 66.02,
     "business": 65.97,
@@ -7560,6 +7792,8 @@
    "henleyScore": 50,
    "henleyRank": 79,
    "henleyPos": 162,
+   "henleyFrac": 163.0,
+   "balancedFrac": 165.5,
    "lenses": {
     "balanced": 28.13,
     "business": 27.94,
@@ -7625,6 +7859,8 @@
    "henleyScore": 159,
    "henleyRank": 6,
    "henleyPos": 19,
+   "henleyFrac": 23.0,
+   "balancedFrac": 17.0,
    "lenses": {
     "balanced": 84.43,
     "business": 84.29,
@@ -7690,6 +7926,8 @@
    "henleyScore": 41,
    "henleyRank": 87,
    "henleyPos": 181,
+   "henleyFrac": 182.5,
+   "balancedFrac": 179.0,
    "lenses": {
     "balanced": 25.69,
     "business": 25.48,
@@ -7755,6 +7993,8 @@
    "henleyScore": 117,
    "henleyRank": 34,
    "henleyPos": 74,
+   "henleyFrac": 75.0,
+   "balancedFrac": 73.0,
    "lenses": {
     "balanced": 66.64,
     "business": 66.53,
@@ -7820,6 +8060,8 @@
    "henleyScore": 64,
    "henleyRank": 67,
    "henleyPos": 132,
+   "henleyFrac": 133.0,
+   "balancedFrac": 122.5,
    "lenses": {
     "balanced": 36.67,
     "business": 36.38,
@@ -7885,6 +8127,8 @@
    "henleyScore": 56,
    "henleyRank": 73,
    "henleyPos": 146,
+   "henleyFrac": 147.5,
+   "balancedFrac": 151.5,
    "lenses": {
     "balanced": 30.31,
     "business": 30.01,
@@ -7950,6 +8194,8 @@
    "henleyScore": 52,
    "henleyRank": 77,
    "henleyPos": 159,
+   "henleyFrac": 159.5,
+   "balancedFrac": 158.5,
    "lenses": {
     "balanced": 28.95,
     "business": 28.76,
@@ -8015,6 +8261,8 @@
    "henleyScore": 127,
    "henleyRank": 28,
    "henleyPos": 65,
+   "henleyFrac": 66.0,
+   "balancedFrac": 68.0,
    "lenses": {
     "balanced": 69.31,
     "business": 69.31,
@@ -8080,6 +8328,8 @@
    "henleyScore": 67,
    "henleyRank": 64,
    "henleyPos": 125,
+   "henleyFrac": 126.0,
+   "balancedFrac": 128.0,
    "lenses": {
     "balanced": 34.95,
     "business": 34.6,
@@ -8145,6 +8395,8 @@
    "henleyScore": 160,
    "henleyRank": 5,
    "henleyPos": 6,
+   "henleyFrac": 12.0,
+   "balancedFrac": 32.0,
    "lenses": {
     "balanced": 83.81,
     "business": 83.66,
@@ -8210,6 +8462,8 @@
    "henleyScore": 69,
    "henleyRank": 62,
    "henleyPos": 123,
+   "henleyFrac": 123.0,
+   "balancedFrac": 125.0,
    "lenses": {
     "balanced": 36.2,
     "business": 35.9,
@@ -8275,6 +8529,8 @@
    "henleyScore": 53,
    "henleyRank": 76,
    "henleyPos": 156,
+   "henleyFrac": 157.0,
+   "balancedFrac": 163.0,
    "lenses": {
     "balanced": 28.69,
     "business": 28.54,
@@ -8340,6 +8596,8 @@
    "henleyScore": 41,
    "henleyRank": 87,
    "henleyPos": 181,
+   "henleyFrac": 182.5,
+   "balancedFrac": 188.5,
    "lenses": {
     "balanced": 23.43,
     "business": 23.28,
@@ -8405,6 +8663,8 @@
    "henleyScore": 110,
    "henleyRank": 41,
    "henleyPos": 87,
+   "henleyFrac": 88.0,
+   "balancedFrac": 83.0,
    "lenses": {
     "balanced": 63.62,
     "business": 63.62,
@@ -8470,6 +8730,8 @@
    "henleyScore": 160,
    "henleyRank": 5,
    "henleyPos": 6,
+   "henleyFrac": 12.0,
+   "balancedFrac": 9.0,
    "lenses": {
     "balanced": 84.73,
     "business": 84.64,
@@ -8535,6 +8797,8 @@
    "henleyScore": 160,
    "henleyRank": 5,
    "henleyPos": 6,
+   "henleyFrac": 12.0,
+   "balancedFrac": 17.0,
    "lenses": {
     "balanced": 84.5,
     "business": 84.42,
@@ -8600,6 +8864,8 @@
    "henleyScore": 36,
    "henleyRank": 91,
    "henleyPos": 190,
+   "henleyFrac": 190.5,
+   "balancedFrac": 184.0,
    "lenses": {
     "balanced": 24.03,
     "business": 23.78,
@@ -8665,6 +8931,8 @@
    "henleyScore": 73,
    "henleyRank": 58,
    "henleyPos": 115,
+   "henleyFrac": 115.0,
+   "balancedFrac": 116.0,
    "lenses": {
     "balanced": 38.6,
     "business": 38.24,
@@ -8730,6 +8998,8 @@
    "henleyScore": 158,
    "henleyRank": 7,
    "henleyPos": 28,
+   "henleyFrac": 30.5,
+   "balancedFrac": 29.5,
    "lenses": {
     "balanced": 83.91,
     "business": 83.81,
@@ -8795,6 +9065,8 @@
    "henleyScore": 82,
    "henleyRank": 52,
    "henleyPos": 105,
+   "henleyFrac": 105.5,
+   "balancedFrac": 108.0,
    "lenses": {
     "balanced": 43.11,
     "business": 42.66,
@@ -8860,6 +9132,8 @@
    "henleyScore": 29,
    "henleyRank": 95,
    "henleyPos": 196,
+   "henleyFrac": 196.5,
+   "balancedFrac": 197.0,
    "lenses": {
     "balanced": 20.04,
     "business": 19.84,
@@ -8925,6 +9199,8 @@
    "henleyScore": 126,
    "henleyRank": 29,
    "henleyPos": 68,
+   "henleyFrac": 68.0,
+   "balancedFrac": 65.0,
    "lenses": {
     "balanced": 71.15,
     "business": 71.15,
@@ -8990,6 +9266,8 @@
    "henleyScore": 133,
    "henleyRank": 23,
    "henleyPos": 59,
+   "henleyFrac": 59.0,
+   "balancedFrac": 57.0,
    "lenses": {
     "balanced": 73.08,
     "business": 73.03,
@@ -9055,6 +9333,8 @@
    "henleyScore": 62,
    "henleyRank": 68,
    "henleyPos": 135,
+   "henleyFrac": 136.5,
+   "balancedFrac": 129.0,
    "lenses": {
     "balanced": 34.81,
     "business": 34.56,
@@ -9120,6 +9400,8 @@
    "henleyScore": 105,
    "henleyRank": 44,
    "henleyPos": 93,
+   "henleyFrac": 93.5,
+   "balancedFrac": 91.0,
    "lenses": {
     "balanced": 60.81,
     "business": 60.85,
@@ -9185,6 +9467,8 @@
    "henleyScore": 72,
    "henleyRank": 59,
    "henleyPos": 116,
+   "henleyFrac": 116.5,
+   "balancedFrac": 118.0,
    "lenses": {
     "balanced": 37.37,
     "business": 36.98,
@@ -9250,6 +9534,8 @@
    "henleyScore": 159,
    "henleyRank": 6,
    "henleyPos": 19,
+   "henleyFrac": 23.0,
+   "balancedFrac": 24.5,
    "lenses": {
     "balanced": 84.36,
     "business": 84.26,
@@ -9315,6 +9601,8 @@
    "henleyScore": 37,
    "henleyRank": 90,
    "henleyPos": 189,
+   "henleyFrac": 189.0,
+   "balancedFrac": 191.0,
    "lenses": {
     "balanced": 22.37,
     "business": 22.12,
@@ -9380,6 +9668,8 @@
    "henleyScore": 159,
    "henleyRank": 6,
    "henleyPos": 19,
+   "henleyFrac": 23.0,
+   "balancedFrac": 21.0,
    "lenses": {
     "balanced": 84.38,
     "business": 84.28,
@@ -9445,6 +9735,8 @@
    "henleyScore": 127,
    "henleyRank": 28,
    "henleyPos": 65,
+   "henleyFrac": 66.0,
+   "balancedFrac": 63.0,
    "lenses": {
     "balanced": 71.32,
     "business": 71.32,
@@ -9510,6 +9802,8 @@
    "henleyScore": 35,
    "henleyRank": 92,
    "henleyPos": 192,
+   "henleyFrac": 192.0,
+   "balancedFrac": 192.0,
    "lenses": {
     "balanced": 22.1,
     "business": 21.9,
@@ -9575,6 +9869,8 @@
    "henleyScore": 105,
    "henleyRank": 44,
    "henleyPos": 93,
+   "henleyFrac": 93.5,
+   "balancedFrac": 95.0,
    "lenses": {
     "balanced": 53.48,
     "business": 53.03,
@@ -9640,6 +9936,8 @@
    "henleyScore": 158,
    "henleyRank": 7,
    "henleyPos": 28,
+   "henleyFrac": 30.5,
+   "balancedFrac": 29.5,
    "lenses": {
     "balanced": 83.89,
     "business": 83.74,
@@ -9705,6 +10003,8 @@
    "henleyScore": 114,
    "henleyRank": 37,
    "henleyPos": 79,
+   "henleyFrac": 80.5,
+   "balancedFrac": 93.0,
    "lenses": {
     "balanced": 55.71,
     "business": 55.15,
@@ -9770,6 +10070,8 @@
    "henleyScore": 62,
    "henleyRank": 68,
    "henleyPos": 135,
+   "henleyFrac": 136.5,
+   "balancedFrac": 147.0,
    "lenses": {
     "balanced": 30.77,
     "business": 30.61,
@@ -9835,6 +10137,8 @@
    "henleyScore": 86,
    "henleyRank": 49,
    "henleyPos": 99,
+   "henleyFrac": 100.0,
+   "balancedFrac": 101.0,
    "lenses": {
     "balanced": 44.91,
     "business": 44.5,
@@ -9900,6 +10204,8 @@
    "henleyScore": 39,
    "henleyRank": 89,
    "henleyPos": 186,
+   "henleyFrac": 187.0,
+   "balancedFrac": 190.0,
    "lenses": {
     "balanced": 22.74,
     "business": 22.44,
@@ -9965,6 +10271,8 @@
    "henleyScore": 56,
    "henleyRank": 73,
    "henleyPos": 146,
+   "henleyFrac": 147.5,
+   "balancedFrac": 151.5,
    "lenses": {
     "balanced": 30.35,
     "business": 30.15,
@@ -10030,6 +10338,8 @@
    "henleyScore": 163,
    "henleyRank": 2,
    "henleyPos": 2,
+   "henleyFrac": 2.5,
+   "balancedFrac": 2.0,
    "lenses": {
     "balanced": 86.11,
     "business": 86.04,
@@ -10095,6 +10405,8 @@
    "henleyScore": 119,
    "henleyRank": 33,
    "henleyPos": 72,
+   "henleyFrac": 72.5,
+   "balancedFrac": 78.0,
    "lenses": {
     "balanced": 65.84,
     "business": 65.8,
@@ -10160,6 +10472,8 @@
    "henleyScore": 59,
    "henleyRank": 71,
    "henleyPos": 141,
+   "henleyFrac": 142.5,
+   "balancedFrac": 146.0,
    "lenses": {
     "balanced": 30.81,
     "business": 30.51,
@@ -10225,6 +10539,8 @@
    "henleyScore": 116,
    "henleyRank": 35,
    "henleyPos": 77,
+   "henleyFrac": 77.0,
+   "balancedFrac": 74.0,
    "lenses": {
     "balanced": 66.36,
     "business": 66.36,
@@ -10290,6 +10606,8 @@
    "henleyScore": 144,
    "henleyRank": 15,
    "henleyPos": 48,
+   "henleyFrac": 48.0,
+   "balancedFrac": 48.0,
    "lenses": {
     "balanced": 78.71,
     "business": 78.62,
@@ -10355,6 +10673,8 @@
    "henleyScore": 32,
    "henleyRank": 94,
    "henleyPos": 195,
+   "henleyFrac": 195.0,
+   "balancedFrac": 195.0,
    "lenses": {
     "balanced": 20.32,
     "business": 20.12,
@@ -10420,6 +10740,8 @@
    "henleyScore": 120,
    "henleyRank": 32,
    "henleyPos": 71,
+   "henleyFrac": 71.0,
+   "balancedFrac": 71.0,
    "lenses": {
     "balanced": 68.01,
     "business": 67.86,
@@ -10485,6 +10807,8 @@
    "henleyScore": 41,
    "henleyRank": 87,
    "henleyPos": 181,
+   "henleyFrac": 182.5,
+   "balancedFrac": 182.0,
    "lenses": {
     "balanced": 24.33,
     "business": 24.08,
@@ -10550,6 +10874,8 @@
    "henleyScore": 59,
    "henleyRank": 71,
    "henleyPos": 141,
+   "henleyFrac": 142.5,
+   "balancedFrac": 139.0,
    "lenses": {
     "balanced": 31.92,
     "business": 31.66,
@@ -10615,6 +10941,8 @@
    "henleyScore": 70,
    "henleyRank": 61,
    "henleyPos": 121,
+   "henleyFrac": 121.5,
+   "balancedFrac": 117.0,
    "lenses": {
     "balanced": 38.42,
     "business": 38.12,
@@ -10680,6 +11008,8 @@
    "henleyScore": 159,
    "henleyRank": 6,
    "henleyPos": 19,
+   "henleyFrac": 23.0,
+   "balancedFrac": 21.0,
    "lenses": {
     "balanced": 84.32,
     "business": 84.2,
@@ -10745,6 +11075,8 @@
    "henleyScore": 159,
    "henleyRank": 6,
    "henleyPos": 19,
+   "henleyFrac": 23.0,
+   "balancedFrac": 21.0,
    "lenses": {
     "balanced": 84.33,
     "business": 84.2,
@@ -10810,6 +11142,8 @@
    "henleyScore": 160,
    "henleyRank": 5,
    "henleyPos": 6,
+   "henleyFrac": 12.0,
+   "balancedFrac": 6.5,
    "lenses": {
     "balanced": 84.76,
     "business": 84.63,
@@ -10875,6 +11209,8 @@
    "henleyScore": 68,
    "henleyRank": 63,
    "henleyPos": 124,
+   "henleyFrac": 124.0,
+   "balancedFrac": 127.0,
    "lenses": {
     "balanced": 35.4,
     "business": 35.1,
@@ -10940,6 +11276,8 @@
    "henleyScore": 134,
    "henleyRank": 22,
    "henleyPos": 58,
+   "henleyFrac": 58.0,
+   "balancedFrac": 59.0,
    "lenses": {
     "balanced": 72.71,
     "business": 72.66,
@@ -11005,6 +11343,8 @@
    "henleyScore": 26,
    "henleyRank": 96,
    "henleyPos": 198,
+   "henleyFrac": 198.0,
+   "balancedFrac": 198.0,
    "lenses": {
     "balanced": 18.11,
     "business": 17.91,
@@ -11070,6 +11410,8 @@
    "henleyScore": 50,
    "henleyRank": 79,
    "henleyPos": 162,
+   "henleyFrac": 163.0,
+   "balancedFrac": 168.5,
    "lenses": {
     "balanced": 27.51,
     "business": 27.37,
@@ -11135,6 +11477,8 @@
    "henleyScore": 55,
    "henleyRank": 74,
    "henleyPos": 150,
+   "henleyFrac": 151.0,
+   "balancedFrac": 155.5,
    "lenses": {
     "balanced": 29.46,
     "business": 29.25,
@@ -11200,6 +11544,8 @@
    "henleyScore": 79,
    "henleyRank": 55,
    "henleyPos": 111,
+   "henleyFrac": 111.0,
+   "balancedFrac": 109.0,
    "lenses": {
     "balanced": 41.97,
     "business": 41.61,
@@ -11265,6 +11611,8 @@
    "henleyScore": 55,
    "henleyRank": 74,
    "henleyPos": 150,
+   "henleyFrac": 151.0,
+   "balancedFrac": 148.0,
    "lenses": {
     "balanced": 30.68,
     "business": 30.32,
@@ -11330,6 +11678,8 @@
    "henleyScore": 46,
    "henleyRank": 83,
    "henleyPos": 173,
+   "henleyFrac": 174.0,
+   "balancedFrac": 174.0,
    "lenses": {
     "balanced": 26.74,
     "business": 26.44,
@@ -11395,6 +11745,8 @@
    "henleyScore": 85,
    "henleyRank": 50,
    "henleyPos": 102,
+   "henleyFrac": 102.5,
+   "balancedFrac": 96.0,
    "lenses": {
     "balanced": 51.01,
     "business": 51.16,
@@ -11460,6 +11812,8 @@
    "henleyScore": 112,
    "henleyRank": 39,
    "henleyPos": 84,
+   "henleyFrac": 84.5,
+   "balancedFrac": 86.0,
    "lenses": {
     "balanced": 63.0,
     "business": 63.03,
@@ -11525,6 +11879,8 @@
    "henleyScore": 127,
    "henleyRank": 28,
    "henleyPos": 65,
+   "henleyFrac": 66.0,
+   "balancedFrac": 67.0,
    "lenses": {
     "balanced": 70.35,
     "business": 70.25,
@@ -11590,6 +11946,8 @@
    "henleyScore": 65,
    "henleyRank": 66,
    "henleyPos": 130,
+   "henleyFrac": 130.5,
+   "balancedFrac": 130.0,
    "lenses": {
     "balanced": 34.55,
     "business": 34.3,
@@ -11655,6 +12013,8 @@
    "henleyScore": 111,
    "henleyRank": 40,
    "henleyPos": 86,
+   "henleyFrac": 86.0,
+   "balancedFrac": 94.0,
    "lenses": {
     "balanced": 55.58,
     "business": 55.06,
@@ -11720,6 +12080,8 @@
    "henleyScore": 114,
    "henleyRank": 37,
    "henleyPos": 79,
+   "henleyFrac": 80.5,
+   "balancedFrac": 81.0,
    "lenses": {
     "balanced": 64.21,
     "business": 64.25,
@@ -11785,6 +12147,8 @@
    "henleyScore": 113,
    "henleyRank": 38,
    "henleyPos": 83,
+   "henleyFrac": 83.0,
+   "balancedFrac": 82.0,
    "lenses": {
     "balanced": 64.43,
     "business": 64.58,
@@ -11850,6 +12214,8 @@
    "henleyScore": 66,
    "henleyRank": 65,
    "henleyPos": 128,
+   "henleyFrac": 128.5,
+   "balancedFrac": 133.0,
    "lenses": {
     "balanced": 33.57,
     "business": 33.31,
@@ -11915,6 +12281,8 @@
    "henleyScore": 62,
    "henleyRank": 68,
    "henleyPos": 135,
+   "henleyFrac": 136.5,
+   "balancedFrac": 141.0,
    "lenses": {
     "balanced": 31.67,
     "business": 31.37,
@@ -11980,6 +12348,8 @@
    "henleyScore": 131,
    "henleyRank": 25,
    "henleyPos": 61,
+   "henleyFrac": 61.0,
+   "balancedFrac": 64.0,
    "lenses": {
     "balanced": 71.25,
     "business": 71.1,
@@ -12045,6 +12415,8 @@
    "henleyScore": 137,
    "henleyRank": 19,
    "henleyPos": 53,
+   "henleyFrac": 53.0,
+   "balancedFrac": 53.0,
    "lenses": {
     "balanced": 74.82,
     "business": 74.82,
@@ -12110,6 +12482,8 @@
    "henleyScore": 153,
    "henleyRank": 11,
    "henleyPos": 41,
+   "henleyFrac": 42.0,
+   "balancedFrac": 43.0,
    "lenses": {
     "balanced": 81.5,
     "business": 81.47,
@@ -12175,6 +12549,8 @@
    "henleyScore": 60,
    "henleyRank": 70,
    "henleyPos": 140,
+   "henleyFrac": 140.0,
+   "balancedFrac": 136.5,
    "lenses": {
     "balanced": 33.24,
     "business": 32.88,
@@ -12240,6 +12616,8 @@
    "henleyScore": 135,
    "henleyRank": 21,
    "henleyPos": 56,
+   "henleyFrac": 56.5,
+   "balancedFrac": 58.0,
    "lenses": {
     "balanced": 72.93,
     "business": 72.94,
@@ -12305,6 +12683,8 @@
    "henleyScore": 135,
    "henleyRank": 21,
    "henleyPos": 56,
+   "henleyFrac": 56.5,
+   "balancedFrac": 56.0,
    "lenses": {
     "balanced": 73.44,
     "business": 73.42,
@@ -12370,6 +12750,8 @@
    "henleyScore": 109,
    "henleyRank": 42,
    "henleyPos": 90,
+   "henleyFrac": 90.5,
+   "balancedFrac": 88.0,
    "lenses": {
     "balanced": 61.71,
     "business": 61.6,
@@ -12435,6 +12817,8 @@
    "henleyScore": 52,
    "henleyRank": 77,
    "henleyPos": 159,
+   "henleyFrac": 159.5,
+   "balancedFrac": 149.5,
    "lenses": {
     "balanced": 30.53,
     "business": 30.23,
@@ -12500,6 +12884,8 @@
    "henleyScore": 80,
    "henleyRank": 54,
    "henleyPos": 109,
+   "henleyFrac": 109.5,
+   "balancedFrac": 111.0,
    "lenses": {
     "balanced": 40.85,
     "business": 40.45,
@@ -12565,6 +12951,8 @@
    "henleyScore": 115,
    "henleyRank": 36,
    "henleyPos": 78,
+   "henleyFrac": 78.0,
+   "balancedFrac": 80.0,
    "lenses": {
     "balanced": 64.42,
     "business": 64.42,
@@ -12630,6 +13018,8 @@
    "henleyScore": 80,
    "henleyRank": 54,
    "henleyPos": 109,
+   "henleyFrac": 109.5,
+   "balancedFrac": 97.0,
    "lenses": {
     "balanced": 48.29,
     "business": 48.38,
@@ -12695,6 +13085,8 @@
    "henleyScore": 33,
    "henleyRank": 93,
    "henleyPos": 193,
+   "henleyFrac": 193.5,
+   "balancedFrac": 194.0,
    "lenses": {
     "balanced": 20.67,
     "business": 20.42,
@@ -12760,6 +13152,8 @@
    "henleyScore": 94,
    "henleyRank": 47,
    "henleyPos": 97,
+   "henleyFrac": 97.0,
+   "balancedFrac": 99.0,
    "lenses": {
     "balanced": 47.5,
     "business": 47.1,
@@ -12825,6 +13219,8 @@
    "henleyScore": 62,
    "henleyRank": 68,
    "henleyPos": 135,
+   "henleyFrac": 136.5,
+   "balancedFrac": 138.0,
    "lenses": {
     "balanced": 32.5,
     "business": 32.2,
@@ -12890,6 +13286,8 @@
    "henleyScore": 59,
    "henleyRank": 71,
    "henleyPos": 141,
+   "henleyFrac": 142.5,
+   "balancedFrac": 140.0,
    "lenses": {
     "balanced": 31.87,
     "business": 31.63,

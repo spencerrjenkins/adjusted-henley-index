@@ -205,7 +205,7 @@
       `<strong>${country.name}</strong>` +
       row(metric.short, fmt(metric.get(country), metric.decimals) + metric.unit) +
       row("Henley rank", "#" + country.henleyRank) +
-      row("Adjusted rank", "#" + country.pos.balanced) +
+      row("Position → adjusted", country.henleyPos + " → " + country.pos.balanced) +
       row("Reaches / admits", `${country.reaches} / ${country.admits}`) +
       `<div class="row" style="margin-top:.35rem"><span>${country.clusterLabel}</span></div>`;
     tooltip.style.opacity = "1";
@@ -261,7 +261,10 @@
     { key: "henleyPos", label: "Position /199", d: 0 },
     { key: "balanced", label: "Adjusted %", d: 1, lens: true },
     { key: "posBalanced", label: "Adj. position", d: 0 },
-    { key: "move", label: "Move", d: 0, delta: true },
+    // Movement is the fractional difference, not the difference of the two
+    // integer positions: Henley's ties would otherwise make almost everyone
+    // appear to fall. See the note under the table.
+    { key: "move", label: "Move", d: 1, delta: true },
     { key: "gdpShare", label: "World GDP %", d: 1 },
     { key: "admits", label: "Admits", d: 0 },
     { key: "balance", label: "Balance", d: 0, delta: true },
@@ -272,7 +275,7 @@
       case "name": return country.name;
       case "balanced": return country.lenses.balanced;
       case "posBalanced": return country.pos.balanced;
-      case "move": return country.henleyPos - country.pos.balanced;
+      case "move": return country.henleyFrac - country.balancedFrac;
       default: return country[key];
     }
   }
@@ -359,11 +362,13 @@
     document.getElementById("detail-sub").textContent =
       `${c.clusterLabel} · ${c.region || "—"} · ${c.incomeGroup || "income group not reported"}`;
 
-    const move = c.henleyPos - c.pos.balanced;
+    const move = c.henleyFrac - c.balancedFrac;
+    const moveLabel = Math.abs(move) < 0.05 ? "" :
+      ` (${move > 0 ? "+" : "\u2212"}${Math.abs(move).toFixed(1)})`;
     document.getElementById("detail-kpis").innerHTML = [
       tile(fmt(c.henleyScore) , "destinations, Henley rule"),
       tile("#" + c.henleyRank, "Henley rank (published convention)"),
-      tile("#" + c.pos.balanced + (move ? ` (${move > 0 ? "+" : ""}${move})` : ""), "adjusted rank"),
+      tile("#" + c.pos.balanced + moveLabel, "adjusted position, and fractional move"),
       tile(fmt(c.gdpShare, 1) + "%", "of world GDP reachable"),
       tile(fmt(c.popShare, 1) + "%", "of humanity reachable"),
       tile(fmt(c.reaches) + " / " + fmt(c.admits), "reaches / admits"),
@@ -399,6 +404,8 @@
     document.getElementById("detail-uncertainty").innerHTML =
       `<p class="note" style="margin:0">Across 3,000 resampled pillar weightings this passport ranks
        between <b>#${c.mcLow}</b> and <b>#${c.mcHigh}</b>, median <b>#${c.mcMedian}</b>.
+       Its expected position among 199 is <b>${c.henleyFrac.toFixed(1)}</b> under the
+       Henley rule and <b>${c.balancedFrac.toFixed(1)}</b> once destinations are weighted.
        A regression on its own wealth, development, size and institutions predicts
        <b>${fmt(c.predicted, 1)}%</b> attainment; it actually reaches
        <b>${fmt(c.lenses.balanced, 1)}%</b> — ${c.residual >= 0 ? "above" : "below"}

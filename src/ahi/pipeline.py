@@ -119,6 +119,7 @@ def run(n_monte_carlo: int = 3000, build_website: bool = True) -> dict:
 
     movement = _save(sensitivity.rank_movement(family).assign(
         name=lambda d: d["passport"].map(names)), "15_rank_movement")
+    movement_balance = sensitivity.movement_balance(movement)
 
     published = pd.read_csv(MANUAL / "henley_published_2026.csv", comment="#")
     validation = sensitivity.validate_against_published(family, published)
@@ -205,14 +206,14 @@ def run(n_monte_carlo: int = 3000, build_website: bool = True) -> dict:
         "destinations_total": int(n_total),
     }
     results["top15"] = top[["passport", "name", "henley_score", "henley_rank", "henley_pos",
-                            f"{headline}_score", f"{headline}_rank", f"{headline}_pos",
+                            "henley_frac", f"{headline}_score", f"{headline}_rank",
+                            f"{headline}_pos", f"{headline}_frac",
                             f"{headline}_pct", "gdp_share_score", "pop_share_score"]]
-    results["biggest_gainers"] = movement.nlargest(12, "total_move")[
-        ["passport", "name", "baseline_rank", "target_rank", "total_move",
-         "weighting_effect", "friction_effect"]]
-    results["biggest_losers"] = movement.nsmallest(12, "total_move")[
-        ["passport", "name", "baseline_rank", "target_rank", "total_move",
-         "weighting_effect", "friction_effect"]]
+    movement_cols = ["passport", "name", "baseline_rank", "target_rank", "baseline_pos",
+                     "target_pos", "total_move", "weighting_effect", "friction_effect"]
+    results["biggest_gainers"] = movement.nlargest(12, "total_move")[movement_cols]
+    results["biggest_losers"] = movement.nsmallest(12, "total_move")[movement_cols]
+    results["movement_balance"] = movement_balance
     results["concentration"] = concentration
     results["inequality"] = ineq[ineq["index"].isin(["henley", headline, "gdp_share", "pop_share"])]
     results["regression"] = {
