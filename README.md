@@ -1,15 +1,10 @@
 # Adjusted Henley Index
 
-**An opportunity-weighted rebuild of the Henley Passport Index — with the
-weighting made explicit, and then stress-tested until it admits how little it
-matters.**
+**An opportunity-weighted rebuild of the Henley Passport Index — with the weighting made explicit, and then stress-tested until it admits how little it matters.**
 
-[![CI](https://github.com/spencerrjenkins/adjusted-henley-index/actions/workflows/ci.yml/badge.svg)](https://github.com/spencerrjenkins/adjusted-henley-index/actions/workflows/ci.yml)
-[![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue)](pyproject.toml)
-[![License: MIT](https://img.shields.io/badge/license-MIT-green)](#license)
+[![CI](https://github.com/spencerrjenkins/adjusted-henley-index/actions/workflows/ci.yml/badge.svg)](https://github.com/spencerrjenkins/adjusted-henley-index/actions/workflows/ci.yml) [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue)](pyproject.toml) [![License: MIT](https://img.shields.io/badge/license-MIT-green)](#license)
 
-📊 **[Interactive data story →](https://spencerrjenkins.github.io/adjusted-henley-index/)**
-· 📝 **[Long-form article →](ARTICLE.md)**
+📊 **[Interactive data story →](https://spencerrjenkins.github.io/adjusted-henley-index/)** · 📝 **[Long-form article →](ARTICLE.md)**
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="output/figures/01_rank_movement.dark.png">
@@ -20,41 +15,17 @@ matters.**
 
 ## The one-paragraph version
 
-The Henley Passport Index scores a passport by *counting* destinations reachable
-without a prior visa: Kiribati and the United States are worth one point each,
-and an e-Visa is worth the same as being banned. This project rebuilds that index
-with destinations weighted by a six-pillar composite of what is actually behind
-the door, entry regimes scored on a graded friction ladder instead of a binary,
-and twelve index variants computed side by side. It then does the thing rankings
-almost never do — **uncertainty and sensitivity analysis** — and reports the
-result even though the result undercuts the premise: across every reasonable
-weighting the rankings agree at Kendall's τ > 0.91, and the choices that
-genuinely move the answer are how you score an e-Visa, whether you count
-permitted days, and whether you look outbound or inbound.
+The Henley Passport Index scores a passport by *counting* destinations reachable without a prior visa: Kiribati and the United States are worth one point each, and an e-Visa is worth the same as being banned. This project rebuilds that index with destinations weighted by a six-pillar composite of what is actually behind the door, entry regimes scored on a graded friction ladder instead of a binary, and twelve index variants computed side by side. It then does the thing rankings almost never do — **uncertainty and sensitivity analysis** — and reports the result even though the result undercuts the premise: across every reasonable weighting the rankings agree at Kendall's τ > 0.91, and the choices that genuinely move the answer are how you score an e-Visa, whether you count permitted days, and whether you look outbound or inbound.
 
-**The transferable finding is about composite indicators, not passports.** The
-reason re-weighting cannot move these rankings is that min-max scaling a basket
-of indicators and averaging it twice absorbs most of the variance the weights
-would have had to act on — before any weight is chosen. Any index built the
-standard way is far closer to a flat count than its authors intend, and its
-published weighting scheme is doing less work than the methodology note beside it
-implies. This project is a worked demonstration of that on a well-known index.
+**The transferable finding is about composite indicators, not passports.** The reason re-weighting cannot move these rankings is that min-max scaling a basket of indicators and averaging it twice absorbs most of the variance the weights would have had to act on — before any weight is chosen. Any index built the standard way is far closer to a flat count than its authors intend, and its published weighting scheme is doing less work than the methodology note beside it implies. This project is a worked demonstration of that on a well-known index.
 
 ---
 
 ## How this was made
 
-Built with heavy LLM assistance. The framing, the modeling choices, the
-ranking-convention analysis and the decision to publish the result that
-undercuts the premise are mine.
+Built with heavy LLM assistance. The framing, the modeling choices, the ranking-convention analysis and the decision to publish the result that undercuts the premise are mine.
 
-Stated plainly because the interesting question is not whether an assistant was
-used but whether the work holds up, and this repository is built so that it can
-be checked rather than taken on trust: every judgment call is in one file
-([`src/ahi/config.py`](src/ahi/config.py)), every number in the article and on
-the site is regenerated from raw data by `make run`, the site build fails if the
-prose references a figure the pipeline cannot supply, and CI rebuilds every
-artifact on each push and fails if a committed table disagrees with the rebuild.
+Stated plainly because the interesting question is not whether an assistant was used but whether the work holds up, and this repository is built so that it can be checked rather than taken on trust: every judgment call is in one file ([`src/ahi/config.py`](src/ahi/config.py)), every number in the article and on the site is regenerated from raw data by `make run`, the site build fails if the prose references a figure the pipeline cannot supply, and CI rebuilds every artifact on each push and fails if a committed table disagrees with the rebuild.
 
 ---
 
@@ -77,8 +48,7 @@ export PYTHONPATH=src
 .venv/bin/python -m pytest
 ```
 
-Full run: about 3 seconds on a laptop after the data is cached. Every artifact in
-`output/` and `docs/` is generated — nothing there is edited by hand.
+Full run: about 3 seconds on a laptop after the data is cached. Every artifact in `output/` and `docs/` is generated — nothing there is edited by hand.
 
 | Target | What it does |
 | --- | --- |
@@ -99,9 +69,7 @@ Every passport index ever published is the same expression:
 score(passport p) = Σ over destinations d of   credit(p → d) × weight(d)
 ```
 
-Henley sets `credit` to a binary and `weight(d) = 1` for every destination on
-Earth. That is not the absence of a modeling choice — it is a strong one. This
-project varies both terms and reports which conclusions survive.
+Henley sets `credit` to a binary and `weight(d) = 1` for every destination on Earth. That is not the absence of a modeling choice — it is a strong one. This project varies both terms and reports which conclusions survive.
 
 ### `credit` — the friction ladder
 
@@ -114,13 +82,9 @@ project varies both terms and reports which conclusions survive.
 | Visa required | 0.00 | **0.00** | 0.00 |
 | No admission | 0.00 | **0.00** | 0.00 |
 
-Defined in [`src/ahi/config.py`](src/ahi/config.py). The graded values are
-ordinal judgments, not measurements, so every result is recomputed under all
-three ladders — see `output/tables/11_ladder_sensitivity.csv`.
+Defined in [`src/ahi/config.py`](src/ahi/config.py). The graded values are ordinal judgments, not measurements, so every result is recomputed under all three ladders — see `output/tables/11_ladder_sensitivity.csv`.
 
-The source matrix also records **permitted stay in days** for 86% of visa-free
-pairs. Every published index discards that column; this one keeps it as the
-`stay_days` variant.
+The source matrix also records **permitted stay in days** for 86% of visa-free pairs. Every published index discards that column; this one keeps it as the `stay_days` variant.
 
 ### `weight` — fifteen indicators, six pillars
 
@@ -135,14 +99,9 @@ pairs. Every published index discards that column; this one keeps it as the
 
 ⁻ = lower is better; the normalized column is direction-corrected.
 
-**Pipeline per indicator:** latest observation → vintage floor (anything before
-2012 is treated as missing, except tourism where the whole world is
-pre-pandemic) → manual patch or country proxy → peer-group imputation → log
-transform where skewed → winsorize at [1%, 99%] → min-max to [0, 1].
+**Pipeline per indicator:** latest observation → vintage floor (anything before 2012 is treated as missing, except tourism where the whole world is pre-pandemic) → manual patch or country proxy → peer-group imputation → log transform where skewed → winsorize at [1%, 99%] → min-max to [0, 1].
 
-**Pillar score** = unweighted mean of its indicators. Weighting happens exactly
-once, at the pillar level, where there are six numbers to argue about instead of
-fifteen.
+**Pillar score** = unweighted mean of its indicators. Weighting happens exactly once, at the pillar level, where there are six numbers to argue about instead of fifteen.
 
 ### The index family
 
@@ -163,39 +122,17 @@ fifteen.
 | `pop_share` | population, unit-denominated | % of humanity reachable |
 | `stay_days` | permitted days × credit | person-days of frictionless presence |
 
-Plus the inbound mirror: `openness_count` (Henley's own Openness Index),
-`openness_graded`, and `openness_people_pct` — how many *people*, not countries,
-you admit.
+Plus the inbound mirror: `openness_count` (Henley's own Openness Index), `openness_graded`, and `openness_people_pct` — how many *people*, not countries, you admit.
 
 ### Three ranking conventions, each with one job
 
-Comparing two rankings with different tie structures is the subtlest thing in
-this project, and it has two failure modes rather than one.
+Comparing two rankings with different tie structures is the subtlest thing in this project, and it has two failure modes rather than one.
 
-**Dense** (`*_rank`) is Henley's published convention: *"the passport with the
-next lowest score receives the next consecutive rank number, regardless of how
-many passports occupy the rank above."* That is why their table shows the US at
-rank 10 with 36 passports ahead of it, and why Afghanistan — dead last — appears
-at rank 97 in a faithful reproduction. Reproducing it exactly is the point; using
-it for comparison is not. An integer count compresses 199 passports into ~100
-ranks while a continuous score spreads them across 199, so differencing the two
-makes 193 of 199 countries "fall".
+**Dense** (`*_rank`) is Henley's published convention: *"the passport with the next lowest score receives the next consecutive rank number, regardless of how many passports occupy the rank above."* That is why their table shows the US at rank 10 with 36 passports ahead of it, and why Afghanistan — dead last — appears at rank 97 in a faithful reproduction. Reproducing it exactly is the point; using it for comparison is not. An integer count compresses 199 passports into ~100 ranks while a continuous score spreads them across 199, so differencing the two makes 193 of 199 countries "fall".
 
-**Competition** (`*_pos`, the `1224` rule) fixes the scale and is what the tables
-and the website display — Afghanistan is 199th. But it still awards every member
-of a tie the *best* position in the group: thirteen passports tied on 160
-destinations all become 6th, when between them they occupy positions 6–18. With
-154 of 199 passports in some tie under Henley and almost none under a continuous
-score, breaking ties can only push members down. The residual drift is ≈ 1 rank
-per passport, always in the same direction — enough to produce a list of
-"fallers" (Ireland, Norway, Germany, Italy) that were not falling at all.
+**Competition** (`*_pos`, the `1224` rule) fixes the scale and is what the tables and the website display — Afghanistan is 199th. But it still awards every member of a tie the *best* position in the group: thirteen passports tied on 160 destinations all become 6th, when between them they occupy positions 6–18. With 154 of 199 passports in some tie under Henley and almost none under a continuous score, breaking ties can only push members down. The residual drift is ≈ 1 rank per passport, always in the same direction — enough to produce a list of "fallers" (Ireland, Norway, Germany, Italy) that were not falling at all.
 
-**Fractional** (`*_frac`) puts a tied group at the average of the positions it
-occupies, so the thirteen-way tie lands at 12.0. Because the sum of fractional
-ranks is *n*(*n*+1)/2 for *any* tie structure, both indices sit on the same
-total: mean movement is **zero by construction** and what remains is real
-reordering. **All movement analysis uses this.** With it, 92 passports fall and
-84 rise instead of 104 and 54.
+**Fractional** (`*_frac`) puts a tied group at the average of the positions it occupies, so the thirteen-way tie lands at 12.0. Because the sum of fractional ranks is *n*(*n*+1)/2 for *any* tie structure, both indices sit on the same total: mean movement is **zero by construction** and what remains is real reordering. **All movement analysis uses this.** With it, 92 passports fall and 84 rise instead of 104 and 54.
 
 | Column | Convention | Used for |
 |---|---|---|
@@ -203,18 +140,9 @@ reordering. **All movement analysis uses this.** With it, 92 passports fall and
 | `*_pos` | competition (`1224`) | display: "what position is this passport" |
 | `*_frac` | fractional (`1.5, 1.5, 3, 4`) | **all cross-index movement and agreement** |
 
-**Scope.** This is not only about the headline movement figure. Scores are
-rounded to one decimal before ranking — we should not claim to separate
-passports more finely than we report them — so *every* variant carries ties,
-from 9 passports (`stay_days`) to 154 (`henley`). Every analysis that compares
-two rankings therefore uses fractional ranks: rank movement, index agreement,
-the ladder / normalization / imputation sensitivities, and the Monte Carlo rank
-intervals. Competition ranks survive only as display.
+**Scope.** This is not only about the headline movement figure. Scores are rounded to one decimal before ranking — we should not claim to separate passports more finely than we report them — so *every* variant carries ties, from 9 passports (`stay_days`) to 154 (`henley`). Every analysis that compares two rankings therefore uses fractional ranks: rank movement, index agreement, the ladder / normalization / imputation sensitivities, and the Monte Carlo rank intervals. Competition ranks survive only as display.
 
-Two tests guard this: fractional ranks must sum to *n*(*n*+1)/2 for every
-variant, and the mean movement between any two indices must be zero — with an
-assertion that the naive competition-rank version really is biased, so the test
-guards a live hazard rather than restating an identity.
+Two tests guard this: fractional ranks must sum to *n*(*n*+1)/2 for every variant, and the mean movement between any two indices must be zero — with an assertion that the naive competition-rank version really is biased, so the test guards a live hazard rather than restating an identity.
 
 ---
 
@@ -279,52 +207,27 @@ guards a live hazard rather than restating an identity.
 | [Our World in Data](https://ourworldindata.org/) | V-Dem rule of law, electoral democracy | |
 | [mledoze/countries](https://github.com/mledoze/countries) | centroids, area, languages, borders, subregion | |
 
-Every downloaded file is recorded in `data/raw/MANIFEST.json` with its URL, byte
-size, SHA-256 and fetch timestamp, so you can tell whether the numbers you are
-reading came from the same bytes as the ones published here.
+Every downloaded file is recorded in `data/raw/MANIFEST.json` with its URL, byte size, SHA-256 and fetch timestamp, so you can tell whether the numbers you are reading came from the same bytes as the ones published here.
 
 ### Data honesty
 
-**Vintage floor.** The World Bank carries a country's last reported figure
-forward indefinitely, so a naive "latest non-null" pull happily returns a 1994
-tertiary-enrollment number next to a 2025 GDP number. Anything older than 2012
-fails the floor and is imputed instead, with the substitution recorded.
-Tourism is exempt because the entire world's latest data is pre-pandemic and
-dropping it would delete the pillar — its median vintage is 2020, and it is
-treated as a structural signal of draw rather than a current-year figure.
+**Vintage floor.** The World Bank carries a country's last reported figure forward indefinitely, so a naive "latest non-null" pull happily returns a 1994 tertiary-enrollment number next to a 2025 GDP number. Anything older than 2012 fails the floor and is imputed instead, with the substitution recorded. Tourism is exempt because the entire world's latest data is pre-pandemic and dropping it would delete the pillar — its median vintage is 2020, and it is treated as a structural signal of draw rather than a current-year figure.
 
-**Imputation.** Hot-deck from the narrowest available peer group: income group →
-World Bank region → UN subregion → global median. A missing microstate looks far
-more like other high-income microstates than like the world median.
+**Imputation.** Hot-deck from the narrowest available peer group: income group → World Bank region → UN subregion → global median. A missing microstate looks far more like other high-income microstates than like the world median.
 
-**Manual patches.** [`data/manual/manual_overrides.csv`](data/manual/manual_overrides.csv)
-covers jurisdictions the multilateral agencies do not report separately —
-Taiwan, Kosovo, North Korea, Vatican City, Monaco, Liechtenstein, San Marino,
-Andorra, Macao, Cuba. Two mechanisms: a hand-entered value with its source named
-in a column, or a **country proxy** for cases where the honest answer is not "we
-estimate X" but "administratively, this *is* that place" — Vatican City's price
-level is Italy's; Liechtenstein's air connectivity is Switzerland's. A patch only
-ever fills a genuinely-missing cell; a real observation always wins.
+**Manual patches.** [`data/manual/manual_overrides.csv`](data/manual/manual_overrides.csv) covers jurisdictions the multilateral agencies do not report separately — Taiwan, Kosovo, North Korea, Vatican City, Monaco, Liechtenstein, San Marino, Andorra, Macao, Cuba. Two mechanisms: a hand-entered value with its source named in a column, or a **country proxy** for cases where the honest answer is not "we estimate X" but "administratively, this *is* that place" — Vatican City's price level is Italy's; Liechtenstein's air connectivity is Switzerland's. A patch only ever fills a genuinely-missing cell; a real observation always wins.
 
-Overall **93% of indicator cells are directly observed**. Per-cell provenance is
-in `output/tables/02b_provenance_cells.csv`.
+Overall **93% of indicator cells are directly observed**. Per-cell provenance is in `output/tables/02b_provenance_cells.csv`.
 
-**Sensitivity to all of it:** dropping every destination with more than three
-non-observed cells and rescoring moves the median passport by **one rank**
-(`output/tables/13_imputation_sensitivity.csv`).
+**Sensitivity to all of it:** dropping every destination with more than three non-observed cells and rescoring moves the median passport by **one rank** (`output/tables/13_imputation_sensitivity.csv`).
 
 ---
 
 ## Validation
 
-Setting the machinery to Henley's own positions and pointing it at the open
-matrix should land countries in the tiers Henley publishes. It does — 12 of 15
-reference points from their January 2026 report land within two places
-(Spearman ρ = 0.79); see `output/tables/16_henley_validation.csv`.
+Setting the machinery to Henley's own positions and pointing it at the open matrix should land countries in the tiers Henley publishes. It does — 12 of 15 reference points from their January 2026 report land within two places (Spearman ρ = 0.79); see `output/tables/16_henley_validation.csv`.
 
-A sharper check came free. Henley's Openness Index reports the United States
-admits **46** nationalities without a prior visa. Reconstructing that number
-independently from the open matrix gives **46**. It is now a test:
+A sharper check came free. Henley's Openness Index reports the United States admits **46** nationalities without a prior visa. Reconstructing that number independently from the open matrix gives **46**. It is now a test:
 
 ```python
 def test_openness_matches_published_us_figure(edges, features):
@@ -332,64 +235,25 @@ def test_openness_matches_published_us_figure(edges, features):
     assert openness.at["USA", "openness_count"] == 46
 ```
 
-The test suite guards the class of bug that produces a plausible-looking wrong
-answer rather than a crash: dense-vs-competition ranking, direction-corrected
-indicators (a flipped homicide sign would invert the security pillar invisibly),
-the reduction to a plain count when both knobs are at Henley's positions, and
-inbound/outbound totals matching.
+The test suite guards the class of bug that produces a plausible-looking wrong answer rather than a crash: dense-vs-competition ranking, direction-corrected indicators (a flipped homicide sign would invert the security pillar invisibly), the reduction to a plain count when both knobs are at Henley's positions, and inbound/outbound totals matching.
 
 ---
 
 ## Findings
 
-**1 · Weighting destinations moves fewer passports than you would expect.**
-Malaysia falls 20 places (expected position 12.0 → 32.0); Russia 12.5. Kosovo,
-Laos, Mongolia, Vietnam and Cambodia gain 10–12.5. 92 passports fall, 84 rise,
-mean movement exactly zero — almost everyone moves by single digits.
+**1 · Weighting destinations moves fewer passports than you would expect.** Malaysia falls 20 places (expected position 12.0 → 32.0); Russia 12.5. Kosovo, Laos, Mongolia, Vietnam and Cambodia gain 10–12.5. 92 passports fall, 84 rise, mean movement exactly zero — almost everyone moves by single digits.
 
-**2 · The friction ladder is the bigger lever.** Holding weights fixed and
-changing only how entry regimes are scored moves the median passport 4 places
-and the most sensitive 33.5. South Korea and Japan sit at expected positions 2
-and 3.5 under Henley's binary rule and both fall to 35.5 under a strict rule,
-because much of their access is visa-on-arrival.
+**2 · The friction ladder is the bigger lever.** Holding weights fixed and changing only how entry regimes are scored moves the median passport 4 places and the most sensitive 33.5. South Korea and Japan sit at expected positions 2 and 3.5 under Henley's binary rule and both fall to 35.5 under a strict rule, because much of their access is visa-on-arrival.
 
-**3 · The compositing recipe is a variance sink — and that, not the passport
-result, is the finding.** Min-max scaling 15 indicators and averaging them into 6
-pillars into 1 composite yields destination weights spanning a **3.5× spread**
-(Gini 0.15) out of underlying data where GDP per capita alone spans three orders
-of magnitude. That spread is a property of the pipeline, not a measurement of the
-world — which is exactly why it generalizes. 3,000 Dirichlet-resampled weightings
-move the median passport **2 ranks**; even a 143× artificial spread only pulls τ
-against the plain count down to 0.91; swapping min-max for rank or z-score
-normalization moves the median passport 1 rank. *Any index built by min-max
-scaling a basket of indicators and averaging it is far closer to a flat count
-than its authors intend, and its published weighting scheme is doing less work
-than the methodology note beside it implies.* The boundary: it is *linear*
-aggregation that does the damage, so geometrically aggregated composites (HDI
-since 2010) resist it — which is close to why the HDI changed.
+**3 · The compositing recipe is a variance sink — and that, not the passport result, is the finding.** Min-max scaling 15 indicators and averaging them into 6 pillars into 1 composite yields destination weights spanning a **3.5× spread** (Gini 0.15) out of underlying data where GDP per capita alone spans three orders of magnitude. That spread is a property of the pipeline, not a measurement of the world — which is exactly why it generalizes. 3,000 Dirichlet-resampled weightings move the median passport **2 ranks**; even a 143× artificial spread only pulls τ against the plain count down to 0.91; swapping min-max for rank or z-score normalization moves the median passport 1 rank. *Any index built by min-max scaling a basket of indicators and averaging it is far closer to a flat count than its authors intend, and its published weighting scheme is doing less work than the methodology note beside it implies.* The boundary: it is *linear* aggregation that does the damage, so geometrically aggregated composites (HDI since 2010) resist it — which is close to why the HDI changed.
 
-**4 · The divide is in the graph, not the weighting.** High-income countries
-average 77% attainment (17% of world population); lower-middle and low income
-average 34% and 26% (45% of world population). Gini of mobility: 0.26 by count,
-0.44 by share-of-world-GDP. The US reaches 153 and admits 46.
+**4 · The divide is in the graph, not the weighting.** High-income countries average 77% attainment (17% of world population); lower-middle and low income average 34% and 26% (45% of world population). Gini of mobility: 0.26 by count, 0.44 by share-of-world-GDP. The US reaches 153 and admits 46.
 
-**5 · Passports are institutions, and the residuals are diplomacy.** OLS on own
-wealth, HDI, population, rule of law, democracy and trade openness explains
-**74%** of variance; HDI and electoral democracy carry nearly all of it (GDP per
-capita is collinear, VIF > 11). Biggest over-performers: El Salvador, Nicaragua,
-Venezuela, Malaysia, UAE. Biggest under-performers: Sri Lanka, Lebanon, Armenia,
-Bhutan, Iran.
+**5 · Passports are institutions, and the residuals are diplomacy.** OLS on own wealth, HDI, population, rule of law, democracy and trade openness explains **74%** of variance; HDI and electoral democracy carry nearly all of it (GDP per capita is collinear, VIF > 11). Biggest over-performers: El Salvador, Nicaragua, Venezuela, Malaysia, UAE. Biggest under-performers: Sri Lanka, Lebanon, Armenia, Bhutan, Iran.
 
-**6 · Four regimes, recovered without supervision.** k-means finds a frictionless
-core (94), a guarded middle (32), an **open but unreciprocated** group of 36 that
-admits ~156 nationalities while reaching ~56 destinations, and 37 doubly closed.
-Louvain on the *mutual* access graph reconstructs the political map: European
-cluster of 76, African of 89, post-Soviet of 31.
+**6 · Four regimes, recovered without supervision.** k-means finds a frictionless core (94), a guarded middle (32), an **open but unreciprocated** group of 36 that admits ~156 nationalities while reaching ~56 destinations, and 37 doubly closed. Louvain on the *mutual* access graph reconstructs the political map: European cluster of 76, African of 89, post-Soviet of 31.
 
-**7 · Every bloc is already a free-movement area — except one.** EU-27, GCC,
-ASEAN, Mercosur, Five Eyes and the Caribbean CBI states all sit at 100% internal
-frictionless density; the African Union at 51%. What differs is external reach:
-Five Eyes 152 destinations, EU 133, African Union 31.
+**7 · Every bloc is already a free-movement area — except one.** EU-27, GCC, ASEAN, Mercosur, Five Eyes and the Caribbean CBI states all sit at 100% internal frictionless density; the African Union at 51%. What differs is external reach: Five Eyes 152 destinations, EU 133, African Union 31.
 
 ---
 
@@ -433,80 +297,47 @@ Five Eyes 152 destinations, EU 133, African Union 31.
 <details>
 <summary><b>All 15 figures in <code>output/figures/</code></b> (each rendered in light and dark)</summary>
 
-`01_rank_movement` · `02_index_agreement` · `03_monte_carlo_ranks` ·
-`04_ladder_sensitivity` · `05_weight_distribution` · `06_pillar_profiles` ·
-`07_reciprocity` · `08_lorenz` · `09_residuals` · `10_divide_by_income` ·
-`11_pca_loadings` · `12_clusters` · `13_weight_dispersion` · `14_blocs` ·
-`15_stay_days`
+`01_rank_movement` · `02_index_agreement` · `03_monte_carlo_ranks` · `04_ladder_sensitivity` · `05_weight_distribution` · `06_pillar_profiles` · `07_reciprocity` · `08_lorenz` · `09_residuals` · `10_divide_by_income` · `11_pca_loadings` · `12_clusters` · `13_weight_dispersion` · `14_blocs` · `15_stay_days`
 
 </details>
 
-`output/results.json` is the machine-readable bundle of every figure the article
-and website quote. The site build **fails** if the template references a number
-the pipeline cannot supply, which is what keeps the prose from drifting out of
-agreement with the data.
+`output/results.json` is the machine-readable bundle of every figure the article and website quote. The site build **fails** if the template references a number the pipeline cannot supply, which is what keeps the prose from drifting out of agreement with the data.
 
 ### The website is not a rendering of the figures
 
-The PNG suite above is what the README and `ARTICLE.md` embed. The
-[data story](https://spencerrjenkins.github.io/adjusted-henley-index/) redraws
-the same charts as interactive SVG — hover any mark for the numbers behind it —
-and adds four things a static figure cannot do:
+The PNG suite above is what the README and `ARTICLE.md` embed. The [data story](https://spencerrjenkins.github.io/adjusted-henley-index/) redraws the same charts as interactive SVG — hover any mark for the numbers behind it — and adds four things a static figure cannot do:
 
-- **A formula walkthrough** that names both terms of
-  `score = Σ credit × weight` and then walks one real passport from a raw
-  destination count to an attainment percentage.
-- **A friction-ladder diagram** showing graded credit as bars against Henley's
-  binary rule as a marker, sized by the share of all 39,402 pairs each regime
-  covers.
-- **A ranking-convention worked example** — five passports, three tied, under
-  dense / competition / fractional, with the column sums that explain why only
-  the last is safe to difference.
-- **A live weight explorer.** The composite is linear in the pillar weights, so
-  the whole index collapses to six numbers per passport:
-  `score = N · Σᵢ wᵢCᵢ / Σᵢ wᵢTᵢ`. The browser gets those 199×6 contributions
-  and rebuilds the ranking exactly as you move the sliders — not an
-  approximation of the pipeline, the same arithmetic. A test asserts the two
-  agree for every lens.
+- **A formula walkthrough** that names both terms of `score = Σ credit × weight` and then walks one real passport from a raw destination count to an attainment percentage.
+- **A friction-ladder diagram** showing graded credit as bars against Henley's binary rule as a marker, sized by the share of all 39,402 pairs each regime covers.
+- **A ranking-convention worked example** — five passports, three tied, under dense / competition / fractional, with the column sums that explain why only the last is safe to difference.
+- **A live weight explorer.** The composite is linear in the pillar weights, so the whole index collapses to six numbers per passport: `score = N · Σᵢ wᵢCᵢ / Σᵢ wᵢTᵢ`. The browser gets those 199×6 contributions and rebuilds the ranking exactly as you move the sliders — not an approximation of the pipeline, the same arithmetic. A test asserts the two agree for every lens.
 
-Charts read their colours from CSS custom properties at draw time and redraw on
-theme change and resize, so the light/dark palette is defined once.
+Charts read their colours from CSS custom properties at draw time and redraw on theme change and resize, so the light/dark palette is defined once.
 
 ---
 
 ## Extending it
 
-Almost everything you would want to change lives in
-[`src/ahi/config.py`](src/ahi/config.py):
+Almost everything you would want to change lives in [`src/ahi/config.py`](src/ahi/config.py):
 
-- **Add an indicator** — append an `Indicator(...)` to `INDICATORS` with its
-  source, World Bank code, pillar, direction and transform, then `make refetch run`.
-- **Change the friction ladder** — edit `ACCESS_LADDERS`; the sensitivity
-  analysis picks up new ladders automatically.
-- **Add a lens** — append a `Lens(...)` to `LENSES` with a pillar weight vector
-  summing to 1. It flows into the index family, the agreement matrix, the site's
-  metric switcher and the detail panel without further changes.
+- **Add an indicator** — append an `Indicator(...)` to `INDICATORS` with its source, World Bank code, pillar, direction and transform, then `make refetch run`.
+- **Change the friction ladder** — edit `ACCESS_LADDERS`; the sensitivity analysis picks up new ladders automatically.
+- **Add a lens** — append a `Lens(...)` to `LENSES` with a pillar weight vector summing to 1. It flows into the index family, the agreement matrix, the site's metric switcher and the detail panel without further changes.
 - **Add a bloc** — extend `BLOCS`.
 
 ---
 
 ## Limitations
 
-- Not Henley's data (199 × 199 vs their 199 × 227); scores compare in order, not
-  in level.
+- Not Henley's data (199 × 199 vs their 199 × 227); scores compare in order, not in level.
 - The graded ladder is a judgment, hence the three-ladder reporting.
 - Tourism data is pre-pandemic by construction.
-- 7% of cells are imputed, proxied or hand-sourced; figures for Vatican City,
-  North Korea and Kosovo are estimates.
-- A snapshot with no time dimension — all twenty-year claims are cited to Henley,
-  not reproduced.
-- Legal admissibility is not admission: nothing here measures secondary
-  screening or how a passport is treated at a desk.
+- 7% of cells are imputed, proxied or hand-sourced; figures for Vatican City, North Korea and Kosovo are estimates.
+- A snapshot with no time dimension — all twenty-year claims are cited to Henley, not reproduced.
+- Legal admissibility is not admission: nothing here measures secondary screening or how a passport is treated at a desk.
 
 ---
 
 ## License
 
-Code MIT. Upstream data remains under its own licenses: World Bank (CC BY-4.0),
-UNDP, Our World in Data (CC BY), `imorte/passport-index-data`,
-`mledoze/countries` (ODbL). Not affiliated with or endorsed by Henley & Partners.
+Code MIT. Upstream data remains under its own licenses: World Bank (CC BY-4.0), UNDP, Our World in Data (CC BY), `imorte/passport-index-data`, `mledoze/countries` (ODbL). Not affiliated with or endorsed by Henley & Partners.
