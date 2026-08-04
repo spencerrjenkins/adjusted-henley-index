@@ -16,7 +16,7 @@ import numpy as np
 import pandas as pd
 
 from ..config import (ASSETS, DOCS, FIGURES, INDICATORS, LENSES, LENS_BY_KEY,
-                      PILLARS, PILLAR_BLURBS, PILLAR_LABELS, TABLES,
+                      PILLARS, PILLAR_BLURBS, PILLAR_LABELS, ROOT, TABLES,
                       ACCESS_LADDERS, HEADLINE_LENS)
 
 SITE_ASSETS = ASSETS / "site"
@@ -48,6 +48,14 @@ def _ordinal(n: int) -> str:
 
 def _ladder_row(ladder, iso3: str):
     return ladder[ladder["passport"] == iso3].iloc[0]
+
+
+def _n_tests() -> int:
+    """Read off the test files rather than typed into the page, so the count
+    cannot drift from the suite. Every test is a plain function -- nothing is
+    parametrised -- so counting definitions is what pytest collects."""
+    return sum(len(re.findall(r"^def test_", path.read_text(), re.M))
+               for path in sorted((ROOT / "tests").glob("test_*.py")))
 
 
 def _project(lon: float, lat: float) -> list[float]:
@@ -261,6 +269,9 @@ def _tokens(results: dict, master: pd.DataFrame, tables: dict) -> dict[str, str]
         "n_edges": f"{meta['n_edges']:,}",
         "n_indicators": f"{meta['n_indicators']}",
         "n_variants": str(len([c for c in tables["family"].columns if c.endswith("_pos")])),
+        "n_tests": str(_n_tests()),
+        "n_tables": str(len(list(TABLES.glob("*.csv")))),
+        "n_figures": str(len(list(FIGURES.glob("*.light.png")))),
 
         "malaysia_henley": _ordinal(int(by_iso.at["MYS", "henley_pos"])),
         "malaysia_adjusted": _ordinal(int(by_iso.at["MYS", "ahi_balanced_pos"])),
@@ -285,6 +296,11 @@ def _tokens(results: dict, master: pd.DataFrame, tables: dict) -> dict[str, str]
         "kor_strict": f'{_ladder_row(ladder, "KOR")["rank_strict"]:g}',
         "jpn_binary": f'{_ladder_row(ladder, "JPN")["rank_binary_henley"]:g}',
         "explicit_days_pct": str(round(visa_free["with_explicit_days"] / visa_free["pairs"] * 100)),
+
+        # Spread across min-max / rank / z-score normalization: the evidence that
+        # the compression is the recipe rather than one arbitrary scaling choice.
+        "norm_median": f'{tables["normalization"]["rank_spread"].median():g}',
+        "norm_max": f'{tables["normalization"]["rank_spread"].max():g}',
 
         "min_tau_family": f"{min_tau_family:.2f}",
         "mc_median_width": f'{results["monte_carlo"]["median_interval_width"]:g}',
@@ -370,6 +386,7 @@ def build(results: dict) -> None:
         "provenance": pd.read_csv(TABLES / "02_data_provenance.csv"),
         "registry": pd.read_csv(TABLES / "03_indicator_registry.csv"),
         "imputation": pd.read_csv(TABLES / "13_imputation_sensitivity.csv"),
+        "normalization": pd.read_csv(TABLES / "12_normalization_sensitivity.csv"),
     }
     from ..config import PROCESSED
     master = pd.read_csv(PROCESSED / "passport_master.csv")

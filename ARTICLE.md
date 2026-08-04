@@ -315,14 +315,32 @@ destination from 3.5× to 143× — by raising the composite to a power, which
 changes the spread without changing the ordering of destinations — only pulls
 the correlation with the plain count down to 0.91.
 
-Why? Because averaging fifteen min-max-scaled indicators into six pillars, and
-six pillars into one composite, is a variance sink. The resulting destination
-weights span only **3.5×** from the most to the least valuable country, and the
-Gini of destination weight is 0.15. The underlying data is nothing like that
-flat: GDP per capita alone spans three orders of magnitude. **Any composite
-built the standard way is far closer to a flat count than its authors intend**,
-and that is a general result about composite indicators, not a fact about
-passports.
+Why? Because the standard recipe for a composite indicator is a variance sink,
+and this index is built the standard way. Min-max scaling maps every indicator
+onto the same zero-to-one interval, so GDP per capita's three orders of
+magnitude and internet penetration's fivefold spread arrive at the averaging
+step looking equally wide. Averaging then does what averaging does — fifteen
+indicators into six pillars, six pillars into one number, each step pulling
+countries toward the middle. What comes out is a weight vector spanning **3.5×**
+from the most to the least valuable destination on Earth, with a Gini of 0.15.
+
+It is worth being exact about what that is a finding *about*. The 3.5× spread is
+a property of this pipeline rather than a measurement of the world — build a
+composite this way and you get a range like it more or less whatever you put in.
+That *is* the finding. Re-weighting cannot move the rankings because the
+compositing step has already absorbed most of the variance the weights would
+have had to act on, and it did so before any weight was chosen. So the claim
+generalizes in the direction that matters: **any index built by min-max scaling a
+basket of indicators and averaging it is far closer to a flat count than its
+authors intend**, and its published weighting scheme is doing less work than the
+methodology note beside it implies. HDI, EPI, the Global Competitiveness Index
+and this one are all the same machine in that respect. It is a statement about
+how composite indicators are made, not about passports.
+
+Nor is the compression an artifact of one arbitrary choice. Swapping min-max for
+rank-based or z-score normalization — the two standard alternatives, one of them
+unbounded — moves the median passport 1 rank and the most sensitive 8.5. There
+is no normalization in common use under which the weighting starts to matter.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="output/figures/03_monte_carlo_ranks.dark.png">

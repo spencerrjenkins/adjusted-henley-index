@@ -2,7 +2,7 @@
 PY := .venv/bin/python
 export PYTHONPATH := src
 
-.PHONY: all venv fetch run test site clean distclean
+.PHONY: all venv fetch run test verify site clean distclean
 
 all: venv fetch run test          ## fetch data, run the pipeline, run the tests
 
@@ -22,6 +22,9 @@ run:                              ## build tables, figures, results.json and doc
 
 test:                             ## run the invariant tests
 	$(PY) -m pytest
+
+verify:                           ## assert the committed outputs match a clean rebuild (what CI runs)
+	$(PY) -m ahi.regen_check
 
 serve:                            ## preview the data story locally
 	$(PY) -m http.server 8000 --directory docs

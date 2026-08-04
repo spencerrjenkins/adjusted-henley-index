@@ -26,6 +26,27 @@
       behind the door, then does the thing rankings almost never do: checks whether the
       re-weighting changes the answer.
     </p>
+
+    <p class="eyebrow" style="margin-top:2.2rem">What the answer turned out to be</p>
+    <ol class="tldr">
+      <li><b>Re-weighting the world barely changes the ranking.</b> Every variant here —
+        five hand-set lenses, PCA weights, entropy weights, three levels of dispersion —
+        agrees with the plain count and with each other at Kendall's tau above
+        {{min_tau_family}}, and 3,000 resampled weightings move the median passport by
+        {{mc_median_width}} rank. The weighting scheme is the thing everyone argues
+        about, and it is close to irrelevant.</li>
+      <li><b>That is a fact about composite indicators, not about passports.</b>
+        Averaging fifteen min-max-scaled indicators into six pillars and six pillars into
+        one number leaves the most valuable destination on Earth worth
+        {{gamma1_ratio}}× the least. The compression is a property of the standard
+        recipe, and it applies to any index built that way.</li>
+      <li><b>What does move the answer is the part nobody argues about.</b> Holding the
+        weights fixed and changing only how an e-Visa or a visa-on-arrival is scored
+        moves the median passport {{ladder_median}} places and the most sensitive
+        {{ladder_max}}. The friction ladder is the real modeling choice; the weights are
+        the decoy.</li>
+    </ol>
+
     <div class="kpi-row">
       <div class="tile"><span class="value">{{n_passports}}</span><span class="label">passports scored</span></div>
       <div class="tile"><span class="value">{{n_edges}}</span><span class="label">bilateral entry rules parsed</span></div>
@@ -34,10 +55,53 @@
     </div>
     <p class="note" style="margin-top:1.4rem">
       Open source · <a href="https://github.com/spencerrjenkins/adjusted-henley-index">github.com/spencerrjenkins/adjusted-henley-index</a>
-      · every figure below is regenerated from raw data by one command.
     </p>
   </div>
 </header>
+
+<section class="build">
+  <div class="wrap-wide">
+    <p class="eyebrow">What I built</p>
+    <dl class="build-grid">
+      <div>
+        <dt>Pipeline</dt>
+        <dd>One entry point, no notebooks. Twenty raw sources → patch, impute and
+          record provenance → {{n_indicators}} indicators → six pillars →
+          {{n_variants}} index variants → {{n_tables}} tables, {{n_figures}} figures in
+          light and dark, and this page. {{runtime}} seconds end to end.</dd>
+      </div>
+      <div>
+        <dt>Stack</dt>
+        <dd>Python: pandas, NumPy, scikit-learn, statsmodels, networkx, matplotlib.
+          Every chart on this page is drawn by a dependency-free SVG engine written for
+          it — no charting library, no build step, no runtime fetch.</dd>
+      </div>
+      <div>
+        <dt>Tests and CI</dt>
+        <dd>{{n_tests}} invariant tests, each guarding a mistake that would produce a
+          plausible wrong answer rather than a crash. CI runs them on every push
+          <em>and</em> rebuilds every artifact from the raw data, failing if a committed
+          table disagrees with what the code produces. The reproducibility claim is
+          checked, not asserted.</dd>
+      </div>
+      <div>
+        <dt>Provenance</dt>
+        <dd>Pinned dependencies, a SHA-256 manifest per downloaded source, vintage
+          floors, per-cell observed/imputed/hand-sourced provenance, and seeded
+          stochastic steps. Every judgment call — the friction ladder, the pillar
+          weights, the lenses — lives in one config file rather than scattered through
+          the analysis.</dd>
+      </div>
+    </dl>
+    <p class="note">
+      Built with heavy LLM assistance. The framing, the modeling choices, the
+      ranking-convention analysis and the decision to publish the result that undercuts
+      the premise are mine — and the
+      <a href="https://github.com/spencerrjenkins/adjusted-henley-index">repository</a>
+      is the argument for them.
+    </p>
+  </div>
+</section>
 
 <section>
   <div class="wrap">
@@ -308,20 +372,42 @@
       <div data-chart="agreement"></div>
     </div>
     <p>
-      Why? Because averaging fifteen min-max-scaled indicators into six pillars, and six
-      pillars into one composite, is a variance sink. The resulting destination weights
-      span only {{gamma1_ratio}}× from the most to the least valuable country — a far
-      narrower claim than the underlying data supports, where GDP per capita alone spans
-      three orders of magnitude. Any composite built this way is closer to a flat count
-      than its authors intend.
+      Why? Because the standard recipe for a composite indicator is a variance sink, and
+      this index is built the standard way. Min-max scaling maps every indicator onto the
+      same zero-to-one interval, so GDP per capita's three orders of magnitude and
+      internet penetration's fivefold spread arrive at the averaging step looking equally
+      wide. Averaging then does what averaging does — fifteen indicators into six pillars,
+      six pillars into one number, each step pulling countries toward the middle. What
+      comes out is a weight vector spanning {{gamma1_ratio}}× from the most to the least
+      valuable destination on Earth.
+    </p>
+    <p>
+      It is worth being exact about what that is a finding <em>about</em>. The
+      {{gamma1_ratio}}× spread is a property of this pipeline rather than a measurement
+      of the world: build a composite this way and you get a range like it more or less
+      whatever you put in. That <em>is</em> the finding. Re-weighting cannot move the
+      rankings because the compositing step has already absorbed most of the variance the
+      weights would have had to act on — and it did so before any weight was chosen. So
+      the claim generalizes in the direction that matters. <b>Any index built by min-max
+      scaling a basket of indicators and averaging it is far closer to a flat count than
+      its authors intend</b>, and its published weighting scheme is doing less work than
+      the methodology note beside it implies. That is a statement about how composite
+      indicators are made, not about passports.
+    </p>
+    <p>
+      Nor is the compression an artifact of one arbitrary choice. Swapping min-max for
+      rank-based or z-score normalization — the two standard alternatives, one of them
+      unbounded — moves the median passport {{norm_median}} rank and the most sensitive
+      {{norm_max}}. There is no normalization in common use under which the weighting
+      starts to matter.
     </p>
     <div class="chart-card">
-      <h4>The world is less unequal as a set of destinations than as a set of economies</h4>
-      <p class="chart-sub">Every destination's Balanced-lens weight. Averaging fifteen indicators into six pillars and six pillars into one number compresses the whole planet into a 3.5x range.</p>
+      <h4>What the compositing step does to fifteen indicators</h4>
+      <p class="chart-sub">Every destination's Balanced-lens weight. Scaling each indicator to zero-to-one and then averaging twice leaves the most valuable destination on Earth worth {{gamma1_ratio}}x the least — a property of the recipe, not a measurement of how alike countries are.</p>
       <div data-chart="weight-distribution"></div>
     </div>
     <div class="chart-card">
-      <h4>Even a 143x spread barely reorders the table</h4>
+      <h4>Even a {{gamma4_ratio}}x spread barely reorders the table</h4>
       <p class="chart-sub">The composite raised to a power, which stretches the gap between the best and worst destination without changing their order. Kendall's tau against the plain count hardly moves.</p>
       <div data-chart="dispersion"></div>
     </div>

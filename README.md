@@ -4,6 +4,10 @@
 weighting made explicit, and then stress-tested until it admits how little it
 matters.**
 
+[![CI](https://github.com/spencerrjenkins/adjusted-henley-index/actions/workflows/ci.yml/badge.svg)](https://github.com/spencerrjenkins/adjusted-henley-index/actions/workflows/ci.yml)
+[![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue)](pyproject.toml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green)](#license)
+
 📊 **[Interactive data story →](https://spencerrjenkins.github.io/adjusted-henley-index/)**
 · 📝 **[Long-form article →](ARTICLE.md)**
 
@@ -57,6 +61,7 @@ Full run: about 3 seconds on a laptop after the data is cached. Every artifact i
 | `make fetch` | Download every upstream source into `data/raw/` (cached; `make refetch` forces) |
 | `make run` | Build 36 tables, 15 figures × 2 themes, `results.json`, and `docs/` |
 | `make test` | 27 invariant tests |
+| `make verify` | Assert the committed outputs match a clean rebuild |
 | `make serve` | Local preview of the data story |
 | `make clean` | Remove generated outputs, keep raw data |
 
@@ -196,12 +201,14 @@ guards a live hazard rather than restating an identity.
 ├── pyproject.toml              package metadata, console scripts
 ├── requirements.txt            pinned versions the published figures came from
 ├── ARTICLE.md                  the long-form write-up
+├── .github/workflows/ci.yml    tests + rebuild-and-diff, on every push
 │
 ├── src/ahi/
 │   ├── config.py               ⭐ every judgment call, in one auditable file
 │   ├── features.py             load → patch → impute → normalize → pillars
 │   ├── indices.py              the index family, ranking conventions, openness
 │   ├── pipeline.py             end-to-end orchestration
+│   ├── regen_check.py          fails if a committed artifact ≠ a clean rebuild
 │   ├── ingest/
 │   │   ├── fetch.py            downloads all sources, writes MANIFEST.json
 │   │   └── access.py           parses the matrix into a graded edge list
