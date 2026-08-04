@@ -32,6 +32,30 @@ weighting the rankings agree at Kendall's τ > 0.91, and the choices that
 genuinely move the answer are how you score an e-Visa, whether you count
 permitted days, and whether you look outbound or inbound.
 
+**The transferable finding is about composite indicators, not passports.** The
+reason re-weighting cannot move these rankings is that min-max scaling a basket
+of indicators and averaging it twice absorbs most of the variance the weights
+would have had to act on — before any weight is chosen. Any index built the
+standard way is far closer to a flat count than its authors intend, and its
+published weighting scheme is doing less work than the methodology note beside it
+implies. This project is a worked demonstration of that on a well-known index.
+
+---
+
+## How this was made
+
+Built with heavy LLM assistance. The framing, the modeling choices, the
+ranking-convention analysis and the decision to publish the result that
+undercuts the premise are mine.
+
+Stated plainly because the interesting question is not whether an assistant was
+used but whether the work holds up, and this repository is built so that it can
+be checked rather than taken on trust: every judgment call is in one file
+([`src/ahi/config.py`](src/ahi/config.py)), every number in the article and on
+the site is regenerated from raw data by `make run`, the site build fails if the
+prose references a figure the pipeline cannot supply, and CI rebuilds every
+artifact on each push and fails if a committed table disagrees with the rebuild.
+
 ---
 
 ## Quickstart
@@ -329,13 +353,18 @@ and the most sensitive 33.5. South Korea and Japan sit at expected positions 2
 and 3.5 under Henley's binary rule and both fall to 35.5 under a strict rule,
 because much of their access is visa-on-arrival.
 
-**3 · The composite is a variance sink — and this generalizes.** Averaging 15
-min-max-scaled indicators into 6 pillars into 1 composite compresses destination
-weights to a **3.5× spread** (Gini 0.15) when the underlying GDP data spans three
-orders of magnitude. 3,000 Dirichlet-resampled weightings move the median
-passport **2 ranks**. Even a 143× artificial spread only pulls τ against the
-plain count down to 0.91. *Any composite indicator built the standard way is far
-closer to a flat count than its authors intend.*
+**3 · The compositing recipe is a variance sink — and that, not the passport
+result, is the finding.** Min-max scaling 15 indicators and averaging them into 6
+pillars into 1 composite yields destination weights spanning a **3.5× spread**
+(Gini 0.15) out of underlying data where GDP per capita alone spans three orders
+of magnitude. That spread is a property of the pipeline, not a measurement of the
+world — which is exactly why it generalizes. 3,000 Dirichlet-resampled weightings
+move the median passport **2 ranks**; even a 143× artificial spread only pulls τ
+against the plain count down to 0.91; swapping min-max for rank or z-score
+normalization moves the median passport 1 rank. *Any index built by min-max
+scaling a basket of indicators and averaging it is far closer to a flat count
+than its authors intend, and its published weighting scheme is doing less work
+than the methodology note beside it implies.*
 
 **4 · The divide is in the graph, not the weighting.** High-income countries
 average 77% attainment (17% of world population); lower-middle and low income
