@@ -333,9 +333,18 @@ have had to act on, and it did so before any weight was chosen. So the claim
 generalizes in the direction that matters: **any index built by min-max scaling a
 basket of indicators and averaging it is far closer to a flat count than its
 authors intend**, and its published weighting scheme is doing less work than the
-methodology note beside it implies. HDI, EPI, the Global Competitiveness Index
-and this one are all the same machine in that respect. It is a statement about
-how composite indicators are made, not about passports.
+methodology note beside it implies. It is a statement about how composite
+indicators are made, not about passports.
+
+The boundary is worth naming, because it is where the claim could be wrong.
+Linear aggregation is what does the damage: it is the arithmetic mean that pulls
+everything to the middle. Composites that aggregate *geometrically* — the Human
+Development Index has since 2010 — resist it, because a low score on one
+component drags the whole product down instead of being averaged away. That is
+precisely why the HDI changed. The compression is also worse the more correlated
+the components are, and these are correlated: the first principal component
+loads broadly across all six pillars rather than isolating one. An index of
+genuinely orthogonal measurements would compress less than this one does.
 
 Nor is the compression an artifact of one arbitrary choice. Swapping min-max for
 rank-based or z-score normalization — the two standard alternatives, one of them

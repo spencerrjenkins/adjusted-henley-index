@@ -33,7 +33,7 @@
         five hand-set lenses, PCA weights, entropy weights, three levels of dispersion —
         agrees with the plain count and with each other at Kendall's tau above
         {{min_tau_family}}, and 3,000 resampled weightings move the median passport by
-        {{mc_median_width}} rank. The weighting scheme is the thing everyone argues
+        {{mc_median_width}} ranks. The weighting scheme is the thing everyone argues
         about, and it is close to irrelevant.</li>
       <li><b>That is a fact about composite indicators, not about passports.</b>
         Averaging fifteen min-max-scaled indicators into six pillars and six pillars into
@@ -361,7 +361,7 @@
       variant — five hand-set lenses, PCA weights, entropy weights, three levels of weight
       dispersion — the rankings agree at Kendall's tau above {{min_tau_family}}. Resampling
       the six pillar weights 3,000 times from a Dirichlet wide enough to cover any
-      defensible weighting moves the median passport by {{mc_median_width}} rank.
+      defensible weighting moves the median passport by {{mc_median_width}} ranks.
       Even stretching the gap between the best and worst destination from
       {{gamma1_ratio}}× to {{gamma4_ratio}}× only pulls the correlation with the plain
       count down to {{gamma4_tau}}.
@@ -400,6 +400,15 @@
       unbounded — moves the median passport {{norm_median}} rank and the most sensitive
       {{norm_max}}. There is no normalization in common use under which the weighting
       starts to matter.
+    </p>
+    <p class="note">
+      Where the claim stops: it is <em>linear</em> aggregation that does the damage — the
+      arithmetic mean is what pulls everything to the middle. Composites that aggregate
+      geometrically, as the Human Development Index has since 2010, resist it, because a
+      low score on one component drags the product down instead of being averaged away.
+      That is close to why the HDI changed. The compression is also worse the more
+      correlated the components are, and these are correlated: the first principal
+      component loads broadly across all six pillars rather than isolating one.
     </p>
     <div class="chart-card">
       <h4>What the compositing step does to fifteen indicators</h4>

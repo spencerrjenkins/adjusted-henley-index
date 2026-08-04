@@ -364,7 +364,9 @@ against the plain count down to 0.91; swapping min-max for rank or z-score
 normalization moves the median passport 1 rank. *Any index built by min-max
 scaling a basket of indicators and averaging it is far closer to a flat count
 than its authors intend, and its published weighting scheme is doing less work
-than the methodology note beside it implies.*
+than the methodology note beside it implies.* The boundary: it is *linear*
+aggregation that does the damage, so geometrically aggregated composites (HDI
+since 2010) resist it — which is close to why the HDI changed.
 
 **4 · The divide is in the graph, not the weighting.** High-income countries
 average 77% attainment (17% of world population); lower-middle and low income
